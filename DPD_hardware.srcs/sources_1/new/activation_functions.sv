@@ -26,8 +26,8 @@ module activation_functions #(parameter OUTPUTS_SIZE = 8, //bits of input values
                                 parameter AMOUNT = 16,
                                 parameter string ACTIVATION_FUNCTION = "RELU"
                 )(
-    input logic [OUTPUTS_SIZE+MIN_BIT_OUTPUTS-1:MIN_BIT_OUTPUTS] inputs [AMOUNT-1:0],
-    output wire [OUTPUTS_SIZE+MIN_BIT_OUTPUTS-1:MIN_BIT_OUTPUTS] outputs [AMOUNT-1:0]
+    input logic signed [OUTPUTS_SIZE+MIN_BIT_OUTPUTS-1:MIN_BIT_OUTPUTS] inputs [AMOUNT-1:0],
+    output logic signed [OUTPUTS_SIZE+MIN_BIT_OUTPUTS-1:MIN_BIT_OUTPUTS] outputs [AMOUNT-1:0]
     );
     
     if (ACTIVATION_FUNCTION == "RELU")

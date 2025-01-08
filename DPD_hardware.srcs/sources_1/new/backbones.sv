@@ -25,15 +25,15 @@ module backbones #(
                 // index BACKBONE_LAYERS+2 is the lowest bit of the outputs, I and Q
                 )(
     input logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[0]-1:MIN_BIT_INPUTS[0]] inputs [0:LAYER_SIZES[LAYER_ORDER[0]]-1],
-    output wire [INPUTS_SIZE+MIN_BIT_INPUTS[BACKBONE_LAYERS+1]-1:MIN_BIT_INPUTS[BACKBONE_LAYERS+1]] I_out,
-    output wire [INPUTS_SIZE+MIN_BIT_INPUTS[BACKBONE_LAYERS+1]-1:MIN_BIT_INPUTS[BACKBONE_LAYERS+1]] Q_out
+    output logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[BACKBONE_LAYERS+1]-1:MIN_BIT_INPUTS[BACKBONE_LAYERS+1]] I_out,
+    output logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[BACKBONE_LAYERS+1]-1:MIN_BIT_INPUTS[BACKBONE_LAYERS+1]] Q_out
     );
 
     // call macro create variables
     
-    logic  [INPUTS_SIZE-1:0] layer_outputs [BACKBONE_LAYERS:1][0:1-LAYER_SIZES[1]];
-    logic  [INPUTS_SIZE-1:0] layer_inputs [BACKBONE_LAYERS:1][0:1-LAYER_SIZES[1]];
-    logic  [INPUTS_SIZE-1:0] last_layer_outputs [LAYER_SIZES[BACKBONE_LAYERS+1]-1:0];
+    logic signed [INPUTS_SIZE-1:0] layer_outputs [BACKBONE_LAYERS:1][0:1-LAYER_SIZES[1]];
+    logic signed [INPUTS_SIZE-1:0] layer_inputs [BACKBONE_LAYERS:1][0:1-LAYER_SIZES[1]];
+    logic signed [INPUTS_SIZE-1:0] last_layer_outputs [LAYER_SIZES[BACKBONE_LAYERS+1]-1:0];
    
    assign I_out = last_layer_outputs[1];
    assign Q_out = last_layer_outputs[0];

@@ -24,12 +24,12 @@ module shift_reg #(parameter INPUT_SIZE,
                     parameter INPUT_AMOUNT,
                     parameter SHIFT_LENGTH
                     )(
-    input logic [INPUT_SIZE-1:0] in [INPUT_AMOUNT-1:0],
+    input logic signed [INPUT_SIZE-1:0] in [INPUT_AMOUNT-1:0],
     input logic clk,
-    output logic [INPUT_SIZE-1:0] out [INPUT_AMOUNT*SHIFT_LENGTH-1:0]
+    output logic signed [INPUT_SIZE-1:0] out [INPUT_AMOUNT*SHIFT_LENGTH-1:0]
     );
     
-    logic [INPUT_SIZE-1:0] storage [SHIFT_LENGTH-1:0][INPUT_AMOUNT-1:0] = '{SHIFT_LENGTH{'{INPUT_AMOUNT{'b0}}}};
+    logic signed [INPUT_SIZE-1:0] storage [SHIFT_LENGTH-1:0][INPUT_AMOUNT-1:0] = '{SHIFT_LENGTH{'{INPUT_AMOUNT{'b0}}}};
     
     always_ff @(posedge clk) begin: shift_reg
 //        for (int x=0; x<SHIFT_LENGTH-1;x=x+1) begin

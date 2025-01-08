@@ -39,7 +39,7 @@ module fc_layer #(parameter PREV_WIDTH = 16, // amount of neurons in the previou
     input logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] inputs [0:PREV_WIDTH-1],
     input logic signed [MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1:MIN_BIT_WEIGHTS] weights [0:WIDTH-1][0:PREV_WIDTH-1],
     input logic signed [MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1:MIN_BIT_WEIGHTS] bias [0:WIDTH-1],
-    output wire [MIN_BIT_OUTPUTS+OUTPUTS_SIZE-1:MIN_BIT_OUTPUTS] outputs [0:WIDTH-1]
+    output logic signed [MIN_BIT_OUTPUTS+OUTPUTS_SIZE-1:MIN_BIT_OUTPUTS] outputs [0:WIDTH-1]
     );
     
     genvar i;
