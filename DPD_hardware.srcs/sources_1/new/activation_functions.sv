@@ -20,16 +20,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+import parameter_weights_pack::*;
 module activation_functions #(parameter OUTPUTS_SIZE = 8, //bits of input values
                                 parameter MIN_BIT_OUTPUTS = -7,
                                 parameter AMOUNT = 16,
-                                parameter string activation_function = "RELU"
+                                parameter string ACTIVATION_FUNCTION = "RELU"
                 )(
     input logic [OUTPUTS_SIZE+MIN_BIT_OUTPUTS-1:MIN_BIT_OUTPUTS] inputs [AMOUNT-1:0],
     output wire [OUTPUTS_SIZE+MIN_BIT_OUTPUTS-1:MIN_BIT_OUTPUTS] outputs [AMOUNT-1:0]
     );
     
-    if (activation_function == "RELU")
+    if (ACTIVATION_FUNCTION == "RELU")
         for (genvar x=0; x<AMOUNT; x=x+1)
             RELU #(.OUTPUTS_SIZE(OUTPUTS_SIZE),.MIN_BIT_OUTPUTS(MIN_BIT_OUTPUTS))
                 RELU (.inputs(inputs[x]),.outputs(outputs[x]));

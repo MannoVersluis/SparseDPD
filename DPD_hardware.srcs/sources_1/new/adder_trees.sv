@@ -23,10 +23,10 @@
 module adder_trees #(parameter INPUTS_SIZE = 14, // amount of bits of input values
                     parameter INPUTS_AMOUNT = 16, // number of input values
                     parameter MIN_BIT_INPUTS = -13, //lowest bit of the inputs
-                    parameter TREE_TYPE = "CSA_tree"
+                    parameter TREE_TYPE = 1
                     )(
     input logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] inputs [INPUTS_AMOUNT-1:0],
-    output wire signed [$clog2(INPUTS_AMOUNT)+MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] output_sum
+    output wire signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] output_sum
     );
     
     generate
@@ -49,11 +49,11 @@ module adder_tree #(parameter INPUTS_SIZE = 14, // amount of bits of input value
                     parameter MIN_BIT_INPUTS = -13 //lowest bit of the inputs
                     )(
     input logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] inputs [INPUTS_AMOUNT-1:0],
-    output wire [$clog2(INPUTS_AMOUNT)+MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] output_sum
+    output wire [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] output_sum
     );
     
     logic signed [MIN_BIT_INPUTS+INPUTS_SIZE:MIN_BIT_INPUTS] add_tmp [INPUTS_AMOUNT/2+INPUTS_AMOUNT%2-1:0];
-    logic signed [$clog2(INPUTS_AMOUNT)+MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] new_output_sum;
+    logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] new_output_sum;
     
     integer i;
     genvar j;
@@ -63,17 +63,15 @@ module adder_tree #(parameter INPUTS_SIZE = 14, // amount of bits of input value
     if (INPUTS_AMOUNT == 2)
         assign new_output_sum = add_tmp[0];
     else
-        adder_tree #(.INPUTS_SIZE(INPUTS_SIZE+1),.INPUTS_AMOUNT(INPUTS_AMOUNT/2+INPUTS_AMOUNT%2),.MIN_BIT_INPUTS(MIN_BIT_INPUTS))
+        adder_tree #(.INPUTS_SIZE(INPUTS_SIZE),.INPUTS_AMOUNT(INPUTS_AMOUNT/2+INPUTS_AMOUNT%2),.MIN_BIT_INPUTS(MIN_BIT_INPUTS))
             tree_layer (.inputs(add_tmp),.output_sum(new_output_sum));
     
     always @*
     begin
         for (i=0; i < INPUTS_AMOUNT/2; i=i+1)
-            add_tmp[i][MIN_BIT_INPUTS+INPUTS_SIZE:MIN_BIT_INPUTS] = {inputs[2*i][MIN_BIT_INPUTS+INPUTS_SIZE-1], inputs[2*i][MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS]} +
-                                                                        {inputs[2*i+1][MIN_BIT_INPUTS+INPUTS_SIZE-1], inputs[2*i+1][MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS]};
+            add_tmp[i] = inputs[2*i] + inputs[2*i+1];
         if (INPUTS_AMOUNT%2 == 1)
-            add_tmp[INPUTS_AMOUNT/2][MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] = inputs[INPUTS_AMOUNT-1][MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS];
-            add_tmp[INPUTS_AMOUNT/2][MIN_BIT_INPUTS+INPUTS_SIZE] = inputs[INPUTS_AMOUNT-1][MIN_BIT_INPUTS+INPUTS_SIZE-1];
+            add_tmp[INPUTS_AMOUNT/2][MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] = inputs[INPUTS_AMOUNT-1];
     end
 
 endmodule
@@ -83,20 +81,20 @@ module csa_adder_tree #(parameter INPUTS_SIZE = 14, // amount of bits of input v
                         parameter MIN_BIT_INPUTS = -13 //lowest bit of the inputs
                     )(
     input logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] inputs [INPUTS_AMOUNT-1:0],
-    output wire [$clog2(INPUTS_AMOUNT)+MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] output_sum
+    output wire [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] output_sum
     );
     
-    localparam BIT_EXTEND = $clog2(INPUTS_AMOUNT);
+//    localparam BIT_EXTEND = $clog2(INPUTS_AMOUNT);
     
-    logic signed [BIT_EXTEND+MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] extended_inputs [INPUTS_AMOUNT-1:0];
+//    logic signed [BIT_EXTEND+MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] extended_inputs [INPUTS_AMOUNT-1:0];
     
-    for (genvar j=0;j<INPUTS_AMOUNT;j=j+1) begin
-        assign extended_inputs[j][MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] = inputs[j][MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS];
-        assign extended_inputs[j][BIT_EXTEND+MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS+INPUTS_SIZE] = {BIT_EXTEND{inputs[j][MIN_BIT_INPUTS+INPUTS_SIZE-1]}};
-    end
+//    for (genvar j=0;j<INPUTS_AMOUNT;j=j+1) begin
+//        assign extended_inputs[j][MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] = inputs[j][MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS];
+//        assign extended_inputs[j][BIT_EXTEND+MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS+INPUTS_SIZE] = {BIT_EXTEND{inputs[j][MIN_BIT_INPUTS+INPUTS_SIZE-1]}};
+//    end
     
-    csa_adder_tree_recursive #(.INPUTS_SIZE(BIT_EXTEND+INPUTS_SIZE),.INPUTS_AMOUNT(INPUTS_AMOUNT),.MIN_BIT_INPUTS(MIN_BIT_INPUTS))
-        recursive_csa_adder_tree (.inputs(extended_inputs),.output_sum(output_sum));
+    csa_adder_tree_recursive #(.INPUTS_SIZE(INPUTS_SIZE),.INPUTS_AMOUNT(INPUTS_AMOUNT),.MIN_BIT_INPUTS(MIN_BIT_INPUTS))
+        recursive_csa_adder_tree (.inputs(inputs),.output_sum(output_sum));
     
 endmodule
 

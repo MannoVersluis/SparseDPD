@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Tue Jan  7 15:03:50 2025
+# Process ID: 612
+# Current directory: C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1
+# Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
+# Log file: C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/main.vds
+# Journal file: C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1\vivado.jou
+# Running On        :Manno
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :22631
+# Processor Detail  :AMD Ryzen 7 PRO 8840U w/ Radeon 780M Graphics  
+# CPU Frequency     :3294 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :32911 MB
+# Swap memory       :2818 MB
+# Total Virtual     :35730 MB
+# Available Virtual :22868 MB
+#-----------------------------------------------------------
+source main.tcl -notrace

@@ -34,6 +34,8 @@ module fc_layer_tb();
     
     logic signed [MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1:MIN_BIT_WEIGHTS] weights [WIDTH-1:0][PREV_WIDTH-1:0];
     logic signed [WIDTH-1:0][PREV_WIDTH-1:0][MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1:MIN_BIT_WEIGHTS] weights2;
+    logic signed [MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1:MIN_BIT_WEIGHTS] bias [WIDTH-1:0];
+    logic signed [MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1:MIN_BIT_WEIGHTS] bias2 [WIDTH-1:0];
     logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] inputs [PREV_WIDTH-1:0];
     logic signed [PREV_WIDTH-1:0][MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] inputs2;
     logic signed [PREV_WIDTH-1:0][MIN_BIT_INPUTS+INPUTS_SIZE+MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1:MIN_BIT_INPUTS+MIN_BIT_WEIGHTS] mult_tmp;
@@ -43,7 +45,7 @@ module fc_layer_tb();
     
     fc_layer #(.PREV_WIDTH(PREV_WIDTH),.WIDTH(WIDTH),.WEIGHTS_SIZE(WEIGHTS_SIZE),.INPUTS_SIZE(INPUTS_SIZE),.OUTPUTS_SIZE(OUTPUTS_SIZE),
                 .MIN_BIT_INPUTS(MIN_BIT_INPUTS),.MIN_BIT_WEIGHTS(MIN_BIT_WEIGHTS),.MIN_BIT_OUTPUTS(MIN_BIT_OUTPUTS),.TREE_TYPE(TREE_TYPE))
-        FC_LAYER (.inputs(inputs),.outputs(outputs),.weights(weights));
+        FC_LAYER (.inputs(inputs),.outputs(outputs),.weights(weights),.bias(bias));
         
     parameter SUM_MAX = ($clog2(PREV_WIDTH)+MIN_BIT_INPUTS+INPUTS_SIZE+MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1 < MIN_BIT_OUTPUTS+OUTPUTS_SIZE-1) ? 
                             $clog2(PREV_WIDTH)+MIN_BIT_INPUTS+INPUTS_SIZE+MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1 : MIN_BIT_OUTPUTS+OUTPUTS_SIZE-1;
@@ -54,6 +56,8 @@ module fc_layer_tb();
             for (int j=0; j<PREV_WIDTH; j=j+1) begin
                 inputs[j] = $random;
                 inputs2[j] = inputs[j];
+                bias[j] = $random;
+                bias2[j] = bias[j];
                 for (int k=0; k<WIDTH; k=k+1) begin
                     weights[k][j] = $random;
                     weights2[k][j] = weights[k][j];
@@ -63,6 +67,8 @@ module fc_layer_tb();
             sum2 = '{WIDTH{'b0}};
             #5;
             for (int i=0; i<WIDTH; i=i+1) begin
+                sum[i][$clog2(PREV_WIDTH)+MIN_BIT_INPUTS+INPUTS_SIZE+MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1:MIN_BIT_WEIGHTS+WEIGHTS_SIZE] = '{$clog2(PREV_WIDTH)+MIN_BIT_INPUTS+INPUTS_SIZE{bias2[i][MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1]}};
+                sum[i][MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1:MIN_BIT_WEIGHTS] = bias2[i];
                 for (int j=0; j<PREV_WIDTH; j=j+1) begin
                     mult_tmp[j] = inputs2[j] * weights2[i][j];
                     sum[i] = sum[i] + {{CLOG2_PREV_WIDTH{mult_tmp[j][MIN_BIT_INPUTS+INPUTS_SIZE+MIN_BIT_WEIGHTS+WEIGHTS_SIZE-1]}}, mult_tmp[j]};
