@@ -23,13 +23,12 @@ import parameter_weights_pack::*;
 
 module main_tb();
 
-parameter int ADDED_PRECISION = 0; // extra bits added to FEx layer to get correct output, will be removed after FEx layer
 
 logic clk;
 logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] I;
 logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] Q;
-logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER-ADDED_PRECISION] I_out;
-logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER-ADDED_PRECISION] Q_out;
+logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER] I_out;
+logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER] Q_out;
 real I_float;
 real Q_float;
 real I_out_float_file;
@@ -51,7 +50,7 @@ logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER]
 //logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] FEx_abs_low_out;
 //logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] FEx_abs_high_out;
 
-main #(.ADDED_PRECISION(ADDED_PRECISION)) main (.I(I),.Q(Q),.I_out(I_out),.Q_out(Q_out),.clk(clk));
+main main (.I(I),.Q(Q),.I_out(I_out),.Q_out(Q_out),.clk(clk));
 //feature_extraction #(.INPUTS_SIZE(INPUTS_SIZE+ADDED_PRECISION),.ADDED_PRECISION(ADDED_PRECISION))
 //            feature_extraction (.I(I),.Q(Q),.I_out(FEx_I_out),.Q_out(FEx_Q_out),.abs_low_out(FEx_abs_low_out),.abs_high_out(FEx_abs_high_out),.clk(clk));
       
@@ -92,8 +91,8 @@ initial begin
         $fscanf(input_file, "%d,%f,%f", line_num, I_float, Q_float);
         I_float = I_float*$pow(2, -LAYER_FIRST_WEIGHT_QUANTIZER);
         Q_float = Q_float*$pow(2, -LAYER_FIRST_WEIGHT_QUANTIZER);
-        I = I_float*$pow(2, ADDED_PRECISION);
-        Q = Q_float*$pow(2, ADDED_PRECISION);
+        I = I_float;
+        Q = Q_float;
         if (line_num > 1) begin
             $fgets(text, output_file); // why is this line needed to get floats?
             $fscanf(output_file, "%d,%f,%f", line_num-1, I_out_float_file, Q_out_float_file);

@@ -27,12 +27,12 @@ module adder_tree_tb();
     parameter MIN_BIT_INPUTS = -15; //lowest bit of the inputs
 
     logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] in [INPUTS_AMOUNT-1:0];
-    logic signed [$clog2(INPUTS_AMOUNT)+MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] out;
-    logic signed [$clog2(INPUTS_AMOUNT)+MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] sum;
+    logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] out;
+    logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] sum;
     
     parameter CLOG2_INPUTS_AMOUNT = $clog2(INPUTS_AMOUNT);
     // type 0 is add_tree, type_1 is csa_tree
-    parameter TREE_TYPE = 0;
+    parameter TREE_TYPE = 1;
     
     
     adder_trees #(.INPUTS_SIZE(INPUTS_SIZE),.INPUTS_AMOUNT(INPUTS_AMOUNT),.MIN_BIT_INPUTS(MIN_BIT_INPUTS),.TREE_TYPE(TREE_TYPE))
@@ -45,7 +45,7 @@ module adder_tree_tb();
             sum = 'b0;
             #5;
             for (int i=0;i<INPUTS_AMOUNT;i=i+1) begin
-                sum = sum + {{CLOG2_INPUTS_AMOUNT{in[i][MIN_BIT_INPUTS+INPUTS_SIZE-1]}}, in[i]};
+                sum = sum + in[i];
             end
             if (sum != out) begin
                 $error("Incorrect output data, time=%0t in=%0h, out=%0h.", $time, sum, out);

@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Wed Jan  8 10:37:01 2025
-# Process ID: 228
+# Start of session at: Thu Jan  9 16:20:51 2025
+# Process ID: 16096
 # Current directory: C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1
 # Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/main.vds
@@ -17,58 +17,34 @@
 # CPU Physical cores:8
 # CPU Logical cores :16
 # Host memory       :32911 MB
-# Swap memory       :2818 MB
-# Total Virtual     :35730 MB
-# Available Virtual :22349 MB
+# Swap memory       :2550 MB
+# Total Virtual     :35461 MB
+# Available Virtual :7734 MB
 #-----------------------------------------------------------
 source main.tcl -notrace
-Command: synth_design -top main -part xc7z010iclg225-1L
+Command: read_checkpoint -auto_incremental -incremental C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/utils_1/imports/synth_1/main.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/utils_1/imports/synth_1/main.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top main -part xc7z010iclg225-1L -bufg 32 -directive PerformanceOptimized -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010i'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010i'
+INFO: [Device 21-403] Loading part xc7z010iclg225-1L
+INFO: [Device 21-9227] Part: xc7z010iclg225-1L does not have CEAM library.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 7868
+INFO: [Synth 8-7075] Helper process launched with PID 15116
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 973.473 ; gain = 454.230
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1371.793 ; gain = 447.410
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-11067] parameter 'BACKBONE_LAYERS' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:28]
-WARNING: [Synth 8-11067] parameter 'LAYER_SIZES' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:30]
-WARNING: [Synth 8-11067] parameter 'INPUTS_SIZE' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:31]
-WARNING: [Synth 8-11067] parameter 'WEIGHTS_SIZE' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:32]
-WARNING: [Synth 8-11067] parameter 'ADDER_TREE' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:33]
-WARNING: [Synth 8-11067] parameter 'PARALLEL_INPUTS' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:34]
-WARNING: [Synth 8-11067] parameter 'LAYER_BACKBONE' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:35]
-WARNING: [Synth 8-11067] parameter 'FEATURE_EXTRACTION' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:36]
-WARNING: [Synth 8-11067] parameter 'ACTIVATION_FUNCTION' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:37]
-WARNING: [Synth 8-11067] parameter 'LAYER_FIRST_WEIGHT_QUANTIZER' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:40]
-WARNING: [Synth 8-11067] parameter 'LAYER_FIRST_ACT_QUANTIZER' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:41]
-WARNING: [Synth 8-11067] parameter 'LAYER_FIRST_OUT_QUANTIZER' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:42]
-WARNING: [Synth 8-11067] parameter 'LAYER_MID_WEIGHT_QUANTIZER' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:45]
-WARNING: [Synth 8-11067] parameter 'LAYER_MID_ACT_QUANTIZER' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:46]
-WARNING: [Synth 8-11067] parameter 'LAYER_MID_OUT_QUANTIZER' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:47]
-WARNING: [Synth 8-11067] parameter 'LAYER_LAST_WEIGHT_QUANTIZER' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:50]
-WARNING: [Synth 8-11067] parameter 'LAYER_LAST_ACT_QUANTIZER' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:51]
-WARNING: [Synth 8-11067] parameter 'LAYER_LAST_OUT_QUANTIZER' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:52]
-WARNING: [Synth 8-11067] parameter 'LAYER_TYPES' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:53]
-WARNING: [Synth 8-11067] parameter 'LAYER_ORDER' declared inside package 'parameter_weights_pack' shall be treated as localparam [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/parameter_weights_pack.sv:55]
-WARNING: [Synth 8-9661] initial value of parameter 'INPUTS_SIZE' is omitted [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:23]
-WARNING: [Synth 8-9661] initial value of parameter 'ADDED_PRECISION' is omitted [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:24]
-WARNING: [Synth 8-9661] initial value of parameter 'INPUTS_SIZE' is omitted [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:45]
-WARNING: [Synth 8-9661] initial value of parameter 'ADDED_PRECISION' is omitted [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:46]
-WARNING: [Synth 8-9661] initial value of parameter 'INPUTS_SIZE' is omitted [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:59]
-WARNING: [Synth 8-9661] initial value of parameter 'ADDED_PRECISION' is omitted [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:60]
-WARNING: [Synth 8-9661] initial value of parameter 'INPUT_SIZE' is omitted [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/shift_reg.sv:23]
-WARNING: [Synth 8-9661] initial value of parameter 'INPUT_AMOUNT' is omitted [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/shift_reg.sv:24]
-WARNING: [Synth 8-9661] initial value of parameter 'SHIFT_LENGTH' is omitted [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/shift_reg.sv:25]
 INFO: [Synth 8-6157] synthesizing module 'main' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/main.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'feature_extraction' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:23]
 	Parameter INPUTS_SIZE bound to: 12 - type: integer 
-	Parameter ADDED_PRECISION bound to: 0 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'feature_extraction_amp2_4' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:59]
+INFO: [Synth 8-6157] synthesizing module 'feature_extraction_amp2_4' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:57]
 	Parameter INPUTS_SIZE bound to: 12 - type: integer 
-	Parameter ADDED_PRECISION bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'feature_extraction_amp2_4' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:59]
+INFO: [Synth 8-6155] done synthesizing module 'feature_extraction_amp2_4' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:57]
 INFO: [Synth 8-6155] done synthesizing module 'feature_extraction' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'shift_reg' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/shift_reg.sv:23]
 	Parameter INPUT_SIZE bound to: 12 - type: integer 
@@ -87,7 +63,7 @@ INFO: [Synth 8-6157] synthesizing module 'fc_layer' [C:/Users/manno/Vivado/DPD_h
 	Parameter MIN_BIT_WEIGHTS bound to: -11 - type: integer 
 	Parameter MIN_BIT_OUTPUTS bound to: -11 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'fc_node' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:59]
+INFO: [Synth 8-6157] synthesizing module 'fc_node' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:60]
 	Parameter PREV_WIDTH bound to: 8 - type: integer 
 	Parameter WEIGHTS_SIZE bound to: 12 - type: integer 
 	Parameter INPUTS_SIZE bound to: 12 - type: integer 
@@ -101,42 +77,37 @@ INFO: [Synth 8-6157] synthesizing module 'adder_trees' [C:/Users/manno/Vivado/DP
 	Parameter INPUTS_AMOUNT bound to: 9 - type: integer 
 	Parameter MIN_BIT_INPUTS bound to: -22 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:79]
+INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
 	Parameter INPUTS_SIZE bound to: 24 - type: integer 
 	Parameter INPUTS_AMOUNT bound to: 9 - type: integer 
 	Parameter MIN_BIT_INPUTS bound to: -22 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
-	Parameter INPUTS_SIZE bound to: 24 - type: integer 
-	Parameter INPUTS_AMOUNT bound to: 9 - type: integer 
-	Parameter MIN_BIT_INPUTS bound to: -22 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'csa_inputs' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:134]
+INFO: [Synth 8-6157] synthesizing module 'csa_inputs' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:132]
 	Parameter INPUTS_SIZE bound to: 24 - type: integer 
 	Parameter MIN_BIT_INPUTS bound to: -22 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'csa_inputs' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:134]
-INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
+INFO: [Synth 8-6155] done synthesizing module 'csa_inputs' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:132]
+INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
 	Parameter INPUTS_SIZE bound to: 24 - type: integer 
 	Parameter INPUTS_AMOUNT bound to: 6 - type: integer 
 	Parameter MIN_BIT_INPUTS bound to: -22 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized1' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
+INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized1' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
 	Parameter INPUTS_SIZE bound to: 24 - type: integer 
 	Parameter INPUTS_AMOUNT bound to: 4 - type: integer 
 	Parameter MIN_BIT_INPUTS bound to: -22 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized2' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
+INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized2' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
 	Parameter INPUTS_SIZE bound to: 24 - type: integer 
 	Parameter INPUTS_AMOUNT bound to: 3 - type: integer 
 	Parameter MIN_BIT_INPUTS bound to: -22 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized3' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
+INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized3' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
 	Parameter INPUTS_SIZE bound to: 24 - type: integer 
 	Parameter INPUTS_AMOUNT bound to: 2 - type: integer 
 	Parameter MIN_BIT_INPUTS bound to: -22 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized3' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
-INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized2' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
-INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized1' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
-INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
-INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
-INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:79]
+INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized3' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
+INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized2' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
+INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized1' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
+INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
+INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
 INFO: [Synth 8-6155] done synthesizing module 'adder_trees' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
-INFO: [Synth 8-6155] done synthesizing module 'fc_node' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:59]
+INFO: [Synth 8-6155] done synthesizing module 'fc_node' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:60]
 INFO: [Synth 8-6155] done synthesizing module 'fc_layer' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:27]
 INFO: [Synth 8-6157] synthesizing module 'fc_layer__parameterized0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:27]
 	Parameter PREV_WIDTH bound to: 4 - type: integer 
@@ -148,7 +119,7 @@ INFO: [Synth 8-6157] synthesizing module 'fc_layer__parameterized0' [C:/Users/ma
 	Parameter MIN_BIT_WEIGHTS bound to: -11 - type: integer 
 	Parameter MIN_BIT_OUTPUTS bound to: -11 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:59]
+INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:60]
 	Parameter PREV_WIDTH bound to: 4 - type: integer 
 	Parameter WEIGHTS_SIZE bound to: 12 - type: integer 
 	Parameter INPUTS_SIZE bound to: 12 - type: integer 
@@ -162,18 +133,13 @@ INFO: [Synth 8-6157] synthesizing module 'adder_trees__parameterized0' [C:/Users
 	Parameter INPUTS_AMOUNT bound to: 5 - type: integer 
 	Parameter MIN_BIT_INPUTS bound to: -22 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree__parameterized0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:79]
+INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized4' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
 	Parameter INPUTS_SIZE bound to: 24 - type: integer 
 	Parameter INPUTS_AMOUNT bound to: 5 - type: integer 
 	Parameter MIN_BIT_INPUTS bound to: -22 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized4' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
-	Parameter INPUTS_SIZE bound to: 24 - type: integer 
-	Parameter INPUTS_AMOUNT bound to: 5 - type: integer 
-	Parameter MIN_BIT_INPUTS bound to: -22 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized4' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:101]
-INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree__parameterized0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:79]
+INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized4' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:94]
 INFO: [Synth 8-6155] done synthesizing module 'adder_trees__parameterized0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
-INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:59]
+INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:60]
 INFO: [Synth 8-6155] done synthesizing module 'fc_layer__parameterized0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:27]
 INFO: [Synth 8-6157] synthesizing module 'activation_functions' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/activation_functions.sv:24]
 	Parameter OUTPUTS_SIZE bound to: 12 - type: integer 
@@ -199,37 +165,68 @@ INFO: [Synth 8-6155] done synthesizing module 'fc_layer__parameterized1' (0#1) [
 INFO: [Synth 8-6155] done synthesizing module 'backbones' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/backbones.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'main' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/main.sv:23]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1088.047 ; gain = 568.805
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1487.250 ; gain = 562.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1088.047 ; gain = 568.805
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1487.250 ; gain = 562.867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1487.250 ; gain = 562.867
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.186 . Memory (MB): peak = 1487.250 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/constrs_1/new/main_clock.xdc]
+Finished Parsing XDC File [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/constrs_1/new/main_clock.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1550.629 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 1550.629 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1550.629 ; gain = 626.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010iclg225-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1088.047 ; gain = 568.805
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1550.629 ; gain = 626.246
 ---------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7z010iclg225-1L
-WARNING: [Synth 8-3936] Found unconnected internal register 'abs4_3_reg' and it is trimmed from '48' to '45' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:89]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1088.820 ; gain = 569.578
+Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-No constraint files found.
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1550.629 ; gain = 626.246
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3936] Found unconnected internal register 'abs2_3_reg' and it is trimmed from '24' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:106]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1550.629 ; gain = 626.246
+---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input   45 Bit       Adders := 1     
 	   2 Input   24 Bit       Adders := 10    
 	   2 Input   12 Bit       Adders := 12    
 +---XORs : 
 	   3 Input      1 Bit         XORs := 46    
 +---Registers : 
-	               48 Bit    Registers := 2     
-	               24 Bit    Registers := 1     
-	               12 Bit    Registers := 15    
+	               45 Bit    Registers := 1     
+	               24 Bit    Registers := 31    
+	               23 Bit    Registers := 1     
+	               12 Bit    Registers := 35    
 +---Muxes : 
 	   2 Input   12 Bit        Muxes := 8     
 ---------------------------------------------------------------------------------
@@ -238,296 +235,367 @@ Finished RTL Component Statistics
 ---------------------------------------------------------------------------------
 Start Part Resource Summary
 ---------------------------------------------------------------------------------
-INFO: [Device 21-9227] Part: xc7z010iclg225-1L does not have CEAM library.
 Part Resources:
 DSPs: 80 (col length:40)
 BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-DSP Report: Generating DSP inputs[7]0, operation Mode is: A*B.
-DSP Report: operator inputs[7]0 is absorbed into DSP inputs[7]0.
-DSP Report: Generating DSP inputs[6]0, operation Mode is: A*B.
-DSP Report: operator inputs[6]0 is absorbed into DSP inputs[6]0.
-DSP Report: Generating DSP inputs[5]0, operation Mode is: A*B.
-DSP Report: operator inputs[5]0 is absorbed into DSP inputs[5]0.
-DSP Report: Generating DSP inputs[4]0, operation Mode is: A*B.
-DSP Report: operator inputs[4]0 is absorbed into DSP inputs[4]0.
-DSP Report: Generating DSP inputs[3]0, operation Mode is: A*B.
-DSP Report: operator inputs[3]0 is absorbed into DSP inputs[3]0.
-DSP Report: Generating DSP inputs[2]0, operation Mode is: A*B.
-DSP Report: operator inputs[2]0 is absorbed into DSP inputs[2]0.
-DSP Report: Generating DSP inputs[1]0, operation Mode is: A*B.
-DSP Report: operator inputs[1]0 is absorbed into DSP inputs[1]0.
-DSP Report: Generating DSP inputs[0]0, operation Mode is: A*B.
-DSP Report: operator inputs[0]0 is absorbed into DSP inputs[0]0.
-DSP Report: Generating DSP inputs[7]0, operation Mode is: A*B.
-DSP Report: operator inputs[7]0 is absorbed into DSP inputs[7]0.
-DSP Report: Generating DSP inputs[6]0, operation Mode is: A*B.
-DSP Report: operator inputs[6]0 is absorbed into DSP inputs[6]0.
-DSP Report: Generating DSP inputs[5]0, operation Mode is: A*B.
-DSP Report: operator inputs[5]0 is absorbed into DSP inputs[5]0.
-DSP Report: Generating DSP inputs[4]0, operation Mode is: A*B.
-DSP Report: operator inputs[4]0 is absorbed into DSP inputs[4]0.
-DSP Report: Generating DSP inputs[3]0, operation Mode is: A*B.
-DSP Report: operator inputs[3]0 is absorbed into DSP inputs[3]0.
-DSP Report: Generating DSP inputs[2]0, operation Mode is: A*B.
-DSP Report: operator inputs[2]0 is absorbed into DSP inputs[2]0.
-DSP Report: Generating DSP inputs[1]0, operation Mode is: A*B.
-DSP Report: operator inputs[1]0 is absorbed into DSP inputs[1]0.
-DSP Report: Generating DSP inputs[0]0, operation Mode is: A*B.
-DSP Report: operator inputs[0]0 is absorbed into DSP inputs[0]0.
-DSP Report: Generating DSP inputs[7]0, operation Mode is: A*B.
-DSP Report: operator inputs[7]0 is absorbed into DSP inputs[7]0.
-DSP Report: Generating DSP inputs[6]0, operation Mode is: A*B.
-DSP Report: operator inputs[6]0 is absorbed into DSP inputs[6]0.
-DSP Report: Generating DSP inputs[5]0, operation Mode is: A*B.
-DSP Report: operator inputs[5]0 is absorbed into DSP inputs[5]0.
-DSP Report: Generating DSP inputs[4]0, operation Mode is: A*B.
-DSP Report: operator inputs[4]0 is absorbed into DSP inputs[4]0.
-DSP Report: Generating DSP inputs[3]0, operation Mode is: A*B.
-DSP Report: operator inputs[3]0 is absorbed into DSP inputs[3]0.
-DSP Report: Generating DSP inputs[2]0, operation Mode is: A*B.
-DSP Report: operator inputs[2]0 is absorbed into DSP inputs[2]0.
-DSP Report: Generating DSP inputs[1]0, operation Mode is: A*B.
-DSP Report: operator inputs[1]0 is absorbed into DSP inputs[1]0.
-DSP Report: Generating DSP inputs[0]0, operation Mode is: A*B.
-DSP Report: operator inputs[0]0 is absorbed into DSP inputs[0]0.
-DSP Report: Generating DSP inputs[7]0, operation Mode is: A*B.
-DSP Report: operator inputs[7]0 is absorbed into DSP inputs[7]0.
-DSP Report: Generating DSP inputs[6]0, operation Mode is: A*B.
-DSP Report: operator inputs[6]0 is absorbed into DSP inputs[6]0.
-DSP Report: Generating DSP inputs[5]0, operation Mode is: A*B.
-DSP Report: operator inputs[5]0 is absorbed into DSP inputs[5]0.
-DSP Report: Generating DSP inputs[4]0, operation Mode is: A*B.
-DSP Report: operator inputs[4]0 is absorbed into DSP inputs[4]0.
-DSP Report: Generating DSP inputs[3]0, operation Mode is: A*B.
-DSP Report: operator inputs[3]0 is absorbed into DSP inputs[3]0.
-DSP Report: Generating DSP inputs[2]0, operation Mode is: A*B.
-DSP Report: operator inputs[2]0 is absorbed into DSP inputs[2]0.
-DSP Report: Generating DSP inputs[1]0, operation Mode is: A*B.
-DSP Report: operator inputs[1]0 is absorbed into DSP inputs[1]0.
-DSP Report: Generating DSP inputs[0]0, operation Mode is: A*B.
-DSP Report: operator inputs[0]0 is absorbed into DSP inputs[0]0.
-DSP Report: Generating DSP inputs[3]0, operation Mode is: A*B.
-DSP Report: operator inputs[3]0 is absorbed into DSP inputs[3]0.
-DSP Report: Generating DSP inputs[2]0, operation Mode is: A*B.
-DSP Report: operator inputs[2]0 is absorbed into DSP inputs[2]0.
-DSP Report: Generating DSP inputs[1]0, operation Mode is: A*B.
-DSP Report: operator inputs[1]0 is absorbed into DSP inputs[1]0.
-DSP Report: Generating DSP inputs[0]0, operation Mode is: A*B.
-DSP Report: operator inputs[0]0 is absorbed into DSP inputs[0]0.
-DSP Report: Generating DSP inputs[3]0, operation Mode is: A*B.
-DSP Report: operator inputs[3]0 is absorbed into DSP inputs[3]0.
-DSP Report: Generating DSP inputs[2]0, operation Mode is: A*B.
-DSP Report: operator inputs[2]0 is absorbed into DSP inputs[2]0.
-DSP Report: Generating DSP inputs[1]0, operation Mode is: A*B.
-DSP Report: operator inputs[1]0 is absorbed into DSP inputs[1]0.
-DSP Report: Generating DSP inputs[0]0, operation Mode is: A*B.
-DSP Report: operator inputs[0]0 is absorbed into DSP inputs[0]0.
-DSP Report: Generating DSP inputs[3]0, operation Mode is: A*B.
-DSP Report: operator inputs[3]0 is absorbed into DSP inputs[3]0.
-DSP Report: Generating DSP inputs[2]0, operation Mode is: A*B.
-DSP Report: operator inputs[2]0 is absorbed into DSP inputs[2]0.
-DSP Report: Generating DSP inputs[1]0, operation Mode is: A*B.
-DSP Report: operator inputs[1]0 is absorbed into DSP inputs[1]0.
-DSP Report: Generating DSP inputs[0]0, operation Mode is: A*B.
-DSP Report: operator inputs[0]0 is absorbed into DSP inputs[0]0.
-DSP Report: Generating DSP inputs[3]0, operation Mode is: A*B.
-DSP Report: operator inputs[3]0 is absorbed into DSP inputs[3]0.
-DSP Report: Generating DSP inputs[2]0, operation Mode is: A*B.
-DSP Report: operator inputs[2]0 is absorbed into DSP inputs[2]0.
-DSP Report: Generating DSP inputs[1]0, operation Mode is: A*B.
-DSP Report: operator inputs[1]0 is absorbed into DSP inputs[1]0.
-DSP Report: Generating DSP inputs[0]0, operation Mode is: A*B.
-DSP Report: operator inputs[0]0 is absorbed into DSP inputs[0]0.
-WARNING: [Synth 8-6014] Unused sequential element feature_extraction/feature_extraction/abs4_3_reg was removed.  [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:89]
-WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/abs4_3_reg' and it is trimmed from '48' to '28' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:89]
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/inputs[3]0, operation Mode is: A*(B:0x3fc2c).
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/inputs[3]0 is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/inputs[3]0.
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/inputs[2]0, operation Mode is: A*(B:0x6a7).
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/inputs[2]0 is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/inputs[2]0.
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/inputs[1]0, operation Mode is: A*(B:0x739).
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/inputs[1]0 is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/inputs[1]0.
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/inputs[0]0, operation Mode is: A*(B:0x3fd90).
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/inputs[0]0 is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/inputs[0]0.
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/inputs[3]0, operation Mode is: A*(B:0x3fbd5).
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/inputs[3]0 is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/inputs[3]0.
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/inputs[2]0, operation Mode is: A*(B:0x1b5).
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/inputs[2]0 is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/inputs[2]0.
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/inputs[1]0, operation Mode is: A*(B:0x3fcd5).
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/inputs[1]0 is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/inputs[1]0.
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/inputs[0]0, operation Mode is: A*(B:0x597).
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/inputs[0]0 is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/inputs[0]0.
-DSP Report: Generating DSP feature_extraction/feature_extraction/I2_1_reg, operation Mode is: (A*B)'.
-DSP Report: register feature_extraction/feature_extraction/I2_1_reg is absorbed into DSP feature_extraction/feature_extraction/I2_1_reg.
-DSP Report: operator feature_extraction/feature_extraction/I2_10 is absorbed into DSP feature_extraction/feature_extraction/I2_1_reg.
-DSP Report: Generating DSP feature_extraction/feature_extraction/abs2_2_reg, operation Mode is: (PCIN+(A*B)')'.
+WARNING: [Synth 8-3936] Found unconnected internal register 'tree_layer/csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/new_inputs_reg[1]' and it is trimmed from '24' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:108]
+WARNING: [Synth 8-3936] Found unconnected internal register 'tree_layer/csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/new_inputs_reg[0]' and it is trimmed from '24' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:108]
+DSP Report: Generating DSP mult_out_reg[7], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[7] is absorbed into DSP mult_out_reg[7].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[7].
+DSP Report: Generating DSP mult_out_reg[6], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[6] is absorbed into DSP mult_out_reg[6].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[6].
+DSP Report: Generating DSP mult_out_reg[5], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[5] is absorbed into DSP mult_out_reg[5].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[5].
+DSP Report: Generating DSP mult_out_reg[4], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[4] is absorbed into DSP mult_out_reg[4].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[4].
+DSP Report: Generating DSP mult_out_reg[3], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[3] is absorbed into DSP mult_out_reg[3].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[3].
+DSP Report: Generating DSP mult_out_reg[2], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[2] is absorbed into DSP mult_out_reg[2].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[2].
+DSP Report: Generating DSP mult_out_reg[1], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[1] is absorbed into DSP mult_out_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[1].
+DSP Report: Generating DSP mult_out_reg[0], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[0] is absorbed into DSP mult_out_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[0].
+DSP Report: Generating DSP mult_out_reg[7], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[7] is absorbed into DSP mult_out_reg[7].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[7].
+DSP Report: Generating DSP mult_out_reg[6], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[6] is absorbed into DSP mult_out_reg[6].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[6].
+DSP Report: Generating DSP mult_out_reg[5], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[5] is absorbed into DSP mult_out_reg[5].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[5].
+DSP Report: Generating DSP mult_out_reg[4], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[4] is absorbed into DSP mult_out_reg[4].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[4].
+DSP Report: Generating DSP mult_out_reg[3], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[3] is absorbed into DSP mult_out_reg[3].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[3].
+DSP Report: Generating DSP mult_out_reg[2], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[2] is absorbed into DSP mult_out_reg[2].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[2].
+DSP Report: Generating DSP mult_out_reg[1], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[1] is absorbed into DSP mult_out_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[1].
+DSP Report: Generating DSP mult_out_reg[0], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[0] is absorbed into DSP mult_out_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[0].
+DSP Report: Generating DSP mult_out_reg[7], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[7] is absorbed into DSP mult_out_reg[7].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[7].
+DSP Report: Generating DSP mult_out_reg[6], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[6] is absorbed into DSP mult_out_reg[6].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[6].
+DSP Report: Generating DSP mult_out_reg[5], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[5] is absorbed into DSP mult_out_reg[5].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[5].
+DSP Report: Generating DSP mult_out_reg[4], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[4] is absorbed into DSP mult_out_reg[4].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[4].
+DSP Report: Generating DSP mult_out_reg[3], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[3] is absorbed into DSP mult_out_reg[3].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[3].
+DSP Report: Generating DSP mult_out_reg[2], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[2] is absorbed into DSP mult_out_reg[2].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[2].
+DSP Report: Generating DSP mult_out_reg[1], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[1] is absorbed into DSP mult_out_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[1].
+DSP Report: Generating DSP mult_out_reg[0], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[0] is absorbed into DSP mult_out_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[0].
+DSP Report: Generating DSP mult_out_reg[7], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[7] is absorbed into DSP mult_out_reg[7].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[7].
+DSP Report: Generating DSP mult_out_reg[6], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[6] is absorbed into DSP mult_out_reg[6].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[6].
+DSP Report: Generating DSP mult_out_reg[5], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[5] is absorbed into DSP mult_out_reg[5].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[5].
+DSP Report: Generating DSP mult_out_reg[4], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[4] is absorbed into DSP mult_out_reg[4].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[4].
+DSP Report: Generating DSP mult_out_reg[3], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[3] is absorbed into DSP mult_out_reg[3].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[3].
+DSP Report: Generating DSP mult_out_reg[2], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[2] is absorbed into DSP mult_out_reg[2].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[2].
+DSP Report: Generating DSP mult_out_reg[1], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[1] is absorbed into DSP mult_out_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[1].
+DSP Report: Generating DSP mult_out_reg[0], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[0] is absorbed into DSP mult_out_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[0].
+WARNING: [Synth 8-3936] Found unconnected internal register 'tree_layer/csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/new_inputs_reg[1]' and it is trimmed from '24' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:108]
+WARNING: [Synth 8-3936] Found unconnected internal register 'tree_layer/csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/new_inputs_reg[0]' and it is trimmed from '24' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:108]
+DSP Report: Generating DSP mult_out_reg[3], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[3] is absorbed into DSP mult_out_reg[3].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[3].
+DSP Report: Generating DSP mult_out_reg[2], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[2] is absorbed into DSP mult_out_reg[2].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[2].
+DSP Report: Generating DSP mult_out_reg[1], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[1] is absorbed into DSP mult_out_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[1].
+DSP Report: Generating DSP mult_out_reg[0], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[0] is absorbed into DSP mult_out_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[0].
+DSP Report: Generating DSP mult_out_reg[3], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[3] is absorbed into DSP mult_out_reg[3].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[3].
+DSP Report: Generating DSP mult_out_reg[2], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[2] is absorbed into DSP mult_out_reg[2].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[2].
+DSP Report: Generating DSP mult_out_reg[1], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[1] is absorbed into DSP mult_out_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[1].
+DSP Report: Generating DSP mult_out_reg[0], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[0] is absorbed into DSP mult_out_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[0].
+DSP Report: Generating DSP mult_out_reg[3], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[3] is absorbed into DSP mult_out_reg[3].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[3].
+DSP Report: Generating DSP mult_out_reg[2], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[2] is absorbed into DSP mult_out_reg[2].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[2].
+DSP Report: Generating DSP mult_out_reg[1], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[1] is absorbed into DSP mult_out_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[1].
+DSP Report: Generating DSP mult_out_reg[0], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[0] is absorbed into DSP mult_out_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[0].
+DSP Report: Generating DSP mult_out_reg[3], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[3] is absorbed into DSP mult_out_reg[3].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[3].
+DSP Report: Generating DSP mult_out_reg[2], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[2] is absorbed into DSP mult_out_reg[2].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[2].
+DSP Report: Generating DSP mult_out_reg[1], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[1] is absorbed into DSP mult_out_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[1].
+DSP Report: Generating DSP mult_out_reg[0], operation Mode is: (A*B)'.
+DSP Report: register mult_out_reg[0] is absorbed into DSP mult_out_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP mult_out_reg[0].
+WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/abs4_32_reg' and it is trimmed from '36' to '33' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:105]
+WARNING: [Synth 8-3936] Found unconnected internal register 'backbones/last_layer/genblk1[0].fc_node/tree_layer/csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/new_inputs_reg[1]' and it is trimmed from '24' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:108]
+WARNING: [Synth 8-3936] Found unconnected internal register 'backbones/last_layer/genblk1[0].fc_node/tree_layer/csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/new_inputs_reg[0]' and it is trimmed from '24' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:108]
+WARNING: [Synth 8-3936] Found unconnected internal register 'backbones/last_layer/genblk1[1].fc_node/tree_layer/csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/new_inputs_reg[1]' and it is trimmed from '24' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:108]
+WARNING: [Synth 8-3936] Found unconnected internal register 'backbones/last_layer/genblk1[1].fc_node/tree_layer/csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/recursive_csa_adder_tree/new_inputs_reg[0]' and it is trimmed from '24' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:108]
+DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[3], operation Mode is: (A2*(B:0x3fc2c))'.
+DSP Report: register backbones/layer_inputs_reg[2][-3] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[3].
+DSP Report: register backbones/last_layer/genblk1[0].fc_node/mult_out_reg[3] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[3].
+DSP Report: operator p_0_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[3].
+DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[2], operation Mode is: (A2*(B:0x6a7))'.
+DSP Report: register backbones/layer_inputs_reg[2][-2] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[2].
+DSP Report: register backbones/last_layer/genblk1[0].fc_node/mult_out_reg[2] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[2].
+DSP Report: operator p_0_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[2].
+DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[1], operation Mode is: (A2*(B:0x739))'.
+DSP Report: register backbones/layer_inputs_reg[2][-1] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[1].
+DSP Report: register backbones/last_layer/genblk1[0].fc_node/mult_out_reg[1] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[1].
+DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[0], operation Mode is: (A2*(B:0x3fd90))'.
+DSP Report: register backbones/layer_inputs_reg[2][0] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[0].
+DSP Report: register backbones/last_layer/genblk1[0].fc_node/mult_out_reg[0] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/mult_out_reg[0].
+DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[3], operation Mode is: (A2*(B:0x3fbd5))'.
+DSP Report: register backbones/layer_inputs_reg[2][-3] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[3].
+DSP Report: register backbones/last_layer/genblk1[1].fc_node/mult_out_reg[3] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[3].
+DSP Report: operator p_0_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[3].
+DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[2], operation Mode is: (A2*(B:0x1b5))'.
+DSP Report: register backbones/layer_inputs_reg[2][-2] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[2].
+DSP Report: register backbones/last_layer/genblk1[1].fc_node/mult_out_reg[2] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[2].
+DSP Report: operator p_0_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[2].
+DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[1], operation Mode is: (A2*(B:0x3fcd5))'.
+DSP Report: register backbones/layer_inputs_reg[2][-1] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[1].
+DSP Report: register backbones/last_layer/genblk1[1].fc_node/mult_out_reg[1] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[1].
+DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[0], operation Mode is: (A2*(B:0x597))'.
+DSP Report: register backbones/layer_inputs_reg[2][0] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[0].
+DSP Report: register backbones/last_layer/genblk1[1].fc_node/mult_out_reg[0] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/mult_out_reg[0].
+DSP Report: Generating DSP feature_extraction/feature_extraction/abs2_21, operation Mode is: A*B.
+DSP Report: operator feature_extraction/feature_extraction/abs2_21 is absorbed into DSP feature_extraction/feature_extraction/abs2_21.
+DSP Report: Generating DSP feature_extraction/feature_extraction/abs2_2_reg, operation Mode is: (PCIN+A*B)'.
 DSP Report: register feature_extraction/feature_extraction/abs2_2_reg is absorbed into DSP feature_extraction/feature_extraction/abs2_2_reg.
-DSP Report: register feature_extraction/feature_extraction/Q2_1_reg is absorbed into DSP feature_extraction/feature_extraction/abs2_2_reg.
 DSP Report: operator feature_extraction/feature_extraction/abs2_20 is absorbed into DSP feature_extraction/feature_extraction/abs2_2_reg.
-DSP Report: operator feature_extraction/feature_extraction/Q2_10 is absorbed into DSP feature_extraction/feature_extraction/abs2_2_reg.
-DSP Report: Generating DSP feature_extraction/feature_extraction/abs4_3_reg0, operation Mode is: A*B.
-DSP Report: operator feature_extraction/feature_extraction/abs4_3_reg0 is absorbed into DSP feature_extraction/feature_extraction/abs4_3_reg0.
-DSP Report: operator feature_extraction/feature_extraction/abs4_3_reg0 is absorbed into DSP feature_extraction/feature_extraction/abs4_3_reg0.
-DSP Report: Generating DSP feature_extraction/feature_extraction/abs4_3_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator feature_extraction/feature_extraction/abs2_21 is absorbed into DSP feature_extraction/feature_extraction/abs2_2_reg.
+DSP Report: Generating DSP feature_extraction/feature_extraction/abs4_3_reg, operation Mode is: (A*B)'.
 DSP Report: register feature_extraction/feature_extraction/abs4_3_reg is absorbed into DSP feature_extraction/feature_extraction/abs4_3_reg.
-DSP Report: operator feature_extraction/feature_extraction/abs4_3_reg0 is absorbed into DSP feature_extraction/feature_extraction/abs4_3_reg.
-DSP Report: operator feature_extraction/feature_extraction/abs4_3_reg0 is absorbed into DSP feature_extraction/feature_extraction/abs4_3_reg.
+DSP Report: operator feature_extraction/feature_extraction/abs4_30 is absorbed into DSP feature_extraction/feature_extraction/abs4_3_reg.
+DSP Report: Generating DSP feature_extraction/feature_extraction/abs4_32_reg, operation Mode is: (A*B)'.
+DSP Report: register feature_extraction/feature_extraction/abs4_32_reg is absorbed into DSP feature_extraction/feature_extraction/abs4_32_reg.
+DSP Report: operator feature_extraction/feature_extraction/abs4_320 is absorbed into DSP feature_extraction/feature_extraction/abs4_32_reg.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1430.398 ; gain = 911.156
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1550.629 ; gain = 626.246
 ---------------------------------------------------------------------------------
- Sort Area is  feature_extraction/feature_extraction/abs4_3_reg0_3e : 0 0 : 3300 4351 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/abs4_3_reg0_3e : 0 1 : 1051 4351 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/I2_1_reg_3b : 0 0 : 1076 2247 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/I2_1_reg_3b : 0 1 : 1171 2247 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/inputs[1]0_34 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/inputs[2]0_33 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/inputs[0]0_3a : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/inputs[3]0_36 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[0]0_10 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[0]0_18 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[0]0_20 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[0]0_24 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[0]0_28 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[0]0_2c : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[0]0_30 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[0]0_8 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[1]0_17 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[1]0_1f : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[1]0_23 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[1]0_27 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[1]0_2b : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[1]0_2f : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[1]0_7 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[1]0_f : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[2]0_16 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[2]0_1e : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[2]0_22 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[2]0_26 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[2]0_2a : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[2]0_2e : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[2]0_6 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[2]0_e : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[3]0_15 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[3]0_1d : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[3]0_21 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[3]0_25 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[3]0_29 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[3]0_2d : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[3]0_5 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[3]0_d : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[4]0_14 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[4]0_1c : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[4]0_4 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[4]0_c : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[5]0_13 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[5]0_1b : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[5]0_3 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[5]0_b : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[6]0_12 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[6]0_1a : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[6]0_2 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[6]0_a : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[7]0_0 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[7]0_11 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[7]0_19 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  inputs[7]0_9 : 0 0 : 1052 1052 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/inputs[2]0_37 : 0 0 : 453 453 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/inputs[0]0_35 : 0 0 : 407 407 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/inputs[3]0_31 : 0 0 : 407 407 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/inputs[1]0_39 : 0 0 : 407 407 : Used 1 time 0
+ Sort Area is  feature_extraction/feature_extraction/abs2_21_3c : 0 0 : 1052 2199 : Used 1 time 0
+ Sort Area is  feature_extraction/feature_extraction/abs2_21_3c : 0 1 : 1147 2199 : Used 1 time 0
+ Sort Area is  feature_extraction/feature_extraction/abs4_3_reg_41 : 0 0 : 2132 2132 : Used 1 time 0
+ Sort Area is  feature_extraction/feature_extraction/abs4_32_reg_3f : 0 0 : 1910 1910 : Used 1 time 0
+ Sort Area is  mult_out_reg[0]_10 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[0]_18 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[0]_20 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[0]_24 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[0]_28 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[0]_2c : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[0]_30 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[0]_8 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[1]_17 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[1]_1f : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[1]_23 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[1]_27 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[1]_2b : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[1]_2f : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[1]_7 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[1]_f : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[2]_16 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[2]_1e : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[2]_22 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[2]_26 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[2]_2a : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[2]_2e : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[2]_6 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[2]_e : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[3]_15 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[3]_1d : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[3]_21 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[3]_25 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[3]_29 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[3]_2d : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[3]_5 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[3]_d : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[4]_14 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[4]_1c : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[4]_4 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[4]_c : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[5]_13 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[5]_1b : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[5]_3 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[5]_b : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[6]_12 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[6]_1a : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[6]_2 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[6]_a : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[7]_0 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[7]_11 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[7]_19 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  mult_out_reg[7]_9 : 0 0 : 1076 1076 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/mult_out_reg[1]_35 : 0 0 : 642 642 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/mult_out_reg[2]_33 : 0 0 : 642 642 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/mult_out_reg[0]_3b : 0 0 : 642 642 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/mult_out_reg[3]_37 : 0 0 : 642 642 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/mult_out_reg[2]_38 : 0 0 : 489 489 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/mult_out_reg[0]_36 : 0 0 : 443 443 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/mult_out_reg[3]_31 : 0 0 : 443 443 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/mult_out_reg[1]_3a : 0 0 : 443 443 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
-+--------------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name               | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+--------------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*(B:0x3fc2c)  | 12     | 11     | -      | -      | 23     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*(B:0x6a7)    | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*(B:0x739)    | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*(B:0x3fd90)  | 12     | 11     | -      | -      | 23     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*(B:0x3fbd5)  | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*(B:0x1b5)    | 12     | 10     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*(B:0x3fcd5)  | 12     | 11     | -      | -      | 23     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*(B:0x597)    | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|feature_extraction_amp2_4 | (A*B)'         | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|feature_extraction_amp2_4 | (PCIN+(A*B)')' | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 1    | 
-|feature_extraction_amp2_4 | A*B            | 24     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|feature_extraction_amp2_4 | (PCIN>>17)+A*B | 24     | 7      | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 1    | 
-+--------------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++--------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name               | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                   | (A*B)'            | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|main                      | (A2*(B:0x3fc2c))' | 12     | 11     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|main                      | (A2*(B:0x6a7))'   | 12     | 12     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|main                      | (A2*(B:0x739))'   | 12     | 12     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|main                      | (A2*(B:0x3fd90))' | 12     | 11     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|main                      | (A2*(B:0x3fbd5))' | 12     | 12     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|main                      | (A2*(B:0x1b5))'   | 12     | 10     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|main                      | (A2*(B:0x3fcd5))' | 12     | 11     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|main                      | (A2*(B:0x597))'   | 12     | 12     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|feature_extraction_amp2_4 | A*B               | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|feature_extraction_amp2_4 | (PCIN+A*B)'       | 12     | 12     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|feature_extraction_amp2_4 | (A*B)'            | 24     | 13     | -      | -      | 36     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|feature_extraction_amp2_4 | (A*B)'            | 24     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 1    | 0    | 
++--------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
-No constraint files found.
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1550.629 ; gain = 626.246
+---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:33 . Memory (MB): peak = 1431.238 ; gain = 911.996
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1642.582 ; gain = 718.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1431.238 ; gain = 911.996
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1708.176 ; gain = 783.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -545,122 +613,107 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1431.262 ; gain = 912.020
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1718.051 ; gain = 793.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1431.262 ; gain = 912.020
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1718.051 ; gain = 793.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1431.262 ; gain = 912.020
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1718.051 ; gain = 793.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1431.262 ; gain = 912.020
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1718.051 ; gain = 793.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1431.262 ; gain = 912.020
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1718.051 ; gain = 793.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1431.262 ; gain = 912.020
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP, Shift Register and Retiming Reporting
----------------------------------------------------------------------------------
-
-Static Shift Register Report:
-+------------+--------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|Module Name | RTL Name                                         | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
-+------------+--------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|main        | feature_extraction/feature_extraction/I_3_reg[0] | 3      | 12    | NO           | NO                 | YES               | 12     | 0       | 
-|main        | feature_extraction/feature_extraction/Q_3_reg[0] | 3      | 12    | NO           | NO                 | YES               | 12     | 0       | 
-+------------+--------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1718.051 ; gain = 793.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 DSP Final Report (the ' indicates corresponding REG is set)
-+--------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name               | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+--------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|fc_node                   | A'*B            | 30     | 10     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 8      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 10     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 7      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 9      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 10     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 9      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A'*B            | 30     | 9      | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 7      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 11     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 9      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 9      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A'*B            | 30     | 10     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 7      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 10     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A'*B            | 30     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 8      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 8      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 7      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 10     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A''*B           | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 9      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 11     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 10     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 11     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 7      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 9      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 10     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 11     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 23     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 11     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 11     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 23     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 9      | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 18     | -      | -      | 23     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fc_node                   | A*B             | 11     | 11     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|feature_extraction_amp2_4 | (A*B)'          | 30     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 1    | 
-|feature_extraction_amp2_4 | (PCIN+(A*B)')'  | 30     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 1    | 1    | 
-|feature_extraction_amp2_4 | A*B             | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|feature_extraction_amp2_4 | (PCIN>>17+A*B)' | 30     | 18     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 1    | 
-+--------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++--------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name               | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|fc_node                   | (A'*B)'     | 30     | 10     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 8      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 10     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 7      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 9      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 10     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 9      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 30     | 9      | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 7      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 11     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 9      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 9      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 30     | 10     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 7      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 10     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 30     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 8      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 8      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 7      | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 10     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A''*B)'    | 30     | 18     | -      | -      | 24     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 9      | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 11     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 10     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 11     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 7      | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 9      | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 10     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 11     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                   | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|main                      | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|main                      | (A'*B)'     | 11     | 11     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|main                      | (A'*B)'     | 11     | 11     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|main                      | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|main                      | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|main                      | (A'*B)'     | 11     | 9      | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|main                      | (A'*B)'     | 11     | 18     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|main                      | (A'*B)'     | 11     | 11     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|feature_extraction_amp2_4 | A*B         | 30     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|feature_extraction_amp2_4 | (PCIN+A*B)' | 30     | 18     | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|feature_extraction_amp2_4 | (A*B)'      | 24     | 13     | -      | -      | 36     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|feature_extraction_amp2_4 | (A*B)'      | 24     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 1    | 
++--------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 
 Report BlackBoxes: 
@@ -674,132 +727,40 @@ Report Cell Usage:
 |      |Cell    |Count |
 +------+--------+------+
 |1     |BUFG    |     1|
-|2     |CARRY4  |    96|
+|2     |CARRY4  |   105|
 |3     |DSP48E1 |    60|
-|4     |LUT2    |   103|
-|5     |LUT3    |   750|
-|6     |LUT4    |    15|
-|7     |LUT5    |   703|
-|8     |LUT6    |   250|
-|9     |SRL16E  |    24|
-|10    |FDRE    |    57|
-|11    |IBUF    |    25|
-|12    |OBUF    |    24|
+|8     |LUT1    |     1|
+|9     |LUT2    |   347|
+|10    |LUT3    |   481|
+|11    |LUT4    |     5|
+|12    |LUT5    |   471|
+|13    |LUT6    |   513|
+|14    |FDRE    |   711|
+|15    |IBUF    |    25|
+|16    |OBUF    |    24|
 +------+--------+------+
-
-Report Instance Areas: 
-+------+---------------------------------------------+--------------------------------------------+------+
-|      |Instance                                     |Module                                      |Cells |
-+------+---------------------------------------------+--------------------------------------------+------+
-|1     |top                                          |                                            |  2108|
-|2     |  backbones                                  |backbones                                   |  1965|
-|3     |    first_layer                              |fc_layer                                    |  1026|
-|4     |      \genblk1[0].fc_node                    |fc_node                                     |   256|
-|5     |        tree_layer                           |adder_trees_58                              |   210|
-|6     |          csa_adder_tree                     |csa_adder_tree_59                           |   210|
-|7     |            recursive_csa_adder_tree         |csa_adder_tree_recursive_60                 |   210|
-|8     |              recursive_csa_adder_tree       |csa_adder_tree_recursive__parameterized0_61 |   210|
-|9     |                recursive_csa_adder_tree     |csa_adder_tree_recursive__parameterized1_62 |   210|
-|10    |                  recursive_csa_adder_tree   |csa_adder_tree_recursive__parameterized2_63 |   210|
-|11    |                    recursive_csa_adder_tree |csa_adder_tree_recursive__parameterized3_64 |   210|
-|12    |      \genblk1[1].fc_node                    |fc_node_38                                  |   258|
-|13    |        tree_layer                           |adder_trees_51                              |   211|
-|14    |          csa_adder_tree                     |csa_adder_tree_52                           |   211|
-|15    |            recursive_csa_adder_tree         |csa_adder_tree_recursive_53                 |   211|
-|16    |              recursive_csa_adder_tree       |csa_adder_tree_recursive__parameterized0_54 |   211|
-|17    |                recursive_csa_adder_tree     |csa_adder_tree_recursive__parameterized1_55 |   211|
-|18    |                  recursive_csa_adder_tree   |csa_adder_tree_recursive__parameterized2_56 |   211|
-|19    |                    recursive_csa_adder_tree |csa_adder_tree_recursive__parameterized3_57 |   211|
-|20    |      \genblk1[2].fc_node                    |fc_node_39                                  |   257|
-|21    |        tree_layer                           |adder_trees_44                              |   210|
-|22    |          csa_adder_tree                     |csa_adder_tree_45                           |   210|
-|23    |            recursive_csa_adder_tree         |csa_adder_tree_recursive_46                 |   210|
-|24    |              recursive_csa_adder_tree       |csa_adder_tree_recursive__parameterized0_47 |   210|
-|25    |                recursive_csa_adder_tree     |csa_adder_tree_recursive__parameterized1_48 |   210|
-|26    |                  recursive_csa_adder_tree   |csa_adder_tree_recursive__parameterized2_49 |   210|
-|27    |                    recursive_csa_adder_tree |csa_adder_tree_recursive__parameterized3_50 |   210|
-|28    |      \genblk1[3].fc_node                    |fc_node_40                                  |   255|
-|29    |        tree_layer                           |adder_trees                                 |   210|
-|30    |          csa_adder_tree                     |csa_adder_tree                              |   210|
-|31    |            recursive_csa_adder_tree         |csa_adder_tree_recursive                    |   210|
-|32    |              recursive_csa_adder_tree       |csa_adder_tree_recursive__parameterized0    |   210|
-|33    |                recursive_csa_adder_tree     |csa_adder_tree_recursive__parameterized1_41 |   210|
-|34    |                  recursive_csa_adder_tree   |csa_adder_tree_recursive__parameterized2_42 |   210|
-|35    |                    recursive_csa_adder_tree |csa_adder_tree_recursive__parameterized3_43 |   210|
-|36    |    \genblk1[2].activation                   |activation_functions                        |    44|
-|37    |      \genblk1[0].RELU                       |RELU                                        |    11|
-|38    |      \genblk1[1].RELU                       |RELU_35                                     |    11|
-|39    |      \genblk1[2].RELU                       |RELU_36                                     |    11|
-|40    |      \genblk1[3].RELU                       |RELU_37                                     |    11|
-|41    |    \genblk1[2].mid_layer                    |fc_layer__parameterized0                    |   612|
-|42    |      \genblk1[0].fc_node                    |fc_node__parameterized0_7                   |   153|
-|43    |        tree_layer                           |adder_trees__parameterized0_29              |   132|
-|44    |          csa_adder_tree                     |csa_adder_tree__parameterized0_30           |   132|
-|45    |            recursive_csa_adder_tree         |csa_adder_tree_recursive__parameterized4_31 |   132|
-|46    |              recursive_csa_adder_tree       |csa_adder_tree_recursive__parameterized1_32 |   132|
-|47    |                recursive_csa_adder_tree     |csa_adder_tree_recursive__parameterized2_33 |   132|
-|48    |                  recursive_csa_adder_tree   |csa_adder_tree_recursive__parameterized3_34 |   132|
-|49    |      \genblk1[1].fc_node                    |fc_node__parameterized0_8                   |   153|
-|50    |        tree_layer                           |adder_trees__parameterized0_23              |   132|
-|51    |          csa_adder_tree                     |csa_adder_tree__parameterized0_24           |   132|
-|52    |            recursive_csa_adder_tree         |csa_adder_tree_recursive__parameterized4_25 |   132|
-|53    |              recursive_csa_adder_tree       |csa_adder_tree_recursive__parameterized1_26 |   132|
-|54    |                recursive_csa_adder_tree     |csa_adder_tree_recursive__parameterized2_27 |   132|
-|55    |                  recursive_csa_adder_tree   |csa_adder_tree_recursive__parameterized3_28 |   132|
-|56    |      \genblk1[2].fc_node                    |fc_node__parameterized0_9                   |   153|
-|57    |        tree_layer                           |adder_trees__parameterized0_17              |   132|
-|58    |          csa_adder_tree                     |csa_adder_tree__parameterized0_18           |   132|
-|59    |            recursive_csa_adder_tree         |csa_adder_tree_recursive__parameterized4_19 |   132|
-|60    |              recursive_csa_adder_tree       |csa_adder_tree_recursive__parameterized1_20 |   132|
-|61    |                recursive_csa_adder_tree     |csa_adder_tree_recursive__parameterized2_21 |   132|
-|62    |                  recursive_csa_adder_tree   |csa_adder_tree_recursive__parameterized3_22 |   132|
-|63    |      \genblk1[3].fc_node                    |fc_node__parameterized0_10                  |   153|
-|64    |        tree_layer                           |adder_trees__parameterized0_11              |   132|
-|65    |          csa_adder_tree                     |csa_adder_tree__parameterized0_12           |   132|
-|66    |            recursive_csa_adder_tree         |csa_adder_tree_recursive__parameterized4_13 |   132|
-|67    |              recursive_csa_adder_tree       |csa_adder_tree_recursive__parameterized1_14 |   132|
-|68    |                recursive_csa_adder_tree     |csa_adder_tree_recursive__parameterized2_15 |   132|
-|69    |                  recursive_csa_adder_tree   |csa_adder_tree_recursive__parameterized3_16 |   132|
-|70    |    last_layer                               |fc_layer__parameterized1                    |   283|
-|71    |      \genblk1[0].fc_node                    |fc_node__parameterized0                     |   142|
-|72    |        tree_layer                           |adder_trees__parameterized0_1               |   138|
-|73    |          csa_adder_tree                     |csa_adder_tree__parameterized0_2            |   138|
-|74    |            recursive_csa_adder_tree         |csa_adder_tree_recursive__parameterized4_3  |   138|
-|75    |              recursive_csa_adder_tree       |csa_adder_tree_recursive__parameterized1_4  |   138|
-|76    |                recursive_csa_adder_tree     |csa_adder_tree_recursive__parameterized2_5  |   138|
-|77    |                  recursive_csa_adder_tree   |csa_adder_tree_recursive__parameterized3_6  |   138|
-|78    |      \genblk1[1].fc_node                    |fc_node__parameterized0_0                   |   141|
-|79    |        tree_layer                           |adder_trees__parameterized0                 |   137|
-|80    |          csa_adder_tree                     |csa_adder_tree__parameterized0              |   137|
-|81    |            recursive_csa_adder_tree         |csa_adder_tree_recursive__parameterized4    |   137|
-|82    |              recursive_csa_adder_tree       |csa_adder_tree_recursive__parameterized1    |   137|
-|83    |                recursive_csa_adder_tree     |csa_adder_tree_recursive__parameterized2    |   137|
-|84    |                  recursive_csa_adder_tree   |csa_adder_tree_recursive__parameterized3    |   137|
-|85    |  feature_extraction                         |feature_extraction                          |    93|
-|86    |    feature_extraction                       |feature_extraction_amp2_4                   |    93|
-+------+---------------------------------------------+--------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1431.262 ; gain = 912.020
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1718.051 ; gain = 793.668
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 33 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1431.262 ; gain = 912.020
-Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1431.262 ; gain = 912.020
+Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:39 . Memory (MB): peak = 1718.051 ; gain = 730.289
+Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1718.051 ; gain = 793.668
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 1443.305 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 156 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.113 . Memory (MB): peak = 1718.051 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 165 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1446.961 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1718.051 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: c8edb61c
+Synth Design complete | Checksum: c9c494a8
 INFO: [Common 17-83] Releasing license: Synthesis
-59 Infos, 33 Warnings, 0 Critical Warnings and 0 Errors encountered.
+63 Infos, 11 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1446.961 ; gain = 930.691
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1446.961 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1718.051 ; gain = 1195.242
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1718.051 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/main.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Jan  8 10:37:47 2025...
+INFO: [Common 17-206] Exiting Vivado at Thu Jan  9 16:21:46 2025...

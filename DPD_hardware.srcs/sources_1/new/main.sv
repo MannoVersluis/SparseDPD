@@ -20,22 +20,24 @@
 //////////////////////////////////////////////////////////////////////////////////
 import parameter_weights_pack::*;
 
-module main #(parameter ADDED_PRECISION = 0)(
-    input logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER-ADDED_PRECISION] I,
-    input logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER-ADDED_PRECISION] Q,
+module main (
+    input logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] I,
+    input logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] Q,
     input clk,
-    output wire [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER-ADDED_PRECISION] I_out,
-    output wire [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER-ADDED_PRECISION] Q_out
+    output logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER] I_out,
+    output logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER] Q_out
     );
-    
+        
     localparam MIN_BIT_INPUTS = LAYER_FIRST_ACT_QUANTIZER;
+    
     
     logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] FEx_I;
     logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] FEx_Q;
     logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] FEx_abs_low;
     logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] FEx_abs_high;
     
-    feature_extraction #(.INPUTS_SIZE(INPUTS_SIZE+ADDED_PRECISION),.ADDED_PRECISION(ADDED_PRECISION))
+    
+    feature_extraction #(.INPUTS_SIZE(INPUTS_SIZE))
             feature_extraction (.I(I),.Q(Q),.I_out(FEx_I),.Q_out(FEx_Q),.abs_low_out(FEx_abs_low),.abs_high_out(FEx_abs_high),.clk(clk));
             
     logic signed [INPUTS_SIZE-1:0] shift_reg_out [0:LAYER_SIZES[LAYER_ORDER[0]]-1];
@@ -50,9 +52,17 @@ module main #(parameter ADDED_PRECISION = 0)(
     assign backbone_inputs = shift_reg_out;
     
     backbones #(.MIN_BIT_INPUTS(MIN_BIT_INPUTS))
-        backbones (.inputs(backbone_inputs),.I_out(backbone_I_out),.Q_out(backbone_Q_out));
+        backbones (.inputs(backbone_inputs),.I_out(backbone_I_out),.Q_out(backbone_Q_out),.clk(clk));
         
-    assign I_out = backbone_I_out;
-    assign Q_out = backbone_Q_out;
+    logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER] new_I_out = 0;
+    logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER] new_Q_out = 0;
+    
+    always_ff @(posedge clk) begin
+        new_I_out <= backbone_I_out;
+        new_Q_out <= backbone_Q_out;
+    end
+    
+    assign I_out = new_I_out;
+    assign Q_out = new_Q_out; 
    
 endmodule

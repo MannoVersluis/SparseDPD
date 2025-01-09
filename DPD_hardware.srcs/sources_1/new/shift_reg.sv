@@ -20,9 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module shift_reg #(parameter INPUT_SIZE,
-                    parameter INPUT_AMOUNT,
-                    parameter SHIFT_LENGTH
+module shift_reg #(parameter INPUT_SIZE = 12,
+                    parameter INPUT_AMOUNT = 4,
+                    parameter SHIFT_LENGTH = 8
                     )(
     input logic signed [INPUT_SIZE-1:0] in [INPUT_AMOUNT-1:0],
     input logic clk,
