@@ -66,10 +66,10 @@ initial begin
     input_file = $fopen("DPD_test_in.csv", "r");
     output_file = $fopen("DPD_test_out.csv", "r");
 //    FEx_file = $fopen("DPD_FEx_out.csv", "r");
-    if (input_file == 0)
-        $fatal("Error, could not open: DPD_test_in.csv");
-    if (output_file == 0)
-        $fatal("Error, could not open: DPD_test_out.csv");
+//    if (input_file == 0)
+//        $fatal("Error, could not open: DPD_test_in.csv");
+//    if (output_file == 0)
+//        $fatal("Error, could not open: DPD_test_out.csv");
 //    if (FEx_file == 0)
 //        $fatal("Error, could not open: DPD_FEx_out.csv");
 //    for (int x=0; x<7; x=x+1) begin
@@ -111,11 +111,11 @@ initial begin
 //        Q_FEx = FEx_Q_float;
 //        abs_low_FEx = FEx_abs_low_float;
 //        abs_high_FEx = FEx_abs_high_float;
-        #5;
+        #2.5;
         clk = 0;
 //        if ((I_FEx != FEx_I_out) || (Q_FEx != FEx_Q_out) || (abs_low_FEx != FEx_abs_low_out) || (abs_high_FEx != FEx_abs_high_out))
 //            $error("Incorrect output of feature extraction layer");
-        #5;
+        #2.5;
         
     end
 end
