@@ -162,80 +162,66 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 12
     output logic [0:1-INPUTS_SIZE] abs
     );
     
-    localparam APPROX_BITS = 4;
+    localparam APPROX_BITS = 4; // how many bits of the inv sqrt will be stored in luts
     
-    localparam logic [0:$rtoi($pow(2, $itor(INPUTS_SIZE)))-1][INPUTS_SIZE/2+APPROX_BITS-1:0] APPROX_LUT = APPROX_CALC();
-    function logic [0:$rtoi($pow(2, $itor(INPUTS_SIZE)))-1][INPUTS_SIZE/2+APPROX_BITS-1:0] APPROX_CALC();
+    localparam logic [0:$rtoi($pow(2, $itor(INPUTS_SIZE)))-1][3*(INPUTS_SIZE/2+APPROX_BITS)-2-1:0] APPROX_LUT_1 = APPROX_CALC_1();
+    function logic [0:$rtoi($pow(2, $itor(INPUTS_SIZE)))-1][3*(INPUTS_SIZE/2+APPROX_BITS)-2-1:0] APPROX_CALC_1();
         for(int i=0;i<$rtoi($pow(2, $itor(INPUTS_SIZE))); i++) begin
             logic [APPROX_BITS-1:-1] tmp;
             tmp = $rtoi($pow(2, $itor(APPROX_BITS+$clog2(i+1)/2))/$sqrt($itor(i)));
-            APPROX_CALC[i] = (tmp[APPROX_BITS-1:0] + tmp[-1]) << (INPUTS_SIZE/2-$clog2(i+1)/2);
+            APPROX_CALC_1[i] = ((tmp[APPROX_BITS-1:0] + tmp[-1])*(tmp[APPROX_BITS-1:0] + tmp[-1])*(tmp[APPROX_BITS-1:0] + tmp[-1])) << 3*(INPUTS_SIZE/2-$clog2(i+1)/2);
         end
     endfunction
     
-    localparam int MAX_BITS = 12;
+    localparam logic [0:$rtoi($pow(2, $itor(INPUTS_SIZE)))-1][INPUTS_SIZE/2+APPROX_BITS+1-1:0] APPROX_LUT_2 = APPROX_CALC_2();
+    function logic [0:$rtoi($pow(2, $itor(INPUTS_SIZE)))-1][INPUTS_SIZE/2+APPROX_BITS+1-1:0] APPROX_CALC_2();
+        for(int i=0;i<$rtoi($pow(2, $itor(INPUTS_SIZE))); i++) begin
+            logic [APPROX_BITS+2-1:-1] tmp;
+            tmp = $rtoi($pow(2, $itor(APPROX_BITS+$clog2(i+1)/2))/$sqrt($itor(i)));
+            APPROX_CALC_2[i] = (3*(tmp[APPROX_BITS-1:0] + tmp[-1])) << (INPUTS_SIZE/2-$clog2(i+1)/2);
+        end
+    endfunction
     
-    logic [INPUTS_SIZE/2+APPROX_BITS-1:0] approx_1;
+    localparam int MAX_BITS = 12; // should be at least INPUTS_SIZE, operations will take at most the MAX_BITS msb's as an input
+    
+    logic [INPUTS_SIZE/2+APPROX_BITS+1-1:0] approx_1;
+    logic [3*(INPUTS_SIZE/2+APPROX_BITS)-2-1:0] approx3_1;
     logic [0:1-INPUTS_SIZE] abs2_1;
     
-    logic [INPUTS_SIZE-INPUTS_SIZE%2+APPROX_BITS-1:0] valapp_2;
+    logic [MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-1:0] valapp_2; // since (abs2_1*approx3_1) has max value for amp2=1,
+        // valapp3 has #bits_used_from_approx_3_1 + 1 bits stored
+        // (since the msb of shifted approx_1 is shifted, so for amp2=1, approx_1<<(<val>) = 3*(abs2_1*approx3_1) = 3*approx3_1)
     logic [INPUTS_SIZE/2+APPROX_BITS-1:0] approx_2;
     logic [0:1-INPUTS_SIZE] abs2_2;
     
-    logic [2*APPROX_BITS+INPUTS_SIZE-INPUTS_SIZE%2-1:0] valapp_3;
-    logic [INPUTS_SIZE/2+APPROX_BITS-1:0] approx_3;
-    logic [0:1-INPUTS_SIZE] abs2_3;
+    logic [MAX_BITS-1:0] approx_3;
+    logic [MAX_BITS+(INPUTS_SIZE-1)/2-1:0] valapp_3;
     
-    logic [MAX_BITS+INPUTS_SIZE/2+APPROX_BITS-1-1:0] valapp_4;
-    logic [0:1-INPUTS_SIZE] abs2_4;
+    logic [MAX_BITS-1:0] approx_4;
+    logic [2*MAX_BITS-(INPUTS_SIZE-1)/2-1:0] valapp_4;
     
-    logic [MAX_BITS-1:0] approx_5;
-    logic [MAX_BITS+(INPUTS_SIZE-1)/2-1:0] valapp_5;
+    logic [2*MAX_BITS-2:0] valapp_5;
     
-    logic [MAX_BITS-1:0] approx_6;
-    logic [2*MAX_BITS-(INPUTS_SIZE-1)/2-1:0] valapp_6;
-    
-    logic [2*MAX_BITS-2:0] valapp_7;
-    
-   
+    // approximates 1/sqrt(a) by using 0.5x(3-ax^2), x = guess, a = abs2
     always_ff @(posedge clk) begin
         abs2_1 <= abs2;
-        approx_1 <= APPROX_LUT[abs2];
+        approx_1 <= APPROX_LUT_2[abs2]; // reads (the APPROX_BITS msb's of x)*3 from memory
+        approx3_1 <= APPROX_LUT_1[abs2]; // reads (the APPROX_BITS msb's of x)**3 from memory
         
-        // bit shift by APPROX_BITS + INPUTS_SIZE/2 - 1, max_val = (INPUTS_SIZE+1)/2
-        valapp_2 <= abs2_1*approx_1;
+        valapp_2 <= (approx_1 << (MAX_BITS - 1)) - (abs2_1*approx3_1[3*(INPUTS_SIZE/2+APPROX_BITS)-2-1 -:MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-1]);
         abs2_2 <= abs2_1; 
         approx_2 <= approx_1;
         
-        // the . is at the 2*APPROX_BITS + INPUTS_SIZE - INPUTS_SIZE%2 - 2 position
-        valapp_3 <= (2'b11 << (2*APPROX_BITS + INPUTS_SIZE - INPUTS_SIZE%2 - 2)) - (valapp_2 * approx_2);
-        abs2_3 <= abs2_2; 
-        approx_3 <= approx_2;
+        valapp_3 <= abs2_2 * valapp_2[MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-1 -:MAX_BITS];
+        approx_3 <= valapp_2[MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-1 -:MAX_BITS];
         
-        // INPUTS_SIZE/2+APPROX_BITS-1 + MAX_BITS - 1
-        valapp_4 <= (approx_3 * valapp_3[2*APPROX_BITS+INPUTS_SIZE-INPUTS_SIZE%2-1 -:MAX_BITS]) >> 1;
-        abs2_4 <= abs2_3; 
+        valapp_4 <= (2'b11 << (2*MAX_BITS-1-(INPUTS_SIZE-1)/2-1)) - approx_3 * valapp_3[MAX_BITS+(INPUTS_SIZE-1)/2-1 -: MAX_BITS]; //18 // test if remove 20-23
+        approx_4 <= approx_3;
         
-        valapp_5 <= abs2_4 * valapp_4[MAX_BITS+INPUTS_SIZE/2+APPROX_BITS-2-1 -:MAX_BITS];
-        approx_5 <= valapp_4[MAX_BITS+INPUTS_SIZE/2+APPROX_BITS-2-1 -:MAX_BITS];
+        valapp_5 <= (approx_4 * valapp_4[2*MAX_BITS-(INPUTS_SIZE-1)/2-1 -:MAX_BITS]) >> 1;
         
-        // shift by (INPUTS_SIZE-1)/2+1+MAX_BITS-1 since msb of input is empty so max val for x/sqrt(x) is ... bits (2 had msb alone at valapp_4)
-        // 12+12-1-(INPUTS_SIZE-1)/2
-        // check (INPUTS_SIZE-1)/2-1 for input lengths
-        valapp_6 <= (2'b11 << (2*MAX_BITS-1-(INPUTS_SIZE-1)/2-1)) - approx_5 * valapp_5[MAX_BITS+(INPUTS_SIZE-1)/2-1 -: MAX_BITS]; //18 // test if remove 20-23
-        approx_6 <= approx_5;
-        
-        valapp_7 <= (approx_6 * valapp_6[2*MAX_BITS-(INPUTS_SIZE-1)/2-1 -:MAX_BITS]) >> 1;
-        
-        
+        abs <= valapp_5[2*MAX_BITS-3 -:INPUTS_SIZE] + valapp_5[2*MAX_BITS-3-INPUTS_SIZE];
     end
-   
-   
-//    for (genvar i=0; i<2^12;i=i+1) begin
-//    assign approx_1 = APPROX_LUT[abs2];
-//////    end
-    assign abs = valapp_7[2*MAX_BITS-3 -:INPUTS_SIZE] + valapp_7[2*MAX_BITS-3-INPUTS_SIZE];
-//            approx = $pow(2, 4)/$sqrt($itor(i));
     
 endmodule
 
