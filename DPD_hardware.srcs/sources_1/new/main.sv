@@ -37,7 +37,9 @@ module main (
     logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] FEx_abs_high;
     
     
-    feature_extraction #(.INPUTS_SIZE(INPUTS_SIZE))
+    feature_extraction #(.INPUTS_SIZE(INPUTS_SIZE),
+                            .LAYER_FIRST_ACT_QUANTIZER(LAYER_FIRST_ACT_QUANTIZER),
+                            .FEATURE_EXTRACTION(FEATURE_EXTRACTION))
             feature_extraction (.I(I),.Q(Q),.I_out(FEx_I),.Q_out(FEx_Q),.abs_low_out(FEx_abs_low),.abs_high_out(FEx_abs_high),.clk(clk));
             
     logic signed [INPUTS_SIZE-1:0] shift_reg_out [0:LAYER_SIZES[LAYER_ORDER[0]]-1];

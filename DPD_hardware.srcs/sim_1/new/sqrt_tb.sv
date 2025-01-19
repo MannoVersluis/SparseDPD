@@ -22,28 +22,28 @@
 
 module sqrt_tb();
 
-    localparam int INPUTS_SIZE = 5;
+    localparam int INPUTS_SIZE = 9;
 
     real abs_real;
     real abs2_real;
 
     logic clk;
-    logic [0:1-2*INPUTS_SIZE] abs;
-    logic [0:1-2*INPUTS_SIZE] abs2;
-    logic [0:1-2*INPUTS_SIZE] abs_2 [INPUTS_SIZE:0] = '{INPUTS_SIZE+1{0}};
+    logic [0:1-INPUTS_SIZE] abs;
+    logic [0:1-INPUTS_SIZE] abs2 = 1;
+    logic [0:1-INPUTS_SIZE] abs_2 [INPUTS_SIZE/2+INPUTS_SIZE%2:0] = '{INPUTS_SIZE/2+INPUTS_SIZE%2+1{0}};
 
-    nonrestoring_sqrt #(.INPUTS_SIZE(INPUTS_SIZE*2))
+    approx_inv_sqrt #(.INPUTS_SIZE(INPUTS_SIZE))
                     first (.abs2(abs2),
                             .clk(clk),
                             .abs(abs));
                             
     always_ff @(negedge clk) begin
-        abs_2[INPUTS_SIZE:1] <= abs_2[INPUTS_SIZE-1:0];
+        abs_2[INPUTS_SIZE/2+INPUTS_SIZE%2:1] <= abs_2[INPUTS_SIZE/2+INPUTS_SIZE%2-1:0];
     end
                             
     initial begin
     clk = 0;
-    for (int x=0; x<50; x=x+1) begin
+    for (int x=0; x<500; x=x+1) begin
         clk = ~clk;
 //        abs2_real = $random;
 //        abs2_real = abs2_real - $floor(abs2_real);

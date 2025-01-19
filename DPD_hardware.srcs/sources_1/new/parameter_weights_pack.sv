@@ -33,7 +33,7 @@ package parameter_weights_pack;
     localparam int ADDER_TREE [1:BACKBONE_LAYERS+1] = '{BACKBONE_LAYERS+1{1}};
     localparam int PARALLEL_INPUTS = 2;
     localparam string LAYER_BACKBONE = "fc_no_rnn";
-    localparam string FEATURE_EXTRACTION = "2_4"; // to use abs2_4 or abs1_3 for feature augmentation
+    localparam string FEATURE_EXTRACTION = "1_3"; // to use abs2_4 or abs1_3 for feature augmentation
     localparam string ACTIVATION_FUNCTION [1:BACKBONE_LAYERS] = '{BACKBONE_LAYERS{"RELU"}};
     logic signed [0:11] LAYER_FIRST_WEIGHT [0:3][0:7]  = '{'{354, 988, -465, 296, 119, 920, 174, 903}, '{424, -599, 496, 1414, -133, 119, -7, 367}, '{-14, -1043, -475, -617, 730, 86, -195, 858}, '{-273, 595, -192, 82, -261, 238, 182, -493}};
     logic signed [0:11] LAYER_FIRST_BIAS [0:3]  = '{451, 702, 300, -226};

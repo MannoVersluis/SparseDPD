@@ -41,4 +41,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log main.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
+EAStep vivado -log approx_inv_sqrt.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source approx_inv_sqrt.tcl
