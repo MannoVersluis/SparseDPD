@@ -117,16 +117,18 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     output logic [0:1-INPUTS_SIZE] abs3_out
     );
     
-    localparam int DELAY_STORAGE_SIZE = 6;
+    localparam int DELAY_STORAGE_SIZE = 6; // how many clock cyles-1 bits are stored while inv_sqrt is calculated
+    localparam int SQRT_EXTRA_OUT_BITS = 4; // input to inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS bits
+    localparam int SQRT_EXTRA_IN_BITS = 4; // output of inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS + SQRT_EXTRA_IN_BITS bits
     
     logic [0:1-2*INPUTS_SIZE] abs2_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{1}};
     logic signed [0:1-INPUTS_SIZE] I_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
     logic signed [0:1-INPUTS_SIZE] Q_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
     
     logic [0:1-2*INPUTS_SIZE] abs2_tmp;
-    logic [0:1-INPUTS_SIZE] inv_abs_tmp;
+    logic [0:1-SQRT_EXTRA_IN_BITS-SQRT_EXTRA_OUT_BITS-INPUTS_SIZE] inv_abs_tmp;
     
-    logic [0:1+2-2*INPUTS_SIZE-INPUTS_SIZE/2-INPUTS_SIZE%2] abs_3 = 0;
+    logic [0:1-2*INPUTS_SIZE-INPUTS_SIZE/2-INPUTS_SIZE%2-SQRT_EXTRA_OUT_BITS-SQRT_EXTRA_IN_BITS] abs_3 = 0;
     logic [0:1-2*INPUTS_SIZE] abs2_3 = 0;
     logic signed [0:1-INPUTS_SIZE] I_3 = 0;
     logic signed [0:1-INPUTS_SIZE] Q_3 = 0;
@@ -140,8 +142,9 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     logic [$clog2(INPUTS_SIZE):0] shift [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
     
     // has a delay of INPUTS_SIZE/2 + INPUTS_SIZE%2 + 1 rising edges
-    approx_inv_sqrt #(.INPUTS_SIZE(INPUTS_SIZE+2))
-                sqrt    (.abs2(abs2_2[0][-INPUTS_SIZE+(shift[0] << 1) -:INPUTS_SIZE]),
+    approx_inv_sqrt #(.INPUTS_SIZE(INPUTS_SIZE+SQRT_EXTRA_IN_BITS),
+                        .EXTRA_OUT_BITS(SQRT_EXTRA_OUT_BITS))
+                sqrt    (.abs2(abs2_2[0][-INPUTS_SIZE+SQRT_EXTRA_IN_BITS+(shift[0] << 1) -:INPUTS_SIZE+SQRT_EXTRA_IN_BITS]),
                         .clk(clk),
                         .abs(inv_abs_tmp));
                         
@@ -156,8 +159,8 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     
     always_comb begin
         new_shift = 0;
-        for (int i=2; i<INPUTS_SIZE+2; i=i+1) begin
-            if (abs2_tmp[1+i-INPUTS_SIZE-2] == 1'b1) begin
+        for (int i=2; i<INPUTS_SIZE-SQRT_EXTRA_IN_BITS-SQRT_EXTRA_IN_BITS%2; i=i+1) begin
+            if (abs2_tmp[i+SQRT_EXTRA_IN_BITS+SQRT_EXTRA_IN_BITS%2-1-INPUTS_SIZE] == 1'b1) begin
                 new_shift = i;
             end
         end
@@ -172,8 +175,8 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     end
     
     always_ff @(posedge clk) begin: abs3_stage
-        abs_4 <= abs_3[1-INPUTS_SIZE/2-INPUTS_SIZE%2 -:INPUTS_SIZE] + abs_3[1-INPUTS_SIZE/2-INPUTS_SIZE%2-INPUTS_SIZE];
-        abs3_4 <= abs2_3 * abs_3[1-INPUTS_SIZE/2-INPUTS_SIZE%2 -:INPUTS_SIZE];
+        abs_4 <= abs_3[1-2-INPUTS_SIZE/2-INPUTS_SIZE%2 -:INPUTS_SIZE] + abs_3[1-2-INPUTS_SIZE/2-INPUTS_SIZE%2-INPUTS_SIZE];
+        abs3_4 <= abs2_3 * abs_3[1-2-INPUTS_SIZE/2-INPUTS_SIZE%2 -:INPUTS_SIZE];
         I_4 <= I_3;
         Q_4 <= Q_3;
     end

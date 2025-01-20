@@ -8,7 +8,7 @@
   **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
   **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
   **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-  **** Start of session at: Sun Jan 19 20:30:04 2025
+  **** Start of session at: Mon Jan 20 22:18:40 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -24,27 +24,27 @@ INFO: [Device 21-403] Loading part xc7z007sclg225-2
 INFO: [Device 21-9227] Part: xc7z007sclg225-2 does not have CEAM library.
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 10948
+INFO: [Synth 8-7075] Helper process launched with PID 18456
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1370.809 ; gain = 447.207
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1370.102 ; gain = 445.344
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'approx_inv_sqrt' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:158]
-INFO: [Synth 8-6155] done synthesizing module 'approx_inv_sqrt' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:158]
-WARNING: [Synth 8-6014] Unused sequential element approx_3_reg was removed.  [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:224]
-WARNING: [Synth 8-3936] Found unconnected internal register 'valapp_7_reg' and it is trimmed from '23' to '22' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:239]
+INFO: [Synth 8-6157] synthesizing module 'approx_inv_sqrt' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:89]
+INFO: [Synth 8-6155] done synthesizing module 'approx_inv_sqrt' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:89]
+WARNING: [Synth 8-6014] Unused sequential element approx_2_reg was removed.  [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:145]
+WARNING: [Synth 8-3936] Found unconnected internal register 'valapp_5_reg' and it is trimmed from '23' to '22' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:153]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1655.586 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1672.613 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -53,39 +53,39 @@ Parsing XDC File [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/constrs_1
 Finished Parsing XDC File [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/constrs_1/new/main_clock.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1655.586 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1672.613 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1655.586 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1672.613 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z007sclg225-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Preparing Guide Design
 ---------------------------------------------------------------------------------
 CRITICAL WARNING: [Synth 8-6895] The reference checkpoint C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/utils_1/imports/synth_1/main.dcp is not suitable for use with incremental synthesis for this design. Please regenerate the checkpoint for this design with -incremental_synth switch in the same Vivado session that synth_design has been run. Synthesis will continue with the default flow
 ---------------------------------------------------------------------------------
-Finished Doing Graph Differ : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Doing Graph Differ : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Preparing Guide Design : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Preparing Guide Design : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 
 
@@ -104,10 +104,9 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input   12 Bit       Adders := 1     
 +---Registers : 
-	               28 Bit    Registers := 1     
+	               31 Bit    Registers := 1     
 	               22 Bit    Registers := 1     
-	               12 Bit    Registers := 4     
-	               11 Bit    Registers := 1     
+	               12 Bit    Registers := 5     
 +---ROMs : 
 	                    ROMs := 2     
 ---------------------------------------------------------------------------------
@@ -126,33 +125,33 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-DSP Report: Generating DSP valapp_3_reg, operation Mode is: (C-A*B2)'.
+DSP Report: Generating DSP valapp_2_reg, operation Mode is: (C-A*B2)'.
+DSP Report: register abs2_1_reg is absorbed into DSP valapp_2_reg.
+DSP Report: register valapp_2_reg is absorbed into DSP valapp_2_reg.
+DSP Report: operator valapp_20 is absorbed into DSP valapp_2_reg.
+DSP Report: operator valapp_21 is absorbed into DSP valapp_2_reg.
+DSP Report: Generating DSP valapp_3_reg, operation Mode is: (A''*B)'.
 DSP Report: register abs2_1_reg is absorbed into DSP valapp_3_reg.
+DSP Report: register abs2_2_reg is absorbed into DSP valapp_3_reg.
 DSP Report: register valapp_3_reg is absorbed into DSP valapp_3_reg.
 DSP Report: operator valapp_30 is absorbed into DSP valapp_3_reg.
-DSP Report: operator valapp_31 is absorbed into DSP valapp_3_reg.
+DSP Report: Generating DSP valapp_4_reg, operation Mode is: (C:0x60000)-A2*B.
+DSP Report: register approx_3_reg is absorbed into DSP valapp_4_reg.
+DSP Report: register valapp_4_reg is absorbed into DSP valapp_4_reg.
+DSP Report: operator valapp_40 is absorbed into DSP valapp_4_reg.
+DSP Report: operator valapp_41 is absorbed into DSP valapp_4_reg.
 DSP Report: Generating DSP valapp_5_reg, operation Mode is: (A''*B)'.
-DSP Report: register abs2_1_reg is absorbed into DSP valapp_5_reg.
-DSP Report: register abs2_3_reg is absorbed into DSP valapp_5_reg.
+DSP Report: register approx_3_reg is absorbed into DSP valapp_5_reg.
+DSP Report: register approx_4_reg is absorbed into DSP valapp_5_reg.
 DSP Report: register valapp_5_reg is absorbed into DSP valapp_5_reg.
-DSP Report: operator valapp_50 is absorbed into DSP valapp_5_reg.
-DSP Report: Generating DSP valapp_6_reg, operation Mode is: (C:0x60000)-A2*B.
-DSP Report: register approx_5_reg is absorbed into DSP valapp_6_reg.
-DSP Report: register valapp_6_reg is absorbed into DSP valapp_6_reg.
-DSP Report: operator valapp_60 is absorbed into DSP valapp_6_reg.
-DSP Report: operator valapp_61 is absorbed into DSP valapp_6_reg.
-DSP Report: Generating DSP valapp_7_reg, operation Mode is: (A''*B)'.
-DSP Report: register approx_5_reg is absorbed into DSP valapp_7_reg.
-DSP Report: register approx_6_reg is absorbed into DSP valapp_7_reg.
-DSP Report: register valapp_7_reg is absorbed into DSP valapp_7_reg.
-DSP Report: operator valapp_71 is absorbed into DSP valapp_7_reg.
+DSP Report: operator valapp_51 is absorbed into DSP valapp_5_reg.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
- Sort Area is  valapp_3_reg_0 : 0 0 : 1856 1856 : Used 1 time 0
- Sort Area is  valapp_6_reg_4 : 0 0 : 1211 1211 : Used 1 time 0
- Sort Area is  valapp_5_reg_2 : 0 0 : 1090 1090 : Used 1 time 0
- Sort Area is  valapp_7_reg_6 : 0 0 : 1090 1090 : Used 1 time 0
+ Sort Area is  valapp_2_reg_0 : 0 0 : 1933 1933 : Used 1 time 0
+ Sort Area is  valapp_4_reg_4 : 0 0 : 1211 1211 : Used 1 time 0
+ Sort Area is  valapp_3_reg_2 : 0 0 : 1090 1090 : Used 1 time 0
+ Sort Area is  valapp_5_reg_6 : 0 0 : 1090 1090 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
@@ -161,8 +160,8 @@ ROM: Preliminary Mapping Report
 +----------------+---------------+---------------+----------------+
 |Module Name     | RTL Object    | Depth x Width | Implemented As | 
 +----------------+---------------+---------------+----------------+
-|approx_inv_sqrt | approx_1_reg  | 4096x11       | Block RAM      | 
-|approx_inv_sqrt | approx3_1_reg | 4096x28       | Block RAM      | 
+|approx_inv_sqrt | approx_1_reg  | 4096x12       | Block RAM      | 
+|approx_inv_sqrt | approx3_1_reg | 4096x31       | Block RAM      | 
 +----------------+---------------+---------------+----------------+
 
 
@@ -170,7 +169,7 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 +----------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name     | DSP Mapping      | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +----------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|approx_inv_sqrt | (C-A*B2)'        | 21     | 12     | 22     | -      | 22     | 0    | 1    | 0    | -    | -     | 0    | 1    | 
+|approx_inv_sqrt | (C-A*B2)'        | 22     | 12     | 23     | -      | 23     | 0    | 1    | 0    | -    | -     | 0    | 1    | 
 |approx_inv_sqrt | (A''*B)'         | 12     | 12     | -      | -      | 17     | 2    | 0    | -    | -    | -     | 1    | 0    | 
 |approx_inv_sqrt | (C:0x60000)-A2*B | 12     | 12     | 19     | -      | 19     | 1    | 0    | 0    | -    | -     | 0    | 1    | 
 |approx_inv_sqrt | (A''*B)'         | 12     | 12     | -      | -      | 23     | 2    | 0    | -    | -    | -     | 1    | 0    | 
@@ -184,13 +183,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -198,7 +197,7 @@ Start Technology Mapping
 INFO: [Synth 8-7052] The timing for the instance approx_1_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance approx_1_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -216,37 +215,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -256,7 +255,7 @@ DSP Final Report (the ' indicates corresponding REG is set)
 +----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name     | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|approx_inv_sqrt | (C-(A*B'))' | 21     | 12     | 22     | -      | 22     | 0    | 1    | 1    | -    | -     | 0    | 1    | 
+|approx_inv_sqrt | (C-(A*B'))' | 22     | 12     | 23     | -      | 23     | 0    | 1    | 1    | -    | -     | 0    | 1    | 
 |approx_inv_sqrt | (A''*B)'    | 12     | 12     | -      | -      | 17     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |approx_inv_sqrt | (C-(A'*B))' | 12     | 12     | 19     | -      | 19     | 1    | 0    | 0    | -    | -     | 0    | 1    | 
 |approx_inv_sqrt | (A''*B)'    | 12     | 12     | -      | -      | 23     | 2    | 0    | -    | -    | -     | 0    | 1    | 
@@ -275,39 +274,40 @@ Report Cell Usage:
 +------+---------+------+
 |1     |CARRY4   |     3|
 |2     |DSP48E1  |     4|
-|5     |LUT2     |     2|
-|6     |LUT3     |     2|
-|7     |LUT4     |     7|
-|8     |LUT5     |    16|
-|9     |LUT6     |    62|
-|10    |MUXF7    |     4|
-|11    |RAMB18E1 |     1|
-|12    |RAMB36E1 |     1|
-|13    |FDRE     |    20|
+|5     |LUT2     |     7|
+|6     |LUT3     |     5|
+|7     |LUT4     |     8|
+|8     |LUT5     |    27|
+|9     |LUT6     |   101|
+|10    |MUXF7    |    14|
+|11    |MUXF8    |     1|
+|12    |RAMB18E1 |     1|
+|13    |RAMB36E1 |     1|
+|14    |FDRE     |    21|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1672.613 ; gain = 747.855
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 1 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1655.586 ; gain = 731.984
-Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1655.586 ; gain = 731.984
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:26 . Memory (MB): peak = 1672.613 ; gain = 747.855
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 1672.613 ; gain = 747.855
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1655.586 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1672.613 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1655.586 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1672.613 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: f7e909ec
+Synth Design complete | Checksum: d6857e2e
 INFO: [Common 17-83] Releasing license: Synthesis
 22 Infos, 3 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 1655.586 ; gain = 1135.312
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:33 . Memory (MB): peak = 1672.613 ; gain = 1150.582
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1655.586 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1672.613 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/approx_inv_sqrt.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file approx_inv_sqrt_utilization_synth.rpt -pb approx_inv_sqrt_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Jan 19 20:30:40 2025...
+INFO: [Common 17-206] Exiting Vivado at Mon Jan 20 22:19:19 2025...

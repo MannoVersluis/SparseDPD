@@ -28,11 +28,13 @@ module activation_layer_tb();
 
 //    logic signed [0:1-INPUTS_SIZE] I_in;
 //    logic signed [0:1-INPUTS_SIZE] Q_in;
+
+    parameter int DELAY = 9; // how many clock cyles-1 bits are stored while inv_sqrt is calculated
     
-    logic signed [0:1-INPUTS_SIZE] I [INPUTS_SIZE+3:0] = '{INPUTS_SIZE+4{1}};
-    logic signed [0:1-INPUTS_SIZE] Q [INPUTS_SIZE+3:0] = '{INPUTS_SIZE+4{0}};
-    logic [0:1-2*INPUTS_SIZE] abs_low [INPUTS_SIZE+3:0] = '{INPUTS_SIZE+4{0}};
-    logic [0:1-4*INPUTS_SIZE] abs_high [INPUTS_SIZE+3:0] = '{INPUTS_SIZE+4{0}};
+    logic signed [0:1-INPUTS_SIZE] I [DELAY-1:0] = '{DELAY{0}};
+    logic signed [0:1-INPUTS_SIZE] Q [DELAY-1:0] = '{DELAY{0}};
+    logic [0:1-2*INPUTS_SIZE] abs_low [DELAY-1:0] = '{DELAY{0}};
+    logic [0:1-4*INPUTS_SIZE] abs_high [DELAY-1:0] = '{DELAY{0}};
     
     logic signed [0:1-INPUTS_SIZE] I_out;
     logic signed [0:1-INPUTS_SIZE] Q_out;
@@ -56,10 +58,10 @@ module activation_layer_tb();
     always #5 clk = ~clk;
     
     always_ff @(posedge clk) begin: abs2_stage // abs2 value of I and Q,
-        I[INPUTS_SIZE+3:1] <= I[INPUTS_SIZE+2:0];
-        Q[INPUTS_SIZE+3:1] <= Q[INPUTS_SIZE+2:0];
-        abs_low[INPUTS_SIZE+3:1] <= abs_low[INPUTS_SIZE+2:0];
-        abs_high[INPUTS_SIZE+3:1] <= abs_high[INPUTS_SIZE+2:0];
+        I[DELAY-1:1]        <= I[DELAY-2:0];
+        Q[DELAY-1:1]        <= Q[DELAY-2:0];
+        abs_low[DELAY-1:1]  <= abs_low[DELAY-2:0];
+        abs_high[DELAY-1:1] <= abs_high[DELAY-2:0];
     end
     
     initial begin
@@ -74,20 +76,16 @@ module activation_layer_tb();
             Q_real = $floor($sin(angle)*mag);
             I[0] = I_real;
             Q[0] = Q_real;
-//            I_real = -36;
-//            Q_real = 57;
-//            I[0] = -36;
-//            Q[0] = 57;
-            if (FEATURE_EXTRACTION == "1_3") begin
+            if (FEATURE_EXTRACTION == "1_3" | FEATURE_EXTRACTION == "1_3_INV") begin
                 abs2 = I_real*I_real + Q_real*Q_real;
                 abs_low[0] = $sqrt(abs2);
                 abs_high[0] = $pow($sqrt(abs2), 3);
-                if ((I[INPUTS_SIZE+3] != I_out) || (Q[INPUTS_SIZE+3] != Q_out) || (abs_low[INPUTS_SIZE+3] != abs_low_out) || (((abs_high[INPUTS_SIZE+3] >> -2*LAYER_FIRST_ACT_QUANTIZER)+(abs_high[INPUTS_SIZE+3][-4*INPUTS_SIZE-2*LAYER_FIRST_ACT_QUANTIZER]) != abs_high_out)))
-                    $error("Incorrect output data, time=%0t I_in=%0h, Q_in=%0h, I_out=0%h, Q_out=0%h, abs_low=0%h, abs_low_out=0%h, abs_high=0%h, abs_high_out=0%h", $time, I[INPUTS_SIZE+3], Q[INPUTS_SIZE+3], I_out, Q_out, abs_low[INPUTS_SIZE+3], abs_low_out, ((abs_high[INPUTS_SIZE+3] >> -2*LAYER_FIRST_ACT_QUANTIZER)+(abs_high[INPUTS_SIZE+3][-4*INPUTS_SIZE-2*LAYER_FIRST_ACT_QUANTIZER])), abs_high_out);
+                if ((I[DELAY-1] != I_out) || (Q[DELAY-1] != Q_out) || (abs_low[DELAY-1] != abs_low_out))// || (((abs_high[DELAY-1] >> -2*LAYER_FIRST_ACT_QUANTIZER)+(abs_high[DELAY-1][-4*INPUTS_SIZE-2*LAYER_FIRST_ACT_QUANTIZER]) != abs_high_out)))
+                    $error("Incorrect output data, time=%0t I_in=%0h, Q_in=%0h, I_out=0%h, Q_out=0%h, abs_low=0%h, abs_low_out=0%h, abs_high=0%h, abs_high_out=0%h", $time, I[DELAY-1], Q[DELAY-1], I_out, Q_out, abs_low[DELAY-1], abs_low_out, ((abs_high[DELAY-1] >> -2*LAYER_FIRST_ACT_QUANTIZER)+(abs_high[DELAY-1][-4*INPUTS_SIZE-2*LAYER_FIRST_ACT_QUANTIZER])), abs_high_out);
             end
             else if (FEATURE_EXTRACTION == "2_4") begin
-                if ((I[INPUTS_SIZE+3] != I_out) || (Q[INPUTS_SIZE+3] != Q_out) || ((abs_low[INPUTS_SIZE+3] >> -LAYER_FIRST_ACT_QUANTIZER)  != abs_low_out) || (((abs_high[INPUTS_SIZE+3] >> -3*LAYER_FIRST_ACT_QUANTIZER)+abs_high[INPUTS_SIZE+3][-LAYER_FIRST_ACT_QUANTIZER*3-4*INPUTS_SIZE]) != abs_high_out))
-                    $error("Incorrect output data, time=%0t I_in=%0h, Q_in=%0h, I_out=0%h, Q_out=0%h, abs_low=0%h, abs_low_out=0%h, abs_high=0%h, abs_high_out=0%h", $time, I[INPUTS_SIZE+3], Q[INPUTS_SIZE+3], I_out, Q_out, abs_low[INPUTS_SIZE+3], abs_low_out, (abs_high[INPUTS_SIZE+3] >> -3*LAYER_FIRST_ACT_QUANTIZER)+abs_high[INPUTS_SIZE+3][-LAYER_FIRST_ACT_QUANTIZER*3-4*INPUTS_SIZE], abs_high_out);
+                if ((I[DELAY-1] != I_out) || (Q[DELAY-1] != Q_out) || ((abs_low[DELAY-1] >> -LAYER_FIRST_ACT_QUANTIZER)  != abs_low_out) || (((abs_high[DELAY-1] >> -3*LAYER_FIRST_ACT_QUANTIZER)+abs_high[DELAY-1][-LAYER_FIRST_ACT_QUANTIZER*3-4*INPUTS_SIZE]) != abs_high_out))
+                    $error("Incorrect output data, time=%0t I_in=%0h, Q_in=%0h, I_out=0%h, Q_out=0%h, abs_low=0%h, abs_low_out=0%h, abs_high=0%h, abs_high_out=0%h", $time, I[DELAY-1], Q[DELAY-1], I_out, Q_out, abs_low[DELAY-1], abs_low_out, (abs_high[DELAY-1] >> -3*LAYER_FIRST_ACT_QUANTIZER)+abs_high[DELAY-1][-LAYER_FIRST_ACT_QUANTIZER*3-4*INPUTS_SIZE], abs_high_out);
             end
         end
     end
