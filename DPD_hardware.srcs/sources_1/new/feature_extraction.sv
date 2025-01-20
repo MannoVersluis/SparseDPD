@@ -42,6 +42,10 @@ module feature_extraction#(parameter INPUTS_SIZE = 12,
         feature_extraction_amp2_4 #(.INPUTS_SIZE(INPUTS_SIZE),
                                     .LAYER_FIRST_ACT_QUANTIZER(LAYER_FIRST_ACT_QUANTIZER))
             feature_extraction (.I(I),.Q(Q),.I_out(I_out),.Q_out(Q_out),.abs2_out(abs_low_out),.abs4_out(abs_high_out),.clk(clk));
+    end else if (FEATURE_EXTRACTION == "1_3_INV") begin
+        feature_extraction_amp1_3_inv_sqrt #(.INPUTS_SIZE(INPUTS_SIZE),
+                                    .LAYER_FIRST_ACT_QUANTIZER(LAYER_FIRST_ACT_QUANTIZER))
+            feature_extraction (.I(I),.Q(Q),.I_out(I_out),.Q_out(Q_out),.abs_out(abs_low_out),.abs3_out(abs_high_out),.clk(clk)); 
     end
 endmodule
 
@@ -97,6 +101,88 @@ module feature_extraction_amp1_3#(parameter INPUTS_SIZE = 12, // left shift inpu
     assign abs_out = abs_3;
     assign abs3_out[0:1-INPUTS_SIZE] = abs3_3[-2*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER:1-3*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER] +
         abs3_3[-3*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER];
+
+endmodule
+
+module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left shift input before quantization, corrected at FEx output
+                                    parameter LAYER_FIRST_ACT_QUANTIZER = -11
+                                    )(
+    // all input values will be in range -1 to 1, 0 bit is sign bit, will update inputs every clk
+    input logic signed [0:1-INPUTS_SIZE] I,
+    input logic signed [0:1-INPUTS_SIZE] Q,
+    input logic clk,
+    output logic signed [0:1-INPUTS_SIZE] I_out,
+    output logic signed [0:1-INPUTS_SIZE] Q_out,
+    output logic [0:1-INPUTS_SIZE] abs_out,
+    output logic [0:1-INPUTS_SIZE] abs3_out
+    );
+    
+    localparam int DELAY_STORAGE_SIZE = 6;
+    
+    logic [0:1-2*INPUTS_SIZE] abs2_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{1}};
+    logic signed [0:1-INPUTS_SIZE] I_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
+    logic signed [0:1-INPUTS_SIZE] Q_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
+    
+    logic [0:1-2*INPUTS_SIZE] abs2_tmp;
+    logic [0:1-INPUTS_SIZE] inv_abs_tmp;
+    
+    logic [0:1+2-2*INPUTS_SIZE-INPUTS_SIZE/2-INPUTS_SIZE%2] abs_3 = 0;
+    logic [0:1-2*INPUTS_SIZE] abs2_3 = 0;
+    logic signed [0:1-INPUTS_SIZE] I_3 = 0;
+    logic signed [0:1-INPUTS_SIZE] Q_3 = 0;
+    
+    logic [0:1-INPUTS_SIZE] abs_4 = 0;
+    logic [0:1-3*INPUTS_SIZE] abs3_4 = 0;
+    logic signed [0:1-INPUTS_SIZE] I_4 = 0;
+    logic signed [0:1-INPUTS_SIZE] Q_4 = 0;
+    
+    logic [$clog2(INPUTS_SIZE):0] new_shift;
+    logic [$clog2(INPUTS_SIZE):0] shift [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
+    
+    // has a delay of INPUTS_SIZE/2 + INPUTS_SIZE%2 + 1 rising edges
+    approx_inv_sqrt #(.INPUTS_SIZE(INPUTS_SIZE+2))
+                sqrt    (.abs2(abs2_2[0][-INPUTS_SIZE+(shift[0] << 1) -:INPUTS_SIZE]),
+                        .clk(clk),
+                        .abs(inv_abs_tmp));
+                        
+    assign abs2_tmp = (I*I) + (Q*Q);
+                        
+    always_ff @(posedge clk) begin: abs2_stage // abs2 value of I and Q,
+        abs2_2 <= {abs2_2[DELAY_STORAGE_SIZE-2:0], abs2_tmp};
+        I_2 <= {I_2[DELAY_STORAGE_SIZE-2:0], I};
+        Q_2 <= {Q_2[DELAY_STORAGE_SIZE-2:0], Q};
+        shift <= {shift[DELAY_STORAGE_SIZE-2:0], new_shift};
+    end
+    
+    always_comb begin
+        new_shift = 0;
+        for (int i=2; i<INPUTS_SIZE+2; i=i+1) begin
+            if (abs2_tmp[1+i-INPUTS_SIZE-2] == 1'b1) begin
+                new_shift = i;
+            end
+        end
+        new_shift = (new_shift >> 1);
+    end
+    
+    always_ff @(posedge clk) begin: abs_stage
+        abs_3 <= (abs2_2[DELAY_STORAGE_SIZE-1]*inv_abs_tmp) >> shift[DELAY_STORAGE_SIZE-1];
+        abs2_3 <= abs2_2[DELAY_STORAGE_SIZE-1];
+        I_3 <= I_2[DELAY_STORAGE_SIZE-1];
+        Q_3 <= Q_2[DELAY_STORAGE_SIZE-1];
+    end
+    
+    always_ff @(posedge clk) begin: abs3_stage
+        abs_4 <= abs_3[1-INPUTS_SIZE/2-INPUTS_SIZE%2 -:INPUTS_SIZE] + abs_3[1-INPUTS_SIZE/2-INPUTS_SIZE%2-INPUTS_SIZE];
+        abs3_4 <= abs2_3 * abs_3[1-INPUTS_SIZE/2-INPUTS_SIZE%2 -:INPUTS_SIZE];
+        I_4 <= I_3;
+        Q_4 <= Q_3;
+    end
+    
+    assign I_out = I_4;
+    assign Q_out = Q_4;
+    assign abs_out = abs_4;
+    assign abs3_out = abs3_4[-2*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER:1-3*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER] +
+        abs3_4[-3*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER];
 
 endmodule
 

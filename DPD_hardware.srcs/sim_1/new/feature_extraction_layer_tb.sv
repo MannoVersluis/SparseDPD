@@ -21,15 +21,15 @@
 
 
 module activation_layer_tb();
-    parameter int INPUTS_SIZE = 4;
+    parameter int INPUTS_SIZE = 12;
     parameter int LAYER_FIRST_ACT_QUANTIZER = 1-INPUTS_SIZE;
-    parameter string FEATURE_EXTRACTION = "1_3";
+    parameter string FEATURE_EXTRACTION = "1_3_INV";
     parameter int RANGE = $pow(2, INPUTS_SIZE)-1;
 
 //    logic signed [0:1-INPUTS_SIZE] I_in;
 //    logic signed [0:1-INPUTS_SIZE] Q_in;
     
-    logic signed [0:1-INPUTS_SIZE] I [INPUTS_SIZE+3:0] = '{INPUTS_SIZE+4{0}};
+    logic signed [0:1-INPUTS_SIZE] I [INPUTS_SIZE+3:0] = '{INPUTS_SIZE+4{1}};
     logic signed [0:1-INPUTS_SIZE] Q [INPUTS_SIZE+3:0] = '{INPUTS_SIZE+4{0}};
     logic [0:1-2*INPUTS_SIZE] abs_low [INPUTS_SIZE+3:0] = '{INPUTS_SIZE+4{0}};
     logic [0:1-4*INPUTS_SIZE] abs_high [INPUTS_SIZE+3:0] = '{INPUTS_SIZE+4{0}};
@@ -64,7 +64,7 @@ module activation_layer_tb();
     
     initial begin
         clk = 0;
-        for (int i=0;i<50;i=i+1) begin
+        for (int i=0;i<500;i=i+1) begin
 //            int_I = $signed($urandom_range(0, 127)) - 128;
 //            int_Q = $signed($urandom_range(0, 127)) - 128;
             #10

@@ -86,75 +86,6 @@ module nonrestoring_sqrt_recursive #(parameter INPUTS_SIZE = 12,
     end
 endmodule
 
-
-// #TODO get this to work
-module nonrestoring_inv_sqrt #(parameter INPUTS_SIZE = 12
-    )(
-    input logic signed [0:1-INPUTS_SIZE] abs2, // truncate the lsb half
-    input clk,
-    output logic signed [0:1-INPUTS_SIZE/2-INPUTS_SIZE%2] abs
-    );
-    localparam ITERATION = 1;
-    
-    logic [0:1-INPUTS_SIZE] new_abs2;
-    
-    always_ff @(posedge clk) begin
-        new_abs2 <= abs2 - (1 << (INPUTS_SIZE + INPUTS_SIZE%2 - 2));
-    end
-    
-    logic [0:1-ITERATION] new_root_digits;
-    logic [1:1-INPUTS_SIZE] new_abs2_2;
-    
-    always_ff @(posedge clk) begin    
-        new_abs2_2 <= {new_abs2, 1'b0} + ({!new_abs2[0], 3'b011} << (INPUTS_SIZE + INPUTS_SIZE%2 - 2 - ITERATION));
-        new_root_digits <= !new_abs2[0];
-    end
-    
-    nonrestoring_inv_sqrt_recursive #(.INPUTS_SIZE(INPUTS_SIZE),
-                                        .ITERATION(2))
-                            first   (.abs2(new_abs2_2),
-                                    .root_digits(new_root_digits),
-                                    .clk(clk),
-                                    .abs(abs));
-    
-endmodule
-
-module nonrestoring_inv_sqrt_recursive #(parameter INPUTS_SIZE = 12,
-                                        parameter ITERATION = 2
-    )(
-    input logic signed [1:1-INPUTS_SIZE] abs2,  // truncate the lsb half, added msb to keep track of sign (msb starts as 0)
-    input logic [0:2-ITERATION] root_digits,
-    input clk,
-    output logic signed [0:1-INPUTS_SIZE/2-INPUTS_SIZE%2] abs
-    );
-    
-    logic [0:1-ITERATION] new_root_digits;
-    logic [1:1-INPUTS_SIZE] new_abs2;
-    
-    
-    
-    always_ff @(posedge clk) begin
-        if (ITERATION != INPUTS_SIZE/2+INPUTS_SIZE%2) begin
-            new_abs2 <= (abs2 << 1) + ({{ITERATION{!abs2[1]}}^root_digits, 3'b011} << (INPUTS_SIZE + INPUTS_SIZE%2 - 2 - ITERATION));
-            new_root_digits <= {root_digits, !abs2[1]};
-        end
-        else begin
-            abs <= {root_digits[0:2-ITERATION], !abs2[1]} + 
-                ($signed((abs2 << 1) + ({{ITERATION{!abs2[1]}}^root_digits, 3'b011} << (INPUTS_SIZE + INPUTS_SIZE%2 - 2 - ITERATION))) >= 0);
-        end
-    end
-    
-    if (ITERATION != INPUTS_SIZE/2+INPUTS_SIZE%2) begin
-        nonrestoring_inv_sqrt_recursive #(.INPUTS_SIZE(INPUTS_SIZE),
-                                            .ITERATION(ITERATION+1))
-                                sqrt    (.abs2(new_abs2), // shift left by 1, lsb=0
-                                        .root_digits(new_root_digits),
-                                        .clk(clk),
-                                        .abs(abs));
-    end
-endmodule
-
-// #TODO get this to work
 module approx_inv_sqrt #(parameter INPUTS_SIZE = 12
     )(
     input logic [0:1-INPUTS_SIZE] abs2, // truncate the lsb half
@@ -219,9 +150,9 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 12
         approx_4 <= approx_3;
         
         valapp_5 <= (approx_4 * valapp_4[2*MAX_BITS-(INPUTS_SIZE-1)/2-1 -:MAX_BITS]) >> 1;
-        
-        abs <= valapp_5[2*MAX_BITS-3 -:INPUTS_SIZE] + valapp_5[2*MAX_BITS-3-INPUTS_SIZE];
     end
+    
+    assign abs = valapp_5[2*MAX_BITS-3 -:INPUTS_SIZE] + valapp_5[2*MAX_BITS-3-INPUTS_SIZE];
     
 endmodule
 
