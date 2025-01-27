@@ -25,6 +25,7 @@ module activation_layer_tb();
     parameter int LAYER_FIRST_ACT_QUANTIZER = 1-INPUTS_SIZE;
     parameter string FEATURE_EXTRACTION = "1_3_INV";
     parameter int RANGE = $pow(2, INPUTS_SIZE)-1;
+    parameter PHASE_NORM = 1;
 
 //    logic signed [0:1-INPUTS_SIZE] I_in;
 //    logic signed [0:1-INPUTS_SIZE] Q_in;
@@ -40,6 +41,8 @@ module activation_layer_tb();
     logic signed [0:1-INPUTS_SIZE] Q_out;
     logic [0:1-INPUTS_SIZE] abs_low_out;
     logic [0:1-INPUTS_SIZE] abs_high_out;
+    logic [0:1-INPUTS_SIZE] norm_I_out;
+    logic [0:1-INPUTS_SIZE] norm_Q_out;
     
     real I_real;
     real Q_real;
@@ -52,8 +55,17 @@ module activation_layer_tb();
     
     feature_extraction #(.INPUTS_SIZE(INPUTS_SIZE),
                             .LAYER_FIRST_ACT_QUANTIZER(LAYER_FIRST_ACT_QUANTIZER),
-                            .FEATURE_EXTRACTION(FEATURE_EXTRACTION))
-        feature_extraction (.I(I[0]),.Q(Q[0]),.I_out(I_out),.Q_out(Q_out),.abs_low_out(abs_low_out),.abs_high_out(abs_high_out),.clk(clk));
+                            .FEATURE_EXTRACTION(FEATURE_EXTRACTION),
+                            .PHASE_NORM(PHASE_NORM))
+        feature_extraction (.I(I[0]),
+                            .Q(Q[0]),
+                            .I_out(I_out),
+                            .Q_out(Q_out),
+                            .abs_low_out(abs_low_out),
+                            .abs_high_out(abs_high_out),
+                            .clk(clk),
+                            .norm_I_out(norm_I_out),
+                            .norm_Q_out(norm_Q_out));
     
     always #5 clk = ~clk;
     

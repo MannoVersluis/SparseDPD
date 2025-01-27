@@ -34,6 +34,7 @@ package parameter_weights_pack;
     localparam int PARALLEL_INPUTS = 2;
     localparam string LAYER_BACKBONE = "fc_no_rnn";
     localparam string FEATURE_EXTRACTION = "1_3_INV"; // to use abs2_4 or abs1_3 for feature augmentation
+    localparam PHASE_NORMALIZATION = 1; // 1 for true, 0 for false
     localparam string ACTIVATION_FUNCTION [1:BACKBONE_LAYERS] = '{BACKBONE_LAYERS{"RELU"}};
     logic signed [0:11] LAYER_FIRST_WEIGHT [0:3][0:7]  = '{'{354, 988, -465, 296, 119, 920, 174, 903}, '{424, -599, 496, 1414, -133, 119, -7, 367}, '{-14, -1043, -475, -617, 730, 86, -195, 858}, '{-273, 595, -192, 82, -261, 238, 182, -493}};
     logic signed [0:11] LAYER_FIRST_BIAS [0:3]  = '{451, 702, 300, -226};
@@ -52,7 +53,7 @@ package parameter_weights_pack;
     localparam int LAYER_LAST_OUT_QUANTIZER   = -15;
     localparam string LAYER_TYPES [1:BACKBONE_LAYERS+1] = '{"INT_LINEAR", "INT_LINEAR", "INT_LINEAR"};
     // The names of the layers are: BACKBONE.FC_HID.0, BACKBONE.FC_HID.1, BACKBONE.FC_OUT;
-    localparam int LAYER_ORDER [0:BACKBONE_LAYERS+1] = {'0, 1, 2, 3}; // The order of the layers in LAYER_NAMES
+    localparam int LAYER_ORDER [0:BACKBONE_LAYERS+1] = {0, 1, 2, 3}; // The order of the layers in LAYER_NAMES
         // IMPORTANT: the order of the layers in the code of the backbone is detemined based on what is defined first in the backbone,
         // make sure that this order is correct, or change the backbone if needed
 endpackage

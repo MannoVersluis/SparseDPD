@@ -22,7 +22,7 @@
 
 module sqrt_tb();
 
-    localparam int INPUTS_SIZE = 12;
+    localparam int INPUTS_SIZE = 14;
 
     real abs_real;
     real abs2_real;

@@ -22,7 +22,8 @@
 
 module feature_extraction#(parameter INPUTS_SIZE = 12,
                             parameter LAYER_FIRST_ACT_QUANTIZER = -11,
-                            parameter string FEATURE_EXTRACTION = "1_3"
+                            parameter string FEATURE_EXTRACTION = "1_3",
+                            parameter PHASE_NORM = 1
     )(
     // all input values will be in range -1 to 1, 0 bit is sign bit, will update inputs every clk
     input logic signed [0:1-INPUTS_SIZE] I,
@@ -31,12 +32,15 @@ module feature_extraction#(parameter INPUTS_SIZE = 12,
     output wire [0:1-INPUTS_SIZE] I_out,
     output wire [0:1-INPUTS_SIZE] Q_out,
     output wire [0:1-INPUTS_SIZE] abs_low_out,
-    output wire [0:1-INPUTS_SIZE] abs_high_out
+    output wire [0:1-INPUTS_SIZE] abs_high_out,
+    output wire [0:1-INPUTS_SIZE] norm_I_out, // next I input, used to determine complex complement for next cycle
+    output wire [0:1-INPUTS_SIZE] norm_Q_out  // next Q input, used to determine complex complement for next cycle
     );
     
     if (FEATURE_EXTRACTION == "1_3") begin
         feature_extraction_amp1_3 #(.INPUTS_SIZE(INPUTS_SIZE),
-                                    .LAYER_FIRST_ACT_QUANTIZER(LAYER_FIRST_ACT_QUANTIZER))
+                                    .LAYER_FIRST_ACT_QUANTIZER(LAYER_FIRST_ACT_QUANTIZER),
+                                    .PHASENORM(PHASE_NORM))
             feature_extraction (.I(I),.Q(Q),.I_out(I_out),.Q_out(Q_out),.abs_out(abs_low_out),.abs3_out(abs_high_out),.clk(clk));        
     end else if (FEATURE_EXTRACTION == "2_4") begin
         feature_extraction_amp2_4 #(.INPUTS_SIZE(INPUTS_SIZE),
@@ -44,14 +48,25 @@ module feature_extraction#(parameter INPUTS_SIZE = 12,
             feature_extraction (.I(I),.Q(Q),.I_out(I_out),.Q_out(Q_out),.abs2_out(abs_low_out),.abs4_out(abs_high_out),.clk(clk));
     end else if (FEATURE_EXTRACTION == "1_3_INV") begin
         feature_extraction_amp1_3_inv_sqrt #(.INPUTS_SIZE(INPUTS_SIZE),
-                                    .LAYER_FIRST_ACT_QUANTIZER(LAYER_FIRST_ACT_QUANTIZER))
-            feature_extraction (.I(I),.Q(Q),.I_out(I_out),.Q_out(Q_out),.abs_out(abs_low_out),.abs3_out(abs_high_out),.clk(clk)); 
+                                    .LAYER_FIRST_ACT_QUANTIZER(LAYER_FIRST_ACT_QUANTIZER),
+                                    .PHASE_NORM(PHASE_NORM))
+            feature_extraction (.I(I),
+                                .Q(Q),
+                                .I_out(I_out),
+                                .Q_out(Q_out),
+                                .abs_out(abs_low_out),
+                                .abs3_out(abs_high_out),
+                                .clk(clk),
+                                .norm_I_out(norm_I_out),
+                                .norm_Q_out(norm_Q_out)); 
     end
 endmodule
 
+//#TODO add norm outputs to module
 // is not perfectly accurate for abs3, due to rounding abs to nearest integer
 module feature_extraction_amp1_3#(parameter INPUTS_SIZE = 12, // left shift input before quantization, corrected at FEx output
-                                    parameter LAYER_FIRST_ACT_QUANTIZER = -11
+                                    parameter LAYER_FIRST_ACT_QUANTIZER = -11,
+                                    parameter PHASE_NORM = 1
                                     )(
     // all input values will be in range -1 to 1, 0 bit is sign bit, will update inputs every clk
     input logic signed [0:1-INPUTS_SIZE] I,
@@ -105,7 +120,8 @@ module feature_extraction_amp1_3#(parameter INPUTS_SIZE = 12, // left shift inpu
 endmodule
 
 module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left shift input before quantization, corrected at FEx output
-                                    parameter LAYER_FIRST_ACT_QUANTIZER = -11
+                                            parameter LAYER_FIRST_ACT_QUANTIZER = -11,
+                                            parameter PHASE_NORM = 1
                                     )(
     // all input values will be in range -1 to 1, 0 bit is sign bit, will update inputs every clk
     input logic signed [0:1-INPUTS_SIZE] I,
@@ -114,7 +130,9 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     output logic signed [0:1-INPUTS_SIZE] I_out,
     output logic signed [0:1-INPUTS_SIZE] Q_out,
     output logic [0:1-INPUTS_SIZE] abs_out,
-    output logic [0:1-INPUTS_SIZE] abs3_out
+    output logic [0:1-INPUTS_SIZE] abs3_out,
+    output logic signed [0:1-INPUTS_SIZE] norm_I_out, // next I input, used to determine complex complement for next cycle
+    output logic signed [0:1-INPUTS_SIZE] norm_Q_out  // next Q input, used to determine complex complement for next cycle
     );
     
     localparam int DELAY_STORAGE_SIZE = 6; // how many clock cyles-1 bits are stored while inv_sqrt is calculated
@@ -122,7 +140,7 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     localparam int SQRT_EXTRA_IN_BITS = 4; // output of inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS + SQRT_EXTRA_IN_BITS bits
     
     logic [0:1-2*INPUTS_SIZE] abs2_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{1}};
-    logic signed [0:1-INPUTS_SIZE] I_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
+    logic signed [0:1-INPUTS_SIZE] I_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{1}};
     logic signed [0:1-INPUTS_SIZE] Q_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
     
     logic [0:1-2*INPUTS_SIZE] abs2_tmp;
@@ -132,11 +150,15 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     logic [0:1-2*INPUTS_SIZE] abs2_3 = 0;
     logic signed [0:1-INPUTS_SIZE] I_3 = 0;
     logic signed [0:1-INPUTS_SIZE] Q_3 = 0;
+    logic signed [0:1-2*INPUTS_SIZE-SQRT_EXTRA_OUT_BITS-SQRT_EXTRA_IN_BITS] norm_I_3 = 0;
+    logic signed [0:1-2*INPUTS_SIZE-SQRT_EXTRA_OUT_BITS-SQRT_EXTRA_IN_BITS] norm_Q_3 = 0;
     
     logic [0:1-INPUTS_SIZE] abs_4 = 0;
     logic [0:1-3*INPUTS_SIZE] abs3_4 = 0;
     logic signed [0:1-INPUTS_SIZE] I_4 = 0;
     logic signed [0:1-INPUTS_SIZE] Q_4 = 0;
+    logic signed [0:1-INPUTS_SIZE] norm_I_4 = 0;
+    logic signed [0:1-INPUTS_SIZE] norm_Q_4 = 0;
     
     logic [$clog2(INPUTS_SIZE):0] new_shift;
     logic [$clog2(INPUTS_SIZE):0] shift [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
@@ -172,6 +194,11 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
         abs2_3 <= abs2_2[DELAY_STORAGE_SIZE-1];
         I_3 <= I_2[DELAY_STORAGE_SIZE-1];
         Q_3 <= Q_2[DELAY_STORAGE_SIZE-1];
+        // maybe only use 1 shift for inv_abs_tmp total?
+        if (PHASE_NORM == 1) begin
+            norm_I_3 <= (I_2[DELAY_STORAGE_SIZE-1]* $signed({1'b0, inv_abs_tmp}) << (12 - shift[DELAY_STORAGE_SIZE-1]));
+            norm_Q_3 <= (Q_2[DELAY_STORAGE_SIZE-1]* $signed({1'b0, inv_abs_tmp}) << (12 - shift[DELAY_STORAGE_SIZE-1]));
+        end
     end
     
     always_ff @(posedge clk) begin: abs3_stage
@@ -179,6 +206,11 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
         abs3_4 <= abs2_3 * abs_3[1-2-INPUTS_SIZE/2-INPUTS_SIZE%2 -:INPUTS_SIZE];
         I_4 <= I_3;
         Q_4 <= Q_3;
+        
+        if (PHASE_NORM == 1) begin
+            norm_I_4 <= norm_I_3[0:1-INPUTS_SIZE] + norm_I_3[-INPUTS_SIZE];
+            norm_Q_4 <= norm_Q_3[0:1-INPUTS_SIZE] + norm_Q_3[-INPUTS_SIZE];
+        end
     end
     
     assign I_out = I_4;
@@ -186,6 +218,18 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     assign abs_out = abs_4;
     assign abs3_out = abs3_4[-2*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER:1-3*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER] +
         abs3_4[-3*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER];
+    
+     // since you can't add optional outputs in vivado, this should make it optimize it away during synthesis
+     // when phase normalization isn't being used
+    if (PHASE_NORM == 1) begin
+        assign norm_I_out = norm_I_4;
+        assign norm_Q_out = norm_Q_4;
+    end
+    else begin
+        assign norm_I_out = 0;
+        assign norm_Q_out = 0;
+    end
+    
 
 endmodule
 
