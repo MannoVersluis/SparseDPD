@@ -64,8 +64,18 @@ module main (
     logic signed [0:1-INPUTS_SIZE] norm_Q;
     
     always_ff @(posedge clk) begin: norm_delay // to compensate for shift_reg delay
-        norm_I <= new_norm_I;
-        norm_Q <= new_norm_Q;
+        if (new_norm_I[0] != FEx_I[0]) begin // + to - overflow correction since possible to round 2047.5 to -2048 for example
+            norm_I <= {1'b0, {INPUTS_SIZE-1{1'b1}}};
+        end
+        else begin
+            norm_I <= new_norm_I;
+        end
+        if (new_norm_Q[0] != FEx_Q[0]) begin // + to - overflow correction since possible to round 2047.5 to -2048 for example
+            norm_Q <= {1'b0, {INPUTS_SIZE-1{1'b1}}};
+        end
+        else begin
+            norm_Q <= new_norm_Q;
+        end
     end
     
     if (PHASE_NORMALIZATION == 1) begin // if with phase normalization        
@@ -99,14 +109,14 @@ module main (
                     .norm_Q_input(norm_Q));
         
         for (genvar x=0; x<PARALLEL_INPUTS; x=x+1) begin
-            assign backbone_in[x] = norm_I_out[x];
-            assign backbone_in[x+PARALLEL_INPUTS] = norm_Q_out[x];
-            assign backbone_in[x+2*PARALLEL_INPUTS] = shift_reg_abs_low_out[x];
-            assign backbone_in[x+3*PARALLEL_INPUTS] = shift_reg_abs_high_out[x];
+            assign backbone_in[x] = norm_I_out[PARALLEL_INPUTS-1-x];
+            assign backbone_in[x+PARALLEL_INPUTS] = norm_Q_out[PARALLEL_INPUTS-1-x];
+            assign backbone_in[x+2*PARALLEL_INPUTS] = shift_reg_abs_low_out[PARALLEL_INPUTS-1-x];
+            assign backbone_in[x+3*PARALLEL_INPUTS] = shift_reg_abs_high_out[PARALLEL_INPUTS-1-x];
         end
     end
     else begin // if without phase normalization
-        for (genvar x=0; x<LAYER_SIZES[0]; x=x+1) begin
+        for (genvar x=0; x<LAYER_SIZES[0]; x=x+1) begin // #TODO optimize always 0 Q away
             assign backbone_in[x] = shift_reg_out[PARALLEL_INPUTS-1-x%PARALLEL_INPUTS][x/PARALLEL_INPUTS];
         end
     end
@@ -131,14 +141,22 @@ module main (
     if (PHASE_NORMALIZATION == 1) begin // phase recovery
         logic signed [INPUTS_SIZE-1:0] denorm_I_out [0:LAYER_SIZES[BACKBONE_LAYERS+1]/PARALLEL_INPUTS-1];
         logic signed [INPUTS_SIZE-1:0] denorm_Q_out [0:LAYER_SIZES[BACKBONE_LAYERS+1]/PARALLEL_INPUTS-1];
+        logic signed [0:1-INPUTS_SIZE] delayed_norm_I[0:3*(BACKBONE_LAYERS+1)+4]; // update this is pipeline length changed
+        logic signed [0:1-INPUTS_SIZE] delayed_norm_Q[0:3*(BACKBONE_LAYERS+1)+4]; // update this is pipeline length changed
+        
+        always @(posedge clk) begin
+            delayed_norm_I <= {norm_I, delayed_norm_I[0:3*(BACKBONE_LAYERS+1)+3]};
+            delayed_norm_Q <= {norm_Q, delayed_norm_Q[0:3*(BACKBONE_LAYERS+1)+3]};
+        end
+        
         phase_denormalization #(.WIDTH(LAYER_SIZES[BACKBONE_LAYERS+1]/PARALLEL_INPUTS),.INPUTS_SIZE(INPUTS_SIZE))
-            norm (.I_inputs(backbone_I_out),
+            denorm (.I_inputs(backbone_I_out),
                     .Q_inputs(backbone_Q_out),
                     .clk(clk),
                     .I_out(denorm_I_out),
                     .Q_out(denorm_Q_out),
-                    .norm_I_input(norm_I),
-                    .norm_Q_input(norm_Q));
+                    .norm_I_input(delayed_norm_I[3*(BACKBONE_LAYERS+1)+3]),
+                    .norm_Q_input(delayed_norm_Q[3*(BACKBONE_LAYERS+1)+3]));
         
         assign I_out = denorm_I_out[0];
         assign Q_out = denorm_Q_out[0];

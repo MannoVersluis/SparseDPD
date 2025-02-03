@@ -136,11 +136,11 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     );
     
     localparam int DELAY_STORAGE_SIZE = 6; // how many clock cyles-1 bits are stored while inv_sqrt is calculated
-    localparam int SQRT_EXTRA_OUT_BITS = 4; // input to inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS bits
-    localparam int SQRT_EXTRA_IN_BITS = 4; // output of inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS + SQRT_EXTRA_IN_BITS bits
+    localparam int SQRT_EXTRA_OUT_BITS = 0; // input to inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS bits
+    localparam int SQRT_EXTRA_IN_BITS = 0; // output of inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS + SQRT_EXTRA_IN_BITS bits
     
-    logic [0:1-2*INPUTS_SIZE] abs2_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{1}};
-    logic signed [0:1-INPUTS_SIZE] I_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{1}};
+    logic [0:1-2*INPUTS_SIZE] abs2_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
+    logic signed [0:1-INPUTS_SIZE] I_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
     logic signed [0:1-INPUTS_SIZE] Q_2 [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
     
     logic [0:1-2*INPUTS_SIZE] abs2_tmp;
@@ -161,23 +161,16 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     logic signed [0:1-INPUTS_SIZE] norm_Q_4 = 0;
     
     logic [$clog2(INPUTS_SIZE):0] new_shift;
-    logic [$clog2(INPUTS_SIZE):0] shift [DELAY_STORAGE_SIZE-1:0] = '{DELAY_STORAGE_SIZE{0}};
+    logic [$clog2(INPUTS_SIZE):0] shift [DELAY_STORAGE_SIZE-2:0] = '{DELAY_STORAGE_SIZE-1{0}};
     
     // has a delay of INPUTS_SIZE/2 + INPUTS_SIZE%2 + 1 rising edges
     approx_inv_sqrt #(.INPUTS_SIZE(INPUTS_SIZE+SQRT_EXTRA_IN_BITS),
                         .EXTRA_OUT_BITS(SQRT_EXTRA_OUT_BITS))
-                sqrt    (.abs2(abs2_2[0][-INPUTS_SIZE+SQRT_EXTRA_IN_BITS+(shift[0] << 1) -:INPUTS_SIZE+SQRT_EXTRA_IN_BITS]),
+                sqrt    (.abs2(abs2_2[0][-INPUTS_SIZE+SQRT_EXTRA_IN_BITS+(new_shift << 1) -:INPUTS_SIZE+SQRT_EXTRA_IN_BITS]),
                         .clk(clk),
                         .abs(inv_abs_tmp));
                         
     assign abs2_tmp = (I*I) + (Q*Q);
-                        
-    always_ff @(posedge clk) begin: abs2_stage // abs2 value of I and Q,
-        abs2_2 <= {abs2_2[DELAY_STORAGE_SIZE-2:0], abs2_tmp};
-        I_2 <= {I_2[DELAY_STORAGE_SIZE-2:0], I};
-        Q_2 <= {Q_2[DELAY_STORAGE_SIZE-2:0], Q};
-        shift <= {shift[DELAY_STORAGE_SIZE-2:0], new_shift};
-    end
     
     always_comb begin
         new_shift = 0;
@@ -188,16 +181,24 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
         end
         new_shift = (new_shift >> 1);
     end
+                        
+    always_ff @(posedge clk) begin: abs2_stage // abs2 value of I and Q,
+        abs2_2 <= {abs2_2[DELAY_STORAGE_SIZE-2:0], abs2_tmp};
+        I_2 <= {I_2[DELAY_STORAGE_SIZE-2:0], I};
+        Q_2 <= {Q_2[DELAY_STORAGE_SIZE-2:0], Q};
+        shift <= {shift[DELAY_STORAGE_SIZE-3:0], new_shift};
+    end
+    
     
     always_ff @(posedge clk) begin: abs_stage
-        abs_3 <= (abs2_2[DELAY_STORAGE_SIZE-1]*inv_abs_tmp) >> shift[DELAY_STORAGE_SIZE-1];
+        abs_3 <= (abs2_2[DELAY_STORAGE_SIZE-1]*inv_abs_tmp) >> shift[DELAY_STORAGE_SIZE-2];
         abs2_3 <= abs2_2[DELAY_STORAGE_SIZE-1];
         I_3 <= I_2[DELAY_STORAGE_SIZE-1];
         Q_3 <= Q_2[DELAY_STORAGE_SIZE-1];
         // maybe only use 1 shift for inv_abs_tmp total?
         if (PHASE_NORM == 1) begin
-            norm_I_3 <= (I_2[DELAY_STORAGE_SIZE-1]* $signed({1'b0, inv_abs_tmp}) << (12 - shift[DELAY_STORAGE_SIZE-1]));
-            norm_Q_3 <= (Q_2[DELAY_STORAGE_SIZE-1]* $signed({1'b0, inv_abs_tmp}) << (12 - shift[DELAY_STORAGE_SIZE-1]));
+            norm_I_3 <= (I_2[DELAY_STORAGE_SIZE-1]* $signed({1'b0, inv_abs_tmp}) << (12 - shift[DELAY_STORAGE_SIZE-2]));
+            norm_Q_3 <= (Q_2[DELAY_STORAGE_SIZE-1]* $signed({1'b0, inv_abs_tmp}) << (12 - shift[DELAY_STORAGE_SIZE-2]));
         end
     end
     

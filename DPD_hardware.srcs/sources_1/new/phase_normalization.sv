@@ -42,10 +42,10 @@ module phase_normalization #(parameter WIDTH = 16, // amount of I, Q inputs give
     end
     
     always_ff @(posedge clk) begin: pn_stage
-        new_I_out[0] = I_inputs[0] * norm_I_input +
-                        Q_inputs[0] * norm_Q_input;
-        new_Q_out[0] = 0; // #TODO: remove value later?
-        for (int i=1; i < WIDTH; i=i+1) begin
+        new_I_out[WIDTH-1] = I_inputs[WIDTH-1] * norm_I_input +
+                                Q_inputs[WIDTH-1] * norm_Q_input;
+        new_Q_out[WIDTH-1] = 0; // #TODO: remove value later?
+        for (int i=0; i < WIDTH-1; i=i+1) begin
             new_I_out[i] = I_inputs[i] * norm_I_input + 
                             Q_inputs[i] * norm_Q_input;
             new_Q_out[i] = Q_inputs[i] * norm_I_input - 

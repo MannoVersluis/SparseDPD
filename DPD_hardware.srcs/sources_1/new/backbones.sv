@@ -49,7 +49,7 @@ module backbones #(
     end
    
     if (LAYER_TYPES[1] == "INT_LINEAR") begin // fully cocnnected layer
-        fc_layer #(.PREV_WIDTH(LAYER_SIZES[LAYER_ORDER[0]]),.WIDTH(LAYER_SIZES[LAYER_ORDER[1]]),.WEIGHTS_SIZE(WEIGHTS_SIZE[LAYER_ORDER[1]]),
+        fc_layer #(.PREV_WIDTH(LAYER_SIZES[0]),.WIDTH(LAYER_SIZES[1]),.WEIGHTS_SIZE(WEIGHTS_SIZE[1]),
             .INPUTS_SIZE(INPUTS_SIZE),.OUTPUTS_SIZE(INPUTS_SIZE),.MIN_BIT_INPUTS(MIN_BIT_INPUTS),
             .MIN_BIT_WEIGHTS(LAYER_FIRST_WEIGHT_QUANTIZER),.MIN_BIT_OUTPUTS(MIN_BIT_INPUTS),.TREE_TYPE(ADDER_TREE[LAYER_ORDER[1]]))
             first_layer (.inputs(inputs),.outputs(layer_outputs[1]),
@@ -63,7 +63,7 @@ module backbones #(
                 
             // add new model layers here
             if (LAYER_TYPES[x] == "INT_LINEAR") begin // fully connected layer
-                fc_layer #(.PREV_WIDTH(LAYER_SIZES[LAYER_ORDER[x-1]]),.WIDTH(LAYER_SIZES[LAYER_ORDER[x]]),.WEIGHTS_SIZE(WEIGHTS_SIZE[LAYER_ORDER[x]]),
+                fc_layer #(.PREV_WIDTH(LAYER_SIZES[x-1]),.WIDTH(LAYER_SIZES[x]),.WEIGHTS_SIZE(WEIGHTS_SIZE[x]),
                     .INPUTS_SIZE(INPUTS_SIZE),.OUTPUTS_SIZE(INPUTS_SIZE),.MIN_BIT_INPUTS(MIN_BIT_INPUTS),
                     .MIN_BIT_WEIGHTS(LAYER_MID_WEIGHT_QUANTIZER[x-2]),.MIN_BIT_OUTPUTS(MIN_BIT_INPUTS),.TREE_TYPE(ADDER_TREE[LAYER_ORDER[x]]))
                     mid_layer (.inputs(layer_inputs[x-1]),.outputs(layer_outputs[x]),
@@ -75,13 +75,32 @@ module backbones #(
         .ACTIVATION_FUNCTION(ACTIVATION_FUNCTION[BACKBONE_LAYERS]))
         last_activation (.inputs(layer_outputs[BACKBONE_LAYERS]),.outputs(new_layer_inputs[BACKBONE_LAYERS]));
         
-    if (LAYER_TYPES[BACKBONE_LAYERS+1] == "INT_LINEAR") begin // fully cocnnected layer
-        fc_layer #(.PREV_WIDTH(LAYER_SIZES[LAYER_ORDER[BACKBONE_LAYERS]]),.WIDTH(LAYER_SIZES[LAYER_ORDER[BACKBONE_LAYERS+1]]),
-            .WEIGHTS_SIZE(WEIGHTS_SIZE[LAYER_ORDER[BACKBONE_LAYERS+1]]),.INPUTS_SIZE(INPUTS_SIZE),.OUTPUTS_SIZE(INPUTS_SIZE),
-            .MIN_BIT_INPUTS(MIN_BIT_INPUTS),.MIN_BIT_WEIGHTS(LAYER_LAST_WEIGHT_QUANTIZER),
-            .MIN_BIT_OUTPUTS(MIN_BIT_INPUTS),
-            .TREE_TYPE(ADDER_TREE[LAYER_ORDER[BACKBONE_LAYERS+1]]))
-            last_layer (.inputs(layer_inputs[BACKBONE_LAYERS]),.outputs(last_layer_outputs),
-            .weights(LAYER_LAST_WEIGHT),.bias(LAYER_LAST_BIAS),.clk(clk));
+    if (DENSE == 0) begin // if no dense connection between the FEx layer and the output layer
+        if (LAYER_TYPES[BACKBONE_LAYERS+1] == "INT_LINEAR") begin // fully connected layer
+            fc_layer #(.PREV_WIDTH(LAYER_SIZES[BACKBONE_LAYERS]),.WIDTH(LAYER_SIZES[BACKBONE_LAYERS+1]),
+                .WEIGHTS_SIZE(WEIGHTS_SIZE[LAYER_ORDER[BACKBONE_LAYERS+1]]),.INPUTS_SIZE(INPUTS_SIZE),.OUTPUTS_SIZE(INPUTS_SIZE),
+                .MIN_BIT_INPUTS(MIN_BIT_INPUTS),.MIN_BIT_WEIGHTS(LAYER_LAST_WEIGHT_QUANTIZER),
+                .MIN_BIT_OUTPUTS(MIN_BIT_INPUTS),
+                .TREE_TYPE(ADDER_TREE[LAYER_ORDER[BACKBONE_LAYERS+1]]))
+                last_layer (.inputs(layer_inputs[BACKBONE_LAYERS]),.outputs(last_layer_outputs),
+                .weights(LAYER_LAST_WEIGHT),.bias(LAYER_LAST_BIAS),.clk(clk));
+        end
+    end
+    else if (DENSE == 1) begin // if the output of the FEx layer is also sent to the input of the output layer
+        logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[0]-1:MIN_BIT_INPUTS[0]] delay_inputs [0:3*(BACKBONE_LAYERS+1)-2][0:LAYER_SIZES[LAYER_ORDER[0]]-1];
+        always @(posedge clk) begin // delaying previous input signal for the dense connection with the output layer
+            delay_inputs[0] <= inputs;
+            delay_inputs[1:3*(BACKBONE_LAYERS+1)-2] <= delay_inputs[0:3*(BACKBONE_LAYERS+1)-2-1];
+        end
+        
+        if (LAYER_TYPES[BACKBONE_LAYERS+1] == "INT_LINEAR") begin // fully connected layer
+            fc_layer #(.PREV_WIDTH(LAYER_SIZES[BACKBONE_LAYERS]+LAYER_SIZES[0]),.WIDTH(LAYER_SIZES[BACKBONE_LAYERS+1]),
+                .WEIGHTS_SIZE(WEIGHTS_SIZE[LAYER_ORDER[BACKBONE_LAYERS+1]]),.INPUTS_SIZE(INPUTS_SIZE),.OUTPUTS_SIZE(INPUTS_SIZE),
+                .MIN_BIT_INPUTS(MIN_BIT_INPUTS),.MIN_BIT_WEIGHTS(LAYER_LAST_WEIGHT_QUANTIZER),
+                .MIN_BIT_OUTPUTS(MIN_BIT_INPUTS),
+                .TREE_TYPE(ADDER_TREE[LAYER_ORDER[BACKBONE_LAYERS+1]]))
+                last_layer (.inputs({layer_inputs[BACKBONE_LAYERS], delay_inputs[3*(BACKBONE_LAYERS+1)-2]}),.outputs(last_layer_outputs),
+                .weights(LAYER_LAST_WEIGHT),.bias(LAYER_LAST_BIAS),.clk(clk));
+        end
     end
 endmodule
