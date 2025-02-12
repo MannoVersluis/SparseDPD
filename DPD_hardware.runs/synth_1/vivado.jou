@@ -3,11 +3,11 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Mon Jan 20 22:18:40 2025
-# Process ID: 8072
+# Start of session at: Wed Feb 12 14:25:51 2025
+# Process ID: 6160
 # Current directory: C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1
-# Command line: vivado.exe -log approx_inv_sqrt.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source approx_inv_sqrt.tcl
-# Log file: C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/approx_inv_sqrt.vds
+# Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
+# Log file: C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/main.vds
 # Journal file: C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1\vivado.jou
 # Running On        :Manno
 # Platform          :Windows Server 2016 or Windows 10
@@ -19,6 +19,6 @@
 # Host memory       :32911 MB
 # Swap memory       :2080 MB
 # Total Virtual     :34991 MB
-# Available Virtual :12220 MB
+# Available Virtual :23034 MB
 #-----------------------------------------------------------
-source approx_inv_sqrt.tcl -notrace
+source main.tcl -notrace

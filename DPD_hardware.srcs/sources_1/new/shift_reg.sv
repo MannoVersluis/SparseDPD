@@ -29,7 +29,7 @@ module shift_reg #(parameter INPUT_SIZE = 12,
     output logic signed [INPUT_SIZE-1:0] out [SHIFT_LENGTH-1:0][INPUT_AMOUNT-1:0]
     );
     
-    logic signed [INPUT_SIZE-1:0] storage [SHIFT_LENGTH-1:0][INPUT_AMOUNT-1:0] = '{SHIFT_LENGTH{'{INPUT_AMOUNT{'b0}}}};
+    logic signed [INPUT_SIZE-1:0] storage [SHIFT_LENGTH-1:0][INPUT_AMOUNT-1:0];
     
     always_ff @(posedge clk) begin: shift_reg
         storage[SHIFT_LENGTH-2:0] <= storage[SHIFT_LENGTH-1:1];

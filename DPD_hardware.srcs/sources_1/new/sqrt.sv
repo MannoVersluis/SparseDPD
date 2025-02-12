@@ -86,8 +86,8 @@ module nonrestoring_sqrt_recursive #(parameter INPUTS_SIZE = 12,
     end
 endmodule
 
-module approx_inv_sqrt #(parameter INPUTS_SIZE = 12,
-                            parameter EXTRA_OUT_BITS = 0 // can be at most INPUTS_SIZE-1
+module approx_inv_sqrt #(parameter INPUTS_SIZE = 15,
+                            parameter EXTRA_OUT_BITS = 4 // can be at most INPUTS_SIZE-1
     )(
     input logic [0:1-INPUTS_SIZE] abs2, // truncate the lsb half
     input clk,
@@ -95,13 +95,17 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 12,
     );
     
     localparam APPROX_BITS = 5; // how many bits of the inv sqrt will be stored in luts
+    localparam int MAX_BITS = INPUTS_SIZE+2; // should be at least INPUTS_SIZE, operations will take at most the MAX_BITS msb's as an input
     
     localparam logic [0:$rtoi($pow(2, $itor(INPUTS_SIZE)))-1][3*(INPUTS_SIZE/2+APPROX_BITS)-2-1:0] APPROX_LUT_1 = APPROX_CALC_1();
     function logic [0:$rtoi($pow(2, $itor(INPUTS_SIZE)))-1][3*(INPUTS_SIZE/2+APPROX_BITS)-2-1:0] APPROX_CALC_1();
         for(int i=0;i<$rtoi($pow(2, $itor(INPUTS_SIZE))); i++) begin
             logic [APPROX_BITS-1:-1] tmp;
+            logic [3*(INPUTS_SIZE/2+APPROX_BITS)-2-1:0] tmp2;
             tmp = $rtoi($pow(2, $itor(APPROX_BITS+$clog2(i+1)/2))/$sqrt($itor(i)));
-            APPROX_CALC_1[i] = ((tmp[APPROX_BITS-1:0] + tmp[-1])*(tmp[APPROX_BITS-1:0] + tmp[-1])*(tmp[APPROX_BITS-1:0] + tmp[-1])) << 3*(INPUTS_SIZE/2-$clog2(i+1)/2);
+            tmp2 = ((tmp[APPROX_BITS-1:0] + tmp[-1])*(tmp[APPROX_BITS-1:0] + tmp[-1])*(tmp[APPROX_BITS-1:0] + tmp[-1])) << 3*(INPUTS_SIZE/2-$clog2(i+1)/2);
+            APPROX_CALC_1[i] = tmp2 >> (2*(INPUTS_SIZE/2+APPROX_BITS)-1 - MAX_BITS);
+//            APPROX_CALC_1()[i] = tmp2 >> (3*(INPUTS_SIZE/2+APPROX_BITS)-2 - (MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-1))
         end
     endfunction
     
@@ -114,10 +118,9 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 12,
         end
     endfunction
     
-    localparam int MAX_BITS = INPUTS_SIZE+2; // should be at least INPUTS_SIZE, operations will take at most the MAX_BITS msb's as an input
     
     logic [INPUTS_SIZE/2+APPROX_BITS+1-1:0] approx_1;
-    logic [3*(INPUTS_SIZE/2+APPROX_BITS)-2-1:0] approx3_1;
+    logic [MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-2:0] approx3_1;
     logic [0:1-INPUTS_SIZE] abs2_1;
     
     logic [MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-1:0] valapp_2; // since (abs2_1*approx3_1) has max value for amp2=1,
@@ -140,7 +143,7 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 12,
         approx_1 <= APPROX_LUT_2[abs2]; // reads (the APPROX_BITS msb's of x)*3 from memory
         approx3_1 <= APPROX_LUT_1[abs2]; // reads (the APPROX_BITS msb's of x)**3 from memory
         
-        valapp_2 <= (approx_1 << (MAX_BITS - 1)) - (abs2_1*approx3_1[3*(INPUTS_SIZE/2+APPROX_BITS)-2-1 -:MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-1]);
+        valapp_2 <= (approx_1 << (MAX_BITS - 1)) - (abs2_1*approx3_1);
         abs2_2 <= abs2_1; 
         approx_2 <= approx_1;
         

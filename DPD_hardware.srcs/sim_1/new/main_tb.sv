@@ -25,10 +25,12 @@ module main_tb();
 
 
 logic clk;
-logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] I;
-logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] Q;
-logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER] I_out;
-logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER] Q_out;
+logic signed [0:1-INPUTS_SIZE] I;
+logic signed [0:1-INPUTS_SIZE] Q;
+logic signed [0:1-2*INPUTS_SIZE] I_out;
+logic signed [0:1-2*INPUTS_SIZE] Q_out;
+logic signed [0:1-2*INPUTS_SIZE] I_out_file = 0;
+logic signed [0:1-2*INPUTS_SIZE] Q_out_file = 0;
 real I_float;
 real Q_float;
 real I_out_float_file;
@@ -39,8 +41,6 @@ real Q_out_float_file;
 //real FEx_abs_high_float;
 
 
-logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] I_out_file = 0;
-logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] Q_out_file = 0;
 //logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] I_FEx;
 //logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] Q_FEx;
 //logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] FEx_I_out;
@@ -93,11 +93,11 @@ initial begin
         Q_float = Q_float*$pow(2, -LAYER_FIRST_WEIGHT_QUANTIZER);
         I = I_float;
         Q = Q_float;
-        if (line_num > 19 + 2*PHASE_NORMALIZATION) begin
+        if (line_num > 18 + 2*PHASE_NORMALIZATION) begin
             $fgets(text, output_file); // why is this line needed to get floats?
             $fscanf(output_file, "%d,%f,%f", line_num-1, I_out_float_file, Q_out_float_file);
-            I_out_float_file = I_out_float_file*$pow(2, -LAYER_FIRST_WEIGHT_QUANTIZER);
-            Q_out_float_file = Q_out_float_file*$pow(2, -LAYER_FIRST_WEIGHT_QUANTIZER);
+            I_out_float_file = I_out_float_file*$pow(2, -2*LAYER_FIRST_WEIGHT_QUANTIZER);
+            Q_out_float_file = Q_out_float_file*$pow(2, -2*LAYER_FIRST_WEIGHT_QUANTIZER);
             I_out_file = I_out_float_file;
             Q_out_file = Q_out_float_file;
         end
@@ -113,8 +113,9 @@ initial begin
 //        abs_high_FEx = FEx_abs_high_float;
         #2.5;
         clk = 0;
-//        if ((I_FEx != FEx_I_out) || (Q_FEx != FEx_Q_out) || (abs_low_FEx != FEx_abs_low_out) || (abs_high_FEx != FEx_abs_high_out))
-//            $error("Incorrect output of feature extraction layer");
+            if (I_out != I_out_file || Q_out != Q_out_file) begin
+                $error("Incorrect output data, time=%0t, I_out=%0h, I_out_file=%0h, Q_out=%0f, Q_out_file=%0f", $time, I_out, I_out_file, Q_out, Q_out_file);
+            end
         #2.5;
         
     end

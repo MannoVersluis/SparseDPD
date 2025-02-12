@@ -21,28 +21,28 @@
 import parameter_weights_pack::*;
 
 module main (
-    input logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] I,
-    input logic signed [INPUTS_SIZE+LAYER_FIRST_ACT_QUANTIZER-1:LAYER_FIRST_ACT_QUANTIZER] Q,
+    input logic signed [0:1-INPUTS_SIZE] I,
+    input logic signed [0:1-INPUTS_SIZE] Q,
     input clk,
-    output logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER] I_out,
-    output logic signed [INPUTS_SIZE+LAYER_LAST_ACT_QUANTIZER-1:LAYER_LAST_ACT_QUANTIZER] Q_out
+    output logic signed [0:1-2*INPUTS_SIZE] I_out,
+    output logic signed [0:1-2*INPUTS_SIZE] Q_out
     );
         
     localparam MIN_BIT_INPUTS = LAYER_FIRST_ACT_QUANTIZER;
     
     
-    logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] FEx_I;
-    logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] FEx_Q;
-    logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] FEx_abs_low;
-    logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] FEx_abs_high;
-    logic signed [0:1-INPUTS_SIZE] new_norm_I;
-    logic signed [0:1-INPUTS_SIZE] new_norm_Q;
+    logic signed [0:1-INPUTS_SIZE] FEx_I;
+    logic signed [0:1-INPUTS_SIZE] FEx_Q;
+    logic signed [0:1-INPUTS_SIZE] FEx_abs_low;
+    logic signed [0:1-INPUTS_SIZE] FEx_abs_high;
+    logic signed [0:1-INPUTS_SIZE] norm_I;
+    logic signed [0:1-INPUTS_SIZE] norm_Q;
     
     
     feature_extraction #(.INPUTS_SIZE(INPUTS_SIZE),
-                            .LAYER_FIRST_ACT_QUANTIZER(LAYER_FIRST_ACT_QUANTIZER),
-                            .FEATURE_EXTRACTION(FEATURE_EXTRACTION),
-                            .PHASE_NORM(PHASE_NORMALIZATION))
+                                .LAYER_FIRST_ACT_QUANTIZER(LAYER_FIRST_ACT_QUANTIZER),
+                                .FEATURE_EXTRACTION(FEATURE_EXTRACTION),
+                                .PHASE_NORM(PHASE_NORMALIZATION))
             feature_extraction (.I(I),
                                 .Q(Q),
                                 .I_out(FEx_I),
@@ -50,33 +50,17 @@ module main (
                                 .abs_low_out(FEx_abs_low),
                                 .abs_high_out(FEx_abs_high),
                                 .clk(clk),
-                                .norm_I_out(new_norm_I),
-                                .norm_Q_out(new_norm_Q));
+                                .norm_I_out(norm_I),
+                                .norm_Q_out(norm_Q));
             
     logic signed [INPUTS_SIZE-1:0] shift_reg_out [0:PARALLEL_INPUTS-1][0:LAYER_SIZES[0]/PARALLEL_INPUTS-1];
     
-    shift_reg #(.INPUT_SIZE(INPUTS_SIZE),.INPUT_AMOUNT(LAYER_SIZES[0]/PARALLEL_INPUTS),.SHIFT_LENGTH(PARALLEL_INPUTS))
-        shift_register (.clk(clk),.in({FEx_I, FEx_Q, FEx_abs_low, FEx_abs_high}),.out(shift_reg_out));
+    shift_reg #(.INPUT_SIZE(INPUTS_SIZE),.INPUT_AMOUNT(LAYER_SIZES[0]/PARALLEL_INPUTS),.SHIFT_LENGTH(PARALLEL_INPUTS-1))
+        shift_register (.clk(clk),.in({FEx_I, FEx_Q, FEx_abs_low, FEx_abs_high}),.out(shift_reg_out[1:PARALLEL_INPUTS-1]));
+       
+    assign shift_reg_out[0] = {FEx_I, FEx_Q, FEx_abs_low, FEx_abs_high};
     
     logic signed [INPUTS_SIZE-1:0] backbone_in [0:LAYER_SIZES[0]-1];
-    
-    logic signed [0:1-INPUTS_SIZE] norm_I;
-    logic signed [0:1-INPUTS_SIZE] norm_Q;
-    
-    always_ff @(posedge clk) begin: norm_delay // to compensate for shift_reg delay
-        if (new_norm_I[0] != FEx_I[0]) begin // + to - overflow correction since possible to round 2047.5 to -2048 for example
-            norm_I <= {1'b0, {INPUTS_SIZE-1{1'b1}}};
-        end
-        else begin
-            norm_I <= new_norm_I;
-        end
-        if (new_norm_Q[0] != FEx_Q[0]) begin // + to - overflow correction since possible to round 2047.5 to -2048 for example
-            norm_Q <= {1'b0, {INPUTS_SIZE-1{1'b1}}};
-        end
-        else begin
-            norm_Q <= new_norm_Q;
-        end
-    end
     
     if (PHASE_NORMALIZATION == 1) begin // if with phase normalization        
         logic signed [INPUTS_SIZE-1:0] shift_reg_I_out [0:PARALLEL_INPUTS-1];
@@ -103,10 +87,13 @@ module main (
             norm (.I_inputs(shift_reg_I_out),
                     .Q_inputs(shift_reg_Q_out),
                     .clk(clk),
-                    .I_out(norm_I_out),
-                    .Q_out(norm_Q_out),
+                    .I_out(norm_I_out[1:PARALLEL_INPUTS-1]),
+                    .Q_out(norm_Q_out[1:PARALLEL_INPUTS-1]),
                     .norm_I_input(norm_I),
                     .norm_Q_input(norm_Q));
+                    
+        assign norm_I_out[0] = shift_reg_abs_low_out[0]; // same value as abs_low
+        assign norm_Q_out[0] = 0;
         
         for (genvar x=0; x<PARALLEL_INPUTS; x=x+1) begin
             assign backbone_in[x] = norm_I_out[PARALLEL_INPUTS-1-x];
@@ -121,10 +108,10 @@ module main (
         end
     end
     
-    logic signed [INPUTS_SIZE-1:0] backbone_I_out [0:LAYER_SIZES[BACKBONE_LAYERS+1]/PARALLEL_INPUTS-1];
-    logic signed [INPUTS_SIZE-1:0] backbone_Q_out [0:LAYER_SIZES[BACKBONE_LAYERS+1]/PARALLEL_INPUTS-1];
-    logic signed [INPUTS_SIZE-1:0] new_backbone_I_out;
-    logic signed [INPUTS_SIZE-1:0] new_backbone_Q_out;
+    logic signed [1:1-INPUTS_SIZE] backbone_I_out [0:0];
+    logic signed [1:1-INPUTS_SIZE] backbone_Q_out [0:0];
+    logic signed [1:1-INPUTS_SIZE] new_backbone_I_out;
+    logic signed [1:1-INPUTS_SIZE] new_backbone_Q_out;
     
     backbones #(.MIN_BIT_INPUTS(MIN_BIT_INPUTS))
         backbones (.inputs(backbone_in),
@@ -139,8 +126,8 @@ module main (
     end
     
     if (PHASE_NORMALIZATION == 1) begin // phase recovery
-        logic signed [INPUTS_SIZE-1:0] denorm_I_out [0:LAYER_SIZES[BACKBONE_LAYERS+1]/PARALLEL_INPUTS-1];
-        logic signed [INPUTS_SIZE-1:0] denorm_Q_out [0:LAYER_SIZES[BACKBONE_LAYERS+1]/PARALLEL_INPUTS-1];
+        logic signed [1:1-2*INPUTS_SIZE] denorm_I_out [0:0];
+        logic signed [1:1-2*INPUTS_SIZE] denorm_Q_out [0:0];
         logic signed [0:1-INPUTS_SIZE] delayed_norm_I[0:3*(BACKBONE_LAYERS+1)+4]; // update this is pipeline length changed
         logic signed [0:1-INPUTS_SIZE] delayed_norm_Q[0:3*(BACKBONE_LAYERS+1)+4]; // update this is pipeline length changed
         
@@ -149,7 +136,8 @@ module main (
             delayed_norm_Q <= {norm_Q, delayed_norm_Q[0:3*(BACKBONE_LAYERS+1)+3]};
         end
         
-        phase_denormalization #(.WIDTH(LAYER_SIZES[BACKBONE_LAYERS+1]/PARALLEL_INPUTS),.INPUTS_SIZE(INPUTS_SIZE))
+        phase_denormalization #(.WIDTH(1),
+                                .INPUTS_SIZE(INPUTS_SIZE))
             denorm (.I_inputs(backbone_I_out),
                     .Q_inputs(backbone_Q_out),
                     .clk(clk),
