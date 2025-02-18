@@ -29,12 +29,25 @@ module feature_extraction#(parameter INPUTS_SIZE = 12,
     input logic signed [0:1-INPUTS_SIZE] I,
     input logic signed[0:1-INPUTS_SIZE] Q,
     input logic clk,
-    output wire [0:1-INPUTS_SIZE] I_out,
-    output wire [0:1-INPUTS_SIZE] Q_out,
-    output wire [0:1-INPUTS_SIZE] abs_low_out,
-    output wire [0:1-INPUTS_SIZE] abs_high_out,
-    output wire [0:1-INPUTS_SIZE] norm_I_out, // next I input, used to determine complex complement for next cycle
-    output wire [0:1-INPUTS_SIZE] norm_Q_out  // next Q input, used to determine complex complement for next cycle
+    output logic [0:1-INPUTS_SIZE] I_out,
+    output logic [0:1-INPUTS_SIZE] Q_out,
+    output logic [0:1-INPUTS_SIZE] abs_low_out,
+    output logic [0:1-INPUTS_SIZE] abs_high_out,
+    output logic [0:1-INPUTS_SIZE] norm_I_out, // next I input, used to determine complex complement for next cycle
+    output logic [0:1-INPUTS_SIZE] norm_Q_out  // next Q input, used to determine complex complement for next cycle
+//    output logic [0:1-7-INPUTS_SIZE] inv_abs,
+//    output logic [INPUTS_SIZE/2+5+1-1:0] approx_1_out,
+//    output logic [17+5+INPUTS_SIZE/2-2:0] approx3_1_out,
+//    output logic [17+5+INPUTS_SIZE/2-1:0] valapp_2_out, // since (abs2_1*approx3_1) has max value for amp2=1,
+//    output logic [171+(INPUTS_SIZE-1)/2-1:0] valapp_3_out,
+//    output logic [2*17-(INPUTS_SIZE-1)/2-1:0] valapp_4_out,
+//    output logic [2*17-2:0] valapp_5_out,
+//    output logic [0:1-INPUTS_SIZE-3] abs2_1_out,
+//    output logic [0:1-2*INPUTS_SIZE] abs2_sqrt_in,
+//    output logic [0:1-2*INPUTS_SIZE] abs2_tmp,
+//    output logic [0:1-2*INPUTS_SIZE-INPUTS_SIZE/2-INPUTS_SIZE%2-7] abs_3,
+//    output logic [$clog2(INPUTS_SIZE):0] shift,
+//    output logic [0:1-2*INPUTS_SIZE] abs2_2
     );
     
     if (FEATURE_EXTRACTION == "1_3") begin
@@ -58,7 +71,21 @@ module feature_extraction#(parameter INPUTS_SIZE = 12,
                                 .abs3_out(abs_high_out),
                                 .clk(clk),
                                 .norm_I_out(norm_I_out),
-                                .norm_Q_out(norm_Q_out)); 
+                                .norm_Q_out(norm_Q_out)
+//                                .inv_abs(inv_abs),
+//                            .abs2_1_out(abs2_1_out),
+//                            .approx3_1_out(approx3_1_out),
+//                            .approx_1_out(approx_1_out),
+//                            .valapp_2_out(valapp_2_out),
+//                            .valapp_3_out(valapp_3_out),
+//                            .valapp_4_out(valapp_4_out),
+//                            .valapp_5_out(valapp_5_out),
+//                            .abs2_sqrt_in(abs2_sqrt_in),
+//                            .abs2_tmp_out(abs2_tmp),
+//                            .abs_3_out(abs_3),
+//                            .shift_out(shift),
+//                            .abs2_2_out(abs2_2)
+                            );
     end
 endmodule
 
@@ -133,18 +160,35 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     output logic [0:1-INPUTS_SIZE] abs3_out,
     output logic signed [0:1-INPUTS_SIZE] norm_I_out, // next I input, used to determine complex complement for next cycle
     output logic signed [0:1-INPUTS_SIZE] norm_Q_out  // next Q input, used to determine complex complement for next cycle
+//    output logic [0:1-7-INPUTS_SIZE] inv_abs,
+//    output logic [INPUTS_SIZE/2+5+1-1:0] approx_1_out,
+//    output logic [17+5+INPUTS_SIZE/2-2:0] approx3_1_out,
+//    output logic [17+5+INPUTS_SIZE/2-1:0] valapp_2_out, // since (abs2_1*approx3_1) has max value for amp2=1,
+//    output logic [17+1+(INPUTS_SIZE-1)/2-1:0] valapp_3_out,
+//    output logic [2*17-(INPUTS_SIZE-1)/2-1:0] valapp_4_out,
+//    output logic [2*17-2:0] valapp_5_out,
+//    output logic [0:1-INPUTS_SIZE-3] abs2_1_out,
+//    output logic [0:1-2*INPUTS_SIZE] abs2_sqrt_in,
+//    output logic [0:1-2*INPUTS_SIZE] abs2_tmp_out,
+//    output logic [0:1-2*INPUTS_SIZE-INPUTS_SIZE/2-INPUTS_SIZE%2-SQRT_EXTRA_OUT_BITS-SQRT_EXTRA_IN_BITS] abs_3_out,
+//    output logic [$clog2(INPUTS_SIZE):0] shift_out,
+//    output logic [0:1-2*INPUTS_SIZE] abs2_2_out
+    
     );
     
     localparam int DELAY_STORAGE_SIZE = 6; // how many clock cyles-1 bits are stored while inv_sqrt is calculated
     localparam int SQRT_EXTRA_IN_BITS = 3; // input to inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_IN_BITS bits
     localparam int SQRT_EXTRA_OUT_BITS = 4; // output of inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS + SQRT_EXTRA_IN_BITS bits
     
-    logic [0:1-2*INPUTS_SIZE] abs2_2 [DELAY_STORAGE_SIZE-1:0];
+    logic [0:1-2*INPUTS_SIZE] abs2_2 [DELAY_STORAGE_SIZE-2:0];
     logic signed [0:1-INPUTS_SIZE] I_2 [DELAY_STORAGE_SIZE-1:0];
     logic signed [0:1-INPUTS_SIZE] Q_2 [DELAY_STORAGE_SIZE-1:0];
+    logic [$clog2(INPUTS_SIZE):0] shift [DELAY_STORAGE_SIZE-2:0];
     
     logic [0:1-2*INPUTS_SIZE] abs2_tmp;
     logic [0:1-SQRT_EXTRA_IN_BITS-SQRT_EXTRA_OUT_BITS-INPUTS_SIZE] inv_abs_tmp;
+    logic [$clog2(INPUTS_SIZE):0] new_shift;
+    logic [0:1-2*INPUTS_SIZE] abs2_sqrt_in;
     
     logic [0:1-2*INPUTS_SIZE-INPUTS_SIZE/2-INPUTS_SIZE%2-SQRT_EXTRA_OUT_BITS-SQRT_EXTRA_IN_BITS] abs_3;
     logic [0:1-2*INPUTS_SIZE] abs2_3;
@@ -160,17 +204,28 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     logic signed [0:1-INPUTS_SIZE] norm_I_4;
     logic signed [0:1-INPUTS_SIZE] norm_Q_4;
     
-    logic [$clog2(INPUTS_SIZE):0] new_shift;
-    logic [$clog2(INPUTS_SIZE):0] shift [DELAY_STORAGE_SIZE-2:0];
+    assign shift_out = shift[4];
+    assign abs2_2_out = abs2_2[4];
+    assign abs_3_out = abs_3;
+    
     
     // has a delay of INPUTS_SIZE/2 + INPUTS_SIZE%2 + 1 rising edges
     approx_inv_sqrt #(.INPUTS_SIZE(INPUTS_SIZE+SQRT_EXTRA_IN_BITS),
                         .EXTRA_OUT_BITS(SQRT_EXTRA_OUT_BITS))
-                sqrt    (.abs2(abs2_2[0][-INPUTS_SIZE+SQRT_EXTRA_IN_BITS+(new_shift << 1) -:INPUTS_SIZE+SQRT_EXTRA_IN_BITS]),
+                sqrt    (.abs2(abs2_sqrt_in[-INPUTS_SIZE+SQRT_EXTRA_IN_BITS -:INPUTS_SIZE+SQRT_EXTRA_IN_BITS]),
                         .clk(clk),
-                        .abs(inv_abs_tmp));
+                        .abs(inv_abs_tmp)
+//                            .abs2_1_out(abs2_1_out),
+//                            .approx3_1_out(approx3_1_out),
+//                            .approx_1_out(approx_1_out),
+//                            .valapp_2_out(valapp_2_out),
+//                            .valapp_3_out(valapp_3_out),
+//                            .valapp_4_out(valapp_4_out),
+//                            .valapp_5_out(valapp_5_out)
+                            );
                         
     assign abs2_tmp = (I*I) + (Q*Q);
+    assign abs2_tmp_out = abs2_tmp;
     
     always_comb begin
         new_shift = 0;
@@ -180,10 +235,12 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
             end
         end
         new_shift = (new_shift >> 1);
+        
+        abs2_sqrt_in = abs2_tmp >> (2*new_shift);
     end
                         
     always_ff @(posedge clk) begin: abs2_stage // abs2 value of I and Q,
-        abs2_2 <= {abs2_2[DELAY_STORAGE_SIZE-2:0], abs2_tmp};
+        abs2_2 <= {abs2_2[DELAY_STORAGE_SIZE-3:0], abs2_tmp};
         I_2 <= {I_2[DELAY_STORAGE_SIZE-2:0], I};
         Q_2 <= {Q_2[DELAY_STORAGE_SIZE-2:0], Q};
         shift <= {shift[DELAY_STORAGE_SIZE-3:0], new_shift};
@@ -191,8 +248,8 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     
     
     always_ff @(posedge clk) begin: abs_stage
-        abs_3 <= (abs2_2[DELAY_STORAGE_SIZE-1]*inv_abs_tmp) >> shift[DELAY_STORAGE_SIZE-2];
-        abs2_3 <= abs2_2[DELAY_STORAGE_SIZE-1];
+        abs_3 <= (abs2_2[DELAY_STORAGE_SIZE-2]*inv_abs_tmp) >> shift[DELAY_STORAGE_SIZE-2];
+        abs2_3 <= abs2_2[DELAY_STORAGE_SIZE-2];
         I_3 <= I_2[DELAY_STORAGE_SIZE-1];
         Q_3 <= Q_2[DELAY_STORAGE_SIZE-1];
         // maybe only use 1 shift for inv_abs_tmp total?
@@ -240,6 +297,9 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
         assign norm_I_out = 0;
         assign norm_Q_out = 0;
     end
+    
+    assign inv_abs = inv_abs_tmp;
+    
     
 
 endmodule

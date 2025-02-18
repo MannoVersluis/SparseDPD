@@ -35,8 +35,12 @@ module adder_tree_tb();
     parameter TREE_TYPE = 1;
     
     
-    adder_trees #(.INPUTS_SIZE(INPUTS_SIZE),.INPUTS_AMOUNT(INPUTS_AMOUNT),.MIN_BIT_INPUTS(MIN_BIT_INPUTS),.TREE_TYPE(TREE_TYPE))
-        test_adder_tree (.inputs(in),.output_sum(out));
+    adder_trees #(.INPUTS_SIZE(INPUTS_SIZE),
+                    .INPUTS_AMOUNT(INPUTS_AMOUNT),
+                    .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
+                    .TREE_TYPE(TREE_TYPE))
+        test_adder_tree (.inputs(in),
+                            .output_sum(out));
     
     initial begin
         for (int i=0;i<50;i=i+1) begin

@@ -38,8 +38,4 @@ module shift_reg #(parameter INPUT_SIZE = 12,
     
     assign out = storage;
     
-//    for (genvar x=0; x<SHIFT_LENGTH*INPUT_AMOUNT; x=x+1) begin
-//        assign out[x] = storage[SHIFT_LENGTH-1-x%SHIFT_LENGTH][x/SHIFT_LENGTH];
-//    end
-    
 endmodule

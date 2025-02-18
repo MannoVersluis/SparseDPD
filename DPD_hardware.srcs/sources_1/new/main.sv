@@ -83,24 +83,27 @@ module main (
         logic signed [0:1-INPUTS_SIZE] norm_I_out [0:PARALLEL_INPUTS-1];
         logic signed [0:1-INPUTS_SIZE] norm_Q_out [0:PARALLEL_INPUTS-1];
         
-        phase_normalization #(.WIDTH(PARALLEL_INPUTS),.INPUTS_SIZE(INPUTS_SIZE))
-            norm (.I_inputs(shift_reg_I_out),
-                    .Q_inputs(shift_reg_Q_out),
+        phase_normalization #(.WIDTH(PARALLEL_INPUTS-1),.INPUTS_SIZE(INPUTS_SIZE))
+            norm (.I_inputs(shift_reg_I_out[1:PARALLEL_INPUTS-1]),
+                    .Q_inputs(shift_reg_Q_out[1:PARALLEL_INPUTS-1]),
                     .clk(clk),
                     .I_out(norm_I_out[1:PARALLEL_INPUTS-1]),
                     .Q_out(norm_Q_out[1:PARALLEL_INPUTS-1]),
                     .norm_I_input(norm_I),
                     .norm_Q_input(norm_Q));
                     
-        assign norm_I_out[0] = shift_reg_abs_low_out[0]; // same value as abs_low
-        assign norm_Q_out[0] = 0;
-        
+        always_ff @(posedge clk) begin
+            norm_I_out[0] <= shift_reg_abs_low_out[0]; // same value as abs_low
+            norm_Q_out[0] <= 0;
+            for (int x=0; x<PARALLEL_INPUTS; x=x+1) begin
+                backbone_in[x+2*PARALLEL_INPUTS] <= shift_reg_abs_low_out[PARALLEL_INPUTS-1-x];
+                backbone_in[x+3*PARALLEL_INPUTS] <= shift_reg_abs_high_out[PARALLEL_INPUTS-1-x];
+            end
+        end
         for (genvar x=0; x<PARALLEL_INPUTS; x=x+1) begin
             assign backbone_in[x] = norm_I_out[PARALLEL_INPUTS-1-x];
             assign backbone_in[x+PARALLEL_INPUTS] = norm_Q_out[PARALLEL_INPUTS-1-x];
-            assign backbone_in[x+2*PARALLEL_INPUTS] = shift_reg_abs_low_out[PARALLEL_INPUTS-1-x];
-            assign backbone_in[x+3*PARALLEL_INPUTS] = shift_reg_abs_high_out[PARALLEL_INPUTS-1-x];
-        end
+        end 
     end
     else begin // if without phase normalization
         for (genvar x=0; x<LAYER_SIZES[0]; x=x+1) begin // #TODO optimize always 0 Q away
@@ -143,8 +146,8 @@ module main (
                     .clk(clk),
                     .I_out(denorm_I_out),
                     .Q_out(denorm_Q_out),
-                    .norm_I_input(delayed_norm_I[3*(BACKBONE_LAYERS+1)+3]),
-                    .norm_Q_input(delayed_norm_Q[3*(BACKBONE_LAYERS+1)+3]));
+                    .norm_I_input(delayed_norm_I[3*(BACKBONE_LAYERS+1)+4]),
+                    .norm_Q_input(delayed_norm_Q[3*(BACKBONE_LAYERS+1)+4]));
         
         assign I_out = denorm_I_out[0];
         assign Q_out = denorm_Q_out[0];

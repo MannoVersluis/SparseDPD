@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Wed Feb 12 14:25:51 2025
-# Process ID: 6160
+# Start of session at: Tue Feb 18 13:26:03 2025
+# Process ID: 15828
 # Current directory: C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1
 # Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/main.vds
@@ -17,8 +17,8 @@
 # CPU Physical cores:8
 # CPU Logical cores :16
 # Host memory       :32911 MB
-# Swap memory       :2080 MB
-# Total Virtual     :34991 MB
-# Available Virtual :23034 MB
+# Swap memory       :3013 MB
+# Total Virtual     :35925 MB
+# Available Virtual :15604 MB
 #-----------------------------------------------------------
 source main.tcl -notrace

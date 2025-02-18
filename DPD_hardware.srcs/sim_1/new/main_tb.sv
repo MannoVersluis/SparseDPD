@@ -93,7 +93,7 @@ initial begin
         Q_float = Q_float*$pow(2, -LAYER_FIRST_WEIGHT_QUANTIZER);
         I = I_float;
         Q = Q_float;
-        if (line_num > 18 + 2*PHASE_NORMALIZATION) begin
+        if (line_num > 18 + 3*PHASE_NORMALIZATION) begin
             $fgets(text, output_file); // why is this line needed to get floats?
             $fscanf(output_file, "%d,%f,%f", line_num-1, I_out_float_file, Q_out_float_file);
             I_out_float_file = I_out_float_file*$pow(2, -2*LAYER_FIRST_WEIGHT_QUANTIZER);

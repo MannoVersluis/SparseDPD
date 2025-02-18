@@ -53,10 +53,8 @@ module backbones #(
                             .WIDTH(LAYER_SIZES[1]),
                             .WEIGHTS_SIZE(WEIGHTS_SIZE[1]),
                             .INPUTS_SIZE(INPUTS_SIZE),
-                            .OUTPUTS_SIZE(INPUTS_SIZE),
                             .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
                             .MIN_BIT_WEIGHTS(LAYER_FIRST_WEIGHT_QUANTIZER),
-                            .MIN_BIT_OUTPUTS(MIN_BIT_INPUTS),
                             .TREE_TYPE(ADDER_TREE[LAYER_ORDER[1]]),
                             .LAST(0))
             first_layer (.inputs(inputs),
@@ -78,10 +76,8 @@ module backbones #(
                             .WIDTH(LAYER_SIZES[x]),
                             .WEIGHTS_SIZE(WEIGHTS_SIZE[x]),
                             .INPUTS_SIZE(INPUTS_SIZE),
-                            .OUTPUTS_SIZE(INPUTS_SIZE),
                             .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
                             .MIN_BIT_WEIGHTS(LAYER_MID_WEIGHT_QUANTIZER[x-2]),
-                            .MIN_BIT_OUTPUTS(MIN_BIT_INPUTS),
                             .TREE_TYPE(ADDER_TREE[LAYER_ORDER[x]]),
                             .LAST(0))
                     mid_layer (.inputs(layer_inputs[x-1]),
@@ -102,10 +98,8 @@ module backbones #(
             fc_layer #(.PREV_WIDTH(LAYER_SIZES[BACKBONE_LAYERS]),.WIDTH(LAYER_SIZES[BACKBONE_LAYERS+1]),
                             .WEIGHTS_SIZE(WEIGHTS_SIZE[BACKBONE_LAYERS+1]),
                             .INPUTS_SIZE(INPUTS_SIZE),
-                            .OUTPUTS_SIZE(INPUTS_SIZE),
                             .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
                             .MIN_BIT_WEIGHTS(LAYER_LAST_WEIGHT_QUANTIZER),
-                            .MIN_BIT_OUTPUTS(MIN_BIT_INPUTS),
                             .TREE_TYPE(ADDER_TREE[LAYER_ORDER[BACKBONE_LAYERS+1]]),
                             .LAST(1))
                 last_layer (.inputs(layer_inputs[BACKBONE_LAYERS]),
@@ -126,10 +120,8 @@ module backbones #(
             fc_layer #(.PREV_WIDTH(LAYER_SIZES[BACKBONE_LAYERS]+LAYER_SIZES[0]),.WIDTH(LAYER_SIZES[BACKBONE_LAYERS+1]),
                             .WEIGHTS_SIZE(WEIGHTS_SIZE[BACKBONE_LAYERS+1]),
                             .INPUTS_SIZE(INPUTS_SIZE),
-                            .OUTPUTS_SIZE(INPUTS_SIZE),
                             .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
                             .MIN_BIT_WEIGHTS(LAYER_LAST_WEIGHT_QUANTIZER),
-                            .MIN_BIT_OUTPUTS(MIN_BIT_INPUTS),
                             .TREE_TYPE(ADDER_TREE[LAYER_ORDER[BACKBONE_LAYERS+1]]),
                             .LAST(1))
                 last_layer (.inputs({layer_inputs[BACKBONE_LAYERS], delay_inputs[3*(BACKBONE_LAYERS+1)-2]}),
@@ -147,10 +139,10 @@ module backbones #(
             FEx_delay_inputs[1:3*(BACKBONE_LAYERS+1)-2] <= FEx_delay_inputs[0:3*(BACKBONE_LAYERS+1)-2-1];
             for (int i=1; i<BACKBONE_LAYERS; i=i+1) 
                 layer_delay_inputs[(i-1)*3][i] <= layer_inputs[i];
-            layer_delay_inputs[1:3*(BACKBONE_LAYERS)-2] <= layer_delay_inputs[0:3*(BACKBONE_LAYERS)-2-1];
+            layer_delay_inputs[1:3*(BACKBONE_LAYERS-1)] <= layer_delay_inputs[0:3*(BACKBONE_LAYERS-1)-1];
         end
         
-        logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[0]-1:MIN_BIT_INPUTS[0]] layer_delay_inputs_in [0:(BACKBONE_LAYERS)*LAYER_SIZES[1]-1];
+        logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[0]-1:MIN_BIT_INPUTS[0]] layer_delay_inputs_in [0: BACKBONE_LAYERS*LAYER_SIZES[1]-1];
         
         for (genvar x=1; x<BACKBONE_LAYERS; x=x+1) begin // reshaping in case of 2+ hidden layers
             assign layer_delay_inputs_in[(x-1)*LAYER_SIZES[1] +:LAYER_SIZES[1]] = layer_delay_inputs[3*(BACKBONE_LAYERS-1)][x];
@@ -171,9 +163,8 @@ module backbones #(
             fc_layer #(.PREV_WIDTH(LAYER_INPUTS),.WIDTH(LAYER_SIZES[BACKBONE_LAYERS+1]),
                             .WEIGHTS_SIZE(WEIGHTS_SIZE[BACKBONE_LAYERS+1]),
                             .INPUTS_SIZE(INPUTS_SIZE),
-                            .OUTPUTS_SIZE(INPUTS_SIZE),
-                            .MIN_BIT_INPUTS(MIN_BIT_INPUTS),.MIN_BIT_WEIGHTS(LAYER_LAST_WEIGHT_QUANTIZER),
-                            .MIN_BIT_OUTPUTS(MIN_BIT_INPUTS),
+                            .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
+                            .MIN_BIT_WEIGHTS(LAYER_LAST_WEIGHT_QUANTIZER),
                             .TREE_TYPE(ADDER_TREE[BACKBONE_LAYERS+1]),
                             .LAST(1))
                 last_layer (.inputs({layer_delay_inputs_in, FEx_delay_inputs[3*(BACKBONE_LAYERS+1)-2]}),

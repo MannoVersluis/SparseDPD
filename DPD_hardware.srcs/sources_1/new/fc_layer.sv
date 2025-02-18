@@ -28,12 +28,8 @@ module fc_layer #(parameter PREV_WIDTH = 16, // amount of neurons in the previou
                     parameter WIDTH = 16, // amount of neurons in the FC layer
                     parameter WEIGHTS_SIZE = 12, //bits of weight values
                     parameter INPUTS_SIZE = 12, //bits of input values
-                    parameter OUTPUTS_SIZE = 12, //bits of output values
-//                    parameter BIAS_SIZE = 12, //bits of bias values
                     parameter MIN_BIT_INPUTS = -11, //lowest bit of the inputs
                     parameter MIN_BIT_WEIGHTS = -11, //lowest bit of the weights
-                    parameter MIN_BIT_OUTPUTS = -11, //lowest bit of the outputs
-//                    parameter MIN_BIT_BIAS = -11, //lowest bit of the bias
                     parameter TREE_TYPE = 1, // what adder tree used
                     parameter LAST = 0 // is this the last layer? for truncating and clamping, 1 for true, 0 for false
                 )(
@@ -74,10 +70,8 @@ endmodule
 module fc_node #(parameter PREV_WIDTH = 16, //amount of neurons in the previous layer
                     parameter WEIGHTS_SIZE = 8, //bits of weight values
                     parameter INPUTS_SIZE = 8, //bits of input values
-//                    parameter OUTPUTS_SIZE = 16, //bits of input values
                     parameter MIN_BIT_INPUTS = -7, //lowest bit of the inputs
                     parameter MIN_BIT_WEIGHTS = -7, //lowest bit of the weights
-//                    parameter MIN_BIT_OUTPUTS = -13, //lowest bit of the outputs
                     parameter TREE_TYPE = 1, // what adder tree used
                     parameter LAST = 0 // is this the last layer? for truncating and clamping, 1 for true, 0 for false
                     )(

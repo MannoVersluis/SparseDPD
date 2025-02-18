@@ -28,30 +28,37 @@ module phase_normalization #(parameter WIDTH = 16, // amount of I, Q inputs give
     input logic signed [0:1-INPUTS_SIZE] norm_I_input,               // next I input, used to determine complex complement for next cycle
     input logic signed [0:1-INPUTS_SIZE] norm_Q_input,               // next Q input, used to determine complex complement for next cycle
     input clk,
-    output logic signed [0:1-INPUTS_SIZE] I_out [WIDTH-2:0],
-    output logic signed [0:1-INPUTS_SIZE] Q_out [WIDTH-2:0]
+    output logic signed [0:1-INPUTS_SIZE] I_out [WIDTH-1:0],
+    output logic signed [0:1-INPUTS_SIZE] Q_out [WIDTH-1:0]
     );
     
-    logic signed [0:1-2*INPUTS_SIZE] new_I_out1 [WIDTH-2:0];
-    logic signed [0:1-2*INPUTS_SIZE] new_I_out2 [WIDTH-2:0];
-    logic signed [0:1-2*INPUTS_SIZE] new_I_out3 [WIDTH-2:0];
-    logic signed [0:1-2*INPUTS_SIZE] new_Q_out1 [WIDTH-2:0];
-    logic signed [0:1-2*INPUTS_SIZE] new_Q_out2 [WIDTH-2:0];
-    logic signed [0:1-2*INPUTS_SIZE] new_Q_out3 [WIDTH-2:0];
+    logic signed [0:1-2*INPUTS_SIZE] new_I_out1 [WIDTH-1:0];
+    logic signed [0:1-2*INPUTS_SIZE] new_I_out2 [WIDTH-1:0];
+    logic signed [0:1-2*INPUTS_SIZE] new_I_out3 [WIDTH-1:0];
+    logic signed [0:1-INPUTS_SIZE]   new_I_out4 [WIDTH-1:0];
+    logic signed [0:1-2*INPUTS_SIZE] new_Q_out1 [WIDTH-1:0];
+    logic signed [0:1-2*INPUTS_SIZE] new_Q_out2 [WIDTH-1:0];
+    logic signed [0:1-2*INPUTS_SIZE] new_Q_out3 [WIDTH-1:0];
+    logic signed [0:1-INPUTS_SIZE]   new_Q_out4 [WIDTH-1:0];
     
     
-    for (genvar x=0; x<WIDTH-1; x=x+1) begin
-        assign I_out[x] = new_I_out3[x][-1:-INPUTS_SIZE] + new_I_out3[x][-1-INPUTS_SIZE];
-        assign Q_out[x] = new_Q_out3[x][-1:-INPUTS_SIZE] + new_Q_out3[x][-1-INPUTS_SIZE];
+    assign I_out = new_I_out4;
+    assign Q_out = new_Q_out4;
+    
+    always_ff @(posedge clk) begin: pn_stage
+        for (int i=0; i<WIDTH; i=i+1) begin
+            new_I_out1[i] <= I_inputs[i] * norm_I_input;// + 
+            new_I_out2[i] <= Q_inputs[i] * norm_Q_input;
+            new_Q_out1[i] <= Q_inputs[i] * norm_I_input;// - 
+            new_Q_out2[i] <= I_inputs[i] * norm_Q_input;
+            
+            new_I_out4[i] <= new_I_out3[i][-1:-INPUTS_SIZE] + new_I_out3[i][-1-INPUTS_SIZE];
+            new_Q_out4[i] <= new_Q_out3[i][-1:-INPUTS_SIZE] + new_Q_out3[i][-1-INPUTS_SIZE];
+        end
     end
     
-    always_ff @(posedge clk) begin: pn_stage        
-        for (int i=0; i < WIDTH-1; i=i+1) begin
-            new_I_out1[i] = I_inputs[i] * norm_I_input;// + 
-            new_I_out2[i] = Q_inputs[i] * norm_Q_input;
-            new_Q_out1[i] = Q_inputs[i] * norm_I_input;// - 
-            new_Q_out2[i] = I_inputs[i] * norm_Q_input;
-            
+    always_comb begin
+        for (int i=0; i<WIDTH; i=i+1) begin
             new_I_out3[i] = new_I_out1[i] + new_I_out2[i];
             new_Q_out3[i] = new_Q_out1[i] - new_Q_out2[i];
         end
@@ -85,10 +92,10 @@ module phase_denormalization #(parameter WIDTH = 16, // amount of I, Q inputs gi
     
     always_ff @(posedge clk) begin: pn_stage
         for (int i=0; i < WIDTH; i=i+1) begin
-            new_I_out1[i] = I_inputs[i] * norm_I_input;// - 
-            new_I_out2[i] = Q_inputs[i] * norm_Q_input;
-            new_Q_out1[i] = Q_inputs[i] * norm_I_input;// + 
-            new_Q_out2[i] = I_inputs[i] * norm_Q_input;
+            new_I_out1[i] <= I_inputs[i] * norm_I_input;// - 
+            new_I_out2[i] <= Q_inputs[i] * norm_Q_input;
+            new_Q_out1[i] <= Q_inputs[i] * norm_I_input;// + 
+            new_Q_out2[i] <= I_inputs[i] * norm_Q_input;
         end
     end    
 endmodule
