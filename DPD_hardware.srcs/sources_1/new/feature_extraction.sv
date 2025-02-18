@@ -35,19 +35,6 @@ module feature_extraction#(parameter INPUTS_SIZE = 12,
     output logic [0:1-INPUTS_SIZE] abs_high_out,
     output logic [0:1-INPUTS_SIZE] norm_I_out, // next I input, used to determine complex complement for next cycle
     output logic [0:1-INPUTS_SIZE] norm_Q_out  // next Q input, used to determine complex complement for next cycle
-//    output logic [0:1-7-INPUTS_SIZE] inv_abs,
-//    output logic [INPUTS_SIZE/2+5+1-1:0] approx_1_out,
-//    output logic [17+5+INPUTS_SIZE/2-2:0] approx3_1_out,
-//    output logic [17+5+INPUTS_SIZE/2-1:0] valapp_2_out, // since (abs2_1*approx3_1) has max value for amp2=1,
-//    output logic [171+(INPUTS_SIZE-1)/2-1:0] valapp_3_out,
-//    output logic [2*17-(INPUTS_SIZE-1)/2-1:0] valapp_4_out,
-//    output logic [2*17-2:0] valapp_5_out,
-//    output logic [0:1-INPUTS_SIZE-3] abs2_1_out,
-//    output logic [0:1-2*INPUTS_SIZE] abs2_sqrt_in,
-//    output logic [0:1-2*INPUTS_SIZE] abs2_tmp,
-//    output logic [0:1-2*INPUTS_SIZE-INPUTS_SIZE/2-INPUTS_SIZE%2-7] abs_3,
-//    output logic [$clog2(INPUTS_SIZE):0] shift,
-//    output logic [0:1-2*INPUTS_SIZE] abs2_2
     );
     
     if (FEATURE_EXTRACTION == "1_3") begin
@@ -72,19 +59,6 @@ module feature_extraction#(parameter INPUTS_SIZE = 12,
                                 .clk(clk),
                                 .norm_I_out(norm_I_out),
                                 .norm_Q_out(norm_Q_out)
-//                                .inv_abs(inv_abs),
-//                            .abs2_1_out(abs2_1_out),
-//                            .approx3_1_out(approx3_1_out),
-//                            .approx_1_out(approx_1_out),
-//                            .valapp_2_out(valapp_2_out),
-//                            .valapp_3_out(valapp_3_out),
-//                            .valapp_4_out(valapp_4_out),
-//                            .valapp_5_out(valapp_5_out),
-//                            .abs2_sqrt_in(abs2_sqrt_in),
-//                            .abs2_tmp_out(abs2_tmp),
-//                            .abs_3_out(abs_3),
-//                            .shift_out(shift),
-//                            .abs2_2_out(abs2_2)
                             );
     end
 endmodule
@@ -160,19 +134,6 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     output logic [0:1-INPUTS_SIZE] abs3_out,
     output logic signed [0:1-INPUTS_SIZE] norm_I_out, // next I input, used to determine complex complement for next cycle
     output logic signed [0:1-INPUTS_SIZE] norm_Q_out  // next Q input, used to determine complex complement for next cycle
-//    output logic [0:1-7-INPUTS_SIZE] inv_abs,
-//    output logic [INPUTS_SIZE/2+5+1-1:0] approx_1_out,
-//    output logic [17+5+INPUTS_SIZE/2-2:0] approx3_1_out,
-//    output logic [17+5+INPUTS_SIZE/2-1:0] valapp_2_out, // since (abs2_1*approx3_1) has max value for amp2=1,
-//    output logic [17+1+(INPUTS_SIZE-1)/2-1:0] valapp_3_out,
-//    output logic [2*17-(INPUTS_SIZE-1)/2-1:0] valapp_4_out,
-//    output logic [2*17-2:0] valapp_5_out,
-//    output logic [0:1-INPUTS_SIZE-3] abs2_1_out,
-//    output logic [0:1-2*INPUTS_SIZE] abs2_sqrt_in,
-//    output logic [0:1-2*INPUTS_SIZE] abs2_tmp_out,
-//    output logic [0:1-2*INPUTS_SIZE-INPUTS_SIZE/2-INPUTS_SIZE%2-SQRT_EXTRA_OUT_BITS-SQRT_EXTRA_IN_BITS] abs_3_out,
-//    output logic [$clog2(INPUTS_SIZE):0] shift_out,
-//    output logic [0:1-2*INPUTS_SIZE] abs2_2_out
     
     );
     
@@ -214,15 +175,7 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
                         .EXTRA_OUT_BITS(SQRT_EXTRA_OUT_BITS))
                 sqrt    (.abs2(abs2_sqrt_in[-INPUTS_SIZE+SQRT_EXTRA_IN_BITS -:INPUTS_SIZE+SQRT_EXTRA_IN_BITS]),
                         .clk(clk),
-                        .abs(inv_abs_tmp)
-//                            .abs2_1_out(abs2_1_out),
-//                            .approx3_1_out(approx3_1_out),
-//                            .approx_1_out(approx_1_out),
-//                            .valapp_2_out(valapp_2_out),
-//                            .valapp_3_out(valapp_3_out),
-//                            .valapp_4_out(valapp_4_out),
-//                            .valapp_5_out(valapp_5_out)
-                            );
+                        .abs(inv_abs_tmp));
                         
     assign abs2_tmp = (I*I) + (Q*Q);
     assign abs2_tmp_out = abs2_tmp;

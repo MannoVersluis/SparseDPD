@@ -50,22 +50,6 @@ module activation_layer_tb();
     real abs2;
     int mag;
     
-    localparam APPROX_BITS = 5; // how many bits of the inv sqrt will be stored in luts
-    localparam int MAX_BITS = INPUTS_SIZE+5; // should be at least INPUTS_SIZE, operations will take at most the MAX_BITS msb's as an input
-    logic [0:1-7-INPUTS_SIZE] inv_abs;
-//    logic [0:1-INPUTS_SIZE-3] abs2_1;
-//    logic [INPUTS_SIZE/2+5+1-1:0] approx_1;
-//    logic [MAX_BITS+5+INPUTS_SIZE/2-2:0] approx3_1;
-//    logic [MAX_BITS+5+INPUTS_SIZE/2-1:0] valapp_2;
-//    logic [MAX_BITS+(INPUTS_SIZE-1)/2-1:0] valapp_3;
-//    logic [2*MAX_BITS-(INPUTS_SIZE-1)/2-1:0] valapp_4;
-//    logic [2*MAX_BITS-2:0] valapp_5;
-//    logic [0:1-2*INPUTS_SIZE] abs2_sqrt_in;
-    logic [0:1-2*INPUTS_SIZE] abs2_tmp;
-    logic [0:1-2*INPUTS_SIZE-INPUTS_SIZE/2-INPUTS_SIZE%2-7] abs_3;
-    logic [$clog2(INPUTS_SIZE):0] shift;
-    logic [0:1-2*INPUTS_SIZE] abs2_2;
-    
     logic clk;
     
     feature_extraction #(.INPUTS_SIZE(INPUTS_SIZE),
@@ -80,20 +64,7 @@ module activation_layer_tb();
                             .abs_high_out(abs_high_out),
                             .clk(clk),
                             .norm_I_out(norm_I_out),
-                            .norm_Q_out(norm_Q_out),
-                            .inv_abs(inv_abs),
-//                            .abs2_1_out(abs2_1),
-//                            .approx3_1_out(approx3_1),
-//                            .approx_1_out(approx_1),
-//                            .valapp_2_out(valapp_2),
-//                            .valapp_3_out(valapp_3),
-//                            .valapp_4_out(valapp_4),
-//                            .valapp_5_out(valapp_5),
-//                            .abs2_sqrt_in(abs2_sqrt_in),
-                            .abs2_tmp(abs2_tmp),
-                            .abs_3(abs_3),
-                            .shift(shift),
-                            .abs2_2(abs2_2));
+                            .norm_Q_out(norm_Q_out));
     
     always #5 clk = ~clk;
     

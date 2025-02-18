@@ -92,13 +92,6 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 15,
     input logic [0:1-INPUTS_SIZE] abs2, // truncate the lsb half
     input clk,
     output logic [0:1-INPUTS_SIZE-EXTRA_OUT_BITS] abs
-//    output logic [INPUTS_SIZE/2+5+1-1:0] approx_1_out,
-//    output logic [17+5+INPUTS_SIZE/2-2:0] approx3_1_out,
-//    output logic [17+5+INPUTS_SIZE/2-1:0] valapp_2_out, // since (abs2_1*approx3_1) has max value for amp2=1,
-//    output logic [171+(INPUTS_SIZE-1)/2-1:0] valapp_3_out,
-//    output logic [2*17-(INPUTS_SIZE-1)/2-1:0] valapp_4_out,
-//    output logic [2*17-2:0] valapp_5_out,
-//    output logic [0:1-INPUTS_SIZE] abs2_1_out
     );
     
     localparam int APPROX_BITS = 5; // how many bits of the inv sqrt will be stored in luts
@@ -124,20 +117,6 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 15,
             APPROX_CALC_2[i] = (3*(tmp[APPROX_BITS-1:0] + tmp[-1])) << (INPUTS_SIZE/2-$clog2(i+1)/2);
         end
     endfunction
-//    localparam logic [0:$rtoi($pow(2, $itor(APPROX_BITS+$clog2(INPUTS_SIZE-APPROX_BITS+1))))-1][INPUTS_SIZE/2+APPROX_BITS+1-1:0] APPROX_LUT_2 = APPROX_CALC_2();
-//    function logic [0:$rtoi($pow(2, $itor(APPROX_BITS+$clog2(INPUTS_SIZE-APPROX_BITS+1))))-1][INPUTS_SIZE/2+APPROX_BITS+1-1:0] APPROX_CALC_2();
-//        for(int i=0;i<$rtoi($pow(2, $itor(APPROX_BITS+$clog2(INPUTS_SIZE-APPROX_BITS+1)))); i++) begin
-//            automatic logic [INPUTS_SIZE/2:-1] tmp;
-//            automatic int shift = $pow(2, APPROX_BITS);
-//            automatic int power = i/shift;
-////            tmp = $rtoi($pow(2, $itor(APPROX_BITS+1+INPUTS_SIZE/2-power))/$sqrt(i%shift));
-//            tmp = $rtoi($pow(2, $itor(APPROX_BITS+1+INPUTS_SIZE/2))/($sqrt($itor(i%shift)*$pow(2, power))));
-//            APPROX_CALC_2[i] = tmp;
-////            tmp = $rtoi($pow(2, $itor(APPROX_BITS+$clog2(i+1)/2))/$sqrt($itor(i)));
-////            APPROX_CALC_2[i] = (3*(tmp[APPROX_BITS-1:0] + tmp[-1])) << (INPUTS_SIZE/2-$clog2(i+1)/2);
-//        end
-//    endfunction
-    
     
     logic [INPUTS_SIZE/2+APPROX_BITS+1-1:0] approx_1;
     logic [MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-2:0] approx3_1;
@@ -179,15 +158,6 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 15,
     
     
     assign abs = valapp_5[2*MAX_BITS-3+1 -:INPUTS_SIZE+EXTRA_OUT_BITS] + valapp_5[2*MAX_BITS-3-INPUTS_SIZE-EXTRA_OUT_BITS+1];
-    
-    
-//    assign approx_1_out = approx_1;
-//    assign approx3_1_out = approx3_1;
-//    assign valapp_2_out = valapp_2; // since (abs2_1*approx3_1) has max value for amp2=1,
-//    assign valapp_3_out = valapp_3;
-//    assign valapp_4_out = valapp_4;
-//    assign valapp_5_out = valapp_5;
-//    assign abs2_1_out = abs2_1;
     
 endmodule
 
