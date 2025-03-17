@@ -22,7 +22,7 @@
 
 module mult_tb();
 
-    parameter INPUTS_AMOUNT = 6;
+    parameter INPUTS_AMOUNT = 2;
     parameter INPUTS_SIZE = 5;
     parameter WEIGHTS_SIZE = 4;
     parameter MIN_BIT_INPUTS = -11;
@@ -47,8 +47,10 @@ module mult_tb();
                     .clk(clk),
                     .outputs(outputs));
     
+    always #5 clk = !clk;
+    
     initial begin
-        
+        clk = 1;
         for (int i=0;i<500;i=i+1) begin
             for (int j=0; j<INPUTS_AMOUNT; j=j+1) begin
                 inputs[j] = $random;

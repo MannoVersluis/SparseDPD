@@ -24,8 +24,8 @@ module main (
     input logic signed [0:1-INPUTS_SIZE] I,
     input logic signed [0:1-INPUTS_SIZE] Q,
     input clk,
-    output logic signed [0:1-2*INPUTS_SIZE] I_out,
-    output logic signed [0:1-2*INPUTS_SIZE] Q_out
+    output logic signed [1:1-OUTPUTS_SIZE] I_out,
+    output logic signed [1:1-OUTPUTS_SIZE] Q_out
     );
         
     localparam MIN_BIT_INPUTS = LAYER_FIRST_ACT_QUANTIZER;
@@ -129,14 +129,14 @@ module main (
     end
     
     if (PHASE_NORMALIZATION == 1) begin // phase recovery
-        logic signed [1:1-2*INPUTS_SIZE] denorm_I_out [0:0];
-        logic signed [1:1-2*INPUTS_SIZE] denorm_Q_out [0:0];
-        logic signed [0:1-INPUTS_SIZE] delayed_norm_I[0:3*(BACKBONE_LAYERS+1)+4]; // update this is pipeline length changed
-        logic signed [0:1-INPUTS_SIZE] delayed_norm_Q[0:3*(BACKBONE_LAYERS+1)+4]; // update this is pipeline length changed
+        logic signed [1:1-OUTPUTS_SIZE] denorm_I_out [0:0];
+        logic signed [1:1-OUTPUTS_SIZE] denorm_Q_out [0:0];
+        logic signed [0:1-INPUTS_SIZE] delayed_norm_I[0:4*(BACKBONE_LAYERS+1)+1]; // update this is pipeline length changed
+        logic signed [0:1-INPUTS_SIZE] delayed_norm_Q[0:4*(BACKBONE_LAYERS+1)+1]; // update this is pipeline length changed
         
         always @(posedge clk) begin
-            delayed_norm_I <= {norm_I, delayed_norm_I[0:3*(BACKBONE_LAYERS+1)+3]};
-            delayed_norm_Q <= {norm_Q, delayed_norm_Q[0:3*(BACKBONE_LAYERS+1)+3]};
+            delayed_norm_I <= {norm_I, delayed_norm_I[0:4*(BACKBONE_LAYERS+1)]};
+            delayed_norm_Q <= {norm_Q, delayed_norm_Q[0:4*(BACKBONE_LAYERS+1)]};
         end
         
         phase_denormalization #(.WIDTH(1),
@@ -146,8 +146,8 @@ module main (
                     .clk(clk),
                     .I_out(denorm_I_out),
                     .Q_out(denorm_Q_out),
-                    .norm_I_input(delayed_norm_I[3*(BACKBONE_LAYERS+1)+4]),
-                    .norm_Q_input(delayed_norm_Q[3*(BACKBONE_LAYERS+1)+4]));
+                    .norm_I_input(delayed_norm_I[4*(BACKBONE_LAYERS+1)+1]),
+                    .norm_Q_input(delayed_norm_Q[4*(BACKBONE_LAYERS+1)+1]));
         
         assign I_out = denorm_I_out[0];
         assign Q_out = denorm_Q_out[0];

@@ -90,12 +90,15 @@ module csa_adder_tree_recursive #(parameter INPUTS_SIZE = 24, // amount of bits 
     
     genvar k, j;
     
-    if (INPUTS_AMOUNT == 2) begin
+    if (INPUTS_AMOUNT <= 2) begin
         logic signed [0:1-INPUTS_SIZE] new_inputs [INPUTS_AMOUNT-1:0];
         always_ff @(posedge clk) begin
             new_inputs <= inputs;
         end
-        assign output_sum = new_inputs[0] + new_inputs[1]; // if there are only 2 numbers left, add them together, add single bits as well
+        if (INPUTS_AMOUNT == 2)
+            assign output_sum = new_inputs[0] + new_inputs[1]; // if there are only 2 numbers left, add them together, add single bits as well
+        else
+            assign output_sum = new_inputs[0];
     end else begin
         logic signed [0:1-INPUTS_SIZE] add_tmp [((INPUTS_AMOUNT/3)*2)+INPUTS_AMOUNT%3-1:0]; // stores the outputs of the layer of the CSA tree
 

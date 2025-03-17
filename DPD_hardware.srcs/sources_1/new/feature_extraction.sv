@@ -137,14 +137,14 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     
     );
     
-    localparam int DELAY_STORAGE_SIZE = 6; // how many clock cyles-1 bits are stored while inv_sqrt is calculated
-    localparam int SQRT_EXTRA_IN_BITS = 3; // input to inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_IN_BITS bits
-    localparam int SQRT_EXTRA_OUT_BITS = 4; // output of inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS + SQRT_EXTRA_IN_BITS bits
+    localparam int DELAY_STORAGE_SIZE = 7; // how many clock cyles-1 bits are stored while inv_sqrt is calculated
+    localparam int SQRT_EXTRA_IN_BITS = 1; // input to inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_IN_BITS bits
+    localparam int SQRT_EXTRA_OUT_BITS = 1; // output of inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS + SQRT_EXTRA_IN_BITS bits
     
-    logic [0:1-2*INPUTS_SIZE] abs2_2 [DELAY_STORAGE_SIZE-2:0];
+    logic [-2:1-2*INPUTS_SIZE] abs2_2 [DELAY_STORAGE_SIZE-1:0];
     logic signed [0:1-INPUTS_SIZE] I_2 [DELAY_STORAGE_SIZE-1:0];
     logic signed [0:1-INPUTS_SIZE] Q_2 [DELAY_STORAGE_SIZE-1:0];
-    logic [$clog2(INPUTS_SIZE):0] shift [DELAY_STORAGE_SIZE-2:0];
+    logic [$clog2(INPUTS_SIZE):0] shift [DELAY_STORAGE_SIZE-1:0];
     
     logic [0:1-2*INPUTS_SIZE] abs2_tmp;
     logic [0:1-SQRT_EXTRA_IN_BITS-SQRT_EXTRA_OUT_BITS-INPUTS_SIZE] inv_abs_tmp;
@@ -158,16 +158,23 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     logic signed [0:1-2*INPUTS_SIZE-SQRT_EXTRA_OUT_BITS-SQRT_EXTRA_IN_BITS] norm_I_3;
     logic signed [0:1-2*INPUTS_SIZE-SQRT_EXTRA_OUT_BITS-SQRT_EXTRA_IN_BITS] norm_Q_3;
     
-    logic [0:1-INPUTS_SIZE] abs_4;
-    logic [0:1-3*INPUTS_SIZE] abs3_4;
+    logic [0:1-2*INPUTS_SIZE-INPUTS_SIZE/2-INPUTS_SIZE%2-SQRT_EXTRA_OUT_BITS-SQRT_EXTRA_IN_BITS] abs_4;
+    logic [0:1-2*INPUTS_SIZE] abs2_4;
     logic signed [0:1-INPUTS_SIZE] I_4;
     logic signed [0:1-INPUTS_SIZE] Q_4;
-    logic signed [0:1-INPUTS_SIZE] norm_I_4;
-    logic signed [0:1-INPUTS_SIZE] norm_Q_4;
+    logic signed [0:1-2*INPUTS_SIZE-SQRT_EXTRA_OUT_BITS-SQRT_EXTRA_IN_BITS] norm_I_4;
+    logic signed [0:1-2*INPUTS_SIZE-SQRT_EXTRA_OUT_BITS-SQRT_EXTRA_IN_BITS] norm_Q_4;
     
-    assign shift_out = shift[4];
-    assign abs2_2_out = abs2_2[4];
-    assign abs_3_out = abs_3;
+    logic [0:1-INPUTS_SIZE] abs_5;
+    logic [0:1-3*INPUTS_SIZE] abs3_5;
+    logic signed [0:1-INPUTS_SIZE] I_5;
+    logic signed [0:1-INPUTS_SIZE] Q_5;
+    logic signed [0:1-INPUTS_SIZE] norm_I_5;
+    logic signed [0:1-INPUTS_SIZE] norm_Q_5;
+    
+//    assign shift_out = shift[4];
+//    assign abs2_2_out = abs2_2[4];
+//    assign abs_3_out = abs_3;
     
     
     // has a delay of INPUTS_SIZE/2 + INPUTS_SIZE%2 + 1 rising edges
@@ -177,9 +184,6 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
                         .clk(clk),
                         .abs(inv_abs_tmp));
                         
-    assign abs2_tmp = (I*I) + (Q*Q);
-    assign abs2_tmp_out = abs2_tmp;
-    
     always_comb begin
         new_shift = 0;
         for (int i=2; i<INPUTS_SIZE-SQRT_EXTRA_IN_BITS; i=i+1) begin
@@ -189,69 +193,85 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
         end
         new_shift = (new_shift >> 1);
         
-        abs2_sqrt_in = abs2_tmp >> (2*new_shift);
+//        abs2_sqrt_in = abs2_tmp >> (2*new_shift);
+//        abs2_sqrt_in = abs2_2[0] >> (2*new_shift); // fix extra delay here
+//        abs2_tmp_in = abs2_tmp;
+        abs2_tmp = (I*I) + (Q*Q);
     end
                         
     always_ff @(posedge clk) begin: abs2_stage // abs2 value of I and Q,
-        abs2_2 <= {abs2_2[DELAY_STORAGE_SIZE-3:0], abs2_tmp};
+//        abs2_2 <= {abs2_2[DELAY_STORAGE_SIZE-3:0], abs2_tmp_in[-2:1-2*INPUTS_SIZE]};
+        abs2_2 <= {abs2_2[DELAY_STORAGE_SIZE-2:0], abs2_tmp[-2:1-2*INPUTS_SIZE]};
         I_2 <= {I_2[DELAY_STORAGE_SIZE-2:0], I};
         Q_2 <= {Q_2[DELAY_STORAGE_SIZE-2:0], Q};
-        shift <= {shift[DELAY_STORAGE_SIZE-3:0], new_shift};
+        shift <= {shift[DELAY_STORAGE_SIZE-2:0], new_shift};
+        abs2_sqrt_in <= abs2_2[0] >> (2*new_shift); // fix extra delay here
     end
     
     
     always_ff @(posedge clk) begin: abs_stage
-        abs_3 <= (abs2_2[DELAY_STORAGE_SIZE-2]*inv_abs_tmp) >> shift[DELAY_STORAGE_SIZE-2];
-        abs2_3 <= abs2_2[DELAY_STORAGE_SIZE-2];
+        abs_3 <= (abs2_2[DELAY_STORAGE_SIZE-1]*inv_abs_tmp);
+        abs2_3 <= abs2_2[DELAY_STORAGE_SIZE-1];
         I_3 <= I_2[DELAY_STORAGE_SIZE-1];
         Q_3 <= Q_2[DELAY_STORAGE_SIZE-1];
         // maybe only use 1 shift for inv_abs_tmp total?
         if (PHASE_NORM == 1) begin
-            norm_I_3 <= (I_2[DELAY_STORAGE_SIZE-1]* $signed({1'b0, inv_abs_tmp}) << (INPUTS_SIZE - shift[DELAY_STORAGE_SIZE-2]));
-            norm_Q_3 <= (Q_2[DELAY_STORAGE_SIZE-1]* $signed({1'b0, inv_abs_tmp}) << (INPUTS_SIZE - shift[DELAY_STORAGE_SIZE-2]));
+            norm_I_3 <= I_2[DELAY_STORAGE_SIZE-1]* $signed({1'b0, inv_abs_tmp});
+            norm_Q_3 <= Q_2[DELAY_STORAGE_SIZE-1]* $signed({1'b0, inv_abs_tmp});
+        end
+    end
+    
+    always_ff @(posedge clk) begin: shift_stage
+        abs_4 <= abs_3 >> shift[DELAY_STORAGE_SIZE-1];
+        abs2_4 <= abs2_3;
+        I_4 <= I_3;
+        Q_4 <= Q_3;
+        // maybe only use 1 shift for inv_abs_tmp total?
+        if (PHASE_NORM == 1) begin
+            norm_I_4 <= (norm_I_3 << (INPUTS_SIZE - shift[DELAY_STORAGE_SIZE-1]));
+            norm_Q_4 <= (norm_Q_3 << (INPUTS_SIZE - shift[DELAY_STORAGE_SIZE-1]));
         end
     end
     
     always_ff @(posedge clk) begin: abs3_stage
-        abs_4 <= abs_3[1-2-INPUTS_SIZE/2-INPUTS_SIZE%2 -:INPUTS_SIZE] + abs_3[1-2-INPUTS_SIZE/2-INPUTS_SIZE%2-INPUTS_SIZE];
-        abs3_4 <= abs2_3 * abs_3[1-2-INPUTS_SIZE/2-INPUTS_SIZE%2 -:INPUTS_SIZE];
-        I_4 <= I_3;
-        Q_4 <= Q_3;
+        abs_5 <= abs_4[1-2-INPUTS_SIZE/2-INPUTS_SIZE%2 -:INPUTS_SIZE] + abs_4[1-2-INPUTS_SIZE/2-INPUTS_SIZE%2-INPUTS_SIZE];
+        abs3_5 <= abs2_4 * abs_4[1-2-INPUTS_SIZE/2-INPUTS_SIZE%2 -:INPUTS_SIZE];
+        I_5 <= I_4;
+        Q_5 <= Q_4;
         
         if (PHASE_NORM == 1) begin
-            if (norm_I_3[0] != I_3[0]) // detects overflow now or after addition
-                norm_I_4 <= {I_3[0], {INPUTS_SIZE-1{norm_I_3[0]}}};
-            else if (norm_I_3[0:-INPUTS_SIZE] == {1'b0, {INPUTS_SIZE{1'b1}}})
-                norm_I_4 <= {1'b0, {INPUTS_SIZE-1{1'b1}}};
+            if (norm_I_4[0] != I_4[0]) // detects overflow now or after addition
+                norm_I_5 <= {I_4[0], {INPUTS_SIZE-1{norm_I_4[0]}}};
+            else if (norm_I_4[0:-INPUTS_SIZE] == {1'b0, {INPUTS_SIZE{1'b1}}})
+                norm_I_5 <= {1'b0, {INPUTS_SIZE-1{1'b1}}};
             else
-                norm_I_4 <= norm_I_3[0:1-INPUTS_SIZE] + norm_I_3[-INPUTS_SIZE];
-            if (norm_Q_3[0] != Q_3[0]) // detects overflow now or after addition
-                norm_Q_4 <= {Q_3[0], {INPUTS_SIZE-1{norm_Q_3[0]}}};
-            else if (norm_Q_3[0:-INPUTS_SIZE] == {1'b0, {INPUTS_SIZE{1'b1}}})
-                norm_Q_4 <= {1'b0, {INPUTS_SIZE-1{1'b1}}};
+                norm_I_5 <= norm_I_4[0:1-INPUTS_SIZE] + norm_I_4[-INPUTS_SIZE];
+            if (norm_Q_4[0] != Q_4[0]) // detects overflow now or after addition
+                norm_Q_5 <= {Q_4[0], {INPUTS_SIZE-1{norm_Q_4[0]}}};
+            else if (norm_Q_4[0:-INPUTS_SIZE] == {1'b0, {INPUTS_SIZE{1'b1}}})
+                norm_Q_5 <= {1'b0, {INPUTS_SIZE-1{1'b1}}};
             else
-                norm_Q_4 <= norm_Q_3[0:1-INPUTS_SIZE] + norm_Q_3[-INPUTS_SIZE];
+                norm_Q_5 <= norm_Q_4[0:1-INPUTS_SIZE] + norm_Q_4[-INPUTS_SIZE];
         end
     end
     
-    assign I_out = I_4;
-    assign Q_out = Q_4;
-    assign abs_out = abs_4;
-    assign abs3_out = abs3_4[-2*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER:1-3*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER] +
-        abs3_4[-3*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER];
+    assign I_out = I_5;
+    assign Q_out = Q_5;
+    assign abs_out = abs_5;
+    assign abs3_out = abs3_5[-2*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER:1-3*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER] +
+        abs3_5[-3*INPUTS_SIZE - 2*LAYER_FIRST_ACT_QUANTIZER];
     
      // since you can't add optional outputs in vivado, this should make it optimize it away during synthesis
      // when phase normalization isn't being used
     if (PHASE_NORM == 1) begin
-        assign norm_I_out = norm_I_4;
-        assign norm_Q_out = norm_Q_4;
+        assign norm_I_out = norm_I_5;
+        assign norm_Q_out = norm_Q_5;
     end
     else begin
         assign norm_I_out = 0;
         assign norm_Q_out = 0;
     end
     
-    assign inv_abs = inv_abs_tmp;
     
     
 
