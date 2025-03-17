@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
--- Date        : Mon Mar 17 13:16:58 2025
+-- Date        : Mon Mar 17 15:44:31 2025
 -- Host        : Manno running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/ip/design_1_main_wrapper_0/design_1_main_wrapper_0_stub.vhdl
@@ -21,11 +21,11 @@ entity design_1_main_wrapper_0 is
     m_out_axis_tready : in STD_LOGIC;
     s_inp_axis_tstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
     clk : in STD_LOGIC;
-    m_out_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_out_axis_tdata : out STD_LOGIC_VECTOR ( 63 downto 0 );
     s_inp_axis_tready : out STD_LOGIC;
     m_out_axis_tlast : out STD_LOGIC;
     m_out_axis_tvalid : out STD_LOGIC;
-    m_out_axis_tstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m_out_axis_tstrb : out STD_LOGIC_VECTOR ( 7 downto 0 );
     resetn : in STD_LOGIC
   );
 
@@ -43,7 +43,7 @@ architecture stub of design_1_main_wrapper_0 is
   attribute syn_black_box : boolean;
   attribute black_box_pad_pin : string;
   attribute syn_black_box of stub : architecture is true;
-  attribute black_box_pad_pin of stub : architecture is "s_inp_axis_tdata[31:0],s_inp_axis_tlast,s_inp_axis_tvalid,m_out_axis_tready,s_inp_axis_tstrb[3:0],clk,m_out_axis_tdata[31:0],s_inp_axis_tready,m_out_axis_tlast,m_out_axis_tvalid,m_out_axis_tstrb[3:0],resetn";
+  attribute black_box_pad_pin of stub : architecture is "s_inp_axis_tdata[31:0],s_inp_axis_tlast,s_inp_axis_tvalid,m_out_axis_tready,s_inp_axis_tstrb[3:0],clk,m_out_axis_tdata[63:0],s_inp_axis_tready,m_out_axis_tlast,m_out_axis_tvalid,m_out_axis_tstrb[7:0],resetn";
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of s_inp_axis_tdata : signal is "xilinx.com:interface:axis:1.0 s_inp_axis TDATA";
   attribute X_INTERFACE_MODE : string;
@@ -54,7 +54,7 @@ architecture stub of design_1_main_wrapper_0 is
   attribute X_INTERFACE_INFO of s_inp_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 s_inp_axis TVALID";
   attribute X_INTERFACE_INFO of m_out_axis_tready : signal is "xilinx.com:interface:axis:1.0 m_out_axis TREADY";
   attribute X_INTERFACE_MODE of m_out_axis_tready : signal is "master";
-  attribute X_INTERFACE_PARAMETER of m_out_axis_tready : signal is "XIL_INTERFACENAME m_out_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 60606064, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of m_out_axis_tready : signal is "XIL_INTERFACENAME m_out_axis, TDATA_NUM_BYTES 8, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 60606064, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of s_inp_axis_tstrb : signal is "xilinx.com:interface:axis:1.0 s_inp_axis TSTRB";
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
   attribute X_INTERFACE_MODE of clk : signal is "slave";

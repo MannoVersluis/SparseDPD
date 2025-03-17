@@ -207,7 +207,7 @@
             "vlnv": "xilinx.com:interface:axis_rtl:1.0",
             "parameters": {
               "TDATA_NUM_BYTES": {
-                "value": "4",
+                "value": "8",
                 "value_src": "auto"
               },
               "TDEST_WIDTH": {
@@ -251,13 +251,13 @@
               "TDATA": {
                 "physical_name": "m_out_axis_tdata",
                 "direction": "O",
-                "left": "31",
+                "left": "63",
                 "right": "0"
               },
               "TSTRB": {
                 "physical_name": "m_out_axis_tstrb",
                 "direction": "O",
-                "left": "3",
+                "left": "7",
                 "right": "0"
               },
               "TLAST": {

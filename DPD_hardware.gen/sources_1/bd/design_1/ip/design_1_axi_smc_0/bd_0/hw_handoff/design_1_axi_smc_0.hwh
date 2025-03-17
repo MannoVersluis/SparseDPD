@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Mar 17 13:16:03 2025" VIVADOVERSION="2024.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Mar 17 15:08:52 2025" VIVADOVERSION="2024.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="avnet-tria:minized:part0:1.4" DEVICE="7z007s" NAME="bd_afc3" PACKAGE="clg225" SPEEDGRADE="-1"/>
 
@@ -309,7 +309,7 @@
         <CONNECTION INSTANCE="s01_entry_pipeline_s01_mmu" PORT="s_axi_bvalid"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="31" NAME="S01_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_s_axi_wdata">
+    <PORT DIR="I" LEFT="63" NAME="S01_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_s_axi_wdata">
       <CONNECTIONS>
         <CONNECTION INSTANCE="s01_entry_pipeline_s01_mmu" PORT="s_axi_wdata"/>
       </CONNECTIONS>
@@ -324,7 +324,7 @@
         <CONNECTION INSTANCE="s01_entry_pipeline_s01_mmu" PORT="s_axi_wready"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="3" NAME="S01_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_s_axi_wstrb">
+    <PORT DIR="I" LEFT="7" NAME="S01_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_s_axi_wstrb">
       <CONNECTIONS>
         <CONNECTION INSTANCE="s01_entry_pipeline_s01_mmu" PORT="s_axi_wstrb"/>
       </CONNECTIONS>
@@ -434,13 +434,13 @@
       <MEMORYMAP/>
       <PERIPHERALS/>
     </BUSINTERFACE>
-    <BUSINTERFACE BUSNAME="External_Interface_S01_AXI" DATAWIDTH="32" NAME="S01_AXI" TYPE="SLAVE">
+    <BUSINTERFACE BUSNAME="External_Interface_S01_AXI" DATAWIDTH="64" NAME="S01_AXI" TYPE="SLAVE">
       <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
       <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
       <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
       <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
       <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-      <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
+      <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
       <PARAMETER NAME="FREQ_HZ" VALUE="60606064"/>
       <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
       <PARAMETER NAME="HAS_BURST" VALUE="0"/>
@@ -8119,8 +8119,8 @@
         <PARAMETER NAME="C_AWPAYLD_WIDTH" VALUE="140"/>
         <PARAMETER NAME="C_AXI_ADDR_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_AXI_ID_WIDTH" VALUE="2"/>
-        <PARAMETER NAME="C_AXI_RDATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_AXI_WDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_AXI_RDATA_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="C_AXI_WDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="C_BPAYLD_WIDTH" VALUE="7"/>
         <PARAMETER NAME="C_MSC_ROUTE_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_RPAYLD_WIDTH" VALUE="85"/>
@@ -8137,8 +8137,8 @@
         <PARAMETER NAME="C_WPAYLD_WIDTH" VALUE="88"/>
         <PARAMETER NAME="AXI_ADDR_WIDTH" VALUE="32"/>
         <PARAMETER NAME="AXI_ID_WIDTH" VALUE="2"/>
-        <PARAMETER NAME="AXI_RDATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="AXI_WDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="AXI_RDATA_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="AXI_WDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="Component_Name" VALUE="bd_afc3_s01a2s_0"/>
         <PARAMETER NAME="MSC_ROUTE_WIDTH" VALUE="1"/>
         <PARAMETER NAME="READ_WRITE_MODE" VALUE="WRITE_ONLY"/>
@@ -8285,7 +8285,7 @@
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_si_converter" PORT="m_axi_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_axi2sc_s_axi_wdata">
+        <PORT DIR="I" LEFT="63" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_axi2sc_s_axi_wdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_si_converter" PORT="m_axi_wdata"/>
           </CONNECTIONS>
@@ -8300,7 +8300,7 @@
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_si_converter" PORT="m_axi_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_axi2sc_s_axi_wstrb">
+        <PORT DIR="I" LEFT="7" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_axi2sc_s_axi_wstrb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_si_converter" PORT="m_axi_wstrb"/>
           </CONNECTIONS>
@@ -8369,13 +8369,13 @@
             <PORTMAP LOGICAL="SEND" PHYSICAL="m_sc_w_send"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_si_converter_M_AXI" DATAWIDTH="32" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_si_converter_M_AXI" DATAWIDTH="64" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="60606064"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="0"/>
@@ -8443,7 +8443,7 @@
         <PARAMETER NAME="C_NUM_READ_OUTSTANDING" VALUE="2"/>
         <PARAMETER NAME="C_NUM_SEG" VALUE="1"/>
         <PARAMETER NAME="C_NUM_WRITE_OUTSTANDING" VALUE="16"/>
-        <PARAMETER NAME="C_RDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_RDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="C_READ_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="C_SEG_BASE_ADDR_ARRAY" VALUE="0x0000000000000000"/>
         <PARAMETER NAME="C_SEG_SECURE_READ_ARRAY" VALUE="0b0"/>
@@ -8463,7 +8463,7 @@
         <PARAMETER NAME="C_S_PROTOCOL" VALUE="0"/>
         <PARAMETER NAME="C_S_RUSER_WIDTH" VALUE="0"/>
         <PARAMETER NAME="C_S_WUSER_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="C_WDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_WDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="C_WRITE_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
         <PARAMETER NAME="Component_Name" VALUE="bd_afc3_s01mmu_0"/>
@@ -8732,7 +8732,7 @@
         <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="2"/>
         <PARAMETER NAME="NUM_SEG" VALUE="1"/>
         <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="16"/>
-        <PARAMETER NAME="RDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="RDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="READ_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="READ_WRITE_MODE" VALUE="WRITE_ONLY"/>
         <PARAMETER NAME="SEG000_BASE_ADDR" VALUE="0x0000000000000000"/>
@@ -10538,7 +10538,7 @@
         <PARAMETER NAME="S_PROTOCOL" VALUE="AXI4"/>
         <PARAMETER NAME="S_RUSER_WIDTH" VALUE="0"/>
         <PARAMETER NAME="S_WUSER_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="WDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="WDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="WRITE_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
@@ -10628,7 +10628,7 @@
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_transaction_regulator" PORT="s_axi_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="m_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_m_axi_wdata">
+        <PORT DIR="O" LEFT="63" NAME="m_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_m_axi_wdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_transaction_regulator" PORT="s_axi_wdata"/>
           </CONNECTIONS>
@@ -10643,7 +10643,7 @@
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_transaction_regulator" PORT="s_axi_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="m_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_m_axi_wstrb">
+        <PORT DIR="O" LEFT="7" NAME="m_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_m_axi_wstrb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_transaction_regulator" PORT="s_axi_wstrb"/>
           </CONNECTIONS>
@@ -10723,7 +10723,7 @@
             <CONNECTION INSTANCE="bd_afc3_imp" PORT="S01_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_s_axi_wdata">
+        <PORT DIR="I" LEFT="63" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_s_axi_wdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="bd_afc3_imp" PORT="S01_AXI_wdata"/>
           </CONNECTIONS>
@@ -10738,7 +10738,7 @@
             <CONNECTION INSTANCE="bd_afc3_imp" PORT="S01_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_s_axi_wstrb">
+        <PORT DIR="I" LEFT="7" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_s_axi_wstrb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="bd_afc3_imp" PORT="S01_AXI_wstrb"/>
           </CONNECTIONS>
@@ -10750,13 +10750,13 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="External_Interface_S01_AXI" DATAWIDTH="32" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="External_Interface_S01_AXI" DATAWIDTH="64" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="60606064"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="1"/>
@@ -10803,13 +10803,13 @@
             <PORTMAP LOGICAL="WVALID" PHYSICAL="s_axi_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_mmu_M_AXI" DATAWIDTH="32" NAME="M_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_mmu_M_AXI" DATAWIDTH="64" NAME="M_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="60606064"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="1"/>
@@ -10885,7 +10885,7 @@
         <PARAMETER NAME="C_NUM_SEG" VALUE="1"/>
         <PARAMETER NAME="C_NUM_WRITE_OUTSTANDING" VALUE="16"/>
         <PARAMETER NAME="C_NUM_WRITE_THREADS" VALUE="1"/>
-        <PARAMETER NAME="C_RDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_RDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="C_READ_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="C_READ_WATERMARK" VALUE="0"/>
         <PARAMETER NAME="C_SEP_PROTOCOL_ARRAY" VALUE="0x00000001"/>
@@ -10895,7 +10895,7 @@
         <PARAMETER NAME="C_SUPPORTS_NARROW" VALUE="0"/>
         <PARAMETER NAME="C_S_RUSER_BITS_PER_BYTE" VALUE="0"/>
         <PARAMETER NAME="C_S_WUSER_BITS_PER_BYTE" VALUE="0"/>
-        <PARAMETER NAME="C_WDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_WDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="C_WRITE_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="C_WRITE_WATERMARK" VALUE="0"/>
         <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
@@ -11429,7 +11429,7 @@
         <PARAMETER NAME="NUM_SEG" VALUE="1"/>
         <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="16"/>
         <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
-        <PARAMETER NAME="RDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="RDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="READ_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="READ_WATERMARK" VALUE="0"/>
         <PARAMETER NAME="READ_WRITE_MODE" VALUE="WRITE_ONLY"/>
@@ -12205,7 +12205,7 @@
         <PARAMETER NAME="SUPPORTS_NARROW" VALUE="0"/>
         <PARAMETER NAME="S_RUSER_BITS_PER_BYTE" VALUE="0"/>
         <PARAMETER NAME="S_WUSER_BITS_PER_BYTE" VALUE="0"/>
-        <PARAMETER NAME="WDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="WDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="WRITE_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="WRITE_WATERMARK" VALUE="0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
@@ -12296,7 +12296,7 @@
             <CONNECTION INSTANCE="s01_axi2sc" PORT="s_axi_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="m_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_axi2sc_s_axi_wdata">
+        <PORT DIR="O" LEFT="63" NAME="m_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_axi2sc_s_axi_wdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_axi2sc" PORT="s_axi_wdata"/>
           </CONNECTIONS>
@@ -12311,7 +12311,7 @@
             <CONNECTION INSTANCE="s01_axi2sc" PORT="s_axi_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="m_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_axi2sc_s_axi_wstrb">
+        <PORT DIR="O" LEFT="7" NAME="m_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_axi2sc_s_axi_wstrb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_axi2sc" PORT="s_axi_wstrb"/>
           </CONNECTIONS>
@@ -12406,7 +12406,7 @@
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_transaction_regulator" PORT="m_axi_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_si_converter_s_axi_wdata">
+        <PORT DIR="I" LEFT="63" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_si_converter_s_axi_wdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_transaction_regulator" PORT="m_axi_wdata"/>
           </CONNECTIONS>
@@ -12421,7 +12421,7 @@
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_transaction_regulator" PORT="m_axi_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_si_converter_s_axi_wstrb">
+        <PORT DIR="I" LEFT="7" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_si_converter_s_axi_wstrb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_transaction_regulator" PORT="m_axi_wstrb"/>
           </CONNECTIONS>
@@ -12438,14 +12438,14 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_transaction_regulator_M_AXI" DATAWIDTH="32" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_transaction_regulator_M_AXI" DATAWIDTH="64" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="BRIDGES" VALUE="M_AXI"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="60606064"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="0"/>
@@ -12496,13 +12496,13 @@
             <PORTMAP LOGICAL="WVALID" PHYSICAL="s_axi_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_si_converter_M_AXI" DATAWIDTH="32" NAME="M_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_si_converter_M_AXI" DATAWIDTH="64" NAME="M_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="60606064"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="0"/>
@@ -12570,14 +12570,14 @@
         <PARAMETER NAME="C_NUM_READ_THREADS" VALUE="1"/>
         <PARAMETER NAME="C_NUM_WRITE_OUTSTANDING" VALUE="16"/>
         <PARAMETER NAME="C_NUM_WRITE_THREADS" VALUE="1"/>
-        <PARAMETER NAME="C_RDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_RDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="C_READ_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="C_SEP_ROUTE_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_SINGLE_ISSUING" VALUE="0"/>
         <PARAMETER NAME="C_SUPPORTS_READ_DEADLOCK" VALUE="0"/>
         <PARAMETER NAME="C_SUPPORTS_WRITE_DEADLOCK" VALUE="0"/>
         <PARAMETER NAME="C_S_ID_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="C_WDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_WDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="C_WRITE_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
         <PARAMETER NAME="Component_Name" VALUE="bd_afc3_s01tr_0"/>
@@ -12591,7 +12591,7 @@
         <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
         <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="16"/>
         <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
-        <PARAMETER NAME="RDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="RDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="READ_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="READ_WRITE_MODE" VALUE="WRITE_ONLY"/>
         <PARAMETER NAME="SEP_ROUTE_WIDTH" VALUE="1"/>
@@ -12599,7 +12599,7 @@
         <PARAMETER NAME="SUPPORTS_READ_DEADLOCK" VALUE="0"/>
         <PARAMETER NAME="SUPPORTS_WRITE_DEADLOCK" VALUE="0"/>
         <PARAMETER NAME="S_ID_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="WDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="WDATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="WRITE_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
@@ -12694,7 +12694,7 @@
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_si_converter" PORT="s_axi_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="m_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_si_converter_s_axi_wdata">
+        <PORT DIR="O" LEFT="63" NAME="m_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_si_converter_s_axi_wdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_si_converter" PORT="s_axi_wdata"/>
           </CONNECTIONS>
@@ -12709,7 +12709,7 @@
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_si_converter" PORT="s_axi_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="m_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_si_converter_s_axi_wstrb">
+        <PORT DIR="O" LEFT="7" NAME="m_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_si_converter_s_axi_wstrb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_si_converter" PORT="s_axi_wstrb"/>
           </CONNECTIONS>
@@ -12799,7 +12799,7 @@
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_mmu" PORT="m_axi_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_m_axi_wdata">
+        <PORT DIR="I" LEFT="63" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_m_axi_wdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_mmu" PORT="m_axi_wdata"/>
           </CONNECTIONS>
@@ -12814,7 +12814,7 @@
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_mmu" PORT="m_axi_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_m_axi_wstrb">
+        <PORT DIR="I" LEFT="7" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="s01_entry_pipeline_s01_mmu_m_axi_wstrb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s01_entry_pipeline_s01_mmu" PORT="m_axi_wstrb"/>
           </CONNECTIONS>
@@ -12831,14 +12831,14 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_mmu_M_AXI" DATAWIDTH="32" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_mmu_M_AXI" DATAWIDTH="64" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="BRIDGES" VALUE="M_AXI"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="60606064"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="1"/>
@@ -12888,13 +12888,13 @@
             <PORTMAP LOGICAL="WVALID" PHYSICAL="s_axi_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_transaction_regulator_M_AXI" DATAWIDTH="32" NAME="M_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="s01_entry_pipeline_s01_transaction_regulator_M_AXI" DATAWIDTH="64" NAME="M_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="1024"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="60606064"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="1"/>
@@ -12977,7 +12977,7 @@
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER NAME="C_S_LATENCY" VALUE="0"/>
-        <PARAMETER NAME="C_S_NUM_BYTES_ARRAY" VALUE="0x00000004"/>
+        <PARAMETER NAME="C_S_NUM_BYTES_ARRAY" VALUE="0x00000008"/>
         <PARAMETER NAME="C_S_PIPELINE" VALUE="0"/>
         <PARAMETER NAME="C_USER_BITS_PER_BYTE" VALUE="0"/>
         <PARAMETER NAME="C_USER_WIDTH" VALUE="0"/>
@@ -13017,37 +13017,37 @@
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="16"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
         <PARAMETER NAME="PAYLD_WIDTH" VALUE="140"/>
-        <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S00_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S01_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S01_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S02_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S02_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S02_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S03_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S03_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S03_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S04_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S04_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S04_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S05_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S05_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S05_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S06_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S06_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S06_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S07_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S07_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S07_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S08_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S08_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S08_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S09_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S09_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S09_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S10_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S10_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S10_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S11_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S11_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S11_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S12_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S12_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S12_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S13_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S13_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S13_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S14_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S14_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S14_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S15_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S15_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S15_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="SC_ROUTE_WIDTH" VALUE="1"/>
         <PARAMETER NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -13169,7 +13169,7 @@
         <PARAMETER NAME="C_FIFO_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_ID_WIDTH" VALUE="2"/>
         <PARAMETER NAME="C_MAX_PAYLD_BYTES" VALUE="8"/>
-        <PARAMETER NAME="C_M_NUM_BYTES_ARRAY" VALUE="0x00000004"/>
+        <PARAMETER NAME="C_M_NUM_BYTES_ARRAY" VALUE="0x00000008"/>
         <PARAMETER NAME="C_M_PIPELINE" VALUE="0"/>
         <PARAMETER NAME="C_M_SEND_PIPELINE" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
@@ -13197,22 +13197,22 @@
         <PARAMETER NAME="FIFO_SIZE" VALUE="5"/>
         <PARAMETER NAME="FIFO_TYPE" VALUE="0"/>
         <PARAMETER NAME="ID_WIDTH" VALUE="2"/>
-        <PARAMETER NAME="M00_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M01_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M02_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M03_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M04_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M05_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M06_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M07_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M08_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M09_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M10_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M11_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M12_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M13_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M14_NUM_BYTES" VALUE="4"/>
-        <PARAMETER NAME="M15_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="M00_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M01_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M02_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M03_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M04_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M05_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M06_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M07_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M08_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M09_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M10_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M11_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M12_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M13_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M14_NUM_BYTES" VALUE="8"/>
+        <PARAMETER NAME="M15_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="MAX_PAYLD_BYTES" VALUE="8"/>
         <PARAMETER NAME="M_PIPELINE" VALUE="0"/>
         <PARAMETER NAME="M_SEND_PIPELINE" VALUE="0"/>
@@ -13383,7 +13383,7 @@
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER NAME="C_S_LATENCY" VALUE="0"/>
-        <PARAMETER NAME="C_S_NUM_BYTES_ARRAY" VALUE="0x00000004"/>
+        <PARAMETER NAME="C_S_NUM_BYTES_ARRAY" VALUE="0x00000008"/>
         <PARAMETER NAME="C_S_PIPELINE" VALUE="0"/>
         <PARAMETER NAME="C_USER_BITS_PER_BYTE" VALUE="0"/>
         <PARAMETER NAME="C_USER_WIDTH" VALUE="512"/>
@@ -13423,37 +13423,37 @@
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="16"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
         <PARAMETER NAME="PAYLD_WIDTH" VALUE="88"/>
-        <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S00_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S01_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S01_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S02_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S02_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S02_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S03_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S03_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S03_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S04_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S04_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S04_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S05_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S05_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S05_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S06_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S06_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S06_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S07_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S07_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S07_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S08_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S08_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S08_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S09_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S09_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S09_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S10_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S10_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S10_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S11_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S11_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S11_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S12_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S12_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S12_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S13_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S13_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S13_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S14_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S14_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S14_PRIORITY_ARB" VALUE="0"/>
-        <PARAMETER NAME="S15_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="S15_NUM_BYTES" VALUE="8"/>
         <PARAMETER NAME="S15_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="SC_ROUTE_WIDTH" VALUE="1"/>
         <PARAMETER NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>

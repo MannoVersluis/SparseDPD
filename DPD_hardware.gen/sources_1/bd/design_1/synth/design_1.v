@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-//Date        : Mon Mar 17 13:15:57 2025
+//Date        : Mon Mar 17 15:08:47 2025
 //Host        : Manno running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -104,10 +104,10 @@ module design_1
   wire axi_dma_0_M_AXI_S2MM_BREADY;
   wire [1:0]axi_dma_0_M_AXI_S2MM_BRESP;
   wire axi_dma_0_M_AXI_S2MM_BVALID;
-  wire [31:0]axi_dma_0_M_AXI_S2MM_WDATA;
+  wire [63:0]axi_dma_0_M_AXI_S2MM_WDATA;
   wire axi_dma_0_M_AXI_S2MM_WLAST;
   wire axi_dma_0_M_AXI_S2MM_WREADY;
-  wire [3:0]axi_dma_0_M_AXI_S2MM_WSTRB;
+  wire [7:0]axi_dma_0_M_AXI_S2MM_WSTRB;
   wire axi_dma_0_M_AXI_S2MM_WVALID;
   wire [9:0]axi_smc_1_M00_AXI_ARADDR;
   wire axi_smc_1_M00_AXI_ARREADY;
@@ -158,7 +158,7 @@ module design_1
   wire axi_smc_M00_AXI_WREADY;
   wire [7:0]axi_smc_M00_AXI_WSTRB;
   wire axi_smc_M00_AXI_WVALID;
-  wire [31:0]main_wrapper_m_out_axis_TDATA;
+  wire [63:0]main_wrapper_m_out_axis_TDATA;
   wire main_wrapper_m_out_axis_TLAST;
   wire main_wrapper_m_out_axis_TREADY;
   wire main_wrapper_m_out_axis_TVALID;
@@ -259,7 +259,7 @@ module design_1
         .s_axi_lite_wready(axi_smc_1_M00_AXI_WREADY),
         .s_axi_lite_wvalid(axi_smc_1_M00_AXI_WVALID),
         .s_axis_s2mm_tdata(main_wrapper_m_out_axis_TDATA),
-        .s_axis_s2mm_tkeep({1'b1,1'b1,1'b1,1'b1}),
+        .s_axis_s2mm_tkeep({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
         .s_axis_s2mm_tlast(main_wrapper_m_out_axis_TLAST),
         .s_axis_s2mm_tready(main_wrapper_m_out_axis_TREADY),
         .s_axis_s2mm_tvalid(main_wrapper_m_out_axis_TVALID));

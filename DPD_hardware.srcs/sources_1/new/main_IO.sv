@@ -52,8 +52,8 @@ module main_IO #
      */
 //    input  wire                   m00_axis_aclk,
 //    input  wire                   m00_axis_aresetn,
-    output wire [C_AXIS_TDATA_WIDTH-1:0]  m00_axis_tdata,
-    output wire [(C_AXIS_TDATA_WIDTH/8)-1:0] m00_axis_tstrb,
+    output wire [2*C_AXIS_TDATA_WIDTH-1:0]  m00_axis_tdata,
+    output wire [2*(C_AXIS_TDATA_WIDTH/8)-1:0] m00_axis_tstrb,
     output wire                   m00_axis_tvalid,
     input  wire                   m00_axis_tready,
     output wire                   m00_axis_tlast
@@ -71,14 +71,14 @@ reg [ADDR_WIDTH:0] rd_ptr_sync1_reg = {ADDR_WIDTH+1{1'b0}};
 
 reg rst_sync1_reg = 1'b1;
 
-reg [C_AXIS_TDATA_WIDTH+2-1:0] mem[(2**ADDR_WIDTH)-1:0];
-reg [C_AXIS_TDATA_WIDTH+2-1:0] mem_read_data_reg = {C_AXIS_TDATA_WIDTH+2{1'b0}};
+reg [(2*C_AXIS_TDATA_WIDTH)+2-1:0] mem[(2**ADDR_WIDTH)-1:0];
+reg [(2*C_AXIS_TDATA_WIDTH)+2-1:0] mem_read_data_reg = {(2*C_AXIS_TDATA_WIDTH)+2{1'b0}};
 reg mem_read_data_valid_reg = 1'b0, mem_read_data_valid_next;
-wire [C_AXIS_TDATA_WIDTH+2-1:0] mem_write_data;
-//reg [2*INPUTS_SIZE-1:0] DPD_in = {2*INPUTS_SIZE{1'b0}};
-//reg [2*C_AXIS_TDATA_WIDTH-1:0] DPD_out;
+wire [(2*C_AXIS_TDATA_WIDTH)+2-1:0] mem_write_data;
+reg [2*INPUTS_SIZE-1:0] DPD_in = {2*INPUTS_SIZE{1'b0}};
+reg [2*C_AXIS_TDATA_WIDTH-1:0] DPD_out;
 
-reg [C_AXIS_TDATA_WIDTH+2-1:0] m00_data_reg = {C_AXIS_TDATA_WIDTH+2{1'b0}};
+reg [(2*C_AXIS_TDATA_WIDTH)+2-1:0] m00_data_reg = {(2*C_AXIS_TDATA_WIDTH)+2{1'b0}};
 
 reg m00_axis_tvalid_reg = 1'b0, m00_axis_tvalid_next;
 
@@ -98,8 +98,8 @@ assign s00_axis_tready = ~full & ~rst_sync1_reg;
 
 assign m00_axis_tvalid = m00_axis_tvalid_reg;
 
-//assign mem_write_data = {s00_axis_tlast, DPD_out};
-assign mem_write_data = {s00_axis_tlast, s00_axis_tdata};
+assign mem_write_data = {s00_axis_tlast, DPD_out};
+//assign mem_write_data = {s00_axis_tlast, s00_axis_tdata};
 assign {m00_axis_tlast, m00_axis_tdata} = m00_data_reg;
 
 // reset synchronization
@@ -138,36 +138,36 @@ always @(posedge clk) begin
 
     if (write) begin
         
-//        DPD_in[0 +:INPUTS_SIZE] <= s00_axis_tdata[0 +:INPUTS_SIZE];
-//        DPD_in[INPUTS_SIZE +:INPUTS_SIZE] <= s00_axis_tdata[C_AXIS_TDATA_WIDTH/2 +:INPUTS_SIZE];
+        DPD_in[0 +:INPUTS_SIZE] <= s00_axis_tdata[0 +:INPUTS_SIZE];
+        DPD_in[INPUTS_SIZE +:INPUTS_SIZE] <= s00_axis_tdata[C_AXIS_TDATA_WIDTH/2 +:INPUTS_SIZE];
 ////        mem_shift_delay[SHIFT_DELAY-1:1] <= mem_shift_delay[SHIFT_DELAY-2:0];
         mem[wr_addr_reg[ADDR_WIDTH-1:0]] <= mem_write_data;
 //        mem[wr_addr_reg[ADDR_WIDTH-1:0]] <= mem_shift_delay[SHIFT_DELAY-1];
     end
 end
 
-//logic DPD_clk; // clock gated version of clk that only updates when new input is given
+logic DPD_clk; // clock gated version of clk that only updates when new input is given
 
-////BUFGCE bufgce_i0 (
-////    .I(clk),
-////    .CE(read),
-////    .O(DPD_clk)
-////);
+BUFGCE bufgce_i0 (
+    .I(clk),
+    .CE(read),
+    .O(DPD_clk)
+);
 
-//// sending inputs to DPD
-//    main dpd_model (
-//        .clk(clk),
-//        .I(DPD_in[0 +:INPUTS_SIZE]),
-//        .Q(DPD_in[INPUTS_SIZE +:INPUTS_SIZE]),
-//        .I_out(DPD_out[0 +:2*INPUTS_SIZE]),
-//        .Q_out(DPD_out[C_AXIS_TDATA_WIDTH +:2*INPUTS_SIZE])
-//    );
+// sending inputs to DPD
+    main dpd_model (
+        .clk(DPD_clk),
+        .I(DPD_in[0 +:INPUTS_SIZE]),
+        .Q(DPD_in[INPUTS_SIZE +:INPUTS_SIZE]),
+        .I_out(DPD_out[0 +:2*INPUTS_SIZE]),
+        .Q_out(DPD_out[C_AXIS_TDATA_WIDTH +:2*INPUTS_SIZE])
+    );
     
-//    if (2*INPUTS_SIZE < C_AXIS_TDATA_WIDTH) begin
-//        localparam IO_PADDING = C_AXIS_TDATA_WIDTH-2*INPUTS_SIZE;
-//        assign DPD_out[2*INPUTS_SIZE +: IO_PADDING] = 'b0; 
-//        assign DPD_out[C_AXIS_TDATA_WIDTH+2*INPUTS_SIZE +: IO_PADDING] = 'b0; 
-//    end
+    if (2*INPUTS_SIZE < C_AXIS_TDATA_WIDTH) begin
+        localparam IO_PADDING = C_AXIS_TDATA_WIDTH-2*INPUTS_SIZE;
+        assign DPD_out[2*INPUTS_SIZE +: IO_PADDING] = 'b0; 
+        assign DPD_out[C_AXIS_TDATA_WIDTH+2*INPUTS_SIZE +: IO_PADDING] = 'b0; 
+    end
 
 // pointer synchronization
 always @(posedge clk) begin

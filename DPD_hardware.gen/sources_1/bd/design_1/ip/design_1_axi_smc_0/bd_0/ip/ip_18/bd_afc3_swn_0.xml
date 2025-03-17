@@ -735,7 +735,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2e53a3a5</spirit:value>
+            <spirit:value>9:ca4366bc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -758,7 +758,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:071f4676</spirit:value>
+            <spirit:value>9:b4ecb2f6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -774,11 +774,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Mar 17 12:16:02 UTC 2025</spirit:value>
+            <spirit:value>Mon Mar 17 14:08:51 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:071f4676</spirit:value>
+            <spirit:value>9:b4ecb2f6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -801,7 +801,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2e53a3a5</spirit:value>
+            <spirit:value>9:ca4366bc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -817,11 +817,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Mar 17 12:16:02 UTC 2025</spirit:value>
+            <spirit:value>Mon Mar 17 14:08:51 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2e53a3a5</spirit:value>
+            <spirit:value>9:ca4366bc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1306,7 +1306,7 @@
       <spirit:modelParameter spirit:dataType="bitstring">
         <spirit:name>C_S_NUM_BYTES_ARRAY</spirit:name>
         <spirit:displayName>C_S_NUM_BYTES_ARRAY</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_NUM_BYTES_ARRAY" spirit:bitStringLength="32">0x00000004</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_NUM_BYTES_ARRAY" spirit:bitStringLength="32">0x00000008</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="bitstring">
         <spirit:name>C_M_NUM_BYTES_ARRAY</spirit:name>
@@ -1658,82 +1658,82 @@
     <spirit:parameter>
       <spirit:name>S00_NUM_BYTES</spirit:name>
       <spirit:displayName>S00_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S00_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S00_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S01_NUM_BYTES</spirit:name>
       <spirit:displayName>S01_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S01_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S01_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S02_NUM_BYTES</spirit:name>
       <spirit:displayName>S02_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S02_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S02_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S03_NUM_BYTES</spirit:name>
       <spirit:displayName>S03_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S03_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S03_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S04_NUM_BYTES</spirit:name>
       <spirit:displayName>S04_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S04_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S04_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S05_NUM_BYTES</spirit:name>
       <spirit:displayName>S05_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S05_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S05_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S06_NUM_BYTES</spirit:name>
       <spirit:displayName>S06_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S06_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S06_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S07_NUM_BYTES</spirit:name>
       <spirit:displayName>S07_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S07_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S07_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S08_NUM_BYTES</spirit:name>
       <spirit:displayName>S08_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S08_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S08_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S09_NUM_BYTES</spirit:name>
       <spirit:displayName>S09_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S09_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S09_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S10_NUM_BYTES</spirit:name>
       <spirit:displayName>S10_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S10_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S10_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S11_NUM_BYTES</spirit:name>
       <spirit:displayName>S11_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S11_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S11_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S12_NUM_BYTES</spirit:name>
       <spirit:displayName>S12_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S12_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S12_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S13_NUM_BYTES</spirit:name>
       <spirit:displayName>S13_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S13_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S13_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S14_NUM_BYTES</spirit:name>
       <spirit:displayName>S14_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S14_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S14_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S15_NUM_BYTES</spirit:name>
       <spirit:displayName>S15_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S15_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S15_NUM_BYTES" spirit:minimum="4" spirit:maximum="128" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>M00_NUM_BYTES</spirit:name>

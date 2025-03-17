@@ -27,9 +27,9 @@ module main_wrapper #(
     input wire s_inp_axis_tlast, s_inp_axis_tvalid, m_out_axis_tready,
     input wire [(C_AXIS_TDATA_WIDTH/8)-1:0] s_inp_axis_tstrb,
     input wire clk,
-    output wire [C_AXIS_TDATA_WIDTH-1:0] m_out_axis_tdata,
+    output wire [2*C_AXIS_TDATA_WIDTH-1:0] m_out_axis_tdata,
     output wire s_inp_axis_tready, m_out_axis_tlast, m_out_axis_tvalid,
-    output wire [(C_AXIS_TDATA_WIDTH/8)-1:0] m_out_axis_tstrb,
+    output wire [2*(C_AXIS_TDATA_WIDTH/8)-1:0] m_out_axis_tstrb,
     input wire resetn
     );
     

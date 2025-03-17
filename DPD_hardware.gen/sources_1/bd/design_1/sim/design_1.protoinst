@@ -51,10 +51,10 @@
 						"BREADY": { "actual": "m_axi_s2mm_bready"},
 						"BRESP": { "actual": "m_axi_s2mm_bresp[1:0]"},
 						"BVALID": { "actual": "m_axi_s2mm_bvalid"},
-						"WDATA": { "actual": "m_axi_s2mm_wdata[31:0]"},
+						"WDATA": { "actual": "m_axi_s2mm_wdata[63:0]"},
 						"WLAST": { "actual": "m_axi_s2mm_wlast"},
 						"WREADY": { "actual": "m_axi_s2mm_wready"},
-						"WSTRB": { "actual": "m_axi_s2mm_wstrb[3:0]"},
+						"WSTRB": { "actual": "m_axi_s2mm_wstrb[7:0]"},
 						"WVALID": { "actual": "m_axi_s2mm_wvalid"}
 					}
 				},
@@ -63,8 +63,8 @@
 					"ports": {
 						"ACLK": { "actual": "m_axi_s2mm_aclk"},
 						"ARESETN": { "actual": "s2mm_prmry_reset_out_n"},
-						"TDATA": { "actual": "s_axis_s2mm_tdata[31:0]"},
-						"TKEEP": { "actual": "s_axis_s2mm_tkeep[3:0]"},
+						"TDATA": { "actual": "s_axis_s2mm_tdata[63:0]"},
+						"TKEEP": { "actual": "s_axis_s2mm_tkeep[7:0]"},
 						"TLAST": { "actual": "s_axis_s2mm_tlast"},
 						"TREADY": { "actual": "s_axis_s2mm_tready"},
 						"TVALID": { "actual": "s_axis_s2mm_tvalid"}
@@ -170,10 +170,10 @@
 						"BREADY": { "actual": "S01_AXI_bready"},
 						"BRESP": { "actual": "S01_AXI_bresp[1:0]"},
 						"BVALID": { "actual": "S01_AXI_bvalid"},
-						"WDATA": { "actual": "S01_AXI_wdata[31:0]"},
+						"WDATA": { "actual": "S01_AXI_wdata[63:0]"},
 						"WLAST": { "actual": "S01_AXI_wlast"},
 						"WREADY": { "actual": "S01_AXI_wready"},
-						"WSTRB": { "actual": "S01_AXI_wstrb[3:0]"},
+						"WSTRB": { "actual": "S01_AXI_wstrb[7:0]"},
 						"WVALID": { "actual": "S01_AXI_wvalid"}
 					}
 				},
@@ -251,10 +251,10 @@
 					"ports": {
 						"ACLK": { "actual": "clk"},
 						"ARESETN": { "actual": "resetn"},
-						"TDATA": { "actual": "m_out_axis_tdata[31:0]"},
+						"TDATA": { "actual": "m_out_axis_tdata[63:0]"},
 						"TLAST": { "actual": "m_out_axis_tlast"},
 						"TREADY": { "actual": "m_out_axis_tready"},
-						"TSTRB": { "actual": "m_out_axis_tstrb[3:0]"},
+						"TSTRB": { "actual": "m_out_axis_tstrb[7:0]"},
 						"TVALID": { "actual": "m_out_axis_tvalid"}
 					}
 				},
