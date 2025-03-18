@@ -27,25 +27,6 @@ module main (
     output logic signed [1:1-OUTPUTS_SIZE] I_out,
     output logic signed [1:1-OUTPUTS_SIZE] Q_out
     );
-    
-    logic [0:1-INPUTS_SIZE] in_delay [18:0];
-    logic [0:1-INPUTS_SIZE] counter = 0;
-    
-    always_ff @(posedge clk) begin
-        in_delay[18:0] <= {in_delay[17:0], Q};
-        Q_out[0:1-INPUTS_SIZE] <= in_delay[18];
-        counter <= counter+1;
-        Q_out[-INPUTS_SIZE -: INPUTS_SIZE] <= counter;
-    end
-    
-    
-    
-    
-    
-    
-    
-    
-    
         
     localparam MIN_BIT_INPUTS = LAYER_FIRST_ACT_QUANTIZER;
     
@@ -169,7 +150,7 @@ module main (
                     .norm_Q_input(delayed_norm_Q[4*(BACKBONE_LAYERS+1)+1]));
         
         assign I_out = denorm_I_out[0];
-//        assign Q_out = denorm_Q_out[0];
+        assign Q_out = denorm_Q_out[0];
     end
     else begin
         assign I_out = backbone_I_out[0];

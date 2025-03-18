@@ -8,7 +8,7 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Tue Mar 18 12:44:08 2025
+  **** Start of session at: Tue Mar 18 15:37:05 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -28,14 +28,14 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 17836
+INFO: [Synth 8-7075] Helper process launched with PID 3004
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1127.016 ; gain = 470.543
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1125.617 ; gain = 468.625
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_dma_0_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_axi_dma_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_dma_0_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_axi_dma_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_dma_0_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_axi_dma_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_dma_0_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_axi_dma_0_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'mm2s_prmry_reset_out_n' of module 'design_1_axi_dma_0_0' is unconnected for instance 'axi_dma_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:207]
 WARNING: [Synth 8-7071] port 'm_axis_mm2s_tkeep' of module 'design_1_axi_dma_0_0' is unconnected for instance 'axi_dma_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:207]
 WARNING: [Synth 8-7071] port 's2mm_prmry_reset_out_n' of module 'design_1_axi_dma_0_0' is unconnected for instance 'axi_dma_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:207]
@@ -43,27 +43,27 @@ WARNING: [Synth 8-7071] port 'mm2s_introut' of module 'design_1_axi_dma_0_0' is 
 WARNING: [Synth 8-7071] port 's2mm_introut' of module 'design_1_axi_dma_0_0' is unconnected for instance 'axi_dma_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:207]
 WARNING: [Synth 8-7071] port 'axi_dma_tstvec' of module 'design_1_axi_dma_0_0' is unconnected for instance 'axi_dma_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:207]
 WARNING: [Synth 8-7023] instance 'axi_dma_0' of module 'design_1_axi_dma_0_0' has 64 connections declared, but only 58 given [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:207]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_smc_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_axi_smc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_smc_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_axi_smc_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_smc_1_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_axi_smc_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_smc_1_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_axi_smc_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_smc_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_axi_smc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_smc_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_axi_smc_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_smc_1_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_axi_smc_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_smc_1_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_axi_smc_1_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'M00_AXI_awprot' of module 'design_1_axi_smc_1_0' is unconnected for instance 'axi_smc_1' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:335]
 WARNING: [Synth 8-7071] port 'M00_AXI_wstrb' of module 'design_1_axi_smc_1_0' is unconnected for instance 'axi_smc_1' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:335]
 WARNING: [Synth 8-7071] port 'M00_AXI_arprot' of module 'design_1_axi_smc_1_0' is unconnected for instance 'axi_smc_1' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:335]
 WARNING: [Synth 8-7023] instance 'axi_smc_1' of module 'design_1_axi_smc_1_0' has 59 connections declared, but only 56 given [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:335]
-INFO: [Synth 8-6157] synthesizing module 'design_1_main_wrapper_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_main_wrapper_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_main_wrapper_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_main_wrapper_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_main_wrapper_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_main_wrapper_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_main_wrapper_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_main_wrapper_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_out_axis_tstrb' of module 'design_1_main_wrapper_0' is unconnected for instance 'main_wrapper' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:392]
 WARNING: [Synth 8-7023] instance 'main_wrapper' of module 'design_1_main_wrapper_0' has 12 connections declared, but only 11 given [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:392]
-INFO: [Synth 8-6157] synthesizing module 'design_1_proc_sys_reset_0_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_proc_sys_reset_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_proc_sys_reset_0_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_proc_sys_reset_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_proc_sys_reset_0_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_proc_sys_reset_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_proc_sys_reset_0_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_proc_sys_reset_0_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'mb_reset' of module 'design_1_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:404]
 WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'design_1_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:404]
 WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'design_1_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:404]
 WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:404]
 WARNING: [Synth 8-7023] instance 'proc_sys_reset_0' of module 'design_1_proc_sys_reset_0_0' has 10 connections declared, but only 6 given [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:404]
-INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-15596-Manno/realtime/design_1_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/.Xil/Vivado-17196-Manno/realtime/design_1_processing_system7_0_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'GPIO_O' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:411]
 WARNING: [Synth 8-7071] port 'GPIO_T' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:411]
 WARNING: [Synth 8-7071] port 'I2C0_SDA_O' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:411]
@@ -93,18 +93,18 @@ WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'design_1_proc
 INFO: [Synth 8-6155] done synthesizing module 'design_1' (0#1) [c:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/synth/design_1.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1238.766 ; gain = 582.293
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1239.523 ; gain = 582.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1238.766 ; gain = 582.293
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1239.523 ; gain = 582.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1238.766 ; gain = 582.293
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1239.523 ; gain = 582.531
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1238.766 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1239.523 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -127,22 +127,22 @@ Parsing XDC File [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/d
 Finished Parsing XDC File [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1238.766 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1239.523 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1238.766 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1239.523 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1238.766 ; gain = 582.293
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1239.523 ; gain = 582.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z007sclg225-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1238.766 ; gain = 582.293
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1239.523 ; gain = 582.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -327,10 +327,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/proc_sys_reset_0. (con
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/axi_smc. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/axi_smc_1. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1238.766 ; gain = 582.293
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1239.523 ; gain = 582.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1238.766 ; gain = 582.293
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1239.523 ; gain = 582.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -353,25 +353,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1247.883 ; gain = 591.410
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1243.195 ; gain = 586.203
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1421.438 ; gain = 764.965
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1417.762 ; gain = 760.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1421.777 ; gain = 765.305
+Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1417.910 ; gain = 760.918
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1432.039 ; gain = 775.566
+Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1428.305 ; gain = 771.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -389,37 +389,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1648.242 ; gain = 991.770
+Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1644.219 ; gain = 987.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1648.242 ; gain = 991.770
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1644.219 ; gain = 987.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1648.242 ; gain = 991.770
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1644.219 ; gain = 987.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1648.242 ; gain = 991.770
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1644.219 ; gain = 987.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1648.242 ; gain = 991.770
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1644.219 ; gain = 987.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1648.242 ; gain = 991.770
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1644.219 ; gain = 987.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -449,16 +449,16 @@ Report Cell Usage:
 |6     |design_1_processing_system7_0 |     1|
 +------+------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1648.242 ; gain = 991.770
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1644.219 ; gain = 987.227
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:19 . Memory (MB): peak = 1648.242 ; gain = 991.770
-Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1648.242 ; gain = 991.770
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1644.219 ; gain = 987.227
+Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1644.219 ; gain = 987.227
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1648.242 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1644.219 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1660.988 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1644.219 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -466,7 +466,7 @@ Synth Design complete | Checksum: 26d3e7d
 INFO: [Common 17-83] Releasing license: Synthesis
 37 Infos, 45 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:27 . Memory (MB): peak = 1664.969 ; gain = 1221.695
+synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1644.219 ; gain = 1200.020
 INFO: [Common 17-1381] The checkpoint 'C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Mar 18 12:44:41 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 18 15:37:37 2025...

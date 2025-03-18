@@ -187,7 +187,7 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     always_comb begin
         new_shift = 0;
         for (int i=2; i<INPUTS_SIZE-SQRT_EXTRA_IN_BITS; i=i+1) begin
-            if (abs2_tmp[i+SQRT_EXTRA_IN_BITS-1-INPUTS_SIZE] == 1'b1) begin
+            if (abs2_2[0][i+SQRT_EXTRA_IN_BITS-1-INPUTS_SIZE] == 1'b1) begin
                 new_shift = i;
             end
         end
