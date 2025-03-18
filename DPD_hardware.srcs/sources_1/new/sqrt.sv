@@ -147,7 +147,7 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 15,
         valapp_3 <= abs2_2 * valapp_2[MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-1 -:MAX_BITS];
         approx_3 <= valapp_2[MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-1 -:MAX_BITS];
         
-        valapp_4 <= {2'b11, {(2*MAX_BITS-1-(INPUTS_SIZE-1)/2-1){1'b0}}} - approx_3 * valapp_3[MAX_BITS+(INPUTS_SIZE-1)/2-1 -: MAX_BITS]; //18 // test if remove 20-23
+        valapp_4 <= {2'b11, {(2*MAX_BITS-1-(INPUTS_SIZE-1)/2-1){1'b0}}} - approx_3 * valapp_3[MAX_BITS+(INPUTS_SIZE-1)/2-1 -: MAX_BITS];
         approx_4 <= approx_3;
         
         valapp_5 <= approx_4 * valapp_4[2*MAX_BITS-(INPUTS_SIZE-1)/2-1 -:MAX_BITS];

@@ -127,6 +127,8 @@ always @* begin
     end
 end
 
+logic new_write;
+
 always @(posedge clk) begin
     if (rst_sync1_reg) begin
         wr_ptr_reg <= {ADDR_WIDTH+1{1'b0}};
@@ -135,9 +137,9 @@ always @(posedge clk) begin
     end
 
     wr_addr_reg <= wr_ptr_next;
+    new_write <= write;
 
     if (write) begin
-        
         DPD_in[0 +:INPUTS_SIZE] <= s00_axis_tdata[0 +:INPUTS_SIZE];
         DPD_in[INPUTS_SIZE +:INPUTS_SIZE] <= s00_axis_tdata[C_AXIS_TDATA_WIDTH/2 +:INPUTS_SIZE];
 ////        mem_shift_delay[SHIFT_DELAY-1:1] <= mem_shift_delay[SHIFT_DELAY-2:0];
@@ -150,7 +152,7 @@ logic DPD_clk; // clock gated version of clk that only updates when new input is
 
 BUFGCE bufgce_i0 (
     .I(clk),
-    .CE(read),
+    .CE(write),
     .O(DPD_clk)
 );
 
@@ -159,12 +161,12 @@ BUFGCE bufgce_i0 (
         .clk(DPD_clk),
         .I(DPD_in[0 +:INPUTS_SIZE]),
         .Q(DPD_in[INPUTS_SIZE +:INPUTS_SIZE]),
-        .I_out(DPD_out[0 +:2*INPUTS_SIZE]),
-        .Q_out(DPD_out[C_AXIS_TDATA_WIDTH +:2*INPUTS_SIZE])
+        .I_out(DPD_out[0 +:2*INPUTS_SIZE+1]),
+        .Q_out(DPD_out[C_AXIS_TDATA_WIDTH +:2*INPUTS_SIZE+1])
     );
     
     if (2*INPUTS_SIZE < C_AXIS_TDATA_WIDTH) begin
-        localparam IO_PADDING = C_AXIS_TDATA_WIDTH-2*INPUTS_SIZE;
+        localparam IO_PADDING = C_AXIS_TDATA_WIDTH-2*INPUTS_SIZE-1;
         assign DPD_out[2*INPUTS_SIZE +: IO_PADDING] = 'b0; 
         assign DPD_out[C_AXIS_TDATA_WIDTH+2*INPUTS_SIZE +: IO_PADDING] = 'b0; 
     end
