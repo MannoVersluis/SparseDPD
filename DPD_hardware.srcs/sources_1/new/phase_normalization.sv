@@ -76,22 +76,18 @@ module phase_denormalization #(parameter WIDTH = 16, // amount of I, Q inputs gi
     input logic signed [0:1-INPUTS_SIZE] norm_I_input,               // next I input, used to determine complex complement for next cycle
     input logic signed [0:1-INPUTS_SIZE] norm_Q_input,               // next Q input, used to determine complex complement for next cycle
     input clk,
-    output logic signed [1:1-OUTPUTS_SIZE] I_out [WIDTH-1:0],
-    output logic signed [1:1-OUTPUTS_SIZE] Q_out [WIDTH-1:0]
+    output logic signed [1:1-2*INPUTS_SIZE] I_out [WIDTH-1:0],
+    output logic signed [1:1-2*INPUTS_SIZE] Q_out [WIDTH-1:0]
     );
 
     logic signed [1:1-2*INPUTS_SIZE] new_I_out1 [WIDTH-1:0];
     logic signed [1:1-2*INPUTS_SIZE] new_I_out2 [WIDTH-1:0];
-//    logic signed [1:1-2*INPUTS_SIZE] new_I_out3 [WIDTH-1:0];
     logic signed [1:1-2*INPUTS_SIZE] new_Q_out1 [WIDTH-1:0];
     logic signed [1:1-2*INPUTS_SIZE] new_Q_out2 [WIDTH-1:0];
-//    logic signed [1:1-2*INPUTS_SIZE] new_Q_out3 [WIDTH-1:0];
 
     for (genvar x=0; x<WIDTH; x=x+1) begin
         assign I_out[x] = new_I_out1[x] - new_I_out2[x];
         assign Q_out[x] = new_Q_out1[x] + new_Q_out2[x];
-//        assign I_out[x] = new_I_out3[x][1:1-OUTPUTS_SIZE] + new_I_out3[x][-OUTPUTS_SIZE];
-//        assign Q_out[x] = new_Q_out3[x][1:1-OUTPUTS_SIZE] + new_Q_out3[x][-OUTPUTS_SIZE];
     end
     
     always_ff @(posedge clk) begin: pn_stage

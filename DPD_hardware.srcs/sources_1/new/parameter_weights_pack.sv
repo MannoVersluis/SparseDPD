@@ -29,7 +29,6 @@ package parameter_weights_pack;
         //not including the feature extraction layer, or the output layer that determines I and Q
     localparam int LAYER_SIZES [BACKBONE_LAYERS+1:0] = {2, 12, 12}; // amount of neurons/outputs in each layer
     localparam int INPUTS_SIZE = 14;
-    localparam int OUTPUTS_SIZE = 28;
     localparam int WEIGHTS_SIZE [1:BACKBONE_LAYERS+1] = '{BACKBONE_LAYERS+1{14}}; // is also the size of the bias
     localparam int ADDER_TREE [1:BACKBONE_LAYERS+1] = '{BACKBONE_LAYERS+1{1}};
     localparam int PARALLEL_INPUTS = 3;

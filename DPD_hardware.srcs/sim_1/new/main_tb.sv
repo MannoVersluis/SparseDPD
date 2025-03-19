@@ -24,14 +24,13 @@ import parameter_weights_pack::*;
 module main_tb();
 
 
-localparam SHIFT_OUT = -2*LAYER_FIRST_WEIGHT_QUANTIZER;
 logic clk;
 logic signed [0:1-INPUTS_SIZE] I;
 logic signed [0:1-INPUTS_SIZE] Q;
-logic signed [0:1-SHIFT_OUT] I_out;
-logic signed [0:1-SHIFT_OUT] Q_out;
-logic signed [0:1-SHIFT_OUT] I_out_file = 0;
-logic signed [0:1-SHIFT_OUT] Q_out_file = 0;
+logic signed [1:1-2*INPUTS_SIZE] I_out;
+logic signed [1:1-2*INPUTS_SIZE] Q_out;
+logic signed [1:1-2*INPUTS_SIZE] I_out_file = 0;
+logic signed [1:1-2*INPUTS_SIZE] Q_out_file = 0;
 real I_float;
 real Q_float;
 real I_out_float_file;
@@ -60,8 +59,8 @@ initial begin
         if (line_num > 16 + 3*PHASE_NORMALIZATION) begin
             $fgets(text, output_file); // why is this line needed to get floats?
             $fscanf(output_file, "%d,%f,%f", line_num-1, I_out_float_file, Q_out_float_file);
-            I_out_float_file = I_out_float_file*$pow(2, SHIFT_OUT);
-            Q_out_float_file = Q_out_float_file*$pow(2, SHIFT_OUT);
+            I_out_float_file = I_out_float_file*$pow(2, -2*LAYER_FIRST_WEIGHT_QUANTIZER);
+            Q_out_float_file = Q_out_float_file*$pow(2, -2*LAYER_FIRST_WEIGHT_QUANTIZER);
             I_out_file = I_out_float_file;
             Q_out_file = Q_out_float_file;
         end

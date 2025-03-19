@@ -167,8 +167,8 @@ BUFGCE bufgce_i0 (
     
     if (2*INPUTS_SIZE < C_AXIS_TDATA_WIDTH) begin
         localparam IO_PADDING = C_AXIS_TDATA_WIDTH-2*INPUTS_SIZE-1;
-        assign DPD_out[2*INPUTS_SIZE +: IO_PADDING] = 'b0; 
-        assign DPD_out[C_AXIS_TDATA_WIDTH+2*INPUTS_SIZE +: IO_PADDING] = 'b0; 
+        assign DPD_out[2*INPUTS_SIZE+1 +: IO_PADDING] = {IO_PADDING{DPD_out[2*INPUTS_SIZE]}}; 
+        assign DPD_out[C_AXIS_TDATA_WIDTH+2*INPUTS_SIZE+1 +: IO_PADDING] = {IO_PADDING{DPD_out[C_AXIS_TDATA_WIDTH+2*INPUTS_SIZE]}}; 
     end
 
 // pointer synchronization

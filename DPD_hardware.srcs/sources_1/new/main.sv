@@ -24,8 +24,8 @@ module main (
     input logic signed [0:1-INPUTS_SIZE] I,
     input logic signed [0:1-INPUTS_SIZE] Q,
     input clk,
-    output logic signed [1:1-OUTPUTS_SIZE] I_out,
-    output logic signed [1:1-OUTPUTS_SIZE] Q_out
+    output logic signed [1:1-2*INPUTS_SIZE] I_out,
+    output logic signed [1:1-2*INPUTS_SIZE] Q_out
     );
         
     localparam MIN_BIT_INPUTS = LAYER_FIRST_ACT_QUANTIZER;
@@ -129,8 +129,8 @@ module main (
     end
     
     if (PHASE_NORMALIZATION == 1) begin // phase recovery
-        logic signed [1:1-OUTPUTS_SIZE] denorm_I_out [0:0];
-        logic signed [1:1-OUTPUTS_SIZE] denorm_Q_out [0:0];
+        logic signed [1:1-2*INPUTS_SIZE] denorm_I_out [0:0];
+        logic signed [1:1-2*INPUTS_SIZE] denorm_Q_out [0:0];
         logic signed [0:1-INPUTS_SIZE] delayed_norm_I[0:4*(BACKBONE_LAYERS+1)+1]; // update this is pipeline length changed
         logic signed [0:1-INPUTS_SIZE] delayed_norm_Q[0:4*(BACKBONE_LAYERS+1)+1]; // update this is pipeline length changed
         

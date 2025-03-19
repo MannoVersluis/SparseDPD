@@ -1,0 +1,32 @@
+timestamp=[2025-03-19 10:53:09], mode=WORKBENCH_START, duration=0:00:04.440, duration_ms=4440, data={}
+timestamp=[2025-03-19 10:53:10], mode=WORKBENCH_UI_INIT, duration=0:00:00.419, duration_ms=419, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2025-03-19 10:53:10], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.518, duration_ms=518, data={}
+timestamp=[2025-03-19 10:53:51], mode=APP_CREATION, duration=0:00:20.014, duration_ms=20014, data={name=DPD_hardware, project_type=sdk, os=standalone, processor=ps7_cortexa9, runtime=cpp, platform=design_1_wrapper, application_type=application}
+timestamp=[2025-03-19 10:55:18], mode=PLATFORM_GENERATION, duration=0:00:12.750, duration_ms=12750, data={name=design_1_wrapper}
+timestamp=[2025-03-19 10:55:19], mode=BUILD, duration=0:00:01.216, duration_ms=1216, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 10:55:47], mode=BUILD, duration=0:00:00.352, duration_ms=352, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 10:56:28], mode=BUILD, duration=0:00:00.863, duration_ms=863, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 10:56:34], mode=BUILD, duration=0:00:05.051, duration_ms=5051, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:05:49], mode=BUILD, duration=0:00:00.868, duration_ms=868, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:05:54], mode=BUILD, duration=0:00:04.498, duration_ms=4498, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:07:19], mode=BUILD, duration=0:00:00.376, duration_ms=376, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:07:26], mode=BUILD, duration=0:00:00.751, duration_ms=751, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:07:31], mode=BUILD, duration=0:00:04.534, duration_ms=4534, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:10:46], mode=BUILD, duration=0:00:00.748, duration_ms=748, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:10:51], mode=BUILD, duration=0:00:04.583, duration_ms=4583, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:14:38], mode=BUILD, duration=0:00:00.734, duration_ms=734, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:14:43], mode=BUILD, duration=0:00:04.569, duration_ms=4569, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:22:06], mode=BUILD, duration=0:00:00.740, duration_ms=740, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:22:11], mode=BUILD, duration=0:00:04.570, duration_ms=4570, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:23:52], mode=BUILD, duration=0:00:00.738, duration_ms=738, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:23:56], mode=BUILD, duration=0:00:04.436, duration_ms=4436, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:26:41], mode=BUILD, duration=0:00:00.742, duration_ms=742, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:26:45], mode=BUILD, duration=0:00:04.592, duration_ms=4592, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:27:38], mode=BUILD, duration=0:00:00.744, duration_ms=744, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:27:43], mode=BUILD, duration=0:00:04.572, duration_ms=4572, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:54:33], mode=BUILD, duration=0:00:00.739, duration_ms=739, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:54:38], mode=BUILD, duration=0:00:04.618, duration_ms=4618, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:57:07], mode=BUILD, duration=0:00:00.738, duration_ms=738, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 11:57:12], mode=BUILD, duration=0:00:04.507, duration_ms=4507, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 16:01:53], mode=BUILD, duration=0:00:00.646, duration_ms=646, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-03-19 16:01:59], mode=BUILD, duration=0:00:06.122, duration_ms=6122, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
