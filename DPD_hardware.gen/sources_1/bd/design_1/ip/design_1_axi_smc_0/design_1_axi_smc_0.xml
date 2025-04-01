@@ -1631,11 +1631,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 18 13:45:44 UTC 2025</spirit:value>
+            <spirit:value>Fri Mar 21 08:58:49 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:695e3e44</spirit:value>
+            <spirit:value>9:8dc56164</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1649,7 +1649,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Mar 13 22:36:00 UTC 2025</spirit:value>
+            <spirit:value>Fri Mar 21 08:58:49 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -1667,7 +1667,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 18 13:56:31 UTC 2025</spirit:value>
+            <spirit:value>Fri Mar 21 08:59:40 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -1699,7 +1699,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 18 13:56:16 UTC 2025</spirit:value>
+            <spirit:value>Fri Mar 21 08:59:27 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -1727,7 +1727,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 18 13:56:17 UTC 2025</spirit:value>
+            <spirit:value>Fri Mar 21 08:59:27 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -1793,7 +1793,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 11 14:27:09 UTC 2025</spirit:value>
+            <spirit:value>Fri Mar 21 08:59:27 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -1813,7 +1813,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 18 13:56:16 UTC 2025</spirit:value>
+            <spirit:value>Fri Mar 21 08:59:27 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -1833,7 +1833,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 18 13:56:16 UTC 2025</spirit:value>
+            <spirit:value>Fri Mar 21 08:59:27 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -1853,7 +1853,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 18 13:56:16 UTC 2025</spirit:value>
+            <spirit:value>Fri Mar 21 08:59:27 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -3359,18 +3359,6 @@
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>design_1_axi_smc_0_stub.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>design_1_axi_smc_0_stub.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>design_1_axi_smc_0_sim_netlist.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
@@ -3382,6 +3370,18 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
         <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>design_1_axi_smc_0_stub.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>design_1_axi_smc_0_stub.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
@@ -3784,6 +3784,7 @@
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
       <xilinx:displayName>AXI SmartConnect</xilinx:displayName>
+      <xilinx:supportsDeferredElaboration>true</xilinx:supportsDeferredElaboration>
       <xilinx:xpmLibraries>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_FIFO</xilinx:xpmLibrary>

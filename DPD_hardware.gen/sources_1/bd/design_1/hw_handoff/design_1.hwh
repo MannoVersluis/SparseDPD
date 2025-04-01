@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Mar 18 14:56:26 2025" VIVADOVERSION="2024.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Mar 21 09:59:35 2025" VIVADOVERSION="2024.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="avnet-tria:minized:part0:1.4" DEVICE="7z007s" NAME="design_1" PACKAGE="clg225" SPEEDGRADE="-1"/>
 
@@ -2746,7 +2746,7 @@
         <PARAMETER NAME="PCW_CORE0_IRQ_INTR" VALUE="0"/>
         <PARAMETER NAME="PCW_CORE1_FIQ_INTR" VALUE="0"/>
         <PARAMETER NAME="PCW_CORE1_IRQ_INTR" VALUE="0"/>
-        <PARAMETER NAME="PCW_CPU_CPU_6X4X_MAX_RANGE" VALUE="667"/>
+        <PARAMETER NAME="PCW_CPU_CPU_6X4X_MAX_RANGE" VALUE="767"/>
         <PARAMETER NAME="PCW_CPU_CPU_PLL_FREQMHZ" VALUE="1333.333"/>
         <PARAMETER NAME="PCW_CPU_PERIPHERAL_CLKSRC" VALUE="ARM PLL"/>
         <PARAMETER NAME="PCW_CPU_PERIPHERAL_DIVISOR0" VALUE="2"/>
@@ -2975,58 +2975,58 @@
         <PARAMETER NAME="PCW_MIO_15_IOTYPE" VALUE="LVCMOS 3.3V"/>
         <PARAMETER NAME="PCW_MIO_15_PULLUP" VALUE="enabled"/>
         <PARAMETER NAME="PCW_MIO_15_SLEW" VALUE="slow"/>
-        <PARAMETER NAME="PCW_MIO_16_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_16_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_16_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_16_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_17_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_17_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_17_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_17_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_18_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_18_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_18_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_18_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_19_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_19_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_19_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_19_SLEW" VALUE="&lt;Select>"/>
+        <PARAMETER NAME="PCW_MIO_16_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_16_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_16_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_16_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_17_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_17_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_17_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_17_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_18_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_18_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_18_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_18_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_19_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_19_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_19_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_19_SLEW" VALUE="slow"/>
         <PARAMETER NAME="PCW_MIO_1_DIRECTION" VALUE="out"/>
         <PARAMETER NAME="PCW_MIO_1_IOTYPE" VALUE="LVCMOS 3.3V"/>
         <PARAMETER NAME="PCW_MIO_1_PULLUP" VALUE="enabled"/>
         <PARAMETER NAME="PCW_MIO_1_SLEW" VALUE="slow"/>
-        <PARAMETER NAME="PCW_MIO_20_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_20_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_20_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_20_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_21_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_21_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_21_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_21_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_22_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_22_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_22_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_22_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_23_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_23_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_23_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_23_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_24_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_24_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_24_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_24_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_25_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_25_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_25_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_25_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_26_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_26_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_26_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_26_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_27_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_27_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_27_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_27_SLEW" VALUE="&lt;Select>"/>
+        <PARAMETER NAME="PCW_MIO_20_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_20_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_20_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_20_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_21_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_21_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_21_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_21_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_22_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_22_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_22_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_22_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_23_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_23_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_23_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_23_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_24_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_24_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_24_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_24_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_25_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_25_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_25_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_25_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_26_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_26_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_26_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_26_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_27_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_27_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_27_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_27_SLEW" VALUE="slow"/>
         <PARAMETER NAME="PCW_MIO_28_DIRECTION" VALUE="inout"/>
         <PARAMETER NAME="PCW_MIO_28_IOTYPE" VALUE="LVCMOS 3.3V"/>
         <PARAMETER NAME="PCW_MIO_28_PULLUP" VALUE="enabled"/>
@@ -3083,38 +3083,38 @@
         <PARAMETER NAME="PCW_MIO_3_IOTYPE" VALUE="LVCMOS 3.3V"/>
         <PARAMETER NAME="PCW_MIO_3_PULLUP" VALUE="disabled"/>
         <PARAMETER NAME="PCW_MIO_3_SLEW" VALUE="slow"/>
-        <PARAMETER NAME="PCW_MIO_40_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_40_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_40_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_40_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_41_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_41_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_41_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_41_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_42_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_42_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_42_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_42_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_43_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_43_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_43_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_43_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_44_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_44_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_44_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_44_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_45_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_45_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_45_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_45_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_46_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_46_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_46_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_46_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_47_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_47_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_47_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_47_SLEW" VALUE="&lt;Select>"/>
+        <PARAMETER NAME="PCW_MIO_40_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_40_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_40_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_40_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_41_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_41_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_41_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_41_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_42_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_42_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_42_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_42_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_43_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_43_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_43_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_43_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_44_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_44_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_44_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_44_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_45_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_45_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_45_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_45_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_46_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_46_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_46_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_46_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_47_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_47_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_47_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_47_SLEW" VALUE="slow"/>
         <PARAMETER NAME="PCW_MIO_48_DIRECTION" VALUE="out"/>
         <PARAMETER NAME="PCW_MIO_48_IOTYPE" VALUE="LVCMOS 3.3V"/>
         <PARAMETER NAME="PCW_MIO_48_PULLUP" VALUE="enabled"/>
@@ -3127,14 +3127,14 @@
         <PARAMETER NAME="PCW_MIO_4_IOTYPE" VALUE="LVCMOS 3.3V"/>
         <PARAMETER NAME="PCW_MIO_4_PULLUP" VALUE="disabled"/>
         <PARAMETER NAME="PCW_MIO_4_SLEW" VALUE="slow"/>
-        <PARAMETER NAME="PCW_MIO_50_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_50_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_50_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_50_SLEW" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_51_DIRECTION" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_51_IOTYPE" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_51_PULLUP" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_MIO_51_SLEW" VALUE="&lt;Select>"/>
+        <PARAMETER NAME="PCW_MIO_50_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_50_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_50_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_50_SLEW" VALUE="slow"/>
+        <PARAMETER NAME="PCW_MIO_51_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_51_IOTYPE" VALUE="LVCMOS 3.3V"/>
+        <PARAMETER NAME="PCW_MIO_51_PULLUP" VALUE="enabled"/>
+        <PARAMETER NAME="PCW_MIO_51_SLEW" VALUE="slow"/>
         <PARAMETER NAME="PCW_MIO_52_DIRECTION" VALUE="inout"/>
         <PARAMETER NAME="PCW_MIO_52_IOTYPE" VALUE="LVCMOS 3.3V"/>
         <PARAMETER NAME="PCW_MIO_52_PULLUP" VALUE="enabled"/>
@@ -3164,8 +3164,8 @@
         <PARAMETER NAME="PCW_MIO_9_PULLUP" VALUE="enabled"/>
         <PARAMETER NAME="PCW_MIO_9_SLEW" VALUE="slow"/>
         <PARAMETER NAME="PCW_MIO_PRIMITIVE" VALUE="32"/>
-        <PARAMETER NAME="PCW_MIO_TREE_PERIPHERALS" VALUE="GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#USB Reset#Quad SPI Flash#GPIO#SD 1#SD 1#SD 1#SD 1#SD 1#SD 1#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#UART 1#UART 1#Unbonded#Unbonded#GPIO#GPIO"/>
-        <PARAMETER NAME="PCW_MIO_TREE_SIGNALS" VALUE="gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#reset#qspi_fbclk#gpio[9]#data[0]#cmd#clk#data[1]#data[2]#data[3]#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#Unbonded#tx#rx#Unbonded#Unbonded#gpio[52]#gpio[53]"/>
+        <PARAMETER NAME="PCW_MIO_TREE_PERIPHERALS" VALUE="GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#USB Reset#Quad SPI Flash#GPIO#SD 1#SD 1#SD 1#SD 1#SD 1#SD 1#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#UART 1#UART 1#GPIO#GPIO#GPIO#GPIO"/>
+        <PARAMETER NAME="PCW_MIO_TREE_SIGNALS" VALUE="gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#reset#qspi_fbclk#gpio[9]#data[0]#cmd#clk#data[1]#data[2]#data[3]#gpio[16]#gpio[17]#gpio[18]#gpio[19]#gpio[20]#gpio[21]#gpio[22]#gpio[23]#gpio[24]#gpio[25]#gpio[26]#gpio[27]#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#gpio[40]#gpio[41]#gpio[42]#gpio[43]#gpio[44]#gpio[45]#gpio[46]#gpio[47]#tx#rx#gpio[50]#gpio[51]#gpio[52]#gpio[53]"/>
         <PARAMETER NAME="PCW_M_AXI_GP0_ENABLE_STATIC_REMAP" VALUE="0"/>
         <PARAMETER NAME="PCW_M_AXI_GP0_FREQMHZ" VALUE="102"/>
         <PARAMETER NAME="PCW_M_AXI_GP0_ID_WIDTH" VALUE="12"/>
@@ -3657,11 +3657,11 @@
             <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_aclk"/>
             <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_aclk"/>
             <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_aclk"/>
+            <CONNECTION INSTANCE="axi_smc" PORT="aclk"/>
+            <CONNECTION INSTANCE="axi_smc_1" PORT="aclk"/>
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
-            <CONNECTION INSTANCE="axi_smc" PORT="aclk"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="S_AXI_HP1_ACLK"/>
-            <CONNECTION INSTANCE="axi_smc_1" PORT="aclk"/>
             <CONNECTION INSTANCE="main_wrapper" PORT="clk"/>
           </CONNECTIONS>
         </PORT>

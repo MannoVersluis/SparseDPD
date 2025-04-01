@@ -139,7 +139,7 @@ module feature_extraction_amp1_3_inv_sqrt#(parameter INPUTS_SIZE = 12, // left s
     
     localparam int DELAY_STORAGE_SIZE = 7; // how many clock cyles-1 bits are stored while inv_sqrt is calculated
     localparam int SQRT_EXTRA_IN_BITS = 1; // input to inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_IN_BITS bits
-    localparam int SQRT_EXTRA_OUT_BITS = 1; // output of inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS + SQRT_EXTRA_IN_BITS bits
+    localparam int SQRT_EXTRA_OUT_BITS = 4; // output of inv sqrt module is INPUTS_SIZE + SQRT_EXTRA_OUT_BITS + SQRT_EXTRA_IN_BITS bits
     
     logic [-2:1-2*INPUTS_SIZE] abs2_2 [DELAY_STORAGE_SIZE-1:0];
     logic signed [0:1-INPUTS_SIZE] I_2 [DELAY_STORAGE_SIZE-1:0];

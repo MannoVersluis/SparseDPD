@@ -39,3 +39,25 @@ module shift_reg #(parameter INPUT_SIZE = 12,
     assign out = storage;
     
 endmodule
+
+module shift_reg_mimo #(parameter INPUT_SIZE = 12,
+                    parameter INPUT_AMOUNT = 4,
+                    parameter SHIFT_LENGTH = 8,
+                    parameter PARALLEL_IMP = 3
+                    )(
+    input logic signed [INPUT_SIZE-1:0] in [PARALLEL_IMP-1:0][INPUT_AMOUNT-1:0],
+    input logic clk,
+    output logic signed [INPUT_SIZE-1:0] out [PARALLEL_IMP-1:0][SHIFT_LENGTH-1:0][INPUT_AMOUNT-1:0]
+    );
+    
+    logic signed [INPUT_SIZE-1:0] storage [SHIFT_LENGTH-1+PARALLEL_IMP-1:0][INPUT_AMOUNT-1:0];
+    
+    always_ff @(posedge clk) begin: shift_reg
+        storage[SHIFT_LENGTH-2:0] <= storage[SHIFT_LENGTH-1+PARALLEL_IMP-1:PARALLEL_IMP];
+        storage[SHIFT_LENGTH-1+PARALLEL_IMP-1 -: PARALLEL_IMP] <= in[PARALLEL_IMP-1:0];
+    end
+    
+    for (genvar i=0; i<PARALLEL_IMP; i=i+1)
+        assign out[i] = storage[i +: SHIFT_LENGTH];
+    
+endmodule

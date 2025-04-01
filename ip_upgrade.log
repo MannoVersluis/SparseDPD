@@ -1,6 +1,280 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Mar 21 09:58:53 2025
+| Host         : Manno running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z007sclg225-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_processing_system7_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of design_1_processing_system7_0_0 (xilinx.com:ip:processing_system7:5.5 (Rev. 6)) to current project options.
+
+2. Upgrade messages
+-------------------
+
+WARNING: upgrade cannot add parameter PCW_TRACE_INTERNAL_WIDTH with default value 32 : a parameter called PCW_TRACE_INTERNAL_WIDTH already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_USE_AXI_NONSECURE with default value 0 : a parameter called PCW_USE_AXI_NONSECURE already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_EN_PTP_ENET0 with default value 1 : a parameter called PCW_EN_PTP_ENET0 already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_EN_PTP_ENET0 with default value 1 : a parameter called PCW_EN_PTP_ENET0 already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_NUM_WRITE_THREADS with default value 4 : a parameter called PCW_GP0_NUM_WRITE_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_NUM_READ_THREADS with default value 4 : a parameter called PCW_GP0_NUM_READ_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_NUM_WRITE_THREADS with default value 4 : a parameter called PCW_GP1_NUM_WRITE_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_NUM_READ_THREADS with default value 4 : a parameter called PCW_GP1_NUM_READ_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_EN_MODIFIABLE_TXN with default value 0 : a parameter called PCW_GP0_EN_MODIFIABLE_TXN already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_EN_MODIFIABLE_TXN with default value 0 : a parameter called PCW_GP1_EN_MODIFIABLE_TXN already exists in processing_system7_v5_5
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Mar 21 09:58:53 2025
+| Host         : Manno running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z007sclg225-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_proc_sys_reset_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of design_1_proc_sys_reset_0_0 (xilinx.com:ip:proc_sys_reset:5.0 (Rev. 16)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Mar 21 09:58:53 2025
+| Host         : Manno running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z007sclg225-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_smc_1_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of design_1_axi_smc_1_0 (xilinx.com:ip:smartconnect:1.0 (Rev. 25)) to current project options.
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection and Interface Information
+---------------------------------------
+
+Connection and Interface information can not be compared for deferred elaboration IPs.
+design_1_axi_smc_1_0 may have connection or interface changes.
+
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Mar 21 09:58:52 2025
+| Host         : Manno running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z007sclg225-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_smc_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of design_1_axi_smc_0 (xilinx.com:ip:smartconnect:1.0 (Rev. 25)) to current project options.
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection and Interface Information
+---------------------------------------
+
+Connection and Interface information can not be compared for deferred elaboration IPs.
+design_1_axi_smc_0 may have connection or interface changes.
+
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Mar 21 09:58:52 2025
+| Host         : Manno running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z007sclg225-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_dma_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of design_1_axi_dma_0_0 (xilinx.com:ip:axi_dma:7.1 (Rev. 34)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Mar 21 09:27:57 2025
+| Host         : Manno running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z012sclg485-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_processing_system7_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of design_1_processing_system7_0_0 (xilinx.com:ip:processing_system7:5.5 (Rev. 6)) to current project options.
+
+2. Upgrade messages
+-------------------
+
+WARNING: upgrade cannot add parameter PCW_TRACE_INTERNAL_WIDTH with default value 32 : a parameter called PCW_TRACE_INTERNAL_WIDTH already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_USE_AXI_NONSECURE with default value 0 : a parameter called PCW_USE_AXI_NONSECURE already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_EN_PTP_ENET0 with default value 1 : a parameter called PCW_EN_PTP_ENET0 already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_EN_PTP_ENET0 with default value 1 : a parameter called PCW_EN_PTP_ENET0 already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_NUM_WRITE_THREADS with default value 4 : a parameter called PCW_GP0_NUM_WRITE_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_NUM_READ_THREADS with default value 4 : a parameter called PCW_GP0_NUM_READ_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_NUM_WRITE_THREADS with default value 4 : a parameter called PCW_GP1_NUM_WRITE_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_NUM_READ_THREADS with default value 4 : a parameter called PCW_GP1_NUM_READ_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_EN_MODIFIABLE_TXN with default value 0 : a parameter called PCW_GP0_EN_MODIFIABLE_TXN already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_EN_MODIFIABLE_TXN with default value 0 : a parameter called PCW_GP1_EN_MODIFIABLE_TXN already exists in processing_system7_v5_5
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Mar 21 09:27:57 2025
+| Host         : Manno running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z012sclg485-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_proc_sys_reset_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of design_1_proc_sys_reset_0_0 (xilinx.com:ip:proc_sys_reset:5.0 (Rev. 16)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Mar 21 09:27:57 2025
+| Host         : Manno running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z012sclg485-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_smc_1_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of design_1_axi_smc_1_0 (xilinx.com:ip:smartconnect:1.0 (Rev. 25)) to current project options.
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection and Interface Information
+---------------------------------------
+
+Connection and Interface information can not be compared for deferred elaboration IPs.
+design_1_axi_smc_1_0 may have connection or interface changes.
+
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Mar 21 09:27:57 2025
+| Host         : Manno running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z012sclg485-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_smc_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of design_1_axi_smc_0 (xilinx.com:ip:smartconnect:1.0 (Rev. 25)) to current project options.
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection and Interface Information
+---------------------------------------
+
+Connection and Interface information can not be compared for deferred elaboration IPs.
+design_1_axi_smc_0 may have connection or interface changes.
+
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Mar 21 09:27:57 2025
+| Host         : Manno running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z012sclg485-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_dma_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of design_1_axi_dma_0_0 (xilinx.com:ip:axi_dma:7.1 (Rev. 34)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
 | Date         : Tue Mar 11 15:26:31 2025
 | Host         : Manno running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

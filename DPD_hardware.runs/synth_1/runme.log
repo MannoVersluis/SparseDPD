@@ -8,7 +8,7 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Wed Mar 19 13:47:19 2025
+  **** Start of session at: Fri Mar 21 18:13:54 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -16,16 +16,42 @@ source main.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/utils_1/imports/synth_1/main.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/utils_1/imports/synth_1/main.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
-Command: synth_design -top main -part xc7z007sclg225-1 -bufg 32 -directive PerformanceOptimized -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5 -mode out_of_context
+Command: synth_design -top main -part xc7z010clg400-2 -bufg 32 -directive PerformanceOptimized -global_retiming on -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5 -mode out_of_context
 Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7z007s'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z007s'
-INFO: [Device 21-403] Loading part xc7z007sclg225-1
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Device 21-403] Loading part xc7z010clg400-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 3764
+INFO: [Synth 8-7075] Helper process launched with PID 22436
+
+*** Running vivado
+    with args -log main.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
+
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Fri Mar 21 18:15:58 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source main.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/utils_1/imports/synth_1/main.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/utils_1/imports/synth_1/main.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top main -part xc7z010clg400-2 -bufg 32 -directive PerformanceOptimized -global_retiming on -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Device 21-403] Loading part xc7z010clg400-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 5744
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1072.816 ; gain = 468.512
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1072.051 ; gain = 467.359
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'main' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/main.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'phase_normalization' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/phase_normalization.sv:23]
@@ -47,7 +73,7 @@ INFO: [Synth 8-6157] synthesizing module 'feature_extraction_amp1_3_inv_sqrt' [C
 	Parameter PHASE_NORM bound to: 1 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'approx_inv_sqrt' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:89]
 	Parameter INPUTS_SIZE bound to: 15 - type: integer 
-	Parameter EXTRA_OUT_BITS bound to: 1 - type: integer 
+	Parameter EXTRA_OUT_BITS bound to: 4 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'approx_inv_sqrt' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:89]
 INFO: [Synth 8-6155] done synthesizing module 'feature_extraction_amp1_3_inv_sqrt' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:123]
 INFO: [Synth 8-6155] done synthesizing module 'feature_extraction' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:23]
@@ -312,7 +338,7 @@ INFO: [Synth 8-6155] done synthesizing module 'activation_functions' (0#1) [C:/U
 INFO: [Synth 8-6155] done synthesizing module 'backbones' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/backbones.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'main' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/main.sv:23]
 WARNING: [Synth 8-3936] Found unconnected internal register 'abs3_5_reg' and it is trimmed from '42' to '40' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:238]
-WARNING: [Synth 8-3936] Found unconnected internal register 'abs_4_reg' and it is trimmed from '37' to '29' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:225]
+WARNING: [Synth 8-3936] Found unconnected internal register 'abs_4_reg' and it is trimmed from '40' to '32' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:225]
 WARNING: [Synth 8-3936] Found unconnected internal register 'abs2_sqrt_in_reg' and it is trimmed from '28' to '15' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:183]
 WARNING: [Synth 8-3936] Found unconnected internal register 'abs2_tmp_reg' and it is trimmed from '28' to '26' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:199]
 WARNING: [Synth 8-7129] Port inputs[3][0] in module fc_node__parameterized12 is either unconnected or has no load
@@ -417,56 +443,60 @@ WARNING: [Synth 8-7129] Port inputs[14][0] in module fc_node__parameterized12 is
 WARNING: [Synth 8-7129] Port inputs[14][-1] in module fc_node__parameterized12 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:30 ; elapsed = 00:00:38 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished RTL Elaboration : Time (s): cpu = 00:00:31 ; elapsed = 00:00:42 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:38 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:42 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:30 ; elapsed = 00:00:38 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:31 ; elapsed = 00:00:42 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.207 . Memory (MB): peak = 13391.605 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.202 . Memory (MB): peak = 14548.191 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/constrs_1/new/main_clock.xdc]
 Finished Parsing XDC File [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/constrs_1/new/main_clock.xdc]
+Parsing XDC File [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/constrs_1/new/power.xdc]
+Finished Parsing XDC File [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/constrs_1/new/power.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/constrs_1/new/power.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 13391.605 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 14548.191 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.121 . Memory (MB): peak = 13391.605 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.067 . Memory (MB): peak = 14548.191 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:38 ; elapsed = 00:00:46 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Constraint Validation : Time (s): cpu = 00:00:39 ; elapsed = 00:00:50 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
-Loading part: xc7z007sclg225-1
+Loading part: xc7z010clg400-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:38 ; elapsed = 00:00:46 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:39 ; elapsed = 00:00:50 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:46 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:50 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Preparing Guide Design
 ---------------------------------------------------------------------------------
 CRITICAL WARNING: [Synth 8-6895] The reference checkpoint C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/utils_1/imports/synth_1/main.dcp is not suitable for use with incremental synthesis for this design. Please regenerate the checkpoint for this design with -incremental_synth switch in the same Vivado session that synth_design has been run. Synthesis will continue with the default flow
 ---------------------------------------------------------------------------------
-Finished Doing Graph Differ : Time (s): cpu = 00:00:38 ; elapsed = 00:00:47 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Doing Graph Differ : Time (s): cpu = 00:00:40 ; elapsed = 00:00:51 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Preparing Guide Design : Time (s): cpu = 00:00:38 ; elapsed = 00:00:47 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Preparing Guide Design : Time (s): cpu = 00:00:40 ; elapsed = 00:00:51 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3936] Found unconnected internal register 'new_Q_out2_reg[1]' and it is trimmed from '28' to '27' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/phase_normalization.sv:53]
 WARNING: [Synth 8-3936] Found unconnected internal register 'new_I_out1_reg[1]' and it is trimmed from '28' to '27' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/phase_normalization.sv:50]
@@ -477,7 +507,7 @@ WARNING: [Synth 8-3936] Found unconnected internal register 'new_I_out2_reg[1]' 
 WARNING: [Synth 8-3936] Found unconnected internal register 'new_Q_out1_reg[0]' and it is trimmed from '28' to '27' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/phase_normalization.sv:52]
 WARNING: [Synth 8-3936] Found unconnected internal register 'new_I_out2_reg[0]' and it is trimmed from '28' to '27' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/phase_normalization.sv:51]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:48 ; elapsed = 00:00:57 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:49 ; elapsed = 00:01:00 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 
 
@@ -495,26 +525,29 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input   32 Bit       Adders := 1     
+	   3 Input   29 Bit       Adders := 1     
 	   2 Input   29 Bit       Adders := 14    
-	   3 Input   28 Bit       Adders := 1     
 	   2 Input   15 Bit       Adders := 2     
 	   2 Input   14 Bit       Adders := 20    
 +---XORs : 
 	   3 Input      1 Bit         XORs := 36    
 +---Registers : 
-	               30 Bit    Registers := 2     
+	               48 Bit    Registers := 1     
+	               33 Bit    Registers := 2     
+	               32 Bit    Registers := 1     
 	               29 Bit    Registers := 45    
-	               28 Bit    Registers := 1     
 	               27 Bit    Registers := 4     
 	               26 Bit    Registers := 7     
-	               25 Bit    Registers := 1     
+	               18 Bit    Registers := 1     
 	               17 Bit    Registers := 2     
 	               16 Bit    Registers := 1     
 	               15 Bit    Registers := 7     
 	               14 Bit    Registers := 143   
-	               12 Bit    Registers := 1     
-	                4 Bit    Registers := 8     
-	                3 Bit    Registers := 2     
+	               13 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 7     
+	                3 Bit    Registers := 1     
 +---ROMs : 
 	                    ROMs := 1     
 +---Muxes : 
@@ -526,8 +559,8 @@ Finished RTL Component Statistics
 Start Part Resource Summary
 ---------------------------------------------------------------------------------
 Part Resources:
-DSPs: 66 (col length:40)
-BRAMs: 100 (col length: RAMB18 40 RAMB36 20)
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
@@ -535,7 +568,7 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3936] Found unconnected internal register 'valapp_21' and it is trimmed from '16' to '4' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:144]
+WARNING: [Synth 8-3936] Found unconnected internal register 'valapp_21' and it is trimmed from '16' to '5' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/sqrt.sv:144]
 DSP Report: Generating DSP valapp_21, operation Mode is: A2*B2.
 DSP Report: register valapp_21 is absorbed into DSP valapp_21.
 DSP Report: register valapp_21 is absorbed into DSP valapp_21.
@@ -646,7 +679,8 @@ DSP Report: Generating DSP genblk1[11].fc_node/tree_in_reg[0], operation Mode is
 DSP Report: register genblk1[11].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[11].fc_node/tree_in_reg[0].
 DSP Report: operator genblk1[11].fc_node/p_1_out is absorbed into DSP genblk1[11].fc_node/tree_in_reg[0].
 WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/abs3_5_reg' and it is trimmed from '20' to '16' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:238]
-WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/abs_3_reg' and it is trimmed from '48' to '13' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:213]
+WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/abs_3_reg' and it is trimmed from '48' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:213]
+WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/abs_3_reg' and it is trimmed from '48' to '17' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:213]
 DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
 DSP Report: operator p_0_out is absorbed into DSP p_0_out.
 DSP Report: Generating DSP feature_extraction/feature_extraction/abs2_2_reg[0], operation Mode is: (C+A*B)'.
@@ -685,7 +719,12 @@ DSP Report: register shift_register/storage_reg[1][2] is absorbed into DSP p_1_i
 DSP Report: register norm/new_I_out2_reg[1] is absorbed into DSP p_1_in0.
 DSP Report: operator p_0_out is absorbed into DSP p_1_in0.
 DSP Report: operator p_1_in0 is absorbed into DSP p_1_in0.
-DSP Report: Generating DSP feature_extraction/feature_extraction/abs_3_reg, operation Mode is: (A''*B)'.
+DSP Report: Generating DSP feature_extraction/feature_extraction/abs_30, operation Mode is: A*B''.
+DSP Report: register feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_30.
+DSP Report: register feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_30.
+DSP Report: operator feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_30.
+DSP Report: operator feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_30.
+DSP Report: Generating DSP feature_extraction/feature_extraction/abs_3_reg, operation Mode is: (PCIN>>17)+A*B''.
 DSP Report: register feature_extraction/feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
 DSP Report: register feature_extraction/feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
 DSP Report: register feature_extraction/feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
@@ -840,50 +879,67 @@ DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0
 DSP Report: register backbones/layer_inputs_reg[1][0] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0].
 DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0].
 DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_9_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0].
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[16]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[15]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[14]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[13]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[12]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[11]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[10]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[9]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[8]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[7]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[6]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[5]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[4]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[3]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[2]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[1]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[0]) is unused and will be removed from module main.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:19 ; elapsed = 00:01:29 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:24 ; elapsed = 00:01:36 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 72, Available = 66. Use report_utilization command for details.
- Sort Area is  denorm/new_I_out1_reg[0]_39 : 0 0 : 1665 3531 : Used 1 time 0
- Sort Area is  denorm/new_I_out1_reg[0]_39 : 0 1 : 1866 3531 : Used 1 time 0
- Sort Area is  denorm/new_Q_out1_reg[0]_3c : 0 0 : 1665 3416 : Used 1 time 0
- Sort Area is  denorm/new_Q_out1_reg[0]_3c : 0 1 : 1751 3416 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/abs_3_reg_32 : 0 0 : 3386 3386 : Used 1 time 0
- Sort Area is  norm/new_Q_out1_reg[0]_34 : 0 0 : 1549 3285 : Used 1 time 0
- Sort Area is  norm/new_Q_out1_reg[0]_34 : 0 1 : 1736 3285 : Used 1 time 0
- Sort Area is  norm/new_Q_out1_reg[1]_36 : 0 0 : 1549 3285 : Used 1 time 0
- Sort Area is  norm/new_Q_out1_reg[1]_36 : 0 1 : 1736 3285 : Used 1 time 0
+ Sort Area is  feature_extraction/feature_extraction/abs_30_32 : 0 0 : 2952 4341 : Used 1 time 0
+ Sort Area is  feature_extraction/feature_extraction/abs_30_32 : 0 1 : 1389 4341 : Used 1 time 0
+ Sort Area is  denorm/new_I_out1_reg[0]_3a : 0 0 : 1665 3531 : Used 1 time 0
+ Sort Area is  denorm/new_I_out1_reg[0]_3a : 0 1 : 1866 3531 : Used 1 time 0
+ Sort Area is  denorm/new_Q_out1_reg[0]_3d : 0 0 : 1665 3416 : Used 1 time 0
+ Sort Area is  denorm/new_Q_out1_reg[0]_3d : 0 1 : 1751 3416 : Used 1 time 0
+ Sort Area is  norm/new_Q_out1_reg[0]_35 : 0 0 : 1549 3285 : Used 1 time 0
+ Sort Area is  norm/new_Q_out1_reg[0]_35 : 0 1 : 1736 3285 : Used 1 time 0
+ Sort Area is  norm/new_Q_out1_reg[1]_37 : 0 0 : 1549 3285 : Used 1 time 0
+ Sort Area is  norm/new_Q_out1_reg[1]_37 : 0 1 : 1736 3285 : Used 1 time 0
  Sort Area is  norm/new_I_out1_reg[0]_2e : 0 0 : 1549 3178 : Used 1 time 0
  Sort Area is  norm/new_I_out1_reg[0]_2e : 0 1 : 1629 3178 : Used 1 time 0
  Sort Area is  norm/new_I_out1_reg[1]_31 : 0 0 : 1549 3178 : Used 1 time 0
  Sort Area is  norm/new_I_out1_reg[1]_31 : 0 1 : 1629 3178 : Used 1 time 0
  Sort Area is  valapp_21_0 : 0 0 : 3024 3024 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/abs3_5_reg_37 : 0 0 : 2928 2928 : Used 1 time 0
+ Sort Area is  feature_extraction/feature_extraction/abs3_5_reg_38 : 0 0 : 2928 2928 : Used 1 time 0
  Sort Area is  valapp_4_reg_4 : 0 0 : 2429 2429 : Used 1 time 0
  Sort Area is  valapp_5_reg_6 : 0 0 : 2248 2248 : Used 1 time 0
+ Sort Area is  feature_extraction/feature_extraction/norm_I_3_reg_27 : 0 0 : 2044 2044 : Used 1 time 0
+ Sort Area is  feature_extraction/feature_extraction/norm_Q_3_reg_2d : 0 0 : 2044 2044 : Used 1 time 0
  Sort Area is  valapp_3_reg_2 : 0 0 : 1910 1910 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/norm_I_3_reg_27 : 0 0 : 1798 1798 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/norm_Q_3_reg_2d : 0 0 : 1798 1798 : Used 1 time 0
  Sort Area is  feature_extraction/feature_extraction/abs2_2_reg[0]_2b : 0 0 : 1597 1597 : Used 1 time 0
  Sort Area is  p_0_out_29 : 0 0 : 1494 1494 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10]_3e : 0 0 : 498 1160 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10]_3e : 0 1 : 662 1160 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2]_54 : 0 0 : 915 915 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7]_44 : 0 0 : 810 810 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8]_43 : 0 0 : 810 810 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9]_41 : 0 0 : 810 810 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7]_4f : 0 0 : 810 810 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0]_4c : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1]_4b : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2]_4a : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3]_49 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4]_48 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5]_47 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0]_57 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1]_56 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3]_53 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5]_51 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6]_50 : 0 0 : 662 662 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10]_3f : 0 0 : 498 1160 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10]_3f : 0 1 : 662 1160 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2]_55 : 0 0 : 915 915 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7]_45 : 0 0 : 810 810 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8]_44 : 0 0 : 810 810 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9]_42 : 0 0 : 810 810 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7]_50 : 0 0 : 810 810 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0]_4d : 0 0 : 662 662 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1]_4c : 0 0 : 662 662 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2]_4b : 0 0 : 662 662 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3]_4a : 0 0 : 662 662 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4]_49 : 0 0 : 662 662 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5]_48 : 0 0 : 662 662 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0]_58 : 0 0 : 662 662 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1]_57 : 0 0 : 662 662 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3]_54 : 0 0 : 662 662 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5]_52 : 0 0 : 662 662 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6]_51 : 0 0 : 662 662 : Used 1 time 0
  Sort Area is  genblk1[0].fc_node/tree_in_reg[1]_a : 0 0 : 636 636 : Used 1 time 0
  Sort Area is  genblk1[0].fc_node/tree_in_reg[2]_8 : 0 0 : 636 636 : Used 1 time 0
  Sort Area is  genblk1[10].fc_node/tree_in_reg[1]_23 : 0 0 : 636 636 : Used 1 time 0
@@ -901,9 +957,9 @@ WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 72,
  Sort Area is  genblk1[8].fc_node/tree_in_reg[2]_1b : 0 0 : 636 636 : Used 1 time 0
  Sort Area is  genblk1[9].fc_node/tree_in_reg[0]_20 : 0 0 : 636 636 : Used 1 time 0
  Sort Area is  genblk1[9].fc_node/tree_in_reg[2]_1e : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8]_4d : 0 0 : 620 620 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6]_45 : 0 0 : 589 589 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4]_52 : 0 0 : 589 589 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8]_4e : 0 0 : 620 620 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6]_46 : 0 0 : 589 589 : Used 1 time 0
+ Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4]_53 : 0 0 : 589 589 : Used 1 time 0
  Sort Area is  genblk1[0].fc_node/tree_in_reg[0]_b : 0 0 : 556 556 : Used 1 time 0
  Sort Area is  genblk1[10].fc_node/tree_in_reg[0]_24 : 0 0 : 556 556 : Used 1 time 0
  Sort Area is  genblk1[10].fc_node/tree_in_reg[3]_21 : 0 0 : 556 556 : Used 1 time 0
@@ -916,324 +972,6 @@ WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 72,
  Sort Area is  genblk1[8].fc_node/tree_in_reg[1]_1c : 0 0 : 556 556 : Used 1 time 0
  Sort Area is  genblk1[8].fc_node/tree_in_reg[3]_1a : 0 0 : 556 556 : Used 1 time 0
  Sort Area is  genblk1[9].fc_node/tree_in_reg[1]_1f : 0 0 : 556 556 : Used 1 time 0
- DSP resource Status: valapp_21_0 0 3024 3024: Used 1 time : Accepted (14 < 66) uniquify 0 
- DSP resource Status: valapp_3_reg_2 0 1910 1910: Used 1 time : Accepted (18 < 66) uniquify 0 
- DSP resource Status: valapp_4_reg_4 0 2429 2429: Used 1 time : Accepted (16 < 66) uniquify 0 
- DSP resource Status: valapp_5_reg_6 0 2248 2248: Used 1 time : Accepted (17 < 66) uniquify 0 
-DSP Report: Generating DSP valapp_21, operation Mode is (post resource management): A2*B2.
-DSP Report: register valapp_21 is absorbed into DSP valapp_21.
-DSP Report: register valapp_21 is absorbed into DSP valapp_21.
-DSP Report: operator valapp_21 is absorbed into DSP valapp_21.
-DSP Report: operator valapp_21 is absorbed into DSP valapp_21.
-DSP Report: Generating DSP valapp_3_reg, operation Mode is (post resource management): (A2*B'')'.
-DSP Report: register abs2_1_reg is absorbed into DSP valapp_3_reg.
-DSP Report: register abs2_2_reg is absorbed into DSP valapp_3_reg.
-DSP Report: register valapp_3_reg is absorbed into DSP valapp_3_reg.
-DSP Report: register valapp_3_reg is absorbed into DSP valapp_3_reg.
-DSP Report: operator valapp_30 is absorbed into DSP valapp_3_reg.
-DSP Report: Generating DSP valapp_4_reg, operation Mode is (post resource management): (C:0x6000000)-A''*B.
-DSP Report: register valapp_4_reg is absorbed into DSP valapp_4_reg.
-DSP Report: register approx_3_reg is absorbed into DSP valapp_4_reg.
-DSP Report: register valapp_4_reg is absorbed into DSP valapp_4_reg.
-DSP Report: operator valapp_40 is absorbed into DSP valapp_4_reg.
-DSP Report: operator valapp_41 is absorbed into DSP valapp_4_reg.
-DSP Report: Generating DSP valapp_5_reg, operation Mode is (post resource management): (A''*B)'.
-DSP Report: register approx_3_reg is absorbed into DSP valapp_5_reg.
-DSP Report: register approx_4_reg is absorbed into DSP valapp_5_reg.
-DSP Report: register valapp_5_reg is absorbed into DSP valapp_5_reg.
-DSP Report: operator valapp_50 is absorbed into DSP valapp_5_reg.
- DSP resource Status: genblk1[0].fc_node/tree_in_reg[2]_8 0 636 636: Used 1 time : Accepted (42 < 66) uniquify 0 
- DSP resource Status: genblk1[0].fc_node/tree_in_reg[1]_a 0 636 636: Used 1 time : Accepted (41 < 66) uniquify 0 
- DSP resource Status: genblk1[0].fc_node/tree_in_reg[0]_b 0 556 556: Used 1 time : Accepted (61 < 66) uniquify 0 
- DSP resource Status: genblk1[1].fc_node/tree_in_reg[1]_d 0 636 636: Used 1 time : Accepted (46 < 66) uniquify 0 
- DSP resource Status: genblk1[1].fc_node/tree_in_reg[0]_e 0 636 636: Used 1 time : Accepted (45 < 66) uniquify 0 
- DSP resource Status: genblk1[2].fc_node/tree_in_reg[0]_f 0 636 636: Used 1 time : Accepted (47 < 66) uniquify 0 
- DSP resource Status: genblk1[3].fc_node/tree_in_reg[2]_10 0 636 636: Used 1 time : Accepted (49 < 66) uniquify 0 
- DSP resource Status: genblk1[3].fc_node/tree_in_reg[1]_11 0 556 556: Used 1 time : Accepted (66 < 66) uniquify 0 
- DSP resource Status: genblk1[3].fc_node/tree_in_reg[0]_12 0 636 636: Used 1 time : Accepted (48 < 66) uniquify 0 
- DSP resource Status: genblk1[4].fc_node/tree_in_reg[2]_13 0 636 636: Used 1 time : Accepted (52 < 66) uniquify 0 
- DSP resource Status: genblk1[4].fc_node/tree_in_reg[1]_14 0 636 636: Used 1 time : Accepted (51 < 66) uniquify 0 
- DSP resource Status: genblk1[4].fc_node/tree_in_reg[0]_15 0 636 636: Used 1 time : Accepted (50 < 66) uniquify 0 
- DSP resource Status: genblk1[6].fc_node/tree_in_reg[1]_17 0 556 556: Used 1 time : Rejected (68 > 66) uniquify 0 
- DSP resource Status: genblk1[6].fc_node/tree_in_reg[0]_18 0 556 556: Used 1 time : Rejected (67 > 66) uniquify 0 
- DSP resource Status: genblk1[7].fc_node/tree_in_reg[0]_19 0 556 556: Used 1 time : Rejected (69 > 66) uniquify 0 
- DSP resource Status: genblk1[8].fc_node/tree_in_reg[3]_1a 0 556 556: Used 1 time : Rejected (71 > 66) uniquify 0 
- DSP resource Status: genblk1[8].fc_node/tree_in_reg[2]_1b 0 636 636: Used 1 time : Accepted (55 < 66) uniquify 0 
- DSP resource Status: genblk1[8].fc_node/tree_in_reg[1]_1c 0 556 556: Used 1 time : Rejected (70 > 66) uniquify 0 
- DSP resource Status: genblk1[8].fc_node/tree_in_reg[0]_1d 0 636 636: Used 1 time : Accepted (54 < 66) uniquify 0 
- DSP resource Status: genblk1[9].fc_node/tree_in_reg[2]_1e 0 636 636: Used 1 time : Accepted (57 < 66) uniquify 0 
- DSP resource Status: genblk1[9].fc_node/tree_in_reg[1]_1f 0 556 556: Used 1 time : Rejected (72 > 66) uniquify 0 
- DSP resource Status: genblk1[9].fc_node/tree_in_reg[0]_20 0 636 636: Used 1 time : Accepted (56 < 66) uniquify 0 
- DSP resource Status: genblk1[10].fc_node/tree_in_reg[3]_21 0 556 556: Used 1 time : Accepted (63 < 66) uniquify 0 
- DSP resource Status: genblk1[10].fc_node/tree_in_reg[2]_22 0 636 636: Used 1 time : Accepted (44 < 66) uniquify 0 
- DSP resource Status: genblk1[10].fc_node/tree_in_reg[1]_23 0 636 636: Used 1 time : Accepted (43 < 66) uniquify 0 
- DSP resource Status: genblk1[10].fc_node/tree_in_reg[0]_24 0 556 556: Used 1 time : Accepted (62 < 66) uniquify 0 
-DSP Report: Generating DSP genblk1[0].fc_node/tree_in_reg[2], operation Mode is (post resource management): (A*(B:0x3f097))'.
-DSP Report: register genblk1[0].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[0].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[0].fc_node/p_0_out is absorbed into DSP genblk1[0].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[0].fc_node/tree_in_reg[1], operation Mode is (post resource management): (A*(B:0xea3))'.
-DSP Report: register genblk1[0].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[0].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[0].fc_node/p_1_out is absorbed into DSP genblk1[0].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[1].fc_node/tree_in_reg[1], operation Mode is (post resource management): (A*(B:0x3f7c0))'.
-DSP Report: register genblk1[1].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[1].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[1].fc_node/p_0_out is absorbed into DSP genblk1[1].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[1].fc_node/tree_in_reg[0], operation Mode is (post resource management): (A*(B:0x8a5))'.
-DSP Report: register genblk1[1].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[1].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[1].fc_node/p_1_out is absorbed into DSP genblk1[1].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[2].fc_node/tree_in_reg[0], operation Mode is (post resource management): (A*(B:0xa18))'.
-DSP Report: register genblk1[2].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[2].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[2].fc_node/p_0_out is absorbed into DSP genblk1[2].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[3].fc_node/tree_in_reg[2], operation Mode is (post resource management): (A*(B:0x8db))'.
-DSP Report: register genblk1[3].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[3].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[3].fc_node/p_0_out is absorbed into DSP genblk1[3].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[3].fc_node/tree_in_reg[0], operation Mode is (post resource management): (A*(B:0xd59))'.
-DSP Report: register genblk1[3].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[3].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[3].fc_node/p_2_out is absorbed into DSP genblk1[3].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[4].fc_node/tree_in_reg[2], operation Mode is (post resource management): (A*(B:0x3f797))'.
-DSP Report: register genblk1[4].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[4].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[4].fc_node/p_0_out is absorbed into DSP genblk1[4].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[4].fc_node/tree_in_reg[1], operation Mode is (post resource management): (A*(B:0x3f788))'.
-DSP Report: register genblk1[4].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[4].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[4].fc_node/p_1_out is absorbed into DSP genblk1[4].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[4].fc_node/tree_in_reg[0], operation Mode is (post resource management): (A*(B:0x3f7a6))'.
-DSP Report: register genblk1[4].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[4].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[4].fc_node/p_2_out is absorbed into DSP genblk1[4].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[8].fc_node/tree_in_reg[2], operation Mode is (post resource management): (A*(B:0x3f2ca))'.
-DSP Report: register genblk1[8].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[8].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[8].fc_node/p_1_out is absorbed into DSP genblk1[8].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[8].fc_node/tree_in_reg[0], operation Mode is (post resource management): (A*(B:0x3f55b))'.
-DSP Report: register genblk1[8].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[8].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[8].fc_node/p_3_out is absorbed into DSP genblk1[8].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[9].fc_node/tree_in_reg[2], operation Mode is (post resource management): (A*(B:0x975))'.
-DSP Report: register genblk1[9].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[9].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[9].fc_node/p_0_out is absorbed into DSP genblk1[9].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[9].fc_node/tree_in_reg[0], operation Mode is (post resource management): (A*(B:0xb59))'.
-DSP Report: register genblk1[9].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[9].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[9].fc_node/p_2_out is absorbed into DSP genblk1[9].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[3], operation Mode is (post resource management): (A*(B:0x61d))'.
-DSP Report: register genblk1[10].fc_node/tree_in_reg[3] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[3].
-DSP Report: operator genblk1[10].fc_node/p_0_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[3].
-DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[2], operation Mode is (post resource management): (A*(B:0xcd8))'.
-DSP Report: register genblk1[10].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[10].fc_node/p_1_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[1], operation Mode is (post resource management): (A*(B:0xaf1))'.
-DSP Report: register genblk1[10].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[10].fc_node/p_2_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[0], operation Mode is (post resource management): (A*(B:0x721))'.
-DSP Report: register genblk1[10].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[10].fc_node/p_3_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[0].
- DSP resource Status: p_0_out_29 0 1494 1494: Used 1 time : Accepted (22 < 66) uniquify 0 
- DSP resource Status: feature_extraction/feature_extraction/abs2_2_reg[0]_2b 0 1597 1597: Used 1 time : Accepted (21 < 66) uniquify 0 
- DSP resource Status: feature_extraction/feature_extraction/norm_I_3_reg_27 0 1798 1798: Used 1 time : Accepted (19 < 66) uniquify 0 
- DSP resource Status: feature_extraction/feature_extraction/norm_Q_3_reg_2d 0 1798 1798: Used 1 time : Accepted (20 < 66) uniquify 0 
- DSP resource Status: norm/new_I_out1_reg[0]_2e 0 3178 1549: Used 1 time : Accepted (10 < 66) uniquify 0 
- DSP resource Status: norm/new_I_out1_reg[0]_2e 1 3178 1629: Used 1 time : Accepted (11 < 66) uniquify 0 
- DSP resource Status: feature_extraction/feature_extraction/abs_3_reg_32 0 3386 3386: Used 1 time : Accepted (5 < 66) uniquify 0 
- DSP resource Status: norm/new_Q_out1_reg[0]_34 0 3285 1549: Used 1 time : Accepted (6 < 66) uniquify 0 
- DSP resource Status: norm/new_Q_out1_reg[0]_34 1 3285 1736: Used 1 time : Accepted (7 < 66) uniquify 0 
- DSP resource Status: feature_extraction/feature_extraction/abs3_5_reg_37 0 2928 2928: Used 1 time : Accepted (15 < 66) uniquify 0 
- DSP resource Status: denorm/new_I_out1_reg[0]_39 0 3531 1665: Used 1 time : Accepted (1 < 66) uniquify 0 
- DSP resource Status: denorm/new_I_out1_reg[0]_39 1 3531 1866: Used 1 time : Accepted (2 < 66) uniquify 0 
- DSP resource Status: denorm/new_Q_out1_reg[0]_3c 0 3416 1665: Used 1 time : Accepted (3 < 66) uniquify 0 
- DSP resource Status: denorm/new_Q_out1_reg[0]_3c 1 3416 1751: Used 1 time : Accepted (4 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10]_3e 0 1160 498: Used 1 time : Accepted (23 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9]_41 0 810 810: Used 1 time : Accepted (28 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8]_43 0 810 810: Used 1 time : Accepted (27 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7]_44 0 810 810: Used 1 time : Accepted (26 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6]_45 0 589 589: Used 1 time : Accepted (59 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5]_47 0 662 662: Used 1 time : Accepted (35 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4]_48 0 662 662: Used 1 time : Accepted (34 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3]_49 0 662 662: Used 1 time : Accepted (33 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2]_4a 0 662 662: Used 1 time : Accepted (32 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1]_4b 0 662 662: Used 1 time : Accepted (31 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0]_4c 0 662 662: Used 1 time : Accepted (30 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10]_3e 1 1160 662: Used 1 time : Accepted (24 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8]_4d 0 620 620: Used 1 time : Accepted (58 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7]_4f 0 810 810: Used 1 time : Accepted (29 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6]_50 0 662 662: Used 1 time : Accepted (40 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5]_51 0 662 662: Used 1 time : Accepted (39 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4]_52 0 589 589: Used 1 time : Accepted (60 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3]_53 0 662 662: Used 1 time : Accepted (38 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2]_54 0 915 915: Used 1 time : Accepted (25 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1]_56 0 662 662: Used 1 time : Accepted (37 < 66) uniquify 0 
- DSP resource Status: backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0]_57 0 662 662: Used 1 time : Accepted (36 < 66) uniquify 0 
-WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/abs_3_reg' and it is trimmed from '48' to '36' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:213]
-WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/norm_Q_3_reg' and it is trimmed from '30' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:220]
-WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/norm_I_3_reg' and it is trimmed from '30' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:219]
-WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/abs3_5_reg' and it is trimmed from '48' to '40' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:238]
-WARNING: [Synth 8-3936] Found unconnected internal register 'backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2]' and it is trimmed from '29' to '28' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:125]
-DSP Report: Generating DSP p_0_out, operation Mode is (post resource management): A*B.
-DSP Report: operator p_0_out is absorbed into DSP p_0_out.
-DSP Report: Generating DSP feature_extraction/feature_extraction/abs2_2_reg[0], operation Mode is (post resource management): (C+A*B)'.
-DSP Report: register feature_extraction/feature_extraction/abs2_2_reg[0] is absorbed into DSP feature_extraction/feature_extraction/abs2_2_reg[0].
-DSP Report: operator feature_extraction/feature_extraction/p_0_in is absorbed into DSP feature_extraction/feature_extraction/abs2_2_reg[0].
-DSP Report: operator p_0_out is absorbed into DSP feature_extraction/feature_extraction/abs2_2_reg[0].
-DSP Report: Generating DSP feature_extraction/feature_extraction/norm_I_3_reg, operation Mode is (post resource management): (A*B'')'.
-DSP Report: register feature_extraction/feature_extraction/I_2_reg[5] is absorbed into DSP feature_extraction/feature_extraction/norm_I_3_reg.
-DSP Report: register feature_extraction/feature_extraction/I_2_reg[6] is absorbed into DSP feature_extraction/feature_extraction/norm_I_3_reg.
-DSP Report: register feature_extraction/feature_extraction/norm_I_3_reg is absorbed into DSP feature_extraction/feature_extraction/norm_I_3_reg.
-DSP Report: operator feature_extraction/feature_extraction/norm_I_30 is absorbed into DSP feature_extraction/feature_extraction/norm_I_3_reg.
-DSP Report: Generating DSP feature_extraction/feature_extraction/norm_Q_3_reg, operation Mode is (post resource management): (A*B'')'.
-DSP Report: register feature_extraction/feature_extraction/Q_2_reg[5] is absorbed into DSP feature_extraction/feature_extraction/norm_Q_3_reg.
-DSP Report: register feature_extraction/feature_extraction/Q_2_reg[6] is absorbed into DSP feature_extraction/feature_extraction/norm_Q_3_reg.
-DSP Report: register feature_extraction/feature_extraction/norm_Q_3_reg is absorbed into DSP feature_extraction/feature_extraction/norm_Q_3_reg.
-DSP Report: operator feature_extraction/feature_extraction/norm_Q_30 is absorbed into DSP feature_extraction/feature_extraction/norm_Q_3_reg.
-DSP Report: Generating DSP norm/new_I_out1_reg[0], operation Mode is (post resource management): (A''*B)'.
-DSP Report: register shift_register/storage_reg[1][3] is absorbed into DSP norm/new_I_out1_reg[0].
-DSP Report: register shift_register/storage_reg[0][3] is absorbed into DSP norm/new_I_out1_reg[0].
-DSP Report: register norm/new_I_out1_reg[0] is absorbed into DSP norm/new_I_out1_reg[0].
-DSP Report: operator p_0_out is absorbed into DSP norm/new_I_out1_reg[0].
-DSP Report: Generating DSP p_1_in0, operation Mode is (post resource management): PCIN+(A''*B)'.
-DSP Report: register shift_register/storage_reg[1][2] is absorbed into DSP p_1_in0.
-DSP Report: register shift_register/storage_reg[0][2] is absorbed into DSP p_1_in0.
-DSP Report: register norm/new_I_out2_reg[0] is absorbed into DSP p_1_in0.
-DSP Report: operator p_1_in0 is absorbed into DSP p_1_in0.
-DSP Report: operator p_0_out is absorbed into DSP p_1_in0.
-DSP Report: Generating DSP feature_extraction/feature_extraction/abs_3_reg, operation Mode is (post resource management): (A''*B)'.
-DSP Report: register feature_extraction/feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
-DSP Report: register feature_extraction/feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
-DSP Report: register feature_extraction/feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
-DSP Report: operator feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
-DSP Report: operator feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
-DSP Report: Generating DSP norm/new_Q_out1_reg[0], operation Mode is (post resource management): (A''*B)'.
-DSP Report: register shift_register/storage_reg[1][2] is absorbed into DSP norm/new_Q_out1_reg[0].
-DSP Report: register shift_register/storage_reg[0][2] is absorbed into DSP norm/new_Q_out1_reg[0].
-DSP Report: register norm/new_Q_out1_reg[0] is absorbed into DSP norm/new_Q_out1_reg[0].
-DSP Report: operator p_0_out is absorbed into DSP norm/new_Q_out1_reg[0].
-DSP Report: Generating DSP p_1_out, operation Mode is (post resource management): PCIN-(A''*B)'.
-DSP Report: register shift_register/storage_reg[1][3] is absorbed into DSP p_1_out.
-DSP Report: register shift_register/storage_reg[0][3] is absorbed into DSP p_1_out.
-DSP Report: register norm/new_Q_out2_reg[0] is absorbed into DSP p_1_out.
-DSP Report: operator p_1_out is absorbed into DSP p_1_out.
-DSP Report: operator p_0_out is absorbed into DSP p_1_out.
-DSP Report: Generating DSP feature_extraction/feature_extraction/abs3_5_reg, operation Mode is (post resource management): (A''*B2)'.
-DSP Report: register feature_extraction/feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: register feature_extraction/feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: register feature_extraction/feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: register feature_extraction/feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: operator feature_extraction/feature_extraction/abs3_50 is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: operator feature_extraction/feature_extraction/abs3_50 is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: Generating DSP denorm/new_I_out1_reg[0], operation Mode is (post resource management): (A''*B'')'.
-DSP Report: register delayed_norm_I_reg[8] is absorbed into DSP denorm/new_I_out1_reg[0].
-DSP Report: register delayed_norm_I_reg[9] is absorbed into DSP denorm/new_I_out1_reg[0].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/outputs_reg is absorbed into DSP denorm/new_I_out1_reg[0].
-DSP Report: register backbone_I_out_reg[0] is absorbed into DSP denorm/new_I_out1_reg[0].
-DSP Report: register denorm/new_I_out1_reg[0] is absorbed into DSP denorm/new_I_out1_reg[0].
-DSP Report: operator p_0_out is absorbed into DSP denorm/new_I_out1_reg[0].
-DSP Report: Generating DSP denorm/I_out[0], operation Mode is (post resource management): PCIN-(A''*B'')'.
-DSP Report: register delayed_norm_Q_reg[8] is absorbed into DSP denorm/I_out[0].
-DSP Report: register delayed_norm_Q_reg[9] is absorbed into DSP denorm/I_out[0].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/outputs_reg is absorbed into DSP denorm/I_out[0].
-DSP Report: register backbone_Q_out_reg[0] is absorbed into DSP denorm/I_out[0].
-DSP Report: register denorm/new_I_out2_reg[0] is absorbed into DSP denorm/I_out[0].
-DSP Report: operator denorm/I_out[0] is absorbed into DSP denorm/I_out[0].
-DSP Report: operator p_0_out is absorbed into DSP denorm/I_out[0].
-DSP Report: Generating DSP denorm/new_Q_out1_reg[0], operation Mode is (post resource management): (A''*B'')'.
-DSP Report: register delayed_norm_I_reg[8] is absorbed into DSP denorm/new_Q_out1_reg[0].
-DSP Report: register delayed_norm_I_reg[9] is absorbed into DSP denorm/new_Q_out1_reg[0].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/outputs_reg is absorbed into DSP denorm/new_Q_out1_reg[0].
-DSP Report: register backbone_Q_out_reg[0] is absorbed into DSP denorm/new_Q_out1_reg[0].
-DSP Report: register denorm/new_Q_out1_reg[0] is absorbed into DSP denorm/new_Q_out1_reg[0].
-DSP Report: operator p_0_out is absorbed into DSP denorm/new_Q_out1_reg[0].
-DSP Report: Generating DSP denorm/Q_out[0], operation Mode is (post resource management): PCIN+(A''*B'')'.
-DSP Report: register delayed_norm_Q_reg[8] is absorbed into DSP denorm/Q_out[0].
-DSP Report: register delayed_norm_Q_reg[9] is absorbed into DSP denorm/Q_out[0].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/outputs_reg is absorbed into DSP denorm/Q_out[0].
-DSP Report: register backbone_I_out_reg[0] is absorbed into DSP denorm/Q_out[0].
-DSP Report: register denorm/new_Q_out2_reg[0] is absorbed into DSP denorm/Q_out[0].
-DSP Report: operator denorm/Q_out[0] is absorbed into DSP denorm/Q_out[0].
-DSP Report: operator p_0_out is absorbed into DSP denorm/Q_out[0].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10], operation Mode is (post resource management): (A''*(B:0x3f811))'.
-DSP Report: register backbones/delay_inputs_reg[2][10] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10].
-DSP Report: register backbones/delay_inputs_reg[3][10] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_0_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9], operation Mode is (post resource management): (A''*(B:0x98c))'.
-DSP Report: register backbones/delay_inputs_reg[2][9] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9].
-DSP Report: register backbones/delay_inputs_reg[3][9] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_1_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8], operation Mode is (post resource management): (A''*(B:0xc3d))'.
-DSP Report: register backbones/delay_inputs_reg[2][8] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8].
-DSP Report: register backbones/delay_inputs_reg[3][8] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_2_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7], operation Mode is (post resource management): (A''*(B:0x9d4))'.
-DSP Report: register backbones/delay_inputs_reg[2][2] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7].
-DSP Report: register backbones/delay_inputs_reg[3][2] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_3_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6], operation Mode is (post resource management): (A2*(B:0x710))'.
-DSP Report: register backbones/layer_inputs_reg[1][-8] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_4_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5], operation Mode is (post resource management): (A2*(B:0xb38))'.
-DSP Report: register backbones/layer_inputs_reg[1][-7] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_5_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4], operation Mode is (post resource management): (A2*(B:0xdbe))'.
-DSP Report: register backbones/layer_inputs_reg[1][-6] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_6_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3], operation Mode is (post resource management): (A2*(B:0x3f393))'.
-DSP Report: register backbones/layer_inputs_reg[1][-4] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_7_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2], operation Mode is (post resource management): (A2*(B:0xfb7))'.
-DSP Report: register backbones/layer_inputs_reg[1][-3] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_8_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1], operation Mode is (post resource management): (A2*(B:0x3f233))'.
-DSP Report: register backbones/layer_inputs_reg[1][-2] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_9_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0], operation Mode is (post resource management): (A2*(B:0x3f06e))'.
-DSP Report: register backbones/layer_inputs_reg[1][0] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_10_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[9], operation Mode is (post resource management): (A''*(B:0x3f3c2))'.
-DSP Report: register backbones/delay_inputs_reg[2][10] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[9].
-DSP Report: register backbones/delay_inputs_reg[3][10] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[9].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[9] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[9].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_0_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[9].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8], operation Mode is (post resource management): (A''*(B:0x798))'.
-DSP Report: register backbones/delay_inputs_reg[2][6] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8].
-DSP Report: register backbones/delay_inputs_reg[3][6] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_1_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7], operation Mode is (post resource management): ((A:0x0)''*(B:0xb98))'.
-DSP Report: register backbones/delay_inputs_reg[2][5] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7].
-DSP Report: register backbones/delay_inputs_reg[3][5] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_2_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6], operation Mode is (post resource management): (A2*(B:0xa31))'.
-DSP Report: register backbones/layer_inputs_reg[1][-10] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_3_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5], operation Mode is (post resource management): (A2*(B:0x965))'.
-DSP Report: register backbones/layer_inputs_reg[1][-9] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_4_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4], operation Mode is (post resource management): (A2*(B:0x7ed))'.
-DSP Report: register backbones/layer_inputs_reg[1][-8] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_5_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3], operation Mode is (post resource management): (A2*(B:0x3f226))'.
-DSP Report: register backbones/layer_inputs_reg[1][-4] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_6_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2], operation Mode is (post resource management): (A2*(B:0x3ef66))'.
-DSP Report: register backbones/layer_inputs_reg[1][-2] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_7_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1], operation Mode is (post resource management): (A2*(B:0xaf8))'.
-DSP Report: register backbones/layer_inputs_reg[1][-1] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_8_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0], operation Mode is (post resource management): (A2*(B:0xea8))'.
-DSP Report: register backbones/layer_inputs_reg[1][0] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_9_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0].
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
@@ -1242,9 +980,9 @@ ROM: Preliminary Mapping Report
 +----------------+--------------+---------------+----------------+
 |Module Name     | RTL Object   | Depth x Width | Implemented As | 
 +----------------+--------------+---------------+----------------+
-|approx_inv_sqrt | APPROX_LUT_1 | 32768x27      | LUT            | 
-|approx_inv_sqrt | APPROX_LUT_1 | 32768x27      | LUT            | 
-|approx_inv_sqrt | approx_1_reg | 32768x12      | Block RAM      | 
+|approx_inv_sqrt | APPROX_LUT_1 | 32768x28      | LUT            | 
+|approx_inv_sqrt | APPROX_LUT_1 | 32768x28      | LUT            | 
+|approx_inv_sqrt | approx_1_reg | 32768x13      | Block RAM      | 
 +----------------+--------------+---------------+----------------+
 
 
@@ -1287,13 +1025,14 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 |fc_node                            | (A*(B:0x771))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
 |feature_extraction_amp1_3_inv_sqrt | A*B                  | 14     | 14     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |feature_extraction_amp1_3_inv_sqrt | (C+A*B)'             | 14     | 14     | 26     | -      | 26     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
-|feature_extraction_amp1_3_inv_sqrt | (A*B'')'             | 17     | 14     | -      | -      | 31     | 0    | 2    | -    | -    | -     | 1    | 0    | 
-|feature_extraction_amp1_3_inv_sqrt | (A*B'')'             | 17     | 14     | -      | -      | 31     | 0    | 2    | -    | -    | -     | 1    | 0    | 
+|feature_extraction_amp1_3_inv_sqrt | (A*B'')'             | 20     | 14     | -      | -      | 34     | 0    | 2    | -    | -    | -     | 1    | 0    | 
+|feature_extraction_amp1_3_inv_sqrt | (A*B'')'             | 20     | 14     | -      | -      | 34     | 0    | 2    | -    | -    | -     | 1    | 0    | 
 |main                               | (A''*B)'             | 14     | 14     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
 |main                               | PCIN+(A''*B)'        | 14     | 14     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
 |main                               | (A''*B)'             | 14     | 14     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
 |main                               | PCIN+(A''*B)'        | 14     | 14     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*B)'             | 25     | 17     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 1    | 0    | 
+|main                               | A*B''                | 20     | 18     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 0    | 
+|main                               | (PCIN>>17)+A*B''     | 20     | 10     | -      | -      | 23     | 0    | 2    | -    | -    | -     | 0    | 1    | 
 |main                               | (A''*B)'             | 14     | 14     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
 |main                               | PCIN-(A''*B)'        | 14     | 14     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
 |main                               | (A''*B)'             | 14     | 14     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
@@ -1334,17 +1073,24 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:26 ; elapsed = 00:01:35 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:31 ; elapsed = 00:01:44 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:27 ; elapsed = 00:01:37 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Timing Optimization : Time (s): cpu = 00:01:32 ; elapsed = 00:01:45 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5816] Retiming module `main`
+	Numbers of forward move = 0, and backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `main' done
+
+
 INFO: [Synth 8-7052] The timing for the instance feature_extraction/feature_extraction/sqrt/approx_1_reg_0_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance feature_extraction/feature_extraction/sqrt/approx_1_reg_0_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance feature_extraction/feature_extraction/sqrt/approx_1_reg_0_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
@@ -1357,8 +1103,9 @@ INFO: [Synth 8-7052] The timing for the instance feature_extraction/feature_extr
 INFO: [Synth 8-7052] The timing for the instance feature_extraction/feature_extraction/sqrt/approx_1_reg_0_9 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance feature_extraction/feature_extraction/sqrt/approx_1_reg_0_10 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance feature_extraction/feature_extraction/sqrt/approx_1_reg_0_11 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance feature_extraction/feature_extraction/sqrt/approx_1_reg_0_12 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:30 ; elapsed = 00:01:39 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Technology Mapping : Time (s): cpu = 00:01:35 ; elapsed = 00:01:48 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1376,37 +1123,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:33 ; elapsed = 00:01:42 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished IO Insertion : Time (s): cpu = 00:01:38 ; elapsed = 00:01:51 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:33 ; elapsed = 00:01:42 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:38 ; elapsed = 00:01:51 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:33 ; elapsed = 00:01:43 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:33 ; elapsed = 00:01:43 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:33 ; elapsed = 00:01:43 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:33 ; elapsed = 00:01:43 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1441,6 +1188,7 @@ DSP Final Report (the ' indicates corresponding REG is set)
 |main                               | PCIN-((A''*B)')   | 30     | 18     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
 |fc_node                            | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A*B)'            | 0      | 18     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
@@ -1449,13 +1197,20 @@ DSP Final Report (the ' indicates corresponding REG is set)
 |fc_node                            | (A'*B)'           | 30     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A'*B)'           | 30     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A*B)'            | 0      | 11     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A'*B)'           | 30     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A'*B)'           | 30     | 11     | -      | -      | 27     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A'*B)'           | 30     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A''*B)'          | 30     | 18     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
@@ -1468,14 +1223,14 @@ DSP Final Report (the ' indicates corresponding REG is set)
 |main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|main                               | (A'*B)'           | 0      | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A*B)'            | 0      | 12     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A'*B)'           | 13     | 11     | -      | -      | 27     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|main                               | (A'*B)'           | 13     | 18     | -      | -      | 29     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |main                               | (A''*B'')'        | 30     | 18     | -      | -      | 0      | 2    | 2    | -    | -    | -     | 0    | 1    | 
@@ -1483,11 +1238,12 @@ DSP Final Report (the ' indicates corresponding REG is set)
 |main                               | (A''*B'')'        | 30     | 18     | -      | -      | 0      | 2    | 2    | -    | -    | -     | 0    | 1    | 
 |main                               | PCIN+(A''*B'')'   | 30     | 18     | -      | -      | 29     | 2    | 2    | -    | -    | -     | 1    | 0    | 
 |feature_extraction_amp1_3_inv_sqrt | (C+A*B)'          | 30     | 18     | 48     | -      | 26     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
-|feature_extraction_amp1_3_inv_sqrt | (A*B'')'          | 16     | 18     | -      | -      | 23     | 0    | 2    | -    | -    | -     | 0    | 1    | 
-|feature_extraction_amp1_3_inv_sqrt | (A*B'')'          | 16     | 18     | -      | -      | 23     | 0    | 2    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B)'          | 24     | 16     | -      | -      | 36     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B')'         | 24     | 14     | -      | -      | 40     | 2    | 1    | -    | -    | -     | 0    | 1    | 
-|approx_inv_sqrt                    | (A*B)'            | 24     | 15     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|feature_extraction_amp1_3_inv_sqrt | (A*B'')'          | 19     | 18     | -      | -      | 33     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|feature_extraction_amp1_3_inv_sqrt | (A*B'')'          | 19     | 18     | -      | -      | 33     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|main                               | A*B''             | 19     | 17     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 0    | 
+|main                               | (PCIN>>17+A*B'')' | 19     | 9      | -      | -      | 23     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|main                               | (A''*B')'         | 24     | 14     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|approx_inv_sqrt                    | (A*B)'            | 24     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
 |approx_inv_sqrt                    | (A'*B'')'         | 17     | 15     | -      | -      | 24     | 1    | 2    | -    | -    | -     | 0    | 1    | 
 |approx_inv_sqrt                    | (C-(A''*B))'      | 17     | 17     | 27     | -      | 27     | 2    | 0    | 0    | -    | -     | 0    | 1    | 
 |approx_inv_sqrt                    | (A''*B)'          | 17     | 17     | -      | -      | 33     | 2    | 0    | -    | -    | -     | 0    | 1    | 
@@ -1506,42 +1262,43 @@ Report Cell Usage:
 +------+---------+------+
 |      |Cell     |Count |
 +------+---------+------+
-|1     |CARRY4   |   409|
-|2     |DSP48E1  |    57|
-|13    |LUT1     |   107|
-|14    |LUT2     |   961|
-|15    |LUT3     |   618|
-|16    |LUT4     |   551|
-|17    |LUT5     |   307|
-|18    |LUT6     |   710|
-|19    |RAMB36E1 |    12|
-|31    |SRL16E   |    85|
-|32    |FDRE     |  1512|
-|33    |FDSE     |   156|
+|1     |CARRY4   |   168|
+|2     |DSP48E1  |    66|
+|17    |LUT1     |    28|
+|18    |LUT2     |   625|
+|19    |LUT3     |   479|
+|20    |LUT4     |   232|
+|21    |LUT5     |   335|
+|22    |LUT6     |   889|
+|23    |MUXF7    |     2|
+|24    |RAMB36E1 |    13|
+|37    |SRL16E   |    85|
+|38    |FDRE     |  1315|
+|39    |FDSE     |   156|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:33 ; elapsed = 00:01:43 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 1 critical warnings and 46 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:00 ; elapsed = 00:01:40 . Memory (MB): peak = 13391.605 ; gain = 12787.301
-Synthesis Optimization Complete : Time (s): cpu = 00:01:33 ; elapsed = 00:01:43 . Memory (MB): peak = 13391.605 ; gain = 12787.301
+Synthesis finished with 0 errors, 1 critical warnings and 58 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:05 ; elapsed = 00:01:49 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Synthesis Optimization Complete : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.108 . Memory (MB): peak = 13391.605 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 478 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.104 . Memory (MB): peak = 14548.191 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 249 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 13391.605 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 14548.191 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: e81944fd
+Synth Design complete | Checksum: 3c5e4fa0
 INFO: [Common 17-83] Releasing license: Synthesis
-112 Infos, 122 Warnings, 1 Critical Warnings and 0 Errors encountered.
+116 Infos, 134 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:37 ; elapsed = 00:01:49 . Memory (MB): peak = 13391.605 ; gain = 12997.996
+synth_design: Time (s): cpu = 00:01:42 ; elapsed = 00:01:58 . Memory (MB): peak = 14548.191 ; gain = 14156.184
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 13391.605 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 14548.191 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/main.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Mar 19 13:49:13 2025...
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 21 18:18:01 2025...

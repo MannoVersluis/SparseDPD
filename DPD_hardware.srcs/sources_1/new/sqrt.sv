@@ -94,7 +94,7 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 15,
     output logic [0:1-INPUTS_SIZE-EXTRA_OUT_BITS] abs
     );
     
-    localparam int APPROX_BITS = 4; // how many bits of the inv sqrt will be stored in luts
+    localparam int APPROX_BITS = 5; // how many bits of the inv sqrt will be stored in luts
     localparam int MAX_BITS = INPUTS_SIZE+2; // should be at least INPUTS_SIZE, operations will take at most the MAX_BITS msb's as an input
     
     localparam logic [0:$rtoi($pow(2, $itor(INPUTS_SIZE)))-1][3*(INPUTS_SIZE/2+APPROX_BITS)-2-1:0] APPROX_LUT_1 = APPROX_CALC_1();

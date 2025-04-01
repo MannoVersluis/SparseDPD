@@ -3,7 +3,7 @@
    "Default View_ScaleFactor":"1.36786",
    "Default View_TopLeft":"-167,-39",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 threadsafe
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
 preplace port DDR -pg 1 -lvl 4 -x 1320 -y 100 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -lvl 4 -x 1320 -y 40 -defaultsOSRD
@@ -13,18 +13,18 @@ preplace inst axi_dma_0 -pg 1 -lvl 2 -x 720 -y 870 -defaultsOSRD
 preplace inst proc_sys_reset_0 -pg 1 -lvl 1 -x 200 -y 320 -defaultsOSRD
 preplace inst axi_smc -pg 1 -lvl 3 -x 1120 -y 490 -defaultsOSRD
 preplace inst axi_smc_1 -pg 1 -lvl 3 -x 1120 -y 240 -defaultsOSRD
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 2 480 360 980
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 430 490 340 960
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 3 30 420 NJ 420 940
-preplace netloc axi_dma_0_M_AXIS_MM2S 1 1 2 510 460 940
-preplace netloc axi_dma_0_M_AXI_MM2S 1 2 1 950 460n
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 2 490 360 980
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 430 500 340 950
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 3 30 420 NJ 420 930
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 1 2 520 460 930
+preplace netloc axi_dma_0_M_AXI_MM2S 1 2 1 940 460n
 preplace netloc axi_dma_0_M_AXI_S2MM 1 2 1 990 480n
-preplace netloc axi_smc_1_M00_AXI 1 1 3 500 370 NJ 370 1260
-preplace netloc axi_smc_M00_AXI 1 1 3 510 330 NJ 330 1250
-preplace netloc main_wrapper_m_out_axis 1 1 2 510 620 930
-preplace netloc processing_system7_0_DDR 1 2 2 960 100 N
-preplace netloc processing_system7_0_FIXED_IO 1 2 2 940 40 N
-preplace netloc processing_system7_0_M_AXI_GP0 1 2 1 960 220n
+preplace netloc axi_smc_1_M00_AXI 1 1 3 510 370 NJ 370 1260
+preplace netloc axi_smc_M00_AXI 1 1 3 520 330 NJ 330 1250
+preplace netloc main_wrapper_m_out_axis 1 1 2 520 620 920
+preplace netloc processing_system7_0_DDR 1 2 2 950 100 N
+preplace netloc processing_system7_0_FIXED_IO 1 2 2 930 40 N
+preplace netloc processing_system7_0_M_AXI_GP0 1 2 1 950 220n
 levelinfo -pg 1 0 200 720 1120 1320
 pagesize -pg 1 -db -bbox -sgen -210 0 1450 1050
 "
