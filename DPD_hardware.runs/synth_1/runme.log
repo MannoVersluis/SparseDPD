@@ -8,7 +8,7 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Fri Mar 21 18:13:54 2025
+  **** Start of session at: Tue Jun 10 08:19:50 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -23,35 +23,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010
 INFO: [Device 21-403] Loading part xc7z010clg400-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 22436
-
-*** Running vivado
-    with args -log main.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
-
-
-
-****** Vivado v2024.2 (64-bit)
-  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
-  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
-  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Fri Mar 21 18:15:58 2025
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-
-source main.tcl -notrace
-Command: read_checkpoint -auto_incremental -incremental C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/utils_1/imports/synth_1/main.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/utils_1/imports/synth_1/main.dcp for incremental synthesis
-INFO: [Vivado 12-7989] Please ensure there are no constraint changes
-Command: synth_design -top main -part xc7z010clg400-2 -bufg 32 -directive PerformanceOptimized -global_retiming on -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5 -mode out_of_context
-Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
-INFO: [Device 21-403] Loading part xc7z010clg400-2
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
-INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 5744
+INFO: [Synth 8-7075] Helper process launched with PID 7372
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1072.051 ; gain = 467.359
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1072.863 ; gain = 466.305
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'main' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/main.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'phase_normalization' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/phase_normalization.sv:23]
@@ -92,8 +66,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_layer' [C:/Users/manno/Vivado/DPD_h
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter WEIGHTS bound to: 2016'b000000000000000000000000000000000000000000000000000000000000000000000011100011000110000000000000000000000000000000000000000000000000000000000011101010001111000010010111000000000000000000000000000000000000000000001000101001010000000000000000000000000000000000000000000000000000000000000000000000000000000000001101111100000000000000000000001010000110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110101011001000000000000000000000000000000011111111000001000110110110000000000000000000000000000000000000000000000000000000000000000000000110111101001100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110111100010001101111001011100000000000000000000000000000000000000000000000000000000001100001001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110001100110000000000000000010101110000000111101111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110101010110110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010111001111110010110010100000000000000000011100110011000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101101011001000111110101000000000000000000100101110101000000000000000000000000000000011100100001000000000000000000000000000000000000000000000000000000000000000000000000101011110001000000000000000011001101100000011000011101000000000000000001110111000100000000000000000000000000000000000000000011100000111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter BIAS bound to: 168'b000001101000011111001001100100010011111011000101100000101111100000000100011000010000110101100000010000000100110100010011000000111000101010111110011101011011101100100000 
+	Parameter WEIGHTS bound to: 2016'b000000000000000000000000000000000000000000000000000000000000000000000011100011001101000000000000000000000000000000000000000000000000000000000100111110000011000110101000000000000000000000000000000000000000000000001000100111000000000000000000000000000000000000000000000000000000000000000000000000000000000000001101111100100100000000000000000000000000000000000000000000000000000000000000000000000000000000000000011100000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111110000110000000000000000000000000000000011111101111000111111101110000000000000000000000000000000000000000000000000000000000000000000000110111101011110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110111100100011101111010000000000000000000000000000000000000000000000011100011011011001011011100010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111010100000000000000001000010010000001000000101110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110100100101100000000000000000110001001100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110001111100000000000000000000000000000000110110110100000000000000000000000000000000011001110000000000000000000000000000000000000000000000110100011010110000000000000000101000111100000000000000000011011110110000101101100100000000000000000000000000000000000000000000000000000000000000000000000011100001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter BIAS bound to: 168'b000010000010101111001001110000001110111001000100111001001111100000000000010101001100111111001110101111110101101000010101001001111011100110001111111001111111011101111101 
 	Parameter LAST bound to: 0 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'fc_node' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 	Parameter PREV_WIDTH bound to: 12 - type: integer 
@@ -102,8 +76,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node' [C:/Users/manno/Vivado/DPD_ha
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b000000000000000000000000000000000000000000000000000000000000000000000011100011000110000000000000000000000000000000000000000000000000000000000011101010001111000010010111 
-	Parameter bias bound to: 14'sb00000110100001 
+	Parameter weights bound to: 168'b000000000000000000000000000000000000000000000000000000000000000000000011100011001101000000000000000000000000000000000000000000000000000000000100111110000011000110101000 
+	Parameter bias bound to: 14'sb00001000001010 
 	Parameter LAST bound to: 0 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'adder_trees' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
 	Parameter INPUTS_SIZE bound to: 29 - type: integer 
@@ -133,8 +107,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized0' [C:/Users/man
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b000000000000000000000000000000000000000000001000101001010000000000000000000000000000000000000000000000000000000000000000000000000000000000001101111100000000000000000000 
-	Parameter bias bound to: 14'sb11110010011001 
+	Parameter weights bound to: 168'b000000000000000000000000000000000000000000001000100111000000000000000000000000000000000000000000000000000000000000000000000000000000000000001101111100100100000000000000 
+	Parameter bias bound to: 14'sb11110010011100 
 	Parameter LAST bound to: 0 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'adder_trees__parameterized0' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
 	Parameter INPUTS_SIZE bound to: 29 - type: integer 
@@ -149,8 +123,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized1' [C:/Users/man
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b001010000110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter bias bound to: 14'sb00010011111011 
+	Parameter weights bound to: 168'b000000000000000000000000000000000000000000000000000000000000000000000000011100000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter bias bound to: 14'sb00001110111001 
 	Parameter LAST bound to: 0 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'adder_trees__parameterized1' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
 	Parameter INPUTS_SIZE bound to: 29 - type: integer 
@@ -165,8 +139,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized2' [C:/Users/man
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b000000000000000000000000000000110101011001000000000000000000000000000000011111111000001000110110110000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter bias bound to: 14'sb00010110000010 
+	Parameter weights bound to: 168'b000000000000000000000000000000111110000110000000000000000000000000000000011111101111000111111101110000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter bias bound to: 14'sb00010011100100 
 	Parameter LAST bound to: 0 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized2' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized3' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
@@ -176,8 +150,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized3' [C:/Users/man
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b110111101001100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110111100010001101111001011100000000000000 
-	Parameter bias bound to: 14'sb11111000000001 
+	Parameter weights bound to: 168'b110111101011110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110111100100011101111010000000000000000000 
+	Parameter bias bound to: 14'sb11111000000000 
 	Parameter LAST bound to: 0 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized3' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized4' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
@@ -187,8 +161,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized4' [C:/Users/man
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b000000000000000000000000000000000000000000001100001001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter bias bound to: 14'sb00011000010000 
+	Parameter weights bound to: 168'b000000000000000000000000000011100011011011001011011100010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter bias bound to: 14'sb00010101001100 
 	Parameter LAST bound to: 0 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized4' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized5' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
@@ -198,8 +172,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized5' [C:/Users/man
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110001100110000000000000000010101110000 
-	Parameter bias bound to: 14'sb11010110000001 
+	Parameter weights bound to: 168'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111010100000000000000001000010010000 
+	Parameter bias bound to: 14'sb11111100111010 
 	Parameter LAST bound to: 0 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized5' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized6' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
@@ -209,8 +183,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized6' [C:/Users/man
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b000111101111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter bias bound to: 14'sb00000001001101 
+	Parameter weights bound to: 168'b001000000101110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter bias bound to: 14'sb11111101011010 
 	Parameter LAST bound to: 0 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized6' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized7' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
@@ -220,18 +194,9 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized7' [C:/Users/man
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b110101010110110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010111001111110010110010100000000000000000011100110011 
-	Parameter bias bound to: 14'sb00010011000000 
+	Parameter weights bound to: 168'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110100100101100000000000000000110001001100 
+	Parameter bias bound to: 14'sb00010101001001 
 	Parameter LAST bound to: 0 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'adder_trees__parameterized2' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
-	Parameter INPUTS_SIZE bound to: 29 - type: integer 
-	Parameter INPUTS_AMOUNT bound to: 5 - type: integer 
-	Parameter TREE_TYPE bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized2' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
-	Parameter INPUTS_SIZE bound to: 29 - type: integer 
-	Parameter INPUTS_AMOUNT bound to: 5 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized2' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
-INFO: [Synth 8-6155] done synthesizing module 'adder_trees__parameterized2' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized7' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized8' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 	Parameter PREV_WIDTH bound to: 12 - type: integer 
@@ -240,8 +205,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized8' [C:/Users/man
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101101011001000111110101000000000000000000100101110101 
-	Parameter bias bound to: 14'sb11100010101011 
+	Parameter weights bound to: 168'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110001111100000000000000000000000000000000110110110100 
+	Parameter bias bound to: 14'sb11101110011000 
 	Parameter LAST bound to: 0 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized8' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized9' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
@@ -251,9 +216,18 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized9' [C:/Users/man
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b000000000000000000000000000000011100100001000000000000000000000000000000000000000000000000000000000000000000000000101011110001000000000000000011001101100000011000011101 
-	Parameter bias bound to: 14'sb11100111010110 
+	Parameter weights bound to: 168'b000000000000000000000000000000011001110000000000000000000000000000000000000000000000110100011010110000000000000000101000111100000000000000000011011110110000101101100100 
+	Parameter bias bound to: 14'sb11111110011111 
 	Parameter LAST bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'adder_trees__parameterized2' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
+	Parameter INPUTS_SIZE bound to: 29 - type: integer 
+	Parameter INPUTS_AMOUNT bound to: 6 - type: integer 
+	Parameter TREE_TYPE bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized2' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
+	Parameter INPUTS_SIZE bound to: 29 - type: integer 
+	Parameter INPUTS_AMOUNT bound to: 6 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized2' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
+INFO: [Synth 8-6155] done synthesizing module 'adder_trees__parameterized2' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized9' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized10' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 	Parameter PREV_WIDTH bound to: 12 - type: integer 
@@ -262,8 +236,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized10' [C:/Users/ma
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 168'b000000000000000001110111000100000000000000000000000000000000000000000011100000111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter bias bound to: 14'sb11101100100000 
+	Parameter weights bound to: 168'b000000000000000000000000000000000000000000000000000000000000000000000011100001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter bias bound to: 14'sb11011101111101 
 	Parameter LAST bound to: 0 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized10' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 INFO: [Synth 8-6155] done synthesizing module 'fc_layer' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:27]
@@ -275,8 +249,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_layer__parameterized0' [C:/Users/ma
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter WEIGHTS bound to: 672'b110000011011100000000000000011001000110011001111101101111100111001001100000000000000001101101111100010110011100000011100010000000000000000000000000000000000000000000000000000000000000000000000000000100111010100000000000000000000000000000000000000000000000000000000000000000000000000110000111101001001100011001110000001000100000000000000001110101010000010101111100010111101100110000000000000001100100010011000000000000000000000000000000000000000000000011111101101001001011001010010100011000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000101110011000000111100110000000000000000000000000000000000000000000001100111100001000000000000000 
-	Parameter BIAS bound to: 28'b1111110011111100000000001110 
+	Parameter WEIGHTS bound to: 672'b110110010001100000000000000011010000011000001110100010001100111001011000000000000000001100011100000010001011100100000000000000000000000000000000000000000011011010001111000000000000000000000000000000011111110101000000000000000000000000000000000000000000000000000000000000000000000000101001011011000110100111101101001110011100000000000000010000110100100010101110110111000001100000110111001010001100100011110000000000000000000000000000001101011111001100100001100001000111001110100010010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101110001100000110010111110000000000000000000000000000000000000000001101110100011000000000000000 
+	Parameter BIAS bound to: 28'b0000000000101100000001010001 
 	Parameter LAST bound to: 1 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized11' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 	Parameter PREV_WIDTH bound to: 24 - type: integer 
@@ -285,8 +259,8 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized11' [C:/Users/ma
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 336'b110000011011100000000000000011001000110011001111101101111100111001001100000000000000001101101111100010110011100000011100010000000000000000000000000000000000000000000000000000000000000000000000000000100111010100000000000000000000000000000000000000000000000000000000000000000000000000110000111101001001100011001110000001000100000000000000 
-	Parameter bias bound to: 14'sb11111100111111 
+	Parameter weights bound to: 336'b110110010001100000000000000011010000011000001110100010001100111001011000000000000000001100011100000010001011100100000000000000000000000000000000000000000011011010001111000000000000000000000000000000011111110101000000000000000000000000000000000000000000000000000000000000000000000000101001011011000110100111101101001110011100000000000000 
+	Parameter bias bound to: 14'sb00000000001011 
 	Parameter LAST bound to: 1 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'adder_trees__parameterized3' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
 	Parameter INPUTS_SIZE bound to: 29 - type: integer 
@@ -298,10 +272,6 @@ INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterize
 INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized4' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
 	Parameter INPUTS_SIZE bound to: 29 - type: integer 
 	Parameter INPUTS_AMOUNT bound to: 8 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized5' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
-	Parameter INPUTS_SIZE bound to: 29 - type: integer 
-	Parameter INPUTS_AMOUNT bound to: 6 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized5' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
 INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized4' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
 INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized3' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
 INFO: [Synth 8-6155] done synthesizing module 'adder_trees__parameterized3' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
@@ -313,17 +283,21 @@ INFO: [Synth 8-6157] synthesizing module 'fc_node__parameterized12' [C:/Users/ma
 	Parameter MIN_BIT_INPUTS bound to: -13 - type: integer 
 	Parameter MIN_BIT_WEIGHTS bound to: -13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
-	Parameter weights bound to: 336'b001110101010000010101111100010111101100110000000000000001100100010011000000000000000000000000000000000000000000000011111101101001001011001010010100011000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000101110011000000111100110000000000000000000000000000000000000000000001100111100001000000000000000 
-	Parameter bias bound to: 14'sb00000000001110 
+	Parameter weights bound to: 336'b010000110100100010101110110111000001100000110111001010001100100011110000000000000000000000000000001101011111001100100001100001000111001110100010010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101110001100000110010111110000000000000000000000000000000000000000001101110100011000000000000000 
+	Parameter bias bound to: 14'sb00000001010001 
 	Parameter LAST bound to: 1 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'adder_trees__parameterized4' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
 	Parameter INPUTS_SIZE bound to: 29 - type: integer 
-	Parameter INPUTS_AMOUNT bound to: 11 - type: integer 
+	Parameter INPUTS_AMOUNT bound to: 13 - type: integer 
 	Parameter TREE_TYPE bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized5' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
+	Parameter INPUTS_SIZE bound to: 29 - type: integer 
+	Parameter INPUTS_AMOUNT bound to: 13 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'csa_adder_tree_recursive__parameterized6' [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
 	Parameter INPUTS_SIZE bound to: 29 - type: integer 
-	Parameter INPUTS_AMOUNT bound to: 11 - type: integer 
+	Parameter INPUTS_AMOUNT bound to: 9 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized6' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
+INFO: [Synth 8-6155] done synthesizing module 'csa_adder_tree_recursive__parameterized5' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:83]
 INFO: [Synth 8-6155] done synthesizing module 'adder_trees__parameterized4' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/adder_trees.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'fc_node__parameterized12' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:69]
 INFO: [Synth 8-6155] done synthesizing module 'fc_layer__parameterized0' (0#1) [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/fc_layer.sv:27]
@@ -341,20 +315,6 @@ WARNING: [Synth 8-3936] Found unconnected internal register 'abs3_5_reg' and it 
 WARNING: [Synth 8-3936] Found unconnected internal register 'abs_4_reg' and it is trimmed from '40' to '32' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:225]
 WARNING: [Synth 8-3936] Found unconnected internal register 'abs2_sqrt_in_reg' and it is trimmed from '28' to '15' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:183]
 WARNING: [Synth 8-3936] Found unconnected internal register 'abs2_tmp_reg' and it is trimmed from '28' to '26' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:199]
-WARNING: [Synth 8-7129] Port inputs[3][0] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-1] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-2] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-3] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-4] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-5] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-6] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-7] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-8] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-9] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-10] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-11] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-12] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[3][-13] in module fc_node__parameterized12 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port inputs[5][0] in module fc_node__parameterized12 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port inputs[5][-1] in module fc_node__parameterized12 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port inputs[5][-2] in module fc_node__parameterized12 is either unconnected or has no load
@@ -383,20 +343,6 @@ WARNING: [Synth 8-7129] Port inputs[6][-10] in module fc_node__parameterized12 i
 WARNING: [Synth 8-7129] Port inputs[6][-11] in module fc_node__parameterized12 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port inputs[6][-12] in module fc_node__parameterized12 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port inputs[6][-13] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][0] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-1] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-2] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-3] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-4] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-5] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-6] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-7] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-8] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-9] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-10] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-11] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-12] in module fc_node__parameterized12 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port inputs[7][-13] in module fc_node__parameterized12 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port inputs[11][0] in module fc_node__parameterized12 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port inputs[11][-1] in module fc_node__parameterized12 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port inputs[11][-2] in module fc_node__parameterized12 is either unconnected or has no load
@@ -441,20 +387,48 @@ WARNING: [Synth 8-7129] Port inputs[13][-12] in module fc_node__parameterized12 
 WARNING: [Synth 8-7129] Port inputs[13][-13] in module fc_node__parameterized12 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port inputs[14][0] in module fc_node__parameterized12 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port inputs[14][-1] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-2] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-3] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-4] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-5] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-6] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-7] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-8] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-9] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-10] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-11] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-12] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[14][-13] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][0] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-1] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-2] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-3] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-4] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-5] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-6] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-7] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-8] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-9] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-10] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-11] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-12] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[15][-13] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[16][0] in module fc_node__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inputs[16][-1] in module fc_node__parameterized12 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:31 ; elapsed = 00:00:42 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished RTL Elaboration : Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:42 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:31 ; elapsed = 00:00:42 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.202 . Memory (MB): peak = 14548.191 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.153 . Memory (MB): peak = 14548.848 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -467,36 +441,36 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 14548.191 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 14548.848 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.067 . Memory (MB): peak = 14548.191 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.090 . Memory (MB): peak = 14548.848 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:39 ; elapsed = 00:00:50 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Constraint Validation : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:39 ; elapsed = 00:00:50 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:50 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Preparing Guide Design
 ---------------------------------------------------------------------------------
 CRITICAL WARNING: [Synth 8-6895] The reference checkpoint C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/utils_1/imports/synth_1/main.dcp is not suitable for use with incremental synthesis for this design. Please regenerate the checkpoint for this design with -incremental_synth switch in the same Vivado session that synth_design has been run. Synthesis will continue with the default flow
 ---------------------------------------------------------------------------------
-Finished Doing Graph Differ : Time (s): cpu = 00:00:40 ; elapsed = 00:00:51 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Doing Graph Differ : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Preparing Guide Design : Time (s): cpu = 00:00:40 ; elapsed = 00:00:51 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Preparing Guide Design : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3936] Found unconnected internal register 'new_Q_out2_reg[1]' and it is trimmed from '28' to '27' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/phase_normalization.sv:53]
 WARNING: [Synth 8-3936] Found unconnected internal register 'new_I_out1_reg[1]' and it is trimmed from '28' to '27' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/phase_normalization.sv:50]
@@ -507,7 +481,7 @@ WARNING: [Synth 8-3936] Found unconnected internal register 'new_I_out2_reg[1]' 
 WARNING: [Synth 8-3936] Found unconnected internal register 'new_Q_out1_reg[0]' and it is trimmed from '28' to '27' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/phase_normalization.sv:52]
 WARNING: [Synth 8-3936] Found unconnected internal register 'new_I_out2_reg[0]' and it is trimmed from '28' to '27' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/phase_normalization.sv:51]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:49 ; elapsed = 00:01:00 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:53 ; elapsed = 00:00:59 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 
 
@@ -591,112 +565,231 @@ DSP Report: register approx_3_reg is absorbed into DSP valapp_5_reg.
 DSP Report: register approx_4_reg is absorbed into DSP valapp_5_reg.
 DSP Report: register valapp_5_reg is absorbed into DSP valapp_5_reg.
 DSP Report: operator valapp_50 is absorbed into DSP valapp_5_reg.
-DSP Report: Generating DSP genblk1[0].fc_node/tree_in_reg[2], operation Mode is: (A*(B:0x3f097))'.
-DSP Report: register genblk1[0].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[0].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[0].fc_node/p_0_out is absorbed into DSP genblk1[0].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[0].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0xea3))'.
-DSP Report: register genblk1[0].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[0].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[0].fc_node/p_1_out is absorbed into DSP genblk1[0].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[0].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x3f8c6))'.
-DSP Report: register genblk1[0].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[0].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[0].fc_node/p_2_out is absorbed into DSP genblk1[0].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[1].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x3f7c0))'.
-DSP Report: register genblk1[1].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[1].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[1].fc_node/p_0_out is absorbed into DSP genblk1[1].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[1].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x8a5))'.
-DSP Report: register genblk1[1].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[1].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[1].fc_node/p_1_out is absorbed into DSP genblk1[1].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[2].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0xa18))'.
-DSP Report: register genblk1[2].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[2].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[2].fc_node/p_0_out is absorbed into DSP genblk1[2].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[3].fc_node/tree_in_reg[2], operation Mode is: (A*(B:0x8db))'.
-DSP Report: register genblk1[3].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[3].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[3].fc_node/p_0_out is absorbed into DSP genblk1[3].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[3].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x7f8))'.
-DSP Report: register genblk1[3].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[3].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[3].fc_node/p_1_out is absorbed into DSP genblk1[3].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[3].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0xd59))'.
-DSP Report: register genblk1[3].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[3].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[3].fc_node/p_2_out is absorbed into DSP genblk1[3].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[4].fc_node/tree_in_reg[2], operation Mode is: (A*(B:0x3f797))'.
-DSP Report: register genblk1[4].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[4].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[4].fc_node/p_0_out is absorbed into DSP genblk1[4].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[4].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x3f788))'.
-DSP Report: register genblk1[4].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[4].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[4].fc_node/p_1_out is absorbed into DSP genblk1[4].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[4].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x3f7a6))'.
-DSP Report: register genblk1[4].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[4].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[4].fc_node/p_2_out is absorbed into DSP genblk1[4].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[5].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0xc25))'.
-DSP Report: register genblk1[5].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[5].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[5].fc_node/p_0_out is absorbed into DSP genblk1[5].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[6].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x570))'.
-DSP Report: register genblk1[6].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[6].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[6].fc_node/p_0_out is absorbed into DSP genblk1[6].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[6].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x633))'.
-DSP Report: register genblk1[6].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[6].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[6].fc_node/p_1_out is absorbed into DSP genblk1[6].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[7].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x7bc))'.
-DSP Report: register genblk1[7].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[7].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[7].fc_node/p_0_out is absorbed into DSP genblk1[7].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[8].fc_node/tree_in_reg[3], operation Mode is: (A*(B:0x733))'.
-DSP Report: register genblk1[8].fc_node/tree_in_reg[3] is absorbed into DSP genblk1[8].fc_node/tree_in_reg[3].
-DSP Report: operator genblk1[8].fc_node/p_0_out is absorbed into DSP genblk1[8].fc_node/tree_in_reg[3].
-DSP Report: Generating DSP genblk1[8].fc_node/tree_in_reg[2], operation Mode is: (A*(B:0x3f2ca))'.
-DSP Report: register genblk1[8].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[8].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[8].fc_node/p_1_out is absorbed into DSP genblk1[8].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[8].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x5cf))'.
-DSP Report: register genblk1[8].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[8].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[8].fc_node/p_2_out is absorbed into DSP genblk1[8].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[8].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x3f55b))'.
-DSP Report: register genblk1[8].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[8].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[8].fc_node/p_3_out is absorbed into DSP genblk1[8].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[9].fc_node/tree_in_reg[2], operation Mode is: (A*(B:0x975))'.
-DSP Report: register genblk1[9].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[9].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[9].fc_node/p_0_out is absorbed into DSP genblk1[9].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[9].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x7d4))'.
-DSP Report: register genblk1[9].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[9].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[9].fc_node/p_1_out is absorbed into DSP genblk1[9].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[9].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0xb59))'.
-DSP Report: register genblk1[9].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[9].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[9].fc_node/p_2_out is absorbed into DSP genblk1[9].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[3], operation Mode is: (A*(B:0x61d))'.
-DSP Report: register genblk1[10].fc_node/tree_in_reg[3] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[3].
-DSP Report: operator genblk1[10].fc_node/p_0_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[3].
-DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[2], operation Mode is: (A*(B:0xcd8))'.
-DSP Report: register genblk1[10].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[2].
-DSP Report: operator genblk1[10].fc_node/p_1_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0xaf1))'.
-DSP Report: register genblk1[10].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[10].fc_node/p_2_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x721))'.
-DSP Report: register genblk1[10].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[10].fc_node/p_3_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP genblk1[11].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x3f838))'.
-DSP Report: register genblk1[11].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[11].fc_node/tree_in_reg[1].
-DSP Report: operator genblk1[11].fc_node/p_0_out is absorbed into DSP genblk1[11].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP genblk1[11].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x771))'.
-DSP Report: register genblk1[11].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[11].fc_node/tree_in_reg[0].
-DSP Report: operator genblk1[11].fc_node/p_1_out is absorbed into DSP genblk1[11].fc_node/tree_in_reg[0].
-WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/abs3_5_reg' and it is trimmed from '20' to '16' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:238]
-WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/abs_3_reg' and it is trimmed from '48' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:213]
-WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/feature_extraction/abs_3_reg' and it is trimmed from '48' to '17' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:213]
+WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/abs3_5_reg' and it is trimmed from '20' to '16' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:238]
+WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/abs_3_reg' and it is trimmed from '48' to '23' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:213]
+WARNING: [Synth 8-3936] Found unconnected internal register 'feature_extraction/abs_3_reg' and it is trimmed from '48' to '17' bits. [C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.srcs/sources_1/new/feature_extraction.sv:213]
 DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
 DSP Report: operator p_0_out is absorbed into DSP p_0_out.
-DSP Report: Generating DSP feature_extraction/feature_extraction/abs2_2_reg[0], operation Mode is: (C+A*B)'.
-DSP Report: register feature_extraction/feature_extraction/abs2_2_reg[0] is absorbed into DSP feature_extraction/feature_extraction/abs2_2_reg[0].
-DSP Report: operator feature_extraction/feature_extraction/p_0_in is absorbed into DSP feature_extraction/feature_extraction/abs2_2_reg[0].
-DSP Report: operator p_0_out is absorbed into DSP feature_extraction/feature_extraction/abs2_2_reg[0].
-DSP Report: Generating DSP feature_extraction/feature_extraction/norm_I_3_reg, operation Mode is: (A*B'')'.
-DSP Report: register feature_extraction/feature_extraction/I_2_reg[5] is absorbed into DSP feature_extraction/feature_extraction/norm_I_3_reg.
-DSP Report: register feature_extraction/feature_extraction/I_2_reg[6] is absorbed into DSP feature_extraction/feature_extraction/norm_I_3_reg.
-DSP Report: register feature_extraction/feature_extraction/norm_I_3_reg is absorbed into DSP feature_extraction/feature_extraction/norm_I_3_reg.
-DSP Report: operator feature_extraction/feature_extraction/norm_I_30 is absorbed into DSP feature_extraction/feature_extraction/norm_I_3_reg.
-DSP Report: Generating DSP feature_extraction/feature_extraction/norm_Q_3_reg, operation Mode is: (A*B'')'.
-DSP Report: register feature_extraction/feature_extraction/Q_2_reg[5] is absorbed into DSP feature_extraction/feature_extraction/norm_Q_3_reg.
-DSP Report: register feature_extraction/feature_extraction/Q_2_reg[6] is absorbed into DSP feature_extraction/feature_extraction/norm_Q_3_reg.
-DSP Report: register feature_extraction/feature_extraction/norm_Q_3_reg is absorbed into DSP feature_extraction/feature_extraction/norm_Q_3_reg.
-DSP Report: operator feature_extraction/feature_extraction/norm_Q_30 is absorbed into DSP feature_extraction/feature_extraction/norm_Q_3_reg.
+DSP Report: Generating DSP feature_extraction/abs2_2_reg[0], operation Mode is: (C+A*B)'.
+DSP Report: register feature_extraction/abs2_2_reg[0] is absorbed into DSP feature_extraction/abs2_2_reg[0].
+DSP Report: operator feature_extraction/p_0_in is absorbed into DSP feature_extraction/abs2_2_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP feature_extraction/abs2_2_reg[0].
+DSP Report: Generating DSP feature_extraction/abs_30, operation Mode is: A*B''.
+DSP Report: register feature_extraction/abs_30 is absorbed into DSP feature_extraction/abs_30.
+DSP Report: register feature_extraction/abs_30 is absorbed into DSP feature_extraction/abs_30.
+DSP Report: operator feature_extraction/abs_30 is absorbed into DSP feature_extraction/abs_30.
+DSP Report: operator feature_extraction/abs_30 is absorbed into DSP feature_extraction/abs_30.
+DSP Report: Generating DSP feature_extraction/abs_3_reg, operation Mode is: (PCIN>>17)+A*B''.
+DSP Report: register feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/abs_3_reg.
+DSP Report: register feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/abs_3_reg.
+DSP Report: register feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/abs_3_reg.
+DSP Report: operator feature_extraction/abs_30 is absorbed into DSP feature_extraction/abs_3_reg.
+DSP Report: operator feature_extraction/abs_30 is absorbed into DSP feature_extraction/abs_3_reg.
+DSP Report: Generating DSP feature_extraction/abs3_5_reg, operation Mode is: (A''*B2)'.
+DSP Report: register feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/abs3_5_reg.
+DSP Report: register feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/abs3_5_reg.
+DSP Report: register feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/abs3_5_reg.
+DSP Report: register feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/abs3_5_reg.
+DSP Report: operator feature_extraction/abs3_50 is absorbed into DSP feature_extraction/abs3_5_reg.
+DSP Report: operator feature_extraction/abs3_50 is absorbed into DSP feature_extraction/abs3_5_reg.
+DSP Report: Generating DSP feature_extraction/norm_I_3_reg, operation Mode is: (A*B'')'.
+DSP Report: register feature_extraction/I_2_reg[5] is absorbed into DSP feature_extraction/norm_I_3_reg.
+DSP Report: register feature_extraction/I_2_reg[6] is absorbed into DSP feature_extraction/norm_I_3_reg.
+DSP Report: register feature_extraction/norm_I_3_reg is absorbed into DSP feature_extraction/norm_I_3_reg.
+DSP Report: operator feature_extraction/norm_I_30 is absorbed into DSP feature_extraction/norm_I_3_reg.
+DSP Report: Generating DSP feature_extraction/norm_Q_3_reg, operation Mode is: (A*B'')'.
+DSP Report: register feature_extraction/Q_2_reg[5] is absorbed into DSP feature_extraction/norm_Q_3_reg.
+DSP Report: register feature_extraction/Q_2_reg[6] is absorbed into DSP feature_extraction/norm_Q_3_reg.
+DSP Report: register feature_extraction/norm_Q_3_reg is absorbed into DSP feature_extraction/norm_Q_3_reg.
+DSP Report: operator feature_extraction/norm_Q_30 is absorbed into DSP feature_extraction/norm_Q_3_reg.
+DSP Report: Generating DSP genblk1[0].fc_node/tree_in_reg[2], operation Mode is: (A*(B:0x3f1a8))'.
+DSP Report: register genblk1[0].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[0].fc_node/tree_in_reg[2].
+DSP Report: operator genblk1[0].fc_node/p_0_out is absorbed into DSP genblk1[0].fc_node/tree_in_reg[2].
+DSP Report: Generating DSP genblk1[0].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x13e0))'.
+DSP Report: register genblk1[0].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[0].fc_node/tree_in_reg[1].
+DSP Report: operator genblk1[0].fc_node/p_1_out is absorbed into DSP genblk1[0].fc_node/tree_in_reg[1].
+DSP Report: Generating DSP genblk1[0].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x3f8cd))'.
+DSP Report: register genblk1[0].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[0].fc_node/tree_in_reg[0].
+DSP Report: operator genblk1[0].fc_node/p_2_out is absorbed into DSP genblk1[0].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP genblk1[1].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x3f7c9))'.
+DSP Report: register genblk1[1].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[1].fc_node/tree_in_reg[1].
+DSP Report: operator genblk1[1].fc_node/p_0_out is absorbed into DSP genblk1[1].fc_node/tree_in_reg[1].
+DSP Report: Generating DSP genblk1[1].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x89c))'.
+DSP Report: register genblk1[1].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[1].fc_node/tree_in_reg[0].
+DSP Report: operator genblk1[1].fc_node/p_1_out is absorbed into DSP genblk1[1].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP genblk1[2].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x701))'.
+DSP Report: register genblk1[2].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[2].fc_node/tree_in_reg[0].
+DSP Report: operator genblk1[2].fc_node/p_0_out is absorbed into DSP genblk1[2].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP genblk1[3].fc_node/tree_in_reg[2], operation Mode is: (A*(B:0x7f7))'.
+DSP Report: register genblk1[3].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[3].fc_node/tree_in_reg[2].
+DSP Report: operator genblk1[3].fc_node/p_0_out is absorbed into DSP genblk1[3].fc_node/tree_in_reg[2].
+DSP Report: Generating DSP genblk1[3].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x7ef))'.
+DSP Report: register genblk1[3].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[3].fc_node/tree_in_reg[1].
+DSP Report: operator genblk1[3].fc_node/p_1_out is absorbed into DSP genblk1[3].fc_node/tree_in_reg[1].
+DSP Report: Generating DSP genblk1[3].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0xf86))'.
+DSP Report: register genblk1[3].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[3].fc_node/tree_in_reg[0].
+DSP Report: operator genblk1[3].fc_node/p_2_out is absorbed into DSP genblk1[3].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP genblk1[4].fc_node/tree_in_reg[2], operation Mode is: (A*(B:0x3f7a0))'.
+DSP Report: register genblk1[4].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[4].fc_node/tree_in_reg[2].
+DSP Report: operator genblk1[4].fc_node/p_0_out is absorbed into DSP genblk1[4].fc_node/tree_in_reg[2].
+DSP Report: Generating DSP genblk1[4].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x3f791))'.
+DSP Report: register genblk1[4].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[4].fc_node/tree_in_reg[1].
+DSP Report: operator genblk1[4].fc_node/p_1_out is absorbed into DSP genblk1[4].fc_node/tree_in_reg[1].
+DSP Report: Generating DSP genblk1[4].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x3f7af))'.
+DSP Report: register genblk1[4].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[4].fc_node/tree_in_reg[0].
+DSP Report: operator genblk1[4].fc_node/p_2_out is absorbed into DSP genblk1[4].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP genblk1[5].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0xb71))'.
+DSP Report: register genblk1[5].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[5].fc_node/tree_in_reg[1].
+DSP Report: operator genblk1[5].fc_node/p_0_out is absorbed into DSP genblk1[5].fc_node/tree_in_reg[1].
+DSP Report: Generating DSP genblk1[5].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x3f8db))'.
+DSP Report: register genblk1[5].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[5].fc_node/tree_in_reg[0].
+DSP Report: operator genblk1[5].fc_node/p_1_out is absorbed into DSP genblk1[5].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP genblk1[6].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x1090))'.
+DSP Report: register genblk1[6].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[6].fc_node/tree_in_reg[1].
+DSP Report: operator genblk1[6].fc_node/p_1_out is absorbed into DSP genblk1[6].fc_node/tree_in_reg[1].
+DSP Report: Generating DSP genblk1[6].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0xea))'.
+DSP Report: register genblk1[6].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[6].fc_node/tree_in_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP genblk1[6].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP genblk1[7].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x817))'.
+DSP Report: register genblk1[7].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[7].fc_node/tree_in_reg[0].
+DSP Report: operator genblk1[7].fc_node/p_0_out is absorbed into DSP genblk1[7].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP genblk1[8].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0xc4c))'.
+DSP Report: register genblk1[8].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[8].fc_node/tree_in_reg[1].
+DSP Report: operator genblk1[8].fc_node/p_0_out is absorbed into DSP genblk1[8].fc_node/tree_in_reg[1].
+DSP Report: Generating DSP genblk1[8].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x3f496))'.
+DSP Report: register genblk1[8].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[8].fc_node/tree_in_reg[0].
+DSP Report: operator genblk1[8].fc_node/p_1_out is absorbed into DSP genblk1[8].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP genblk1[9].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0xdb4))'.
+DSP Report: register genblk1[9].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[9].fc_node/tree_in_reg[1].
+DSP Report: operator genblk1[9].fc_node/p_0_out is absorbed into DSP genblk1[9].fc_node/tree_in_reg[1].
+DSP Report: Generating DSP genblk1[9].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0xc7c))'.
+DSP Report: register genblk1[9].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[9].fc_node/tree_in_reg[0].
+DSP Report: operator genblk1[9].fc_node/p_1_out is absorbed into DSP genblk1[9].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[4], operation Mode is: (A*(B:0xb64))'.
+DSP Report: register genblk1[10].fc_node/tree_in_reg[4] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[4].
+DSP Report: operator genblk1[10].fc_node/p_0_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[4].
+DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[3], operation Mode is: (A*(B:0xdec))'.
+DSP Report: register genblk1[10].fc_node/tree_in_reg[3] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[3].
+DSP Report: operator genblk1[10].fc_node/p_1_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[3].
+DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[2], operation Mode is: (A*(B:0xa3c))'.
+DSP Report: register genblk1[10].fc_node/tree_in_reg[2] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[2].
+DSP Report: operator genblk1[10].fc_node/p_2_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[2].
+DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[1], operation Mode is: (A*(B:0x3f46b))'.
+DSP Report: register genblk1[10].fc_node/tree_in_reg[1] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[1].
+DSP Report: operator genblk1[10].fc_node/p_3_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[1].
+DSP Report: Generating DSP genblk1[10].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x670))'.
+DSP Report: register genblk1[10].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[10].fc_node/tree_in_reg[0].
+DSP Report: operator genblk1[10].fc_node/p_4_out is absorbed into DSP genblk1[10].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP genblk1[11].fc_node/tree_in_reg[0], operation Mode is: (A*(B:0x3f840))'.
+DSP Report: register genblk1[11].fc_node/tree_in_reg[0] is absorbed into DSP genblk1[11].fc_node/tree_in_reg[0].
+DSP Report: operator genblk1[11].fc_node/p_0_out is absorbed into DSP genblk1[11].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP last_layer/genblk1[0].fc_node/tree_in_reg[10], operation Mode is: (A''*(B:0x3f4e7))'.
+DSP Report: register delay_inputs_reg[2][10] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[10].
+DSP Report: register delay_inputs_reg[3][10] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[10].
+DSP Report: register last_layer/genblk1[0].fc_node/tree_in_reg[10] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[10].
+DSP Report: operator last_layer/genblk1[0].fc_node/p_0_out is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[10].
+DSP Report: Generating DSP last_layer/genblk1[0].fc_node/tree_in_reg[9], operation Mode is: (A''*(B:0x69e))'.
+DSP Report: register delay_inputs_reg[2][9] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[9].
+DSP Report: register delay_inputs_reg[3][9] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[9].
+DSP Report: register last_layer/genblk1[0].fc_node/tree_in_reg[9] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[9].
+DSP Report: operator last_layer/genblk1[0].fc_node/p_1_out is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[9].
+DSP Report: Generating DSP last_layer/genblk1[0].fc_node/tree_in_reg[8], operation Mode is: (A''*(B:0xa5b))'.
+DSP Report: register delay_inputs_reg[2][8] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[8].
+DSP Report: register delay_inputs_reg[3][8] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[8].
+DSP Report: register last_layer/genblk1[0].fc_node/tree_in_reg[8] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[8].
+DSP Report: operator last_layer/genblk1[0].fc_node/p_2_out is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[8].
+DSP Report: Generating DSP last_layer/genblk1[0].fc_node/tree_in_reg[7], operation Mode is: (A''*(B:0x7f5))'.
+DSP Report: register delay_inputs_reg[2][2] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[7].
+DSP Report: register delay_inputs_reg[3][2] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[7].
+DSP Report: register last_layer/genblk1[0].fc_node/tree_in_reg[7] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[7].
+DSP Report: operator last_layer/genblk1[0].fc_node/p_3_out is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[7].
+DSP Report: Generating DSP last_layer/genblk1[0].fc_node/tree_in_reg[6], operation Mode is: (A2*(B:0x3f68f))'.
+DSP Report: register layer_inputs_reg[1][-11] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[6].
+DSP Report: register last_layer/genblk1[0].fc_node/tree_in_reg[6] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[6].
+DSP Report: operator last_layer/genblk1[0].fc_node/p_4_out is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[6].
+DSP Report: Generating DSP last_layer/genblk1[0].fc_node/tree_in_reg[5], operation Mode is: (A2*(B:0x8b9))'.
+DSP Report: register layer_inputs_reg[1][-7] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[5].
+DSP Report: register last_layer/genblk1[0].fc_node/tree_in_reg[5] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[5].
+DSP Report: operator last_layer/genblk1[0].fc_node/p_5_out is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[5].
+DSP Report: Generating DSP last_layer/genblk1[0].fc_node/tree_in_reg[4], operation Mode is: (A2*(B:0xc70))'.
+DSP Report: register layer_inputs_reg[1][-6] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[4].
+DSP Report: register last_layer/genblk1[0].fc_node/tree_in_reg[4] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[4].
+DSP Report: operator last_layer/genblk1[0].fc_node/p_6_out is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[4].
+DSP Report: Generating DSP last_layer/genblk1[0].fc_node/tree_in_reg[3], operation Mode is: (A2*(B:0x3f396))'.
+DSP Report: register layer_inputs_reg[1][-4] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[3].
+DSP Report: register last_layer/genblk1[0].fc_node/tree_in_reg[3] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[3].
+DSP Report: operator last_layer/genblk1[0].fc_node/p_7_out is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[3].
+DSP Report: Generating DSP last_layer/genblk1[0].fc_node/tree_in_reg[2], operation Mode is: (A2*(B:0xe88))'.
+DSP Report: register layer_inputs_reg[1][-3] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[2].
+DSP Report: register last_layer/genblk1[0].fc_node/tree_in_reg[2] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[2].
+DSP Report: operator last_layer/genblk1[0].fc_node/p_8_out is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[2].
+DSP Report: Generating DSP last_layer/genblk1[0].fc_node/tree_in_reg[1], operation Mode is: (A2*(B:0x3f418))'.
+DSP Report: register layer_inputs_reg[1][-2] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[1].
+DSP Report: register last_layer/genblk1[0].fc_node/tree_in_reg[1] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[1].
+DSP Report: operator last_layer/genblk1[0].fc_node/p_9_out is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[1].
+DSP Report: Generating DSP last_layer/genblk1[0].fc_node/tree_in_reg[0], operation Mode is: (A2*(B:0x3f646))'.
+DSP Report: register layer_inputs_reg[1][0] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[0].
+DSP Report: register last_layer/genblk1[0].fc_node/tree_in_reg[0] is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[0].
+DSP Report: operator last_layer/genblk1[0].fc_node/p_10_out is absorbed into DSP last_layer/genblk1[0].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[11], operation Mode is: (ACIN2*(B:0x3f746))'.
+DSP Report: register delay_inputs_reg[3][10] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[11].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[11] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[11].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_0_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[11].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[10], operation Mode is: (A''*(B:0x65f))'.
+DSP Report: register delay_inputs_reg[2][6] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[10].
+DSP Report: register delay_inputs_reg[3][6] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[10].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[10] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[10].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_1_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[10].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[9], operation Mode is: (A''*(B:0xb8c))'.
+DSP Report: register delay_inputs_reg[2][5] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[9].
+DSP Report: register delay_inputs_reg[3][5] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[9].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[9] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[9].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_2_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[9].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[8], operation Mode is: (A2*(B:0x940))'.
+DSP Report: register layer_inputs_reg[1][-10] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[8].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[8] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[8].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_3_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[8].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[7], operation Mode is: (A2*(B:0x73a))'.
+DSP Report: register layer_inputs_reg[1][-9] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[7].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[7] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[7].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_4_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[7].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[6], operation Mode is: (A2*(B:0x861))'.
+DSP Report: register layer_inputs_reg[1][-8] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[6].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[6] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[6].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_5_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[6].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[5], operation Mode is: (A2*(B:0x3f5f3))'.
+DSP Report: register layer_inputs_reg[1][-7] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[5].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[5] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[5].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_6_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[5].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[4], operation Mode is: (A2*(B:0x3f23c))'.
+DSP Report: register layer_inputs_reg[1][-4] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[4].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[4] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[4].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_7_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[4].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[3], operation Mode is: (A2*(B:0x3f728))'.
+DSP Report: register layer_inputs_reg[1][-3] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[3].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[3] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[3].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_8_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[3].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[2], operation Mode is: (A2*(B:0x3f060))'.
+DSP Report: register layer_inputs_reg[1][-2] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[2].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[2] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[2].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_9_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[2].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[1], operation Mode is: (A2*(B:0xaed))'.
+DSP Report: register layer_inputs_reg[1][-1] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[1].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[1] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[1].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_10_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[1].
+DSP Report: Generating DSP last_layer/genblk1[1].fc_node/tree_in_reg[0], operation Mode is: (A2*(B:0x10d2))'.
+DSP Report: register layer_inputs_reg[1][0] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[0].
+DSP Report: register last_layer/genblk1[1].fc_node/tree_in_reg[0] is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[0].
+DSP Report: operator last_layer/genblk1[1].fc_node/p_11_out is absorbed into DSP last_layer/genblk1[1].fc_node/tree_in_reg[0].
+DSP Report: Generating DSP norm/new_I_out1_reg[1], operation Mode is: (A2*B)'.
+DSP Report: register shift_register/storage_reg[1][3] is absorbed into DSP norm/new_I_out1_reg[1].
+DSP Report: register norm/new_I_out1_reg[1] is absorbed into DSP norm/new_I_out1_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP norm/new_I_out1_reg[1].
+DSP Report: Generating DSP p_1_in0, operation Mode is: PCIN+(A2*B)'.
+DSP Report: register shift_register/storage_reg[1][2] is absorbed into DSP p_1_in0.
+DSP Report: register norm/new_I_out2_reg[1] is absorbed into DSP p_1_in0.
+DSP Report: operator p_0_out is absorbed into DSP p_1_in0.
+DSP Report: operator p_1_in0 is absorbed into DSP p_1_in0.
 DSP Report: Generating DSP norm/new_I_out1_reg[0], operation Mode is: (A''*B)'.
 DSP Report: register shift_register/storage_reg[1][3] is absorbed into DSP norm/new_I_out1_reg[0].
 DSP Report: register shift_register/storage_reg[0][3] is absorbed into DSP norm/new_I_out1_reg[0].
@@ -708,28 +801,15 @@ DSP Report: register shift_register/storage_reg[0][2] is absorbed into DSP p_1_i
 DSP Report: register norm/new_I_out2_reg[0] is absorbed into DSP p_1_in0.
 DSP Report: operator p_0_out is absorbed into DSP p_1_in0.
 DSP Report: operator p_1_in0 is absorbed into DSP p_1_in0.
-DSP Report: Generating DSP norm/new_I_out1_reg[1], operation Mode is: (A''*B)'.
-DSP Report: register feature_extraction/feature_extraction/I_5_reg is absorbed into DSP norm/new_I_out1_reg[1].
-DSP Report: register shift_register/storage_reg[1][3] is absorbed into DSP norm/new_I_out1_reg[1].
-DSP Report: register norm/new_I_out1_reg[1] is absorbed into DSP norm/new_I_out1_reg[1].
-DSP Report: operator p_0_out is absorbed into DSP norm/new_I_out1_reg[1].
-DSP Report: Generating DSP p_1_in0, operation Mode is: PCIN+(A''*B)'.
-DSP Report: register feature_extraction/feature_extraction/Q_5_reg is absorbed into DSP p_1_in0.
-DSP Report: register shift_register/storage_reg[1][2] is absorbed into DSP p_1_in0.
-DSP Report: register norm/new_I_out2_reg[1] is absorbed into DSP p_1_in0.
-DSP Report: operator p_0_out is absorbed into DSP p_1_in0.
-DSP Report: operator p_1_in0 is absorbed into DSP p_1_in0.
-DSP Report: Generating DSP feature_extraction/feature_extraction/abs_30, operation Mode is: A*B''.
-DSP Report: register feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_30.
-DSP Report: register feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_30.
-DSP Report: operator feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_30.
-DSP Report: operator feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_30.
-DSP Report: Generating DSP feature_extraction/feature_extraction/abs_3_reg, operation Mode is: (PCIN>>17)+A*B''.
-DSP Report: register feature_extraction/feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
-DSP Report: register feature_extraction/feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
-DSP Report: register feature_extraction/feature_extraction/abs_3_reg is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
-DSP Report: operator feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
-DSP Report: operator feature_extraction/feature_extraction/abs_30 is absorbed into DSP feature_extraction/feature_extraction/abs_3_reg.
+DSP Report: Generating DSP norm/new_Q_out1_reg[1], operation Mode is: (A2*B)'.
+DSP Report: register shift_register/storage_reg[1][2] is absorbed into DSP norm/new_Q_out1_reg[1].
+DSP Report: register norm/new_Q_out1_reg[1] is absorbed into DSP norm/new_Q_out1_reg[1].
+DSP Report: operator p_0_out is absorbed into DSP norm/new_Q_out1_reg[1].
+DSP Report: Generating DSP p_1_out, operation Mode is: PCIN-(A2*B)'.
+DSP Report: register shift_register/storage_reg[1][3] is absorbed into DSP p_1_out.
+DSP Report: register norm/new_Q_out2_reg[1] is absorbed into DSP p_1_out.
+DSP Report: operator p_0_out is absorbed into DSP p_1_out.
+DSP Report: operator p_1_out is absorbed into DSP p_1_out.
 DSP Report: Generating DSP norm/new_Q_out1_reg[0], operation Mode is: (A''*B)'.
 DSP Report: register shift_register/storage_reg[1][2] is absorbed into DSP norm/new_Q_out1_reg[0].
 DSP Report: register shift_register/storage_reg[0][2] is absorbed into DSP norm/new_Q_out1_reg[0].
@@ -741,144 +821,32 @@ DSP Report: register shift_register/storage_reg[0][3] is absorbed into DSP p_1_o
 DSP Report: register norm/new_Q_out2_reg[0] is absorbed into DSP p_1_out.
 DSP Report: operator p_0_out is absorbed into DSP p_1_out.
 DSP Report: operator p_1_out is absorbed into DSP p_1_out.
-DSP Report: Generating DSP norm/new_Q_out1_reg[1], operation Mode is: (A''*B)'.
-DSP Report: register feature_extraction/feature_extraction/Q_5_reg is absorbed into DSP norm/new_Q_out1_reg[1].
-DSP Report: register shift_register/storage_reg[1][2] is absorbed into DSP norm/new_Q_out1_reg[1].
-DSP Report: register norm/new_Q_out1_reg[1] is absorbed into DSP norm/new_Q_out1_reg[1].
-DSP Report: operator p_0_out is absorbed into DSP norm/new_Q_out1_reg[1].
-DSP Report: Generating DSP p_1_out, operation Mode is: PCIN-(A''*B)'.
-DSP Report: register feature_extraction/feature_extraction/I_5_reg is absorbed into DSP p_1_out.
-DSP Report: register shift_register/storage_reg[1][3] is absorbed into DSP p_1_out.
-DSP Report: register norm/new_Q_out2_reg[1] is absorbed into DSP p_1_out.
-DSP Report: operator p_0_out is absorbed into DSP p_1_out.
-DSP Report: operator p_1_out is absorbed into DSP p_1_out.
-DSP Report: Generating DSP feature_extraction/feature_extraction/abs3_5_reg, operation Mode is: (A''*B2)'.
-DSP Report: register feature_extraction/feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: register feature_extraction/feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: register feature_extraction/feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: register feature_extraction/feature_extraction/abs3_5_reg is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: operator feature_extraction/feature_extraction/abs3_50 is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: operator feature_extraction/feature_extraction/abs3_50 is absorbed into DSP feature_extraction/feature_extraction/abs3_5_reg.
-DSP Report: Generating DSP denorm/new_I_out1_reg[0], operation Mode is: (A''*B'')'.
+DSP Report: Generating DSP denorm/new_I_out1_reg[0], operation Mode is: (A2*B'')'.
 DSP Report: register delayed_norm_I_reg[8] is absorbed into DSP denorm/new_I_out1_reg[0].
 DSP Report: register delayed_norm_I_reg[9] is absorbed into DSP denorm/new_I_out1_reg[0].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/outputs_reg is absorbed into DSP denorm/new_I_out1_reg[0].
 DSP Report: register backbone_I_out_reg[0] is absorbed into DSP denorm/new_I_out1_reg[0].
 DSP Report: register denorm/new_I_out1_reg[0] is absorbed into DSP denorm/new_I_out1_reg[0].
 DSP Report: operator p_0_out is absorbed into DSP denorm/new_I_out1_reg[0].
-DSP Report: Generating DSP denorm/I_out[0], operation Mode is: PCIN-(A''*B'')'.
+DSP Report: Generating DSP denorm/I_out[0], operation Mode is: PCIN-(A2*B'')'.
 DSP Report: register delayed_norm_Q_reg[8] is absorbed into DSP denorm/I_out[0].
 DSP Report: register delayed_norm_Q_reg[9] is absorbed into DSP denorm/I_out[0].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/outputs_reg is absorbed into DSP denorm/I_out[0].
 DSP Report: register backbone_Q_out_reg[0] is absorbed into DSP denorm/I_out[0].
 DSP Report: register denorm/new_I_out2_reg[0] is absorbed into DSP denorm/I_out[0].
 DSP Report: operator denorm/I_out[0] is absorbed into DSP denorm/I_out[0].
 DSP Report: operator p_0_out is absorbed into DSP denorm/I_out[0].
-DSP Report: Generating DSP denorm/new_Q_out1_reg[0], operation Mode is: (A''*B'')'.
+DSP Report: Generating DSP denorm/new_Q_out1_reg[0], operation Mode is: (A2*B'')'.
 DSP Report: register delayed_norm_I_reg[8] is absorbed into DSP denorm/new_Q_out1_reg[0].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/outputs_reg is absorbed into DSP denorm/new_Q_out1_reg[0].
 DSP Report: register backbone_Q_out_reg[0] is absorbed into DSP denorm/new_Q_out1_reg[0].
 DSP Report: register delayed_norm_I_reg[9] is absorbed into DSP denorm/new_Q_out1_reg[0].
 DSP Report: register denorm/new_Q_out1_reg[0] is absorbed into DSP denorm/new_Q_out1_reg[0].
 DSP Report: operator p_0_out is absorbed into DSP denorm/new_Q_out1_reg[0].
-DSP Report: Generating DSP denorm/Q_out[0], operation Mode is: PCIN+(A''*B'')'.
+DSP Report: Generating DSP denorm/Q_out[0], operation Mode is: PCIN+(A2*B'')'.
 DSP Report: register delayed_norm_Q_reg[8] is absorbed into DSP denorm/Q_out[0].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/outputs_reg is absorbed into DSP denorm/Q_out[0].
-DSP Report: register delayed_norm_Q_reg[9] is absorbed into DSP denorm/Q_out[0].
 DSP Report: register backbone_I_out_reg[0] is absorbed into DSP denorm/Q_out[0].
+DSP Report: register delayed_norm_Q_reg[9] is absorbed into DSP denorm/Q_out[0].
 DSP Report: register denorm/new_Q_out2_reg[0] is absorbed into DSP denorm/Q_out[0].
 DSP Report: operator denorm/Q_out[0] is absorbed into DSP denorm/Q_out[0].
 DSP Report: operator p_0_out is absorbed into DSP denorm/Q_out[0].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10], operation Mode is: (A''*(B:0x3f811))'.
-DSP Report: register backbones/delay_inputs_reg[2][10] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10].
-DSP Report: register backbones/delay_inputs_reg[3][10] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_0_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9], operation Mode is: (A''*(B:0x98c))'.
-DSP Report: register backbones/delay_inputs_reg[2][9] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9].
-DSP Report: register backbones/delay_inputs_reg[3][9] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_1_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8], operation Mode is: (A''*(B:0xc3d))'.
-DSP Report: register backbones/delay_inputs_reg[2][8] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8].
-DSP Report: register backbones/delay_inputs_reg[3][8] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_2_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7], operation Mode is: (A''*(B:0x9d4))'.
-DSP Report: register backbones/delay_inputs_reg[2][2] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7].
-DSP Report: register backbones/delay_inputs_reg[3][2] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_3_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6], operation Mode is: (A2*(B:0x710))'.
-DSP Report: register backbones/layer_inputs_reg[1][-8] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_4_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5], operation Mode is: (A2*(B:0xb38))'.
-DSP Report: register backbones/layer_inputs_reg[1][-7] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_5_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4], operation Mode is: (A2*(B:0xdbe))'.
-DSP Report: register backbones/layer_inputs_reg[1][-6] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_6_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3], operation Mode is: (A2*(B:0x3f393))'.
-DSP Report: register backbones/layer_inputs_reg[1][-4] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_7_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2], operation Mode is: (A2*(B:0xfb7))'.
-DSP Report: register backbones/layer_inputs_reg[1][-3] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_8_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1], operation Mode is: (A2*(B:0x3f233))'.
-DSP Report: register backbones/layer_inputs_reg[1][-2] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_9_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0], operation Mode is: (A2*(B:0x3f06e))'.
-DSP Report: register backbones/layer_inputs_reg[1][0] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0].
-DSP Report: register backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0] is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0].
-DSP Report: operator backbones/last_layer/genblk1[0].fc_node/p_10_out is absorbed into DSP backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[9], operation Mode is: (ACIN2*(B:0x3f3c2))'.
-DSP Report: register backbones/delay_inputs_reg[3][10] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[9].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[9] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[9].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_0_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[9].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8], operation Mode is: (A''*(B:0x798))'.
-DSP Report: register backbones/delay_inputs_reg[2][6] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8].
-DSP Report: register backbones/delay_inputs_reg[3][6] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_1_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7], operation Mode is: (A''*(B:0xb98))'.
-DSP Report: register backbones/delay_inputs_reg[2][5] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7].
-DSP Report: register backbones/delay_inputs_reg[3][5] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_2_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6], operation Mode is: (A2*(B:0xa31))'.
-DSP Report: register backbones/layer_inputs_reg[1][-10] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_3_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5], operation Mode is: (A2*(B:0x965))'.
-DSP Report: register backbones/layer_inputs_reg[1][-9] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_4_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4], operation Mode is: (A2*(B:0x7ed))'.
-DSP Report: register backbones/layer_inputs_reg[1][-8] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_5_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3], operation Mode is: (A2*(B:0x3f226))'.
-DSP Report: register backbones/layer_inputs_reg[1][-4] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_6_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2], operation Mode is: (A2*(B:0x3ef66))'.
-DSP Report: register backbones/layer_inputs_reg[1][-2] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_7_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1], operation Mode is: (A2*(B:0xaf8))'.
-DSP Report: register backbones/layer_inputs_reg[1][-1] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_8_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1].
-DSP Report: Generating DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0], operation Mode is: (A2*(B:0xea8))'.
-DSP Report: register backbones/layer_inputs_reg[1][0] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0].
-DSP Report: register backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0] is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0].
-DSP Report: operator backbones/last_layer/genblk1[1].fc_node/p_9_out is absorbed into DSP backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0].
 WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[16]) is unused and will be removed from module main.
 WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[15]) is unused and will be removed from module main.
 WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[14]) is unused and will be removed from module main.
@@ -897,81 +865,81 @@ WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extractio
 WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[1]) is unused and will be removed from module main.
 WARNING: [Synth 8-3332] Sequential element (feature_extraction/feature_extraction/abs_3_reg[0]) is unused and will be removed from module main.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:24 ; elapsed = 00:01:36 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:36 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
- Sort Area is  feature_extraction/feature_extraction/abs_30_32 : 0 0 : 2952 4341 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/abs_30_32 : 0 1 : 1389 4341 : Used 1 time 0
- Sort Area is  denorm/new_I_out1_reg[0]_3a : 0 0 : 1665 3531 : Used 1 time 0
- Sort Area is  denorm/new_I_out1_reg[0]_3a : 0 1 : 1866 3531 : Used 1 time 0
- Sort Area is  denorm/new_Q_out1_reg[0]_3d : 0 0 : 1665 3416 : Used 1 time 0
- Sort Area is  denorm/new_Q_out1_reg[0]_3d : 0 1 : 1751 3416 : Used 1 time 0
- Sort Area is  norm/new_Q_out1_reg[0]_35 : 0 0 : 1549 3285 : Used 1 time 0
- Sort Area is  norm/new_Q_out1_reg[0]_35 : 0 1 : 1736 3285 : Used 1 time 0
- Sort Area is  norm/new_Q_out1_reg[1]_37 : 0 0 : 1549 3285 : Used 1 time 0
- Sort Area is  norm/new_Q_out1_reg[1]_37 : 0 1 : 1736 3285 : Used 1 time 0
- Sort Area is  norm/new_I_out1_reg[0]_2e : 0 0 : 1549 3178 : Used 1 time 0
- Sort Area is  norm/new_I_out1_reg[0]_2e : 0 1 : 1629 3178 : Used 1 time 0
- Sort Area is  norm/new_I_out1_reg[1]_31 : 0 0 : 1549 3178 : Used 1 time 0
- Sort Area is  norm/new_I_out1_reg[1]_31 : 0 1 : 1629 3178 : Used 1 time 0
+ Sort Area is  feature_extraction/abs_30_c : 0 0 : 2952 4341 : Used 1 time 0
+ Sort Area is  feature_extraction/abs_30_c : 0 1 : 1389 4341 : Used 1 time 0
+ Sort Area is  denorm/new_I_out1_reg[0]_58 : 0 0 : 1650 3501 : Used 1 time 0
+ Sort Area is  denorm/new_I_out1_reg[0]_58 : 0 1 : 1851 3501 : Used 1 time 0
+ Sort Area is  denorm/new_Q_out1_reg[0]_5b : 0 0 : 1650 3386 : Used 1 time 0
+ Sort Area is  denorm/new_Q_out1_reg[0]_5b : 0 1 : 1736 3386 : Used 1 time 0
+ Sort Area is  norm/new_Q_out1_reg[0]_56 : 0 0 : 1549 3285 : Used 1 time 0
+ Sort Area is  norm/new_Q_out1_reg[0]_56 : 0 1 : 1736 3285 : Used 1 time 0
+ Sort Area is  norm/new_I_out1_reg[0]_51 : 0 0 : 1549 3178 : Used 1 time 0
+ Sort Area is  norm/new_I_out1_reg[0]_51 : 0 1 : 1629 3178 : Used 1 time 0
  Sort Area is  valapp_21_0 : 0 0 : 3024 3024 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/abs3_5_reg_38 : 0 0 : 2928 2928 : Used 1 time 0
+ Sort Area is  feature_extraction/abs3_5_reg_f : 0 0 : 2928 2928 : Used 1 time 0
  Sort Area is  valapp_4_reg_4 : 0 0 : 2429 2429 : Used 1 time 0
+ Sort Area is  norm/new_Q_out1_reg[1]_54 : 0 0 : 704 2426 : Used 1 time 0
+ Sort Area is  norm/new_Q_out1_reg[1]_54 : 0 1 : 1722 2426 : Used 1 time 0
+ Sort Area is  norm/new_I_out1_reg[1]_4f : 0 0 : 704 2319 : Used 1 time 0
+ Sort Area is  norm/new_I_out1_reg[1]_4f : 0 1 : 1615 2319 : Used 1 time 0
  Sort Area is  valapp_5_reg_6 : 0 0 : 2248 2248 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/norm_I_3_reg_27 : 0 0 : 2044 2044 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/norm_Q_3_reg_2d : 0 0 : 2044 2044 : Used 1 time 0
+ Sort Area is  feature_extraction/norm_I_3_reg_11 : 0 0 : 2044 2044 : Used 1 time 0
+ Sort Area is  feature_extraction/norm_Q_3_reg_13 : 0 0 : 2044 2044 : Used 1 time 0
  Sort Area is  valapp_3_reg_2 : 0 0 : 1910 1910 : Used 1 time 0
- Sort Area is  feature_extraction/feature_extraction/abs2_2_reg[0]_2b : 0 0 : 1597 1597 : Used 1 time 0
- Sort Area is  p_0_out_29 : 0 0 : 1494 1494 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10]_3f : 0 0 : 498 1160 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[10]_3f : 0 1 : 662 1160 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[2]_55 : 0 0 : 915 915 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[7]_45 : 0 0 : 810 810 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[8]_44 : 0 0 : 810 810 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[9]_42 : 0 0 : 810 810 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[7]_50 : 0 0 : 810 810 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[0]_4d : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[1]_4c : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[2]_4b : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[3]_4a : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[4]_49 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[5]_48 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[0]_58 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[1]_57 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[3]_54 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[5]_52 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[6]_51 : 0 0 : 662 662 : Used 1 time 0
- Sort Area is  genblk1[0].fc_node/tree_in_reg[1]_a : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[0].fc_node/tree_in_reg[2]_8 : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[10].fc_node/tree_in_reg[1]_23 : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[10].fc_node/tree_in_reg[2]_22 : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[1].fc_node/tree_in_reg[0]_e : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[1].fc_node/tree_in_reg[1]_d : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[2].fc_node/tree_in_reg[0]_f : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[3].fc_node/tree_in_reg[0]_12 : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[3].fc_node/tree_in_reg[2]_10 : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[4].fc_node/tree_in_reg[0]_15 : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[4].fc_node/tree_in_reg[1]_14 : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[4].fc_node/tree_in_reg[2]_13 : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[5].fc_node/tree_in_reg[0]_16 : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[8].fc_node/tree_in_reg[0]_1d : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[8].fc_node/tree_in_reg[2]_1b : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[9].fc_node/tree_in_reg[0]_20 : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  genblk1[9].fc_node/tree_in_reg[2]_1e : 0 0 : 636 636 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[8]_4e : 0 0 : 620 620 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[0].fc_node/tree_in_reg[6]_46 : 0 0 : 589 589 : Used 1 time 0
- Sort Area is  backbones/last_layer/genblk1[1].fc_node/tree_in_reg[4]_53 : 0 0 : 589 589 : Used 1 time 0
- Sort Area is  genblk1[0].fc_node/tree_in_reg[0]_b : 0 0 : 556 556 : Used 1 time 0
- Sort Area is  genblk1[10].fc_node/tree_in_reg[0]_24 : 0 0 : 556 556 : Used 1 time 0
- Sort Area is  genblk1[10].fc_node/tree_in_reg[3]_21 : 0 0 : 556 556 : Used 1 time 0
- Sort Area is  genblk1[11].fc_node/tree_in_reg[0]_26 : 0 0 : 556 556 : Used 1 time 0
- Sort Area is  genblk1[11].fc_node/tree_in_reg[1]_25 : 0 0 : 556 556 : Used 1 time 0
- Sort Area is  genblk1[3].fc_node/tree_in_reg[1]_11 : 0 0 : 556 556 : Used 1 time 0
- Sort Area is  genblk1[6].fc_node/tree_in_reg[0]_18 : 0 0 : 556 556 : Used 1 time 0
- Sort Area is  genblk1[6].fc_node/tree_in_reg[1]_17 : 0 0 : 556 556 : Used 1 time 0
- Sort Area is  genblk1[7].fc_node/tree_in_reg[0]_19 : 0 0 : 556 556 : Used 1 time 0
- Sort Area is  genblk1[8].fc_node/tree_in_reg[1]_1c : 0 0 : 556 556 : Used 1 time 0
- Sort Area is  genblk1[8].fc_node/tree_in_reg[3]_1a : 0 0 : 556 556 : Used 1 time 0
- Sort Area is  genblk1[9].fc_node/tree_in_reg[1]_1f : 0 0 : 556 556 : Used 1 time 0
+ Sort Area is  feature_extraction/abs2_2_reg[0]_a : 0 0 : 1597 1597 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[10]_33 : 0 0 : 859 1524 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[10]_33 : 0 1 : 665 1524 : Used 1 time 0
+ Sort Area is  p_0_out_8 : 0 0 : 1494 1494 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[8]_38 : 0 0 : 806 806 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[1].fc_node/tree_in_reg[9]_43 : 0 0 : 806 806 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[7]_3a : 0 0 : 725 725 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[9]_36 : 0 0 : 725 725 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[1].fc_node/tree_in_reg[10]_42 : 0 0 : 725 725 : Used 1 time 0
+ Sort Area is  genblk1[0].fc_node/tree_in_reg[1]_16 : 0 0 : 708 708 : Used 1 time 0
+ Sort Area is  genblk1[6].fc_node/tree_in_reg[1]_25 : 0 0 : 708 708 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[1].fc_node/tree_in_reg[7]_45 : 0 0 : 708 708 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[1].fc_node/tree_in_reg[0]_4d : 0 0 : 704 704 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[0]_41 : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[1]_40 : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[2]_3f : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[3]_3e : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[4]_3d : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[5]_3c : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[0].fc_node/tree_in_reg[6]_3b : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[1].fc_node/tree_in_reg[1]_4c : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[1].fc_node/tree_in_reg[2]_4b : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[1].fc_node/tree_in_reg[3]_4a : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[1].fc_node/tree_in_reg[4]_49 : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[1].fc_node/tree_in_reg[5]_48 : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[1].fc_node/tree_in_reg[6]_47 : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  last_layer/genblk1[1].fc_node/tree_in_reg[8]_44 : 0 0 : 665 665 : Used 1 time 0
+ Sort Area is  genblk1[0].fc_node/tree_in_reg[0]_18 : 0 0 : 660 660 : Used 1 time 0
+ Sort Area is  genblk1[10].fc_node/tree_in_reg[0]_31 : 0 0 : 660 660 : Used 1 time 0
+ Sort Area is  genblk1[11].fc_node/tree_in_reg[0]_32 : 0 0 : 660 660 : Used 1 time 0
+ Sort Area is  genblk1[2].fc_node/tree_in_reg[0]_1c : 0 0 : 660 660 : Used 1 time 0
+ Sort Area is  genblk1[3].fc_node/tree_in_reg[1]_1e : 0 0 : 660 660 : Used 1 time 0
+ Sort Area is  genblk1[3].fc_node/tree_in_reg[2]_1d : 0 0 : 660 660 : Used 1 time 0
+ Sort Area is  genblk1[5].fc_node/tree_in_reg[0]_24 : 0 0 : 660 660 : Used 1 time 0
+ Sort Area is  genblk1[0].fc_node/tree_in_reg[2]_14 : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[10].fc_node/tree_in_reg[1]_30 : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[10].fc_node/tree_in_reg[2]_2f : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[10].fc_node/tree_in_reg[3]_2e : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[10].fc_node/tree_in_reg[4]_2d : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[1].fc_node/tree_in_reg[0]_1b : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[1].fc_node/tree_in_reg[1]_1a : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[3].fc_node/tree_in_reg[0]_1f : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[4].fc_node/tree_in_reg[0]_22 : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[4].fc_node/tree_in_reg[1]_21 : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[4].fc_node/tree_in_reg[2]_20 : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[5].fc_node/tree_in_reg[1]_23 : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[7].fc_node/tree_in_reg[0]_28 : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[8].fc_node/tree_in_reg[0]_2a : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[8].fc_node/tree_in_reg[1]_29 : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[9].fc_node/tree_in_reg[0]_2c : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[9].fc_node/tree_in_reg[1]_2b : 0 0 : 507 507 : Used 1 time 0
+ Sort Area is  genblk1[6].fc_node/tree_in_reg[0]_26 : 0 0 : 478 478 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
@@ -994,75 +962,75 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 |approx_inv_sqrt                    | (A2*B'')'            | 17     | 15     | -      | -      | 24     | 1    | 2    | -    | -    | -     | 1    | 0    | 
 |approx_inv_sqrt                    | (C:0x6000000)-A''*B  | 17     | 17     | 27     | -      | 27     | 2    | 0    | 0    | -    | -     | 0    | 1    | 
 |approx_inv_sqrt                    | (A''*B)'             | 17     | 17     | -      | -      | 33     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x3f097))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0xea3))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x3f8c6))'     | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x3f7c0))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x8a5))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0xa18))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x8db))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x7f8))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0xd59))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x3f797))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x3f788))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x3f7a6))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0xc25))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x570))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x633))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x7bc))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x733))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x3f2ca))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x5cf))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x3f55b))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x975))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x7d4))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0xb59))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x61d))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0xcd8))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0xaf1))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x721))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x3f838))'     | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
-|fc_node                            | (A*(B:0x771))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
 |feature_extraction_amp1_3_inv_sqrt | A*B                  | 14     | 14     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |feature_extraction_amp1_3_inv_sqrt | (C+A*B)'             | 14     | 14     | 26     | -      | 26     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|feature_extraction                 | A*B''                | 20     | 18     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 0    | 
+|feature_extraction                 | (PCIN>>17)+A*B''     | 20     | 10     | -      | -      | 23     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|feature_extraction                 | (A''*B2)'            | 25     | 15     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 1    | 0    | 
 |feature_extraction_amp1_3_inv_sqrt | (A*B'')'             | 20     | 14     | -      | -      | 34     | 0    | 2    | -    | -    | -     | 1    | 0    | 
 |feature_extraction_amp1_3_inv_sqrt | (A*B'')'             | 20     | 14     | -      | -      | 34     | 0    | 2    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x3f1a8))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x13e0))'      | 14     | 14     | -      | -      | 29     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x3f8cd))'     | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x3f7c9))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x89c))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x701))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x7f7))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x7ef))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0xf86))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x3f7a0))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x3f791))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x3f7af))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0xb71))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x3f8db))'     | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x1090))'      | 14     | 14     | -      | -      | 29     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0xea))'        | 14     | 9      | -      | -      | 29     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x817))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0xc4c))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x3f496))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0xdb4))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0xc7c))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0xb64))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0xdec))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0xa3c))'       | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x3f46b))'     | 14     | 13     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x670))'       | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|fc_node                            | (A*(B:0x3f840))'     | 14     | 12     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A''*(B:0x3f4e7))'   | 14     | 13     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A''*(B:0x69e))'     | 14     | 12     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A''*(B:0xa5b))'     | 14     | 13     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A''*(B:0x7f5))'     | 14     | 12     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x3f68f))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x8b9))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0xc70))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x3f396))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0xe88))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x3f418))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x3f646))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (ACIN2*(B:0x3f746))' | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A''*(B:0x65f))'     | 14     | 12     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A''*(B:0xb8c))'     | 14     | 13     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x940))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x73a))'      | 14     | 12     | -      | -      | 27     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x861))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x3f5f3))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x3f23c))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x3f728))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x3f060))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0xaed))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A2*(B:0x10d2))'     | 14     | 14     | -      | -      | 29     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|main                               | (A2*B)'              | 14     | 14     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|main                               | PCIN+(A2*B)'         | 14     | 14     | -      | -      | 27     | 1    | 0    | -    | -    | -     | 1    | 0    | 
 |main                               | (A''*B)'             | 14     | 14     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
 |main                               | PCIN+(A''*B)'        | 14     | 14     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*B)'             | 14     | 14     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | PCIN+(A''*B)'        | 14     | 14     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | A*B''                | 20     | 18     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 0    | 
-|main                               | (PCIN>>17)+A*B''     | 20     | 10     | -      | -      | 23     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|main                               | (A2*B)'              | 14     | 14     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|main                               | PCIN-(A2*B)'         | 14     | 14     | -      | -      | 27     | 1    | 0    | -    | -    | -     | 1    | 0    | 
 |main                               | (A''*B)'             | 14     | 14     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
 |main                               | PCIN-(A''*B)'        | 14     | 14     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*B)'             | 14     | 14     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | PCIN-(A''*B)'        | 14     | 14     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*B2)'            | 25     | 15     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*B'')'           | 15     | 14     | -      | -      | 29     | 2    | 2    | -    | -    | -     | 1    | 0    | 
-|main                               | PCIN-(A''*B'')'      | 15     | 14     | -      | -      | 29     | 2    | 2    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*B'')'           | 15     | 14     | -      | -      | 29     | 2    | 2    | -    | -    | -     | 1    | 0    | 
-|main                               | PCIN+(A''*B'')'      | 15     | 14     | -      | -      | 29     | 2    | 2    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*(B:0x3f811))'   | 14     | 12     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*(B:0x98c))'     | 14     | 13     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*(B:0xc3d))'     | 14     | 13     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*(B:0x9d4))'     | 14     | 13     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0x710))'      | 14     | 12     | -      | -      | 27     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0xb38))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0xdbe))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0x3f393))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0xfb7))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0x3f233))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0x3f06e))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (ACIN2*(B:0x3f3c2))' | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*(B:0x798))'     | 14     | 12     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*(B:0xb98))'     | 14     | 13     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0xa31))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0x965))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0x7ed))'      | 14     | 12     | -      | -      | 27     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0x3f226))'    | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0x3ef66))'    | 14     | 14     | -      | -      | 29     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0xaf8))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
-|main                               | (A2*(B:0xea8))'      | 14     | 13     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|main                               | (A2*B'')'            | 15     | 14     | -      | -      | 29     | 1    | 2    | -    | -    | -     | 1    | 0    | 
+|main                               | PCIN-(A2*B'')'       | 15     | 14     | -      | -      | 29     | 1    | 2    | -    | -    | -     | 1    | 0    | 
+|main                               | (A2*B'')'            | 15     | 14     | -      | -      | 29     | 1    | 2    | -    | -    | -     | 1    | 0    | 
+|main                               | PCIN+(A2*B'')'       | 15     | 14     | -      | -      | 29     | 1    | 2    | -    | -    | -     | 1    | 0    | 
 +-----------------------------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
@@ -1073,13 +1041,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:31 ; elapsed = 00:01:44 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:37 ; elapsed = 00:01:44 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:32 ; elapsed = 00:01:45 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Timing Optimization : Time (s): cpu = 00:01:39 ; elapsed = 00:01:46 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -1105,7 +1073,7 @@ INFO: [Synth 8-7052] The timing for the instance feature_extraction/feature_extr
 INFO: [Synth 8-7052] The timing for the instance feature_extraction/feature_extraction/sqrt/approx_1_reg_0_11 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance feature_extraction/feature_extraction/sqrt/approx_1_reg_0_12 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:35 ; elapsed = 00:01:48 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Technology Mapping : Time (s): cpu = 00:01:42 ; elapsed = 00:01:49 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1123,37 +1091,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:38 ; elapsed = 00:01:51 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished IO Insertion : Time (s): cpu = 00:01:46 ; elapsed = 00:01:53 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:38 ; elapsed = 00:01:51 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:46 ; elapsed = 00:01:53 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:46 ; elapsed = 00:01:54 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:46 ; elapsed = 00:01:54 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:46 ; elapsed = 00:01:54 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:46 ; elapsed = 00:01:54 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1164,10 +1132,10 @@ Static Shift Register Report:
 |Module Name | RTL Name                                              | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
 +------------+-------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 |main        | feature_extraction/feature_extraction/I_2_reg[4][0]   | 5      | 14    | NO           | NO                 | YES               | 14     | 0       | 
-|main        | feature_extraction/feature_extraction/shift_reg[6][2] | 7      | 3     | NO           | NO                 | YES               | 3      | 0       | 
-|main        | feature_extraction/feature_extraction/Q_2_reg[4][0]   | 5      | 14    | NO           | NO                 | YES               | 14     | 0       | 
 |main        | feature_extraction/feature_extraction/I_5_reg[-1]     | 5      | 13    | NO           | NO                 | YES               | 13     | 0       | 
+|main        | feature_extraction/feature_extraction/Q_2_reg[4][0]   | 5      | 14    | NO           | NO                 | YES               | 14     | 0       | 
 |main        | feature_extraction/feature_extraction/Q_5_reg[-1]     | 5      | 13    | NO           | NO                 | YES               | 13     | 0       | 
+|main        | feature_extraction/feature_extraction/shift_reg[6][2] | 7      | 3     | NO           | NO                 | YES               | 3      | 0       | 
 |main        | delayed_norm_I_reg[7][0]                              | 8      | 14    | NO           | NO                 | YES               | 14     | 0       | 
 |main        | delayed_norm_Q_reg[7][0]                              | 8      | 14    | NO           | NO                 | YES               | 14     | 0       | 
 +------------+-------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
@@ -1183,72 +1151,73 @@ DSP Final Report (the ' indicates corresponding REG is set)
 +-----------------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name                        | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +-----------------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|feature_extraction_amp1_3_inv_sqrt | A*B               | 30     | 18     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |main                               | PCIN+(A''*B)'     | 30     | 18     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
 |main                               | PCIN-((A''*B)')   | 30     | 18     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 1    | 0    | 
+|main                               | (A''*B'')'        | 30     | 18     | -      | -      | 0      | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|main                               | PCIN-((A''*B'')') | 30     | 18     | -      | -      | 29     | 2    | 2    | -    | -    | -     | 1    | 0    | 
+|main                               | (A''*B'')'        | 30     | 18     | -      | -      | 0      | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|main                               | PCIN+(A''*B'')'   | 30     | 18     | -      | -      | 29     | 2    | 2    | -    | -    | -     | 1    | 0    | 
+|main                               | (A''*B)'          | 30     | 18     | -      | -      | 0      | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|main                               | (A''*B)'          | 30     | 18     | -      | -      | 0      | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 13     | -      | -      | 29     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A*B)'            | 0      | 18     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 1    | 
-|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A*B)'            | 0      | 18     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A'*B)'           | 30     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|fc_node                            | (A'*B)'           | 30     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A*B)'            | 0      | 11     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A*B)'            | 0      | 11     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A'*B)'           | 30     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|fc_node                            | (A'*B)'           | 30     | 11     | -      | -      | 27     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 13     | -      | -      | 29     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 8      | -      | -      | 29     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A'*B)'           | 30     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|fc_node                            | (A'*B)'           | 30     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|fc_node                            | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |fc_node                            | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B)'          | 30     | 18     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 11     | -      | -      | 27     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 0      | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A*B)'            | 0      | 12     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 11     | -      | -      | 27     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 18     | -      | -      | 29     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B'')'        | 30     | 18     | -      | -      | 0      | 2    | 2    | -    | -    | -     | 0    | 1    | 
-|main                               | PCIN-((A''*B'')') | 30     | 18     | -      | -      | 29     | 2    | 2    | -    | -    | -     | 1    | 0    | 
-|main                               | (A''*B'')'        | 30     | 18     | -      | -      | 0      | 2    | 2    | -    | -    | -     | 0    | 1    | 
-|main                               | PCIN+(A''*B'')'   | 30     | 18     | -      | -      | 29     | 2    | 2    | -    | -    | -     | 1    | 0    | 
+|backbones                          | (A''*B)'          | 30     | 18     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A''*B)'          | 30     | 12     | -      | -      | 28     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 0      | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A''*B)'          | 30     | 11     | -      | -      | 27     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A*B)'            | 0      | 12     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 11     | -      | -      | 27     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 18     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 12     | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|backbones                          | (A'*B)'           | 13     | 13     | -      | -      | 29     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|feature_extraction_amp1_3_inv_sqrt | A*B               | 30     | 18     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |feature_extraction_amp1_3_inv_sqrt | (C+A*B)'          | 30     | 18     | 48     | -      | 26     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|feature_extraction                 | A*B''             | 19     | 17     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 0    | 
+|feature_extraction                 | (PCIN>>17+A*B'')' | 19     | 9      | -      | -      | 23     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|feature_extraction                 | (A''*B')'         | 24     | 14     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
 |feature_extraction_amp1_3_inv_sqrt | (A*B'')'          | 19     | 18     | -      | -      | 33     | 0    | 2    | -    | -    | -     | 0    | 1    | 
 |feature_extraction_amp1_3_inv_sqrt | (A*B'')'          | 19     | 18     | -      | -      | 33     | 0    | 2    | -    | -    | -     | 0    | 1    | 
-|main                               | A*B''             | 19     | 17     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 0    | 
-|main                               | (PCIN>>17+A*B'')' | 19     | 9      | -      | -      | 23     | 0    | 2    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B')'         | 24     | 14     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
 |approx_inv_sqrt                    | (A*B)'            | 24     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
 |approx_inv_sqrt                    | (A'*B'')'         | 17     | 15     | -      | -      | 24     | 1    | 2    | -    | -    | -     | 0    | 1    | 
 |approx_inv_sqrt                    | (C-(A''*B))'      | 17     | 17     | 27     | -      | 27     | 2    | 0    | 0    | -    | -     | 0    | 1    | 
 |approx_inv_sqrt                    | (A''*B)'          | 17     | 17     | -      | -      | 33     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B)'          | 30     | 18     | -      | -      | 0      | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|main                               | (A''*B)'          | 30     | 18     | -      | -      | 0      | 2    | 0    | -    | -    | -     | 0    | 1    | 
 +-----------------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 
@@ -1262,43 +1231,43 @@ Report Cell Usage:
 +------+---------+------+
 |      |Cell     |Count |
 +------+---------+------+
-|1     |CARRY4   |   168|
-|2     |DSP48E1  |    66|
-|17    |LUT1     |    28|
-|18    |LUT2     |   625|
-|19    |LUT3     |   479|
-|20    |LUT4     |   232|
-|21    |LUT5     |   335|
-|22    |LUT6     |   889|
+|1     |CARRY4   |   176|
+|2     |DSP48E1  |    67|
+|17    |LUT1     |    48|
+|18    |LUT2     |   722|
+|19    |LUT3     |   538|
+|20    |LUT4     |   261|
+|21    |LUT5     |   409|
+|22    |LUT6     |   547|
 |23    |MUXF7    |     2|
 |24    |RAMB36E1 |    13|
 |37    |SRL16E   |    85|
-|38    |FDRE     |  1315|
-|39    |FDSE     |   156|
+|38    |FDRE     |  1334|
+|39    |FDSE     |   169|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:47 ; elapsed = 00:01:54 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 1 critical warnings and 58 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:05 ; elapsed = 00:01:49 . Memory (MB): peak = 14548.191 ; gain = 13943.500
-Synthesis Optimization Complete : Time (s): cpu = 00:01:39 ; elapsed = 00:01:52 . Memory (MB): peak = 14548.191 ; gain = 13943.500
+Synthesis finished with 0 errors, 1 critical warnings and 72 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:12 ; elapsed = 00:01:51 . Memory (MB): peak = 14548.848 ; gain = 13942.289
+Synthesis Optimization Complete : Time (s): cpu = 00:01:47 ; elapsed = 00:01:54 . Memory (MB): peak = 14548.848 ; gain = 13942.289
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.104 . Memory (MB): peak = 14548.191 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 249 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.086 . Memory (MB): peak = 14548.848 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 258 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 14548.191 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 14548.848 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 3c5e4fa0
+Synth Design complete | Checksum: da50f
 INFO: [Common 17-83] Releasing license: Synthesis
 116 Infos, 134 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:42 ; elapsed = 00:01:58 . Memory (MB): peak = 14548.191 ; gain = 14156.184
+synth_design: Time (s): cpu = 00:01:50 ; elapsed = 00:02:00 . Memory (MB): peak = 14548.848 ; gain = 14155.203
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 14548.191 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 14548.848 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/main.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Mar 21 18:18:01 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Jun 10 08:21:55 2025...

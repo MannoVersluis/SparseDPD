@@ -3,22 +3,22 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Fri Mar 21 18:15:58 2025
-# Process ID         : 2940
+# Start of session at: Tue Jun 10 08:19:50 2025
+# Process ID         : 5760
 # Current directory  : C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1
 # Command line       : vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file           : C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1/main.vds
 # Journal file       : C:/Users/manno/Vivado/DPD_hardware/DPD_hardware.runs/synth_1\vivado.jou
 # Running On         : Manno
 # Platform           : Windows Server 2016 or Windows 10
-# Operating System   : 22631
+# Operating System   : 26100
 # Processor Detail   : AMD Ryzen 7 PRO 8840U w/ Radeon 780M Graphics  
 # CPU Frequency      : 3294 MHz
 # CPU Physical cores : 8
 # CPU Logical cores  : 16
 # Host memory        : 32911 MB
-# Swap memory        : 16321 MB
-# Total Virtual      : 49233 MB
-# Available Virtual  : 15852 MB
+# Swap memory        : 19181 MB
+# Total Virtual      : 52093 MB
+# Available Virtual  : 33347 MB
 #-----------------------------------------------------------
 source main.tcl -notrace

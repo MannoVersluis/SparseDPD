@@ -24,7 +24,7 @@ module backbones #(
                 parameter MIN_BIT_INPUTS = -11 // the lowest bit of the inputs
                 // index BACKBONE_LAYERS+2 is the lowest bit of the outputs, I and Q
                 )(
-    input logic signed [0:1-INPUTS_SIZE] inputs [0:LAYER_SIZES[LAYER_ORDER[0]]-1],
+    input logic signed [0:1-INPUTS_SIZE] inputs [0:LAYER_SIZES[0]-1],
     input logic clk,
     output logic signed [1:1-INPUTS_SIZE] I_out,
     output logic signed [1:1-INPUTS_SIZE] Q_out
@@ -55,7 +55,7 @@ module backbones #(
                             .INPUTS_SIZE(INPUTS_SIZE),
                             .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
                             .MIN_BIT_WEIGHTS(LAYER_FIRST_WEIGHT_QUANTIZER),
-                            .TREE_TYPE(ADDER_TREE[LAYER_ORDER[1]]),
+                            .TREE_TYPE(ADDER_TREE[1]),
                             .WEIGHTS(LAYER_FIRST_WEIGHT),
                             .BIAS(LAYER_FIRST_BIAS),
                             .LAST(0))
@@ -65,33 +65,35 @@ module backbones #(
 //                            .bias(LAYER_FIRST_BIAS),
                             .clk(clk));
     end
-//    if (BACKBONE_LAYERS != 1) begin
-//        for (genvar x=2; x<BACKBONE_LAYERS+1; x=x+1) begin
-//            activation_functions #(.OUTPUTS_SIZE(INPUTS_SIZE),
-//                .AMOUNT(LAYER_SIZES[LAYER_ORDER[x-1]]),
-//                .ACTIVATION_FUNCTION(ACTIVATION_FUNCTION[x-1]))
-//                activation (.inputs(layer_outputs[x-1]),.outputs(new_layer_inputs[x-1]));
+    if (BACKBONE_LAYERS != 1) begin
+        for (genvar x=2; x<BACKBONE_LAYERS+1; x=x+1) begin
+            activation_functions #(.OUTPUTS_SIZE(INPUTS_SIZE),
+                .AMOUNT(LAYER_SIZES[x-1]),
+                .ACTIVATION_FUNCTION(ACTIVATION_FUNCTION[x-1]))
+                activation (.inputs(layer_outputs[x-1]),.outputs(new_layer_inputs[x-1]));
                 
-//            // add new model layers here
-//            if (LAYER_TYPES[x] == "INT_LINEAR") begin // fully connected layer
-//                fc_layer #(.PREV_WIDTH(LAYER_SIZES[x-1]),
-//                            .WIDTH(LAYER_SIZES[x]),
-//                            .WEIGHTS_SIZE(WEIGHTS_SIZE[x]),
-//                            .INPUTS_SIZE(INPUTS_SIZE),
-//                            .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
-//                            .MIN_BIT_WEIGHTS(LAYER_MID_WEIGHT_QUANTIZER[x-2]),
-//                            .TREE_TYPE(ADDER_TREE[LAYER_ORDER[x]]),
-//                            .LAST(0))
-//                    mid_layer (.inputs(layer_inputs[x-1]),
-//                            .outputs(layer_outputs[x]),
+            // add new model layers here
+            if (LAYER_TYPES[x] == "INT_LINEAR") begin // fully connected layer
+                fc_layer #(.PREV_WIDTH(LAYER_SIZES[x-1]),
+                            .WIDTH(LAYER_SIZES[x]),
+                            .WEIGHTS_SIZE(WEIGHTS_SIZE[x]),
+                            .INPUTS_SIZE(INPUTS_SIZE),
+                            .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
+                            .MIN_BIT_WEIGHTS(LAYER_MID_WEIGHT_QUANTIZER[x-2]),
+                            .TREE_TYPE(ADDER_TREE[x]),
+                            .WEIGHTS(LAYER_MID_WEIGHT[x-2]),
+                            .BIAS(LAYER_MID_BIAS[x-2]),
+                            .LAST(0))
+                    mid_layer (.inputs(layer_inputs[x-1]),
+                            .outputs(layer_outputs[x]),
 //                            .weights(LAYER_MID_WEIGHT[x-2]),
 //                            .bias(LAYER_MID_BIAS[x-2]),
-//                            .clk(clk));
-//            end
-//        end
-//    end
+                            .clk(clk));
+            end
+        end
+    end
     activation_functions #(.OUTPUTS_SIZE(INPUTS_SIZE),
-        .AMOUNT(LAYER_SIZES[LAYER_ORDER[BACKBONE_LAYERS]]),
+        .AMOUNT(LAYER_SIZES[BACKBONE_LAYERS]),
         .ACTIVATION_FUNCTION(ACTIVATION_FUNCTION[BACKBONE_LAYERS]))
         last_activation (.inputs(layer_outputs[BACKBONE_LAYERS]),.outputs(new_layer_inputs[BACKBONE_LAYERS]));
         
@@ -102,7 +104,7 @@ module backbones #(
                             .INPUTS_SIZE(INPUTS_SIZE),
                             .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
                             .MIN_BIT_WEIGHTS(LAYER_LAST_WEIGHT_QUANTIZER),
-                            .TREE_TYPE(ADDER_TREE[LAYER_ORDER[BACKBONE_LAYERS+1]]),
+                            .TREE_TYPE(ADDER_TREE[BACKBONE_LAYERS+1]),
                             .WEIGHTS(LAYER_LAST_WEIGHT),
                             .BIAS(LAYER_LAST_BIAS),
                             .LAST(1))
@@ -113,7 +115,7 @@ module backbones #(
                             .clk(clk));
         end
     end
-    else if (DENSE == 1) begin // if the output of the FEx layer is also sent to the input of the output layer
+    else if (DENSE == 1 || (DENSE == 1 && BACKBONE_LAYERS == 1)) begin // if the output of the FEx layer is also sent to the input of the output layer
         logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[0]-1:MIN_BIT_INPUTS[0]] delay_inputs [0:4*(BACKBONE_LAYERS+1)-5][0:LAYER_SIZES[0]-1];
         always @(posedge clk) begin // delaying previous input signal for the dense connection with the output layer
             delay_inputs[0] <= inputs;
@@ -126,7 +128,7 @@ module backbones #(
                             .INPUTS_SIZE(INPUTS_SIZE),
                             .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
                             .MIN_BIT_WEIGHTS(LAYER_LAST_WEIGHT_QUANTIZER),
-                            .TREE_TYPE(ADDER_TREE[LAYER_ORDER[BACKBONE_LAYERS+1]]),
+                            .TREE_TYPE(ADDER_TREE[BACKBONE_LAYERS+1]),
                             .WEIGHTS(LAYER_LAST_WEIGHT),
                             .BIAS(LAYER_LAST_BIAS),
                             .LAST(1))
@@ -138,21 +140,21 @@ module backbones #(
         end
     end
     else if (DENSE == 2) begin // sending outputs of all layers to input of output layer
-        logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[0]-1:MIN_BIT_INPUTS[0]] FEx_delay_inputs [0:3*(BACKBONE_LAYERS+1)-2][0:LAYER_SIZES[0]-1];
-        logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[0]-1:MIN_BIT_INPUTS[0]] layer_delay_inputs [0:3*(BACKBONE_LAYERS-1)][BACKBONE_LAYERS-1:1][0:LAYER_SIZES[1]-1];
+        logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[0]-1:MIN_BIT_INPUTS[0]] FEx_delay_inputs [0:4*(BACKBONE_LAYERS)-1][0:LAYER_SIZES[0]-1];
+        logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[0]-1:MIN_BIT_INPUTS[0]] layer_delay_inputs [0:4*(BACKBONE_LAYERS-1)-1][BACKBONE_LAYERS-1:1][0:LAYER_SIZES[1]-1];
         //logic signed [INPUTS_SIZE-1:0] layer_inputs [BACKBONE_LAYERS:1][0:1-LAYER_SIZES[1]];
         always @(posedge clk) begin // delaying previous input signal for the dense connection with the output layer
             FEx_delay_inputs[0] <= inputs;
-            FEx_delay_inputs[1:3*(BACKBONE_LAYERS+1)-2] <= FEx_delay_inputs[0:3*(BACKBONE_LAYERS+1)-2-1];
+            FEx_delay_inputs[1:4*(BACKBONE_LAYERS)-1] <= FEx_delay_inputs[0:4*(BACKBONE_LAYERS)-2];
+            layer_delay_inputs[1:4*(BACKBONE_LAYERS-1)-1] <= layer_delay_inputs[0:4*(BACKBONE_LAYERS-1)-2];
             for (int i=1; i<BACKBONE_LAYERS; i=i+1) 
-                layer_delay_inputs[(i-1)*3][i] <= layer_inputs[i];
-            layer_delay_inputs[1:3*(BACKBONE_LAYERS-1)] <= layer_delay_inputs[0:3*(BACKBONE_LAYERS-1)-1];
+                layer_delay_inputs[(i-1)*4][i] <= layer_inputs[i];
         end
         
         logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[0]-1:MIN_BIT_INPUTS[0]] layer_delay_inputs_in [0: BACKBONE_LAYERS*LAYER_SIZES[1]-1];
         
         for (genvar x=1; x<BACKBONE_LAYERS; x=x+1) begin // reshaping in case of 2+ hidden layers
-            assign layer_delay_inputs_in[(x-1)*LAYER_SIZES[1] +:LAYER_SIZES[1]] = layer_delay_inputs[3*(BACKBONE_LAYERS-1)][x];
+            assign layer_delay_inputs_in[(x-1)*LAYER_SIZES[1] +:LAYER_SIZES[1]] = layer_delay_inputs[4*(BACKBONE_LAYERS-1)-1][x];
         end
         assign layer_delay_inputs_in[LAYER_SIZES[1]*(BACKBONE_LAYERS-1) +:LAYER_SIZES[1]] = layer_inputs[BACKBONE_LAYERS];
         
@@ -176,7 +178,7 @@ module backbones #(
                             .WEIGHTS(LAYER_LAST_WEIGHT),
                             .BIAS(LAYER_LAST_BIAS),
                             .LAST(1))
-                last_layer (.inputs({layer_delay_inputs_in, FEx_delay_inputs[3*(BACKBONE_LAYERS+1)-2]}),
+                last_layer (.inputs({layer_delay_inputs_in, FEx_delay_inputs[4*(BACKBONE_LAYERS)-1]}),
                             .outputs(last_layer_outputs),
 //                            .weights(LAYER_LAST_WEIGHT),
 //                            .bias(LAYER_LAST_BIAS),

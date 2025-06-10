@@ -23,7 +23,7 @@ import parameter_weights_pack::*;
 
 module main_parallel_tb();
 
-parameter PARALLEL_IMP = 3;
+parameter PARALLEL_IMP = 1;
 
 
 logic clk;
@@ -61,7 +61,7 @@ initial begin
             Q_float[i] = Q_float[i]*$pow(2, -LAYER_FIRST_WEIGHT_QUANTIZER);
             I[i] = I_float[i];
             Q[i] = Q_float[i];
-            if (line_num > (18 + 3*PHASE_NORMALIZATION)*3) begin
+            if (line_num > (14 + 3*PHASE_NORMALIZATION + 4*BACKBONE_LAYERS)*PARALLEL_IMP) begin
                 $fgets(text, output_file); // why is this line needed to get floats?
                 $fscanf(output_file, "%d,%f,%f", line_num, I_out_float_file[i], Q_out_float_file[i]);
                 I_out_float_file[i] = I_out_float_file[i]*$pow(2, -2*LAYER_FIRST_WEIGHT_QUANTIZER);
