@@ -1,28 +1,10 @@
-#ifndef EDGEDRNN_PARAMS_H
-#define EDGEDRNN_PARAMS_H
-/*
- * Var Type: NN Parameter Matrix
- * Var Name: rnn_param
- * Bit Width: 8
- * Dimension: (48, 58)
- */
 #define RNN_PARAM_SIZE 72
 // 50 model parameters (mult ops) in model layers, 6 in feature extraction, 4 in sqrt, 8 in norm, 4 in denorm
 extern const signed char rnn_param[RNN_PARAM_SIZE] __attribute__ ((aligned (8)));
-/*
- * Var Type: NN Parameter Matrix
- * Var Name: cl_bias
- * Bit Width: 8
- * Dimension: (1, 1)
- */
+
 #define CL_BIAS_SIZE 1
 extern const signed char cl_bias[CL_BIAS_SIZE] __attribute__ ((aligned (8)));
-/*
- * Var Type: NN Parameter Matrix
- * Var Name: cl_weight
- * Bit Width: 8
- * Dimension: (1, 16)
- */
+
 #define CL_WEIGHT_SIZE 16
 extern const signed char cl_weight[CL_WEIGHT_SIZE] __attribute__ ((aligned (8)));
 #define FPGA_DELAY 22

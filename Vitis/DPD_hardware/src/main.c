@@ -22,7 +22,6 @@
 #include "xil_printf.h"
 #include "xil_types.h"
 #include "xtime_l.h"
-//#include "edgedrnn.h"
 #include "DPD_hardware_test.h"
 #include "DPD_hardware_params.h"
 #include "dma.h"
@@ -41,11 +40,11 @@ int main()
 	dma_t* p_dma_obj;
 	p_dma_obj = dma_create(
 		XPAR_AXI_DMA_0_DEVICE_ID,
-		AQI, // #TODO what is this?
-		AQF, // #TODO what is this?
+		AQI,
+		AQF,
 		XPAR_AXI_DMA_0_M_AXI_MM2S_DATA_WIDTH/8,
-		INP_SIZE, // #TODO what is this?
-		RNN_SIZE // #TODO what is this?
+		INP_SIZE,
+		RNN_SIZE
 	);
 
 	int status = 0;
@@ -122,13 +121,6 @@ int serial_transfer(dma_t* p_dma_obj, short* p_snd_buf, int* p_rcv_buf)
 					total_error += err_rnn;
 			}
 		}
-//		printf("	Total error = %d", total_error);
-
-//		if (cl_out != edgedrnn_test_gold_fc[i])
-//		{
-//			printf("Error: Idx = %4d | cl_out = %d | gold = %d", i, cl_out, edgedrnn_test_gold_fc[i]);
-//			return FAIL;
-//		}
 		rcv_pointer += rcv_buf_length; // Increment send pointer
 #endif
 		snd_pointer += snd_buf_length; // Increment send pointer
