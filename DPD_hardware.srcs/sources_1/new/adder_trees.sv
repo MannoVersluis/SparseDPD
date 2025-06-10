@@ -30,10 +30,6 @@ module adder_trees #(parameter INPUTS_SIZE = 14, // amount of bits of input valu
     );
     
     generate
-//        if (TREE_TYPE == 0) begin
-//            adder_tree #(.INPUTS_SIZE(INPUTS_SIZE),.INPUTS_AMOUNT(INPUTS_AMOUNT),.MIN_BIT_INPUTS(MIN_BIT_INPUTS))
-//                tree_layer (.inputs(inputs),.output_sum(output_sum),.clk(clk));
-//        end else 
         if (TREE_TYPE == 1) begin
             csa_adder_tree_recursive #(.INPUTS_SIZE(INPUTS_SIZE),
                                         .INPUTS_AMOUNT(INPUTS_AMOUNT))
@@ -46,39 +42,6 @@ module adder_trees #(parameter INPUTS_SIZE = 14, // amount of bits of input valu
     endgenerate
         
 endmodule
-
-//module adder_tree #(parameter INPUTS_SIZE = 14, // amount of bits of input values
-//                    parameter INPUTS_AMOUNT = 16, // number of input values
-//                    parameter MIN_BIT_INPUTS = -13 //lowest bit of the inputs
-//                    )(
-//    input logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] inputs [INPUTS_AMOUNT-1:0],
-//    input clk,
-//    output wire [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] output_sum
-//    );
-    
-//    logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] add_tmp [INPUTS_AMOUNT/2+INPUTS_AMOUNT%2-1:0];
-//    logic signed [MIN_BIT_INPUTS+INPUTS_SIZE-1:MIN_BIT_INPUTS] new_output_sum;
-    
-//    integer i;
-//    genvar j;
-    
-//    assign output_sum = new_output_sum;
-    
-//    if (INPUTS_AMOUNT == 2)
-//        assign new_output_sum = add_tmp[0];
-//    else
-//        adder_tree #(.INPUTS_SIZE(INPUTS_SIZE),.INPUTS_AMOUNT(INPUTS_AMOUNT/2+INPUTS_AMOUNT%2),.MIN_BIT_INPUTS(MIN_BIT_INPUTS))
-//            tree_layer (.inputs(add_tmp),.output_sum(new_output_sum),.clk(clk));
-    
-//    always @*
-//    begin
-//        for (i=0; i < INPUTS_AMOUNT/2; i=i+1)
-//            add_tmp[i] = inputs[2*i] + inputs[2*i+1];
-//        if (INPUTS_AMOUNT%2 == 1)
-//            add_tmp[INPUTS_AMOUNT/2] = inputs[INPUTS_AMOUNT-1];
-//    end
-
-//endmodule
 
 module csa_adder_tree_recursive #(parameter INPUTS_SIZE = 24, // amount of bits of input values
                                 parameter INPUTS_AMOUNT = 16 // number of input values

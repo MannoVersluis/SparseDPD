@@ -36,8 +36,6 @@ module fc_layer #(parameter PREV_WIDTH = 16, // amount of neurons in the previou
                     parameter LAST = 0 // is this the last layer? for truncating and clamping, 1 for true, 0 for false
                 )(
     input logic signed [0:1-INPUTS_SIZE] inputs [0:PREV_WIDTH-1],
-//    input logic signed [0:1-WEIGHTS_SIZE] weights [0:WIDTH-1][0:PREV_WIDTH-1],
-//    input logic signed [0:1-WEIGHTS_SIZE] bias [0:WIDTH-1],
     input logic clk,
     output logic signed [LAST:1-INPUTS_SIZE] outputs [0:WIDTH-1]
     );
@@ -77,8 +75,6 @@ module fc_node #(parameter PREV_WIDTH = 16, //amount of neurons in the previous 
                     parameter LAST = 0 // is this the last layer? for truncating and clamping, 1 for true, 0 for false
                     )(
     input logic signed [0:1-INPUTS_SIZE] inputs [0:PREV_WIDTH-1],
-//    input logic signed [0:1-WEIGHTS_SIZE] weights [0:PREV_WIDTH-1],
-//    input logic signed [0:1-WEIGHTS_SIZE] bias,
     input logic clk,
     output logic signed [LAST:1-INPUTS_SIZE] outputs
     );
@@ -125,7 +121,6 @@ module fc_node #(parameter PREV_WIDTH = 16, //amount of neurons in the previous 
         tree_in <= new_tree_in;
         
     adder_trees #(.INPUTS_SIZE(INPUTS_SIZE+WEIGHTS_SIZE+1),
-//                    .INPUTS_AMOUNT(PREV_WIDTH+1),
                     .INPUTS_AMOUNT(NONZERO_WEIGHTS+1),
                     .TREE_TYPE(TREE_TYPE))
         tree_layer (.inputs(tree_in),
@@ -139,41 +134,6 @@ module fc_node #(parameter PREV_WIDTH = 16, //amount of neurons in the previous 
             end
         end
     end
-//    end
-//    else begin
-//        logic signed [0:1-INPUTS_SIZE] inputs_in [NONZERO_WEIGHTS-1:0];
-    
-//        typedef logic signed [0:1-WEIGHTS_SIZE] weights_input_arr [0:NONZERO_WEIGHTS-1]; // index of weights when not counting zero weights
-//        localparam weights_input_arr WEIGHTS_IN = WEIGHTS_IN_CALC(); 
-//        function weights_input_arr WEIGHTS_IN_CALC();
-//            automatic int count = 0;
-//            for (int x=0; x<PREV_WIDTH; x=x+1) begin
-//                if (weights[x] != 0) begin
-//                    WEIGHTS_IN_CALC[count] = weights[x];
-//                    count = count + 1;
-//                end
-//            end
-//        endfunction
-        
-//        always @* begin
-//            for (int i=0; i < PREV_WIDTH; i=i+1) begin
-//                if (CSA_INPUT_POS[i] != -1)
-//                    inputs_in[CSA_INPUT_POS[i]] = inputs[i]; // the tree in is 1 bit bigger than the mult to prevent overflow of the result
-//            end
-//        end
-//        csa_mult #(.INPUTS_AMOUNT(NONZERO_WEIGHTS),
-//                    .INPUTS_SIZE(INPUTS_SIZE),
-//                    .WEIGHTS_SIZE(WEIGHTS_SIZE),
-//                    .MIN_BIT_INPUTS(MIN_BIT_INPUTS),
-//                    .MIN_BIT_WEIGHTS(MIN_BIT_WEIGHTS),
-//                    .weights(WEIGHTS_IN),
-//                    .LAST(LAST))
-//            mult (.inputs(inputs_in),
-//                    .bias(shifted_bias),
-//                    .clk(clk),
-//                    .outputs(new_outputs));
-                
-//    end
     
     always_ff @(posedge clk) begin
         if (MIN_BIT_WEIGHTS+WEIGHTS_SIZE < LAST) begin // if new_outputs needs to be right shifted and sign extended to get correct outputs

@@ -105,7 +105,6 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 15,
             tmp = $rtoi($pow(2, $itor(APPROX_BITS+$clog2(i+1)/2))/$sqrt($itor(i)));
             tmp2 = ((tmp[APPROX_BITS-1:0] + tmp[-1])*(tmp[APPROX_BITS-1:0] + tmp[-1])*(tmp[APPROX_BITS-1:0] + tmp[-1])) << 3*(INPUTS_SIZE/2-$clog2(i+1)/2);
             APPROX_CALC_1[i] = tmp2 >> (2*(INPUTS_SIZE/2+APPROX_BITS)-1 - MAX_BITS);
-//            APPROX_CALC_1()[i] = tmp2 >> (3*(INPUTS_SIZE/2+APPROX_BITS)-2 - (MAX_BITS+APPROX_BITS+INPUTS_SIZE/2-1))
         end
     endfunction
     
@@ -158,90 +157,3 @@ module approx_inv_sqrt #(parameter INPUTS_SIZE = 15,
 //     + valapp_5[2*MAX_BITS-3-INPUTS_SIZE-EXTRA_OUT_BITS+1];
     
 endmodule
-
-
-// not accurate enough
-//module CORDIC_sqrt#(parameter INPUTS_SIZE
-//    )(
-//    input logic signed [0:1-INPUTS_SIZE] I,
-//    input logic signed[0:1-INPUTS_SIZE] Q,
-//    input clk,
-//    output logic signed [0:1-INPUTS_SIZE] abs
-//    );
-    
-//    localparam [0:-31] K_INV = 607252935;
-//    localparam [0:1-INPUTS_SIZE] K_INV_SHORT = K_INV[0:-INPUTS_SIZE];
-    
-    
-//    logic [0:-INPUTS_SIZE] abs_out;
-//    logic [0:-INPUTS_SIZE] new_abs_out;
-//    logic [0:-1-2*INPUTS_SIZE] abs_tmp;
-    
-//    CORDIC_sqrt_recursive #(.INPUTS_SIZE(INPUTS_SIZE+1),
-//                            .ITERATION(0),
-//                            .MAX_ITERATION((INPUTS_SIZE+1)/2+1)) // For absolute values, CORDIC x output seems to converge in ceil(bits/2)+2 iterations.
-//                    recurse (.I({I[0], I}),
-//                            .Q({Q[0], Q}),
-//                            .clk(clk),
-//                            .abs(abs_out));
-    
-//    always_ff @(posedge clk) begin
-//        new_abs_out <= abs_out;
-//        abs_tmp <= new_abs_out * K_INV_SHORT;
-//    end
-    
-//    assign abs = abs_tmp[-3:-2-INPUTS_SIZE];
-    
-    
-    
-//endmodule
-
-//module CORDIC_sqrt_recursive#(parameter INPUTS_SIZE,
-//                                parameter ITERATION,
-//                                parameter MAX_ITERATION
-//    )(
-//    input logic signed [0:1-INPUTS_SIZE] I,
-//    input logic signed[0:1-INPUTS_SIZE] Q,
-//    input clk,
-//    output logic signed [0:1-INPUTS_SIZE] abs
-//    );
-    
-//    logic signed [0:1-INPUTS_SIZE] new_I;
-//    logic signed [0:1-INPUTS_SIZE] new_Q;
-//    logic signed [0:1-INPUTS_SIZE] shift_I;
-//    logic signed [0:1-INPUTS_SIZE] shift_Q;
-//    logic sign;
-    
-//    assign sign = I[0]^Q[0];
-   
-//    if (ITERATION != MAX_ITERATION) begin
-//        always_ff @(posedge clk) begin
-//            if (ITERATION == 0) begin
-//                shift_I <= ((Q ^ {INPUTS_SIZE{sign}}) + sign);
-//                shift_Q <= ((I ^ {INPUTS_SIZE{sign}}) + sign);
-//                new_I <= I + ((Q ^ {INPUTS_SIZE{sign}}) + sign);
-//                new_Q <= Q - ((I ^ {INPUTS_SIZE{sign}}) + sign);
-//            end
-//            else begin
-//                shift_I <= ((({{ITERATION{Q[0]}}, Q[0:1-INPUTS_SIZE+ITERATION]}) ^ {INPUTS_SIZE{sign}}) + sign);
-//                shift_Q <= ((({{ITERATION{I[0]}}, I[0:1-INPUTS_SIZE+ITERATION]}) ^ {INPUTS_SIZE{sign}}) + sign);
-//                new_I <= I + ((({{ITERATION{Q[0]}}, Q[0:1-INPUTS_SIZE+ITERATION]}) ^ {INPUTS_SIZE{sign}}) + sign);
-//                new_Q <= Q - ((({{ITERATION{I[0]}}, I[0:1-INPUTS_SIZE+ITERATION]}) ^ {INPUTS_SIZE{sign}}) + sign);
-//            end
-//        end
-//    end
-    
-//    if (ITERATION != MAX_ITERATION) begin
-//        CORDIC_sqrt_recursive #(.INPUTS_SIZE(INPUTS_SIZE),
-//                                .ITERATION(ITERATION + 1),
-//                                .MAX_ITERATION(MAX_ITERATION)) // For absolute values, CORDIC x output seems to converge in ceil(bits/2)+2 iterations.
-//                        recurse (.I(new_I),
-//                                .Q(new_Q),
-//                                .clk(clk),
-//                                .abs(abs));
-//    end
-//    else begin
-//        assign abs = I - ({{ITERATION{Q[0]}}, Q[0:1-INPUTS_SIZE+ITERATION]} ^ sign) + sign;
-//    end
-    
-//endmodule
