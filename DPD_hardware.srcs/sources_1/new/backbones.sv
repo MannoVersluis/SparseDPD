@@ -104,7 +104,7 @@ module backbones #(
                             .clk(clk));
         end
     end
-    else if (DENSE == 1 || (DENSE == 1 && BACKBONE_LAYERS == 1)) begin // if the output of the FEx layer is also sent to the input of the output layer
+    else if (DENSE == 1 || (DENSE == 2 && BACKBONE_LAYERS == 1)) begin // if the output of the FEx layer is also sent to the input of the output layer
         logic signed [INPUTS_SIZE+MIN_BIT_INPUTS[0]-1:MIN_BIT_INPUTS[0]] delay_inputs [0:4*(BACKBONE_LAYERS+1)-5][0:LAYER_SIZES[0]-1];
         always @(posedge clk) begin // delaying previous input signal for the dense connection with the output layer
             delay_inputs[0] <= inputs;
