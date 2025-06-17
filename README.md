@@ -44,7 +44,7 @@ The adder tree is used for the fully connected neural network layer type.
 
 # Vitis implementation
 The Vitis implementation to test the design uses Vitis Classic 2024.2
-Due to the lack of I/O ports on the Xilinx Zynq-7Z010 FPGA, the memory of the device is used to store a number of inputs with their corresponding output. These inputs and outputs are then used to test the device.
+Due to the small amount of I/O ports on the Xilinx Zynq-7Z010 FPGA, the memory of the device is used to store a number of inputs with their corresponding output. These inputs and outputs are then used to test the device.
 The Vitis implementation prints the sent inputs and received outputs to the terminal and checks if the outputs are equal to the predefined outputs in the DPD_hardware_test.c file.
 # Updating Vitis
 This needs to be done if any of the code, parameters, weights of biases is changed.
