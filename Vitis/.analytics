@@ -30,3 +30,10 @@ timestamp=[2025-03-19 11:57:07], mode=BUILD, duration=0:00:00.738, duration_ms=7
 timestamp=[2025-03-19 11:57:12], mode=BUILD, duration=0:00:04.507, duration_ms=4507, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
 timestamp=[2025-03-19 16:01:53], mode=BUILD, duration=0:00:00.646, duration_ms=646, data={name=DPD_hardware, configuration=Debug, clean_build=false}
 timestamp=[2025-03-19 16:01:59], mode=BUILD, duration=0:00:06.122, duration_ms=6122, data={name=DPD_hardware_system, configuration=Debug, clean_build=false}
+timestamp=[2025-06-17 16:31:16], mode=WORKBENCH_START, duration=0:00:05.653, duration_ms=5653, data={}
+timestamp=[2025-06-17 16:31:17], mode=WORKBENCH_UI_INIT, duration=0:00:00.759, duration_ms=759, data={editors_count=5, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=DPD_hardware,DPD_hardware_system,RemoteSystemsTempFiles,design_1_wrapper}
+timestamp=[2025-06-17 16:31:17], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.267, duration_ms=267, data={}
+timestamp=[2025-06-17 16:31:53], mode=PLATFORM_GENERATION, duration=0:00:12.290, duration_ms=12290, data={name=design_1_wrapper}
+timestamp=[2025-06-17 16:31:55], mode=BUILD, duration=0:00:00.520, duration_ms=520, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-06-17 16:32:35], mode=BUILD, duration=0:00:00.998, duration_ms=998, data={name=DPD_hardware, configuration=Debug, clean_build=false}
+timestamp=[2025-06-17 16:32:54], mode=BUILD, duration=0:00:00.997, duration_ms=997, data={name=DPD_hardware, configuration=Debug, clean_build=false}

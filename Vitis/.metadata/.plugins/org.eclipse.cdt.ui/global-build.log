@@ -1,27 +1,24 @@
 Nothing to build in platform 'design_1_wrapper'
 
-16:01:52 **** Incremental Build of configuration Debug for project DPD_hardware ****
+16:32:53 **** Incremental Build of configuration Debug for project DPD_hardware ****
 make all 
 make --no-print-directory pre-build
 a9-linaro-pre-build-step
 ' '
 make --no-print-directory main-build
-make[1]: Nothing to be done for 'main-build'.
-16:01:53 **** Incremental Build of configuration Debug for project DPD_hardware_system ****
-make all 
-Generating bif file for the system project
-generate_system_bif.bat 51212 C:/Users/manno/Vitis/DPD_hardware/design_1_wrapper/export/design_1_wrapper/design_1_wrapper.xpfm standalone_ps7_cortexa9_0 C:/Users/manno/Vitis/DPD_hardware/DPD_hardware_system/Debug/system.bif
-
-****** Software Commandline Tool (XSCT) v2024.2.0
-  **** SW Build 5239620 on Sun Nov 10 09:56:12 MST 2024
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-
-
-Warning: XSCT is deprecated and will be removed in future releases.
-We recommend using the new Python command-line tool for project management and debugging:
-- Run "vitis -i" for interactive mode.
-- Run "vitis -s <script>" for script mode.
-sdcard_gen --xpfm C:/Users/manno/Vitis/DPD_hardware/design_1_wrapper/export/design_1_wrapper/design_1_wrapper.xpfm --sys_config design_1_wrapper --bif C:/Users/manno/Vitis/DPD_hardware/DPD_hardware_system/Debug/system.bif --bitstream C:/Users/manno/Vitis/DPD_hardware/DPD_hardware/_ide/bitstream/design_1_wrapper.bit --elf C:/Users/manno/Vitis/DPD_hardware/DPD_hardware/Debug/DPD_hardware.elf,ps7_cortexa9_0
-creating BOOT.BIN using C:/Users/manno/Vitis/DPD_hardware/DPD_hardware/_ide/bitstream/design_1_wrapper.bit
-Running C:/Xilinx/Vitis/2024.2/bin/bootgen  -image C:/Users/manno/Vitis/DPD_hardware/DPD_hardware_system/Debug/sd_card_temp/boot.bif -w -o i BOOT.BIN
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/manno/Vitis/DPD_hardware/design_1_wrapper/export/design_1_wrapper/sw/design_1_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: DPD_hardware.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/manno/Vitis/DPD_hardware/design_1_wrapper/export/design_1_wrapper/sw/design_1_wrapper/standalone_ps7_cortexa9_0/bsplib/lib -o "DPD_hardware.elf"  ./src/DPD_hardware_test.o ./src/dma.o ./src/dma_passthrough.o ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: DPD_hardware.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size DPD_hardware.elf  |tee "DPD_hardware.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  78663	   1852	  22960	 103475	  19433	DPD_hardware.elf
+'Finished building: DPD_hardware.elf.size'
+' '

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Mar 21 09:59:31 2025" VIVADOVERSION="2024.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jun 17 17:23:03 2025" VIVADOVERSION="2024.2">
 
-  <SYSTEMINFO ARCH="zynq" BOARD="avnet-tria:minized:part0:1.4" DEVICE="7z007s" NAME="bd_afc3" PACKAGE="clg225" SPEEDGRADE="-1"/>
+  <SYSTEMINFO ARCH="zynq" DEVICE="7z007s" NAME="bd_afc3" PACKAGE="clg225" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
     <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="m00_exit_pipeline_m00_exit_m_axi_araddr">

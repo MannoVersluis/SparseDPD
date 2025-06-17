@@ -18,4 +18,3 @@ extern const signed char cl_weight[CL_WEIGHT_SIZE] __attribute__ ((aligned (8)))
 #define AQF 0
 #define WQI 1
 #define WQF 7
-#endif

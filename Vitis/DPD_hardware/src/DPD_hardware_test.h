@@ -7,4 +7,3 @@ extern const short DPD_hardware_test_stim[DPD_HARDWARE_TEST_STIM_MAT_SIZE];
 #define DPD_HARDWARE_TEST_GOLD_RNN_NUM_COLS 1000
 #define DPD_HARDWARE_TEST_GOLD_RNN_MAT_SIZE 2000
 extern const int DPD_hardware_test_gold_rnn[DPD_HARDWARE_TEST_GOLD_RNN_MAT_SIZE];
-#endif

@@ -614,3 +614,62 @@ con
 ----------------End of Script----------------
 
 16:02:11 INFO  : Launch script is exported to file 'C:\Users\manno\Vitis\DPD_hardware\DPD_hardware_system\_ide\scripts\debugger_dpd_hardware-default.tcl'
+16:31:13 DEBUG : Logs will be stored at 'C:/Users/manno/Vivado/DPD_hardware/Vitis/IDE.log'.
+16:31:14 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\manno\Vivado\DPD_hardware\Vitis\temp_xsdb_launch_script.tcl
+16:31:17 INFO  : Registering command handlers for Vitis TCF services
+16:31:17 INFO  : Platform repository initialization has completed.
+16:31:19 INFO  : XSCT server has started successfully.
+16:31:19 INFO  : Successfully done setting XSCT server connection channel  
+16:31:23 INFO  : plnx-install-location is set to ''
+16:31:23 INFO  : Successfully done setting workspace for the tool. 
+16:31:23 INFO  : Successfully done query RDI_DATADIR 
+16:31:52 INFO  : Result from executing command 'getProjects': design_1_wrapper
+16:31:52 INFO  : Result from executing command 'getPlatforms': design_1_wrapper|C:/Users/manno/Vitis/DPD_hardware/design_1_wrapper/export/design_1_wrapper/design_1_wrapper.xpfm;xilinx_zcu102_base_202420_1|C:/Xilinx/Vitis/2024.2/base_platforms/xilinx_zcu102_base_202420_1/xilinx_zcu102_base_202420_1.xpfm;xilinx_zcu102_base_dfx_202420_1|C:/Xilinx/Vitis/2024.2/base_platforms/xilinx_zcu102_base_dfx_202420_1/xilinx_zcu102_base_dfx_202420_1.xpfm;xilinx_zcu104_base_202420_1|C:/Xilinx/Vitis/2024.2/base_platforms/xilinx_zcu104_base_202420_1/xilinx_zcu104_base_202420_1.xpfm
+16:31:53 INFO  : Checking for BSP changes to sync application flags for project 'DPD_hardware'...
+16:32:34 INFO  : Checking for BSP changes to sync application flags for project 'DPD_hardware'...
+16:32:52 INFO  : Checking for BSP changes to sync application flags for project 'DPD_hardware'...
+16:51:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:51:59 INFO  : Jtag cable 'Avnet MiniZed V1 1234-oj1A' is selected.
+16:51:59 INFO  : 'jtag frequency' command is executed.
+16:51:59 INFO  : Context for 'APU' is selected.
+16:51:59 INFO  : System reset is completed.
+16:52:02 INFO  : 'after 3000' command is executed.
+16:52:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A" && level==0 && jtag_device_ctx=="jsn-MiniZed V1-1234-oj1A-13723093-0"}' command is executed.
+16:52:03 INFO  : Device configured successfully with "C:/Users/manno/Vivado/DPD_hardware/Vitis/DPD_hardware/_ide/bitstream/design_1_wrapper.bit"
+16:52:04 INFO  : Context for 'APU' is selected.
+16:52:04 INFO  : Hardware design and registers information is loaded from 'C:/Users/manno/Vitis/DPD_hardware/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
+16:52:04 INFO  : 'configparams force-mem-access 1' command is executed.
+16:52:04 INFO  : Context for 'APU' is selected.
+16:52:04 INFO  : Sourcing of 'C:/Users/manno/Vivado/DPD_hardware/Vitis/DPD_hardware/_ide/psinit/ps7_init.tcl' is done.
+16:52:04 INFO  : 'ps7_init' command is executed.
+16:52:04 INFO  : 'ps7_post_config' command is executed.
+16:52:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:52:04 INFO  : The application 'C:/Users/manno/Vivado/DPD_hardware/Vitis/DPD_hardware/Debug/DPD_hardware.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:52:04 INFO  : 'configparams force-mem-access 0' command is executed.
+16:52:04 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A" && level==0 && jtag_device_ctx=="jsn-MiniZed V1-1234-oj1A-13723093-0"}
+fpga -file C:/Users/manno/Vivado/DPD_hardware/Vitis/DPD_hardware/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/manno/Vitis/DPD_hardware/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/manno/Vivado/DPD_hardware/Vitis/DPD_hardware/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/manno/Vivado/DPD_hardware/Vitis/DPD_hardware/Debug/DPD_hardware.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:52:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:52:04 INFO  : 'con' command is executed.
+16:52:04 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+16:52:04 INFO  : Disconnected from the channel tcfchan#2.

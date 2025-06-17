@@ -1,0 +1,21 @@
+#define RNN_PARAM_SIZE 72
+// 50 model parameters (mult ops) in model layers, 6 in feature extraction, 4 in sqrt, 8 in norm, 4 in denorm
+extern const signed char rnn_param[RNN_PARAM_SIZE] __attribute__ ((aligned (8)));
+
+#define CL_BIAS_SIZE 1
+extern const signed char cl_bias[CL_BIAS_SIZE] __attribute__ ((aligned (8)));
+
+#define CL_WEIGHT_SIZE 16
+extern const signed char cl_weight[CL_WEIGHT_SIZE] __attribute__ ((aligned (8)));
+#define FPGA_DELAY 22
+#define RNN_LAYERS 2
+#define INP_SIZE 2
+#define RNN_SIZE 2
+#define THX 0
+#define THH 0
+#define NUM_PE 8
+#define AQI 16
+#define AQF 0
+#define WQI 1
+#define WQF 7
+#endif

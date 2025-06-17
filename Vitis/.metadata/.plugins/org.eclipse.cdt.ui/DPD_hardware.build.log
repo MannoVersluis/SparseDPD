@@ -1,10 +1,25 @@
-16:01:52 **** Incremental Build of configuration Debug for project DPD_hardware ****
+16:32:53 **** Incremental Build of configuration Debug for project DPD_hardware ****
 make all 
 make --no-print-directory pre-build
 a9-linaro-pre-build-step
 ' '
 make --no-print-directory main-build
-make[1]: Nothing to be done for 'main-build'.
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/manno/Vitis/DPD_hardware/design_1_wrapper/export/design_1_wrapper/sw/design_1_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: DPD_hardware.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/manno/Vitis/DPD_hardware/design_1_wrapper/export/design_1_wrapper/sw/design_1_wrapper/standalone_ps7_cortexa9_0/bsplib/lib -o "DPD_hardware.elf"  ./src/DPD_hardware_test.o ./src/dma.o ./src/dma_passthrough.o ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: DPD_hardware.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size DPD_hardware.elf  |tee "DPD_hardware.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  78663	   1852	  22960	 103475	  19433	DPD_hardware.elf
+'Finished building: DPD_hardware.elf.size'
+' '
 
-16:01:53 Build Finished (took 646ms)
+16:32:54 Build Finished (took 991ms)
 
