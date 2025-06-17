@@ -44,19 +44,22 @@ integer line_num = 0;
 
 string text;
 
+initial clk=0;
+always #2.5 clk = ~clk;
+
 initial begin
     input_file = $fopen("DPD_test_in.csv", "r");
     output_file = $fopen("DPD_test_out.csv", "r");
+    #3;
     while (!$feof(input_file) && !$feof(output_file)) begin
         line_num++;
-        clk = 1;
         $fgets(text, input_file); // why is this line needed to get floats?
         $fscanf(input_file, "%d,%f,%f", line_num, I_float, Q_float);
         I_float = I_float*$pow(2, -LAYER_FIRST_WEIGHT_QUANTIZER);
         Q_float = Q_float*$pow(2, -LAYER_FIRST_WEIGHT_QUANTIZER);
         I = I_float;
         Q = Q_float;
-        if (line_num > 19) begin
+        if (line_num > 20) begin
             $fgets(text, output_file); // why is this line needed to get floats?
             $fscanf(output_file, "%d,%f,%f", line_num-1, I_out_float_file, Q_out_float_file);
             I_out_float_file = I_out_float_file*$pow(2, -2*LAYER_FIRST_WEIGHT_QUANTIZER);
@@ -65,7 +68,6 @@ initial begin
             Q_out_file = Q_out_float_file;
         end
         #2.5;
-        clk = 0;
             if (I_out != I_out_file || Q_out != Q_out_file) begin
                 $error("Incorrect output data, time=%0t, I_out=%0h, I_out_file=%0h, Q_out=%0f, Q_out_file=%0f", $time, I_out, I_out_file, Q_out, Q_out_file);
             end

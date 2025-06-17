@@ -47,13 +47,16 @@ integer i;
 
 string text;
 
+initial clk=0;
+always #2.5 clk = ~clk;
+
 initial begin
     input_file = $fopen("DPD_test_in.csv", "r");
     output_file = $fopen("DPD_test_out.csv", "r");
     $fgets(text, output_file); // why is this line needed to get floats?
+    #3;
     while (!$feof(input_file) && !$feof(output_file)) begin
         line_num++;
-        clk = 1;
         for (i=0; i<PARALLEL_IMP; i=i+1) begin
             $fgets(text, input_file); // why is this line needed to get floats?
             $fscanf(input_file, "%d,%f,%f", line_num, I_float[i], Q_float[i]);
@@ -61,7 +64,7 @@ initial begin
             Q_float[i] = Q_float[i]*$pow(2, -LAYER_FIRST_WEIGHT_QUANTIZER);
             I[i] = I_float[i];
             Q[i] = Q_float[i];
-            if (line_num > (17 + 4*BACKBONE_LAYERS)*PARALLEL_IMP) begin
+            if (line_num > (18 + 4*BACKBONE_LAYERS)*PARALLEL_IMP) begin
                 $fgets(text, output_file); // why is this line needed to get floats?
                 $fscanf(output_file, "%d,%f,%f", line_num, I_out_float_file[i], Q_out_float_file[i]);
                 I_out_float_file[i] = I_out_float_file[i]*$pow(2, -2*LAYER_FIRST_WEIGHT_QUANTIZER);
@@ -71,7 +74,6 @@ initial begin
             end
         end
         #2.5;
-        clk = 0;
         for (i=0; i<PARALLEL_IMP; i=i+1) begin
             if (I_out[i] != I_out_file[i] || Q_out[i] != Q_out_file[i]) begin
                 $error("Incorrect output data, time=%0t, I_out=%0h, I_out_file=%0h, Q_out=%0f, Q_out_file=%0f, i=%0d", $time, I_out[i], I_out_file[i], Q_out[i], Q_out_file[i], i);
